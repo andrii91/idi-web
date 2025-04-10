@@ -1,0 +1,37 @@
+{
+  "name": "idi",
+  "version": "1.0.0",
+  "description": "",
+  "main": "gulpfile.js",
+  "scripts": {
+    "test": "scss-lint src/sass/* --config lint.yml",
+    "build": "gulp nunjucks && gulp js && gulp scss && gulp images && gulp fonts"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/andrii91/idi.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/andrii91/idi/issues"
+  },
+  "homepage": "https://github.com/andrii91/idi#readme",
+  "devDependencies": {
+    "browser-sync": "^3.0.4",
+    "gulp": "^5.0.0",
+    "gulp-clean-css": "^4.3.0",
+    "gulp-concat": "^2.6.1",
+    "gulp-file-include": "^2.3.0",
+    "gulp-nunjucks-render": "^2.2.3",
+    "gulp-sass": "^6.0.1",
+    "gulp-uglify": "^3.0.2",
+    "gulp-webp": "^4.0.1",
+    "sass": "^1.86.3"
+  },
+  "dependencies": {
+    "bootstrap": "^5.3.5",
+    "slick-carousel": "^1.8.1"
+  }
+}
