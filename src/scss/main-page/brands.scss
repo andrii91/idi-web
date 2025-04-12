@@ -1,0 +1,120 @@
+.brands {
+  padding: 54px 0 100px;
+
+  &-items {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+
+    @media (max-width: 768px) {
+      gap: 10px;
+    }
+  }
+
+  &-item {
+    display: flex;
+    min-width: 169px;
+    flex: 1;
+    height: 148px;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+    background: #FFF;
+    transition: .3s;
+
+    &:hover {
+      transform: translateY(-2px);
+      box-shadow: 0px 1px 8px rgba(0, 0, 0, 0.25);
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      object-fit: contain;
+    }
+  }
+
+  &-card {
+    background: #FFF;
+    min-height: 427px;
+    padding: 30px 40px;
+    display: flex;
+    flex-direction: column;
+
+    h2 {
+      color: var(--Palette-gray-700, #374151);
+      font-size: 100px;
+      font-style: normal;
+      font-weight: 300;
+      line-height: normal;
+
+      span {
+        display: block;
+        color: #000;
+        font-size: 24px;
+        font-weight: 350;
+        line-height: 22.941px; /* 95.589% */
+      }
+    }
+
+    &-link {
+      margin-top: auto;
+      margin-left: auto;
+      color: #000;
+      font-size: 32px;
+      font-style: normal;
+      font-weight: 350;
+      line-height: normal;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      transition: all 0.3s ease-in-out;
+      svg {
+        transition: all 0.3s ease-in-out;
+        width: 32px;
+        height: 32px;
+      }
+
+      &:hover {
+        svg {
+          transform: translateX(4px);
+        }
+      }
+    }
+  }
+}
+
+.scroll-section {
+  min-height: 1500px;
+}
+
+.scroll-header {
+  font-size: 118px;
+  font-style: normal;
+  font-weight: 300;
+  line-height: 111px; /* 94.068% */
+  width: 639px;
+  color: #000;
+  position: relative;
+  z-index: 5;
+}
+
+.parallax-container {
+  position: relative;
+  overflow: hidden;
+  height: 563px;
+}
+
+.parallax-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: auto;
+  transform: translate3d(0, 0, 0);
+  will-change: transform;
+  transition: transform 0.1s ease-out;
+}

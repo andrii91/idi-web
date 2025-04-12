@@ -9,26 +9,33 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/andrii91/idi.git"
+    "url": ""
   },
-  "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/andrii91/idi/issues"
+    "url": ""
   },
-  "homepage": "https://github.com/andrii91/idi#readme",
+  "homepage": "",
   "devDependencies": {
     "browser-sync": "^3.0.4",
-    "gulp": "^5.0.0",
+    "gulp": "^4.0.2",
+    "gulp-autoprefixer": "^3.1.0",
+    "gulp-cache": "^0.4.0",
     "gulp-clean-css": "^4.3.0",
-    "gulp-concat": "^2.6.1",
+    "gulp-concat": "^2.6.0",
     "gulp-file-include": "^2.3.0",
+    "gulp-imagemin": "^7.1.0",
     "gulp-nunjucks-render": "^2.2.3",
-    "gulp-sass": "^6.0.1",
+    "gulp-rename": "^1.2.2",
+    "gulp-sass": "^5.0.0",
+    "gulp-sourcemaps": "^1.6.0",
     "gulp-uglify": "^3.0.2",
+    "gulp-uncss": "^1.0.6",
+    "gulp-util": "^3.0.8",
     "gulp-webp": "^4.0.1",
-    "sass": "^1.86.3"
+    "gulp-webserver": "^0.9.1",
+    "sass": "^1.49.8"
   },
   "dependencies": {
     "bootstrap": "^5.3.5",

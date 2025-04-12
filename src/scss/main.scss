@@ -1,0 +1,47 @@
+@import "./partials/menu.scss";
+@import "./main-page/header.scss";
+@import "./main-page/brands.scss";
+
+img {
+  max-width: 100%;
+}
+
+body {
+  background: #F3F4F6;
+}
+
+.btn {
+  padding: 20px 30px;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 350;
+  line-height: 32px;
+  max-width: fit-content;
+
+  &-primary {
+    color: #000;
+    text-decoration: none;
+    transition: all 0.3s ease-in-out;
+    background: #FFF;
+
+    &:hover {
+      background: #F2F2F2;
+      transform: translateY(-2px);
+      box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    }
+
+    &:focus, &:active {
+      outline: none;
+      background: #E1E1E1;
+    }
+
+    &:disabled {
+      opacity: 0.5;
+      background: #E1E1E1;
+    }
+  }
+}
+
+.relative {
+  position: relative;
+}

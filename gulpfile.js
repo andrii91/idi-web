@@ -1,23 +1,14 @@
 const gulp = require('gulp');
-const nunjucksRender = require('gulp-nunjucks-render');
+const concat = require('gulp-concat');
 const sass = require('gulp-sass')(require('sass'));
 const cleanCSS = require('gulp-clean-css');
-const browserSync = require('browser-sync').create();
-const concat = require('gulp-concat');
+const rename = require('gulp-rename');
 const uglify = require('gulp-uglify');
 const webp = require('gulp-webp');
+const nunjucksRender = require('gulp-nunjucks-render');
+const browserSync = require('browser-sync').create();
 
-// Nunjucks
-gulp.task('nunjucks', () => {
-  return gulp.src('src/templates/*.njk')
-    .pipe(nunjucksRender({
-      path: ['src/templates/'],
-    }))
-    .pipe(gulp.dest('dist'))
-    .pipe(browserSync.stream());
-});
-
-// SCSS + Bootstrap + Slick
+// Sass task
 gulp.task('scss', () => {
   return gulp.src('src/scss/style.scss')
     .pipe(sass().on('error', sass.logError))
@@ -26,7 +17,8 @@ gulp.task('scss', () => {
     .pipe(browserSync.stream());
 });
 
-// JS + Slick
+
+// JavaScript task
 gulp.task('js', () => {
   return gulp.src([
     'node_modules/jquery/dist/jquery.min.js',
@@ -39,11 +31,14 @@ gulp.task('js', () => {
     .pipe(browserSync.stream());
 });
 
+// Images task
+
 gulp.task('images', function() {
   return gulp.src('src/images/**/*.*')
 	.pipe(webp())
 	.pipe(gulp.dest('dist/images'));
 });
+
 
 // Fonts task
 gulp.task('fonts', function() {
@@ -51,7 +46,18 @@ gulp.task('fonts', function() {
 	.pipe(gulp.dest('dist/fonts'));
 });
 
-// Server
+// Nunjucks
+gulp.task('nunjucks', () => {
+  return gulp.src('src/templates/*.njk')
+    .pipe(nunjucksRender({
+      path: ['src/templates/'],
+    }))
+    .pipe(gulp.dest('dist'))
+    .pipe(browserSync.stream());
+});
+
+
+// Default task
 gulp.task('serve', () => {
   browserSync.init({
     server: './dist',
@@ -63,4 +69,10 @@ gulp.task('serve', () => {
   gulp.watch('src/images/**/*.', gulp.series('images'));
 });
 
-gulp.task('default', gulp.parallel('nunjucks', 'images', 'scss', 'js', 'serve'));
+// gulp.task('default', gulp.parallel('nunjucks', 'images', 'scss', 'js', 'serve'));
+gulp.task('default', function() {
+  gulp.watch('src/templates/**/*.njk', gulp.series('nunjucks'));
+  gulp.watch('src/scss/**/*.scss', gulp.series('scss'));
+  gulp.watch('src/js/**/*.js', gulp.series('js'));
+  gulp.watch('src/images/**/*.', gulp.series('images'));
+});
