@@ -1,0 +1,91 @@
+.visit-our-showroom {
+  &__title {
+    font-size: 118px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: 111px; /* 94.068% */
+    max-width: 671px;
+    padding-left: 32px;
+  }
+
+  &__image {
+    max-width: 1097px;
+    height: 563px;
+    background: url(../images/showroom-1.webp);
+    background-attachment: fixed;
+    background-position: top ;
+    background-repeat: no-repeat;
+    background-size: 100%;
+  }
+
+  &__text {
+    color: #FFF;
+    font-size: 60.603px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: 68.867px; /* 113.636% */
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 60px;
+    transform: translateY(-100%);
+  }
+
+  &__cards {
+    transform: translateY(-100%);
+    max-width: 790px;
+    margin-left: auto;
+    margin-top: -110px;
+    margin-bottom: -200px;
+  }
+
+  &__card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    align-self: stretch;
+    background: #F8F8F8;
+    height: 100%;
+
+    &-text {
+      padding: 40px;
+      h4 {
+        color: $black;
+        font-size: 32px;
+        font-style: normal;
+        font-weight: 300;
+        line-height: normal;
+        width: 249px;
+      }
+
+      ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        width: 100%;
+        li {
+          color: $black;
+          font-size: 16px;
+          font-style: normal;
+          font-weight: 300;
+          line-height: 22px; /* 137.5% */
+          width: 100%;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          gap: 0 24px;
+          span {
+            min-width: 115px;
+          }
+        }
+      }
+    }
+
+    .btn {
+      margin-top: auto;
+      max-width: 100%;
+      width: 100%;
+    }
+  }
+}

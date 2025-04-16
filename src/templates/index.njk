@@ -24,19 +24,12 @@
   {% include "components/main-page/header.njk" %}
   <main>
     {% include "components/main-page/brands.njk" %}
-
-    <div class="scroll-section">
-      <div class="container-xl">
-        <h2 class="scroll-header">
-          Visit our showroom!
-        </h2>
-
-        <div class="parallax-container">
-          <img src="images/main-slide-4.webp" class="parallax-img" data-speed="0.4">
-        </div>
-      </div>
-    </div>
+    {% include "components/main-page/visit-our-showroom.njk" %}
+    {% include "components/main-page/stock-items.njk" %}
+    {% include "components/main-page/room-furniture.njk" %}
+    {% include "components/main-page/dinning-room.njk" %}
+    
   </main>
-  <script src="/js/bundle.js"></script>
+  <script src="js/bundle.js"></script>
 </body>
 </html>

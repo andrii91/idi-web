@@ -1,13 +1,19 @@
 @import "./partials/menu.scss";
 @import "./main-page/header.scss";
 @import "./main-page/brands.scss";
+@import "./main-page/parallax-animation.scss";
+@import "./main-page/visit-our-showroom.scss";
+@import "./main-page/stock-items.scss";
+@import "./main-page/room-furniture.scss";
+@import "./main-page/dinning-room.scss";
+
 
 img {
   max-width: 100%;
 }
 
 body {
-  background: #F3F4F6;
+  background: #FFF;
 }
 
 .btn {
@@ -17,11 +23,20 @@ body {
   font-weight: 350;
   line-height: 32px;
   max-width: fit-content;
+  text-decoration: none;
+  transition: all 0.3s ease-in-out;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+
+  svg {
+    width: 32px;
+    height: 32px;
+  }
 
   &-primary {
     color: #000;
-    text-decoration: none;
-    transition: all 0.3s ease-in-out;
     background: #FFF;
 
     &:hover {
@@ -40,8 +55,33 @@ body {
       background: #E1E1E1;
     }
   }
+
+  &-dark {
+    background: #070707;
+    color: #fff;
+
+    &:hover {
+      background: #202020;
+      transform: translateY(-2px);
+      box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    }
+
+    &:focus, &:active {
+      outline: none;
+      background: #2D2D2D;
+    }
+
+    &:disabled {
+      opacity: 0.5;
+      background: #2D2D2D;
+    }
+  }
 }
 
 .relative {
   position: relative;
+}
+
+html {
+  scroll-behavior: smooth;
 }

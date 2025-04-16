@@ -23,6 +23,7 @@ gulp.task('js', () => {
   return gulp.src([
     'node_modules/jquery/dist/jquery.min.js',
     'node_modules/slick-carousel/slick/slick.min.js',
+    'src/js/parallax.js',
     'src/js/main.js',
   ])
     .pipe(concat('bundle.js'))
@@ -66,7 +67,7 @@ gulp.task('serve', () => {
   gulp.watch('src/templates/**/*.njk', gulp.series('nunjucks'));
   gulp.watch('src/scss/**/*.scss', gulp.series('scss'));
   gulp.watch('src/js/**/*.js', gulp.series('js'));
-  gulp.watch('src/images/**/*.', gulp.series('images'));
+  gulp.watch('src/images/**/*.*', gulp.series('images'));
 });
 
 // gulp.task('default', gulp.parallel('nunjucks', 'images', 'scss', 'js', 'serve'));
@@ -74,5 +75,5 @@ gulp.task('default', function() {
   gulp.watch('src/templates/**/*.njk', gulp.series('nunjucks'));
   gulp.watch('src/scss/**/*.scss', gulp.series('scss'));
   gulp.watch('src/js/**/*.js', gulp.series('js'));
-  gulp.watch('src/images/**/*.', gulp.series('images'));
+  gulp.watch('src/images/**/*.*', gulp.series('images'));
 });

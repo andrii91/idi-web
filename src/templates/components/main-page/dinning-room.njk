@@ -1,0 +1,69 @@
+<section class="dinning-room scroll-section">
+  <div class="container-xl">
+    <div class="row">
+      <div class="col-lg-3">
+        <ul class="dinning-room__tabs">
+          <li>
+            <a class="active" href="#item-1">Tables <sup>234</sup></a>
+          </li>
+          <li>
+            <a href="#item-2">Chairs <sup>234</sup></a>
+          </li>
+          <li>
+            <a href="#item-3">Bar stools <sup>234</sup></a>
+          </li>
+          <li>
+            <a href="#item-4">Bistro tables <sup>234</sup></a>
+          </li>
+          <li>
+            <a href="#item-5">Bars & bar tables <sup>234</sup></a>
+          </li>
+          <li>
+            <a href="#item-6">Buffets <sup>234</sup></a>
+          </li>
+        </ul>
+
+        <a href="#" class="btn btn-dark"><span>All dinning items <sup>457</sup> </span></a>
+
+      </div>
+      <div class="col-lg-9">
+        <h2 class="scroll-header dinning-room__title">Dinning room furniture</h2>
+
+        <div class="dinning-room__content">
+          <div id="item-1" class="dinning-room__item active">
+            <div class="dinning-room__slider">
+              {% for i in range(1, 5) %}
+                <div class="dinning-room__slider-item">
+                  <img src="images/dinning-room-{{ i }}.webp" alt="dinning-room-{{ i }}">
+                </div>
+              {% endfor %}
+            </div>
+            <div class="dinning-room__slider-nav">
+              {% for i in range(1, 6) %}
+                <div class="dinning-room__slider-item">
+                  <img src="images/dinning-room-{{ i }}.webp" alt="dinning-room-{{ i }}">
+                </div>
+              {% endfor %}
+            </div>
+          </div>
+          <div id="item-2" class="dinning-room__item">
+            <div class="dinning-room__slider">
+              {% for i in range(1, 6) %}
+                <div class="dinning-room__slider-item">
+                  <img src="images/dinning-room-{{ i }}.webp" alt="dinning-room-{{ i }}">
+                </div>
+              {% endfor %}
+            </div>
+            <div class="dinning-room__slider-nav">
+              {% for i in range(1, 5) %}
+                <div class="dinning-room__slider-item">
+                  <img src="images/dinning-room-{{ i }}.webp" alt="dinning-room-{{ i }}">
+                </div>
+              {% endfor %}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

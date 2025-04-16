@@ -1,0 +1,42 @@
+<section class="stock-items">
+  <div class="container-xl">
+    <h2 class="stock-items__title">In stock items</h2>
+    <div class="row">
+      {% for i in range(1, 9) %}
+        <div class="col-lg-3">
+          <div class="stock-items__card">
+            <div class="stock-items__image">
+              <div class="stock-items__tag on-display">
+                <svg class="icon">
+                  <use xlink:href="#on-display"></use>
+                </svg>
+                <span>On display</span>
+              </div>
+  
+              <img src="images/photo-frame-{{ i }}.webp" alt="photo-frame-{{ i }}">
+  
+              {% if loop.index is even %}
+                <div class="stock-items__tag quick-shipping">
+                  <svg class="icon">
+                    <use xlink:href="#quick-shipping"></use>
+                  </svg>
+                  <span>Quick shipping</span>
+                </div>
+              {% endif %}
+            </div>
+  
+            <div class="stock-items__footer">
+              <div class="stock-items__brand">Natuzzi Italia</div>
+              <div class="stock-items__name">Borghese</div>
+              <div class="stock-items__price">$ 5,200.00</div>
+            </div>
+          </div>
+        </div>
+      {% endfor %}
+
+      <div class="col-12 stock-items__btn">
+        <a href="#" class="btn btn-dark"><span>All items<sup>174</sup> with fast delivery</span></a>
+      </div>
+    </div>
+  </div>
+</section>

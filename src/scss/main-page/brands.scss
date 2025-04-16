@@ -1,6 +1,6 @@
 .brands {
-  padding: 54px 0 100px;
-
+  padding: 100px 0 100px;
+  background: #F3F4F6;
   &-items {
     display: flex;
     justify-content: center;
@@ -52,7 +52,7 @@
 
       span {
         display: block;
-        color: #000;
+        color: $black;
         font-size: 24px;
         font-weight: 350;
         line-height: 22.941px; /* 95.589% */
@@ -62,7 +62,7 @@
     &-link {
       margin-top: auto;
       margin-left: auto;
-      color: #000;
+      color: $black;
       font-size: 32px;
       font-style: normal;
       font-weight: 350;
@@ -85,36 +85,4 @@
       }
     }
   }
-}
-
-.scroll-section {
-  min-height: 1500px;
-}
-
-.scroll-header {
-  font-size: 118px;
-  font-style: normal;
-  font-weight: 300;
-  line-height: 111px; /* 94.068% */
-  width: 639px;
-  color: #000;
-  position: relative;
-  z-index: 5;
-}
-
-.parallax-container {
-  position: relative;
-  overflow: hidden;
-  height: 563px;
-}
-
-.parallax-img {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: auto;
-  transform: translate3d(0, 0, 0);
-  will-change: transform;
-  transition: transform 0.1s ease-out;
 }

@@ -78,113 +78,25 @@ $(document).ready(function () {
     autoplay: true,
     prevArrow: $(".slider-controls__prev"),
     nextArrow: $(".slider-controls__next"),
-    autoplaySpeed: 5000,
+    autoplaySpeed: 7000,
+  });
+
+
+  $('.dinning-room__slider').slick({
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    arrows: false,
+    fade: true,
+    asNavFor: '.dinning-room__slider-nav'
+  });
+
+  $('.dinning-room__slider-nav').slick({
+    slidesToShow: 4,
+    slidesToScroll: 1,
+    asNavFor: '.dinning-room__slider',
+    dots: false,
+    focusOnSelect: true
   });
   
-  const $headers = $(".scroll-section .scroll-header");
-  const $section = $(".scroll-section");
-  const headerHeight = $headers.outerHeight();
-  const scrollSpeedMultiplier = 1; // 👉 збільшує чутливість
-
-  $(window).on("scroll", function () {
-    const scrollY = $(this).scrollTop();
-    const sectionTop = $section.offset().top - 100;
-    const sectionHeight = $section.outerHeight();
-
-    const sectionScroll = scrollY + window.innerHeight - sectionTop;
-
-    // Прискорений скрол-прогрес (більше multiplier = швидше ефект)
-    const scrollProgress = Math.min(
-      Math.max(sectionScroll / (sectionHeight / scrollSpeedMultiplier), 0),
-      1
-    );
-
-    if (scrollProgress <= 0) return;
-
-    $headers.each(function (index, header) {
-      const $header = $(header);
-
-      // ⚡ Паралакс: рух вниз до 50% заголовка
-      const translateY = headerHeight * 0.5 * scrollProgress *1.6;
-      $header.css("transform", `translateY(${translateY}px)`);
-
-      // ⚡ Прискорений градієнт
-      let start, end;
-
-      if (scrollProgress <= 0.5) {
-        const p = scrollProgress / 0.5;
-        start = (100 - (100 - 66.86) * p).toFixed(2);
-        end = (100 - (100 - 67.16) * p).toFixed(2);
-      } else {
-        const p = (scrollProgress - 0.5) / 0.5;
-        start = (66.86 - 66.86 * p).toFixed(2);
-        end = (67.16 - 67.16 * p).toFixed(2);
-      }
-
-      const gradient = `linear-gradient(180deg, #000 0%, #000 ${start}%, #FFF ${end}%, #FFF 100%)`;
-
-      $header.css({
-        background: gradient,
-        "-webkit-background-clip": "text",
-        "-webkit-text-fill-color": "transparent",
-        "background-clip": "text",
-      });
-    });
-  });
   
-  $(function () {
-    const activeImages = new Set();
-    let ticking = false;
-
-    // Паралакс ефект
-    function updateParallax() {
-      const scrollTop = $(window).scrollTop();
-      const windowHeight = $(window).height();
-
-      activeImages.forEach((img) => {
-        const $img = $(img);
-        const speed = parseFloat($img.data('speed')) || 0.5;
-        const container = $img.parent();
-        const offsetTop = container.offset().top;
-        const height = container.outerHeight();
-
-        // Рахуємо зміщення тільки якщо видно
-        if (scrollTop + windowHeight > offsetTop && scrollTop < offsetTop + height) {
-          const yOffset = (scrollTop - offsetTop) * speed;
-          $img.css('transform', `translate3d(0, ${yOffset}px, 0)`);
-        }
-      });
-
-      ticking = false;
-    }
-
-    // Виклик через requestAnimationFrame
-    function onScroll() {
-      if (!ticking) {
-        requestAnimationFrame(updateParallax);
-        ticking = true;
-      }
-    }
-
-    $(window).on('scroll resize', onScroll);
-
-    // Intersection Observer: додає або прибирає картинки з активного списку
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          activeImages.add(entry.target);
-        } else {
-          activeImages.delete(entry.target);
-        }
-      });
-    }, {
-      root: null,
-      threshold: 0
-    });
-
-    // Спостерігаємо за всіма .parallax-img
-    $('.parallax-img').each(function () {
-      observer.observe(this);
-    });
-  });
 });
