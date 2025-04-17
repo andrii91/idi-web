@@ -39,6 +39,7 @@
   },
   "dependencies": {
     "bootstrap": "^5.3.5",
+    "jquery-parallax.js": "^1.5.0",
     "slick-carousel": "^1.8.1"
   }
 }

@@ -1,6 +1,6 @@
 <section class="dinning-room scroll-section">
   <div class="container-xl">
-    <div class="row">
+    <div class="row align-items-center">
       <div class="col-lg-3">
         <ul class="dinning-room__tabs">
           <li>
@@ -46,22 +46,24 @@
               {% endfor %}
             </div>
           </div>
-          <div id="item-2" class="dinning-room__item">
+          {% for j in range(2, 7) %}
+          <div id="item-{{j}}" class="dinning-room__item ">
             <div class="dinning-room__slider">
-              {% for i in range(1, 6) %}
-                <div class="dinning-room__slider-item">
-                  <img src="images/dinning-room-{{ i }}.webp" alt="dinning-room-{{ i }}">
-                </div>
-              {% endfor %}
-            </div>
-            <div class="dinning-room__slider-nav">
               {% for i in range(1, 5) %}
                 <div class="dinning-room__slider-item">
                   <img src="images/dinning-room-{{ i }}.webp" alt="dinning-room-{{ i }}">
                 </div>
               {% endfor %}
             </div>
+            <div class="dinning-room__slider-nav">
+              {% for i in range(1, 6) %}
+                <div class="dinning-room__slider-item">
+                  <img src="images/dinning-room-{{ i }}.webp" alt="dinning-room-{{ i }}">
+                </div>
+              {% endfor %}
+            </div>
           </div>
+          {% endfor %}
         </div>
       </div>
     </div>

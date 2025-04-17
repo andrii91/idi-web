@@ -50,6 +50,8 @@ $(function () {
     });
   });
   
+  
+  
 /**
     const activeImages = new Set();
   let ticking = false;

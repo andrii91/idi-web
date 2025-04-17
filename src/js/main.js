@@ -95,7 +95,27 @@ $(document).ready(function () {
     slidesToScroll: 1,
     asNavFor: '.dinning-room__slider',
     dots: false,
-    focusOnSelect: true
+    focusOnSelect: true,
+    prevArrow: `<svg class="dinning-room__slider-prev">
+              <use xlink:href="#arr-left"></use>
+            </svg>`,
+    nextArrow: `<svg class="dinning-room__slider-next">
+              <use xlink:href="#arr-right"></use>
+            </svg>`,
+  });
+
+  $('.dinning-room__tabs li a').click(function(e) {
+    e.preventDefault();
+    const $this = $(this);
+    
+    // Переключення табів
+    $('.dinning-room__tabs li a, .dinning-room__item').removeClass('active');
+    $this.addClass('active');
+    $($this.attr('href')).addClass('active');
+  
+    // Перезапуск slick
+    $('.dinning-room__slider').slick('setPosition');
+    $('.dinning-room__slider-nav').slick('setPosition');
   });
   
   

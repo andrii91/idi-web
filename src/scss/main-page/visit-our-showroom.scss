@@ -10,12 +10,7 @@
 
   &__image {
     max-width: 1097px;
-    height: 563px;
-    background: url(../images/showroom-1.webp);
-    background-attachment: fixed;
-    background-position: top ;
-    background-repeat: no-repeat;
-    background-size: 100%;
+    min-height: 563px;
   }
 
   &__text {
