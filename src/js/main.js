@@ -82,24 +82,24 @@ $(document).ready(function () {
   });
 
 
-  $('.dinning-room__slider').slick({
+  $('.gallery-slider').slick({
     slidesToShow: 1,
     slidesToScroll: 1,
     arrows: false,
     fade: true,
-    asNavFor: '.dinning-room__slider-nav'
+    asNavFor: '.gallery-slider-nav'
   });
 
-  $('.dinning-room__slider-nav').slick({
+  $('.gallery-slider-nav').slick({
     slidesToShow: 4,
     slidesToScroll: 1,
-    asNavFor: '.dinning-room__slider',
+    asNavFor: '.gallery-slider',
     dots: false,
     focusOnSelect: true,
-    prevArrow: `<svg class="dinning-room__slider-prev">
+    prevArrow: `<svg class="gallery-slider-prev">
               <use xlink:href="#arr-left"></use>
             </svg>`,
-    nextArrow: `<svg class="dinning-room__slider-next">
+    nextArrow: `<svg class="gallery-slider-next">
               <use xlink:href="#arr-right"></use>
             </svg>`,
   });
@@ -116,6 +116,22 @@ $(document).ready(function () {
     // Перезапуск slick
     $('.dinning-room__slider').slick('setPosition');
     $('.dinning-room__slider-nav').slick('setPosition');
+  });
+
+
+  $('.reviews__slider').slick({
+    dots: false,
+    infinite: true,
+    speed: 300,
+    slidesToShow: 1,
+    centerMode: true,
+    variableWidth: true,
+    prevArrow: `<svg class="reviews__slider-prev">
+    <use xlink:href="#arr-left"></use>
+  </svg>`,
+nextArrow: `<svg class="reviews__slider-next">
+    <use xlink:href="#arr-right"></use>
+  </svg>`,
   });
   
   

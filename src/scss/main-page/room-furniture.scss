@@ -1,5 +1,5 @@
 .room-furniture {
-  padding: 50px 0;
+  padding: 90px 0;
   
   &__title {
     font-size: 118px;
@@ -56,7 +56,7 @@
     display: flex;
     flex-direction: column;
     height: 100%;
-    padding: 20px;
+    padding: 0 0 20px;
 
     &--small {
       max-width: 336px;

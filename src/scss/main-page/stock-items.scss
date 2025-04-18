@@ -1,5 +1,5 @@
 .stock-items {
-  padding: 50px 0;
+  padding: 90px 0;
 
   &__title {
     text-align: center;
@@ -24,13 +24,14 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 40px;
+    padding: 0px;
     background: #F8F8F8;
-    min-height: 315px;
+    min-height: 310px;
+    line-height: 0;
 
     img {
-      max-width: 235px;
-      max-height: 235px;
+      max-width: 315px;
+      max-height: 315px;
       height: 100%;
       width: 100%;
       object-fit: contain;
