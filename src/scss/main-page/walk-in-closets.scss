@@ -1,0 +1,40 @@
+.walk-in-closets {
+  padding: 90px 0;
+  &__title {
+    font-size: 118px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: 111px; /* 94.068% */
+    max-width: 592px;
+    padding-left: 50px;
+    margin-bottom: 0;
+  }
+
+  &__items {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    margin-top: 44px;
+
+    h3 {
+      color: #000;
+      font-size: 64px;
+      font-style: normal;
+      font-weight: 300;
+      line-height: normal;
+      max-width: 745px;
+    }
+  }
+
+  &__btn-group {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+}

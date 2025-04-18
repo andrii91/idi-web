@@ -1,0 +1,35 @@
+.got-questions {
+  padding: 80px 0;
+  background: #000;
+
+  &__title {
+    color: #FFF;
+    font-size: 64px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: 80px; /* 125% */
+    margin-bottom: 24px;
+  }
+
+  &__subtitle {
+    color: #FFF;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: 32px; /* 133.333% */
+    margin-bottom: 0;
+    max-width: 490px;
+  }
+
+  &__form {
+    max-width: 427px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    button {
+      margin-top: 16px;
+      border: 0;
+    }
+  }
+}

@@ -1,0 +1,32 @@
+<section class="kitchens scroll-section">
+  <div class="container">
+    <h2 class="scroll-header kitchens__title">Timeless Italian kitchens</h2>
+
+    <div class="kitchens__slider gallery-slider">
+      {% for i in range(1, 6) %}
+        <div class="kitchens__slider-item">
+          <img src="images/kitchens-{{ i }}.webp" alt="kitchens-{{ i }}">
+        </div>
+      {% endfor %}
+    </div>
+    <div class="row align-items-end">
+      <div class="col-lg">
+        <a href="#" class="btn btn-dark"> 
+          <span>See all kitchens<sup>14</sup></span> 
+          <svg class="icon">
+            <use xlink:href="#arr-right"></use>
+          </svg>
+        </a>
+      </div>
+      <div class="col-lg-9">
+        <div class="kitchens__slider-nav gallery-slider-nav">
+          {% for i in range(1, 6) %}
+            <div class="kitchens__slider-item">
+              <img src="images/kitchens-{{ i }}.webp" alt="kitchens-{{ i }}">
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,23 @@
+.kitchens {
+  padding: 90px 0;
+
+  &__title {
+    max-width: 992px;
+    padding-left: 50px;
+    font-size: 118px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: 111px; /* 94.068% */
+    margin: 0;
+  }
+
+  &__slider {
+    &-item {
+      img {
+        max-height: 686px;
+        object-fit: cover;
+        width: 100%;
+      }
+    }
+  }
+}
