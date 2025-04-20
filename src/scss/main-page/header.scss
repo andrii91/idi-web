@@ -1,6 +1,9 @@
 .header {
   padding-top: 184px;
   background: $black;
+  @media screen and (min-width: 1024px) and (max-width: 1320px) {
+    padding-top: vw(184px);
+  }
 }
 
 .slider {
@@ -23,16 +26,20 @@
 
     &__image {
       width: 100%;
-      height: calc(100vh - 184px);
+      height: calc(100vh - 220px);
       object-fit: cover;
       object-position: center;
       position: relative;
       z-index: 0;
+
+      @media screen and (min-width: 1024px) and (max-width: 1320px) {
+        height: calc(100vh - vw(220px));
+      }
     }
   }
 
   &-content {
-    padding: 58px 0px;
+    padding: 58px 10px;
     position: absolute;
     top: 0;
     left: 0;
@@ -40,6 +47,10 @@
     bottom: 0;
     z-index: 2;
     width: 100%;
+
+    @media screen and (min-width: 1024px) and (max-width: 1320px) {
+      padding: vw(58px) 10px;
+    }
 
     >.row {
       height: 100%;
@@ -71,6 +82,15 @@
       position: relative;
       min-height: 54px;
 
+      @media screen and (min-width: 1024px) and (max-width: 1320px) {
+        font-size: vw(24px);
+        line-height: vw(22.941px);
+        padding: vw(10px) vw(20px);
+        gap: vw(10px);
+        margin-bottom: vw(32px);
+        min-height: vw(54px);
+      }
+
       span {
         position: relative;
 
@@ -84,6 +104,10 @@
           width: 1px;
           height: 34px;
           transform: translateY(-50%);
+
+          @media screen and (min-width: 1024px) and (max-width: 1320px) {
+            height: vw(34px);
+          }
         }
       }
     }
@@ -95,6 +119,12 @@
       font-weight: 300;
       line-height: 72px; /* 102.857% */
       margin-bottom: 12px;
+
+      @media screen and (min-width: 1024px) and (max-width: 1320px) {
+        font-size: vw(70px);
+        line-height: vw(72px); 
+        margin-bottom: vw(12px);
+      }
     }
 
     &__description {
@@ -104,6 +134,11 @@
       font-weight: 350;
       line-height: normal;
       margin-bottom: 32px;
+
+      @media screen and (min-width: 1024px) and (max-width: 1320px) {
+        font-size: vw(24px);
+        margin-bottom: vw(32px);
+      }
     }
 
     &__footer {
@@ -114,6 +149,10 @@
       font-style: normal;
       font-weight: 350;
       line-height: normal;
+
+      @media screen and (min-width: 1024px) and (max-width: 1320px) {
+        font-size: vw(24px);
+      }
     }
 
     &__logo {
@@ -127,6 +166,13 @@
       margin-left: auto;
       background: rgba(0, 0, 0, 0.15);
       backdrop-filter: blur(4px);
+
+      @media screen and (min-width: 1024px) and (max-width: 1320px) {
+        width: vw(400px);
+        height: vw(210px);
+        padding: vw(60px);
+      }
+
       img {
         width: 100%;
         height: 100%;
@@ -186,6 +232,12 @@
       cursor: pointer;
       background: #FFF;
       transition: all 0.3s ease-in-out;
+
+      @media screen and (min-width: 1024px) and (max-width: 1320px) {
+        width: vw(72px);
+        height: vw(72px);
+        padding: vw(20px);
+      }
 
       &:hover {
         background: $black;

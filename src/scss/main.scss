@@ -11,6 +11,8 @@
 @import "./main-page/kitchens.scss";
 @import "./main-page/reviews.scss";
 @import "./main-page/got-questions.scss";
+@import "./partials/subscribe.scss";
+@import "./partials/footer.scss";
 
 img {
   max-width: 100%;
@@ -34,9 +36,20 @@ body {
   justify-content: center;
   gap: 12px;
 
+  @media screen and (min-width: 1024px) and (max-width: 1320px) {
+    padding: vw(20px) vw(30px);
+    font-size: vw(24px);
+    line-height: vw(32px);
+  }
+
   svg {
     width: 32px;
     height: 32px;
+
+    @media screen and (min-width: 1024px) and (max-width: 1320px) {
+      width: ve(32px);
+      height: ve(32px);
+    }
   }
 
   &-primary {
@@ -113,6 +126,13 @@ html {
     max-width: 976px;
     margin-left: auto;
 
+    @media screen and (min-width: 1024px) and (max-width: 1320px) {
+      padding-left: vw(50px);
+      padding-right: vw(40px);
+      margin-top: vw(-50px);
+      max-width: vw(976px);
+    }
+
     .slick-arrow {
       width: 32px;
       height: 32px;
@@ -120,17 +140,30 @@ html {
       position: absolute;
       top: 50%;
       transform: translateY(-50%);
+
+      @media screen and (min-width: 1024px) and (max-width: 1320px) {
+        width: vw(32px);
+        height: vw(32px);
+      }
     }
 
     .slick-slide {
       padding: 0 10px;
+
+      @media screen and (min-width: 1024px) and (max-width: 1320px) {
+        padding: 0 vw(10px);
+      }
     }
 
     img {
       max-width: 205px;
       aspect-ratio: 1/1;
       object-fit: cover;
-     }
+
+      @media screen and (min-width: 1024px) and (max-width: 1320px) {
+        max-width: vw(205px);
+      }
+    }
   }
 
   &-prev {
@@ -155,7 +188,18 @@ html {
   min-height: 40px;
   padding-bottom: 5px;
 
+  @media screen and (min-width: 1024px) and (max-width: 1320px) {
+    font-size: vw(24px);
+    line-height: vw(40px); 
+    min-height: vw(40px);
+    padding-bottom: vw(5px);
+  }
+
   &::placeholder {
     color: rgba(255, 255, 255, 0.80);
   }
+}
+
+main {
+  overflow: hidden;
 }

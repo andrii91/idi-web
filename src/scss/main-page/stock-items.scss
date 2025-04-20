@@ -1,6 +1,10 @@
 .stock-items {
   padding: 90px 0;
 
+  @media screen and (min-width: 1024px) and (max-width: 1320px) {
+    padding: vw(90px) 0;
+  }
+
   &__title {
     text-align: center;
     color: $black;
@@ -9,6 +13,12 @@
     font-weight: 300;
     line-height: 80px; /* 125% */
     margin-bottom: 24px;
+
+    @media screen and (min-width: 1024px) and (max-width: 1320px) {
+      font-size: vw(64px);
+      line-height: vw(80px); /* 125% */
+      margin-bottom: vw(24px);
+    }
   }
 
   &__card {
@@ -16,6 +26,10 @@
     display: flex;
     flex-direction: column;
     height: 100%;
+
+    @media screen and (min-width: 1024px) and (max-width: 1320px) {
+      margin-bottom: vw(20px);
+    }
   }
 
   &__image {
@@ -29,12 +43,21 @@
     min-height: 310px;
     line-height: 0;
 
+    @media screen and (min-width: 1024px) and (max-width: 1320px) {
+      min-height: vw(310px);
+    }
+
     img {
       max-width: 315px;
       max-height: 315px;
       height: 100%;
       width: 100%;
       object-fit: contain;
+
+      @media screen and (min-width: 1024px) and (max-width: 1320px) {
+        max-width: vw(315px);
+        max-height: vw(315px);
+      }
     }
   }
 
@@ -51,10 +74,21 @@
     font-weight: 500;
     line-height: normal;
 
+    @media screen and (min-width: 1024px) and (max-width: 1320px) {
+      padding: vw(12px) vw(16px);
+      font-size: vw(20px);
+      gap: vw(12px);
+    }
+
     svg {
       width: 32px;
       height: 32px;
       aspect-ratio: 1/1;
+
+      @media screen and (min-width: 1024px) and (max-width: 1320px) {
+        width: vw(32px);
+        height: vw(32px);
+      }
     }
 
     &.on-display {
@@ -76,6 +110,10 @@
     margin-top: 10px;
     display: flex;
     flex-direction: column;
+
+    @media screen and (min-width: 1024px) and (max-width: 1320px) {
+      margin-top: vw(10px);
+    }
   }
 
   &__brand {
@@ -84,6 +122,11 @@
     font-style: normal;
     font-weight: 500;
     line-height: normal;
+
+    @media screen and (min-width: 1024px) and (max-width: 1320px) {
+      font-size: vw(16px);
+    }
+
   }
 
   &__name {
@@ -93,6 +136,12 @@
     font-weight: 300;
     line-height: 40px; /* 166.667% */
     margin-bottom: 12px;
+
+    @media screen and (min-width: 1024px) and (max-width: 1320px) {
+      font-size: vw(24px);
+      line-height: vw(40px);
+      margin-bottom: vw(12px);
+    }
   }
 
   &__price {
@@ -101,10 +150,18 @@
     font-style: normal;
     font-weight: 500;
     line-height: normal;
+
+    @media screen and (min-width: 1024px) and (max-width: 1320px) {
+      font-size: vw(16px);
+    }
   }
 
   &__btn {
     margin-top: 32px;
-    text-align: center;  
+    text-align: center;
+
+    @media screen and (min-width: 1024px) and (max-width: 1320px) {
+      margin-top: vw(32px);
+    }
   }
 }

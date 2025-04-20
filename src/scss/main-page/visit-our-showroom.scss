@@ -6,11 +6,23 @@
     line-height: 111px; /* 94.068% */
     max-width: 671px;
     padding-left: 32px;
+
+    @media screen and (min-width: 1024px) and (max-width: 1320px) {
+      font-size: vw(118px);
+      line-height: vw(111px);
+      max-width: vw(671px);
+      padding-left: vw(32px);
+    }
   }
 
   &__image {
     max-width: 1097px;
     min-height: 563px;
+
+    @media screen and (min-width: 1024px) and (max-width: 1320px) {
+      max-width: vw(1097px);
+      min-height: vw(563px);
+    }
   }
 
   &__text {
@@ -18,12 +30,19 @@
     font-size: 60.603px;
     font-style: normal;
     font-weight: 300;
-    line-height: 68.867px; /* 113.636% */
+    line-height: 68.867px;
     display: flex;
     flex-direction: column;
     gap: 20px;
     padding: 60px;
     transform: translateY(-100%);
+
+    @media screen and (min-width: 1024px) and (max-width: 1320px) {
+      font-size: vw(60.603px);
+      line-height: vw(68.867px);
+      gap: vw(20px);
+      padding: vw(60px);
+    }
   }
 
   &__cards {
@@ -32,6 +51,12 @@
     margin-left: auto;
     margin-top: -110px;
     margin-bottom: -200px;
+
+    @media screen and (min-width: 1024px) and (max-width: 1320px) {
+      max-width: vw(790px);
+      margin-top: vw(-110px);
+      margin-bottom: vw(-200px);
+    }
   }
 
   &__card {
@@ -45,6 +70,11 @@
 
     &-text {
       padding: 40px;
+
+      @media screen and (min-width: 1024px) and (max-width: 1320px) {
+        padding: vw(40px);
+      }
+
       h4 {
         color: $black;
         font-size: 32px;
@@ -52,6 +82,11 @@
         font-weight: 300;
         line-height: normal;
         width: 249px;
+
+        @media screen and (min-width: 1024px) and (max-width: 1320px) {
+          font-size: vw(32px);
+          width: vw(249px);
+        }
       }
 
       ul {
@@ -70,8 +105,19 @@
           align-items: center;
           justify-content: space-between;
           gap: 0 24px;
+
+          @media screen and (min-width: 1024px) and (max-width: 1320px) {
+            font-size: vw(16px);
+            line-height: vw(22px);
+            gap: 0 vw(24px);
+          }
+
           span {
             min-width: 115px;
+
+            @media screen and (min-width: 1024px) and (max-width: 1320px) {
+              min-width: vw(115px);
+            }
           }
         }
       }

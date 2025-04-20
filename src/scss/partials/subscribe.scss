@@ -1,0 +1,55 @@
+.subscribe {
+  padding: 60px 0;
+  background: #F8F8F8;
+  
+  @media screen and (min-width: 1024px) and (max-width: 1320px) {
+    padding: vw(60px) 0;
+  }
+
+  &__title {
+    color: #000;
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: 46px; /* 143.75% */
+    margin: 0;
+
+    @media screen and (min-width: 1024px) and (max-width: 1320px) {
+      font-size: vw(32px);
+      line-height: vw(46px); 
+    }
+  }
+
+  &__form {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+
+    @media screen and (min-width: 1024px) and (max-width: 1320px) {
+      gap: vw(24px);
+    }
+
+    .input-text {
+      color: #000;
+      border-color: #000;
+
+      &::placeholder {
+        color: #000;
+        opacity: 0.3;
+      }
+    }
+
+    .btn {
+      padding: 20px;
+      font-size: 24px;
+      font-style: normal;
+      font-weight: 300;
+      line-height: 1.2;
+
+      @media screen and (min-width: 1024px) and (max-width: 1320px) {
+        padding: vw(20px);
+        font-size: vw(24px);
+      }
+    }
+  }
+}

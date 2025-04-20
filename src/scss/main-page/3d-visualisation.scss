@@ -1,5 +1,10 @@
 .visualisation {
   padding-bottom: 50px;
+
+  @media screen and (min-width: 1024px) and (max-width: 1320px) {
+    padding-bottom: vw(50px);
+  }
+
   &__bg {
     background: #000;
     width: 100%;
@@ -9,16 +14,29 @@
     left: 0;
     z-index: 0; // вище фону паралакса, але нижче тексту
     pointer-events: none;
+
+    @media screen and (min-width: 1024px) and (max-width: 1320px) {
+      height: vw(380px);
+    }
   }
-  .container-xl{
+  .container-xxl {
     position: relative;
     padding: 50px 0 86px;
+
+    @media screen and (min-width: 1024px) and (max-width: 1320px) {
+      padding: vw(50px) 0 vw(86px);
+    }
   }
 
   &__image {
     min-height: 465px;
     position: relative;
     margin-left: 50px;
+
+    @media screen and (min-width: 1024px) and (max-width: 1320px) {
+      min-height: vw(465px);
+      margin-left: vw(50px);
+    }
   }
 
   &__text {
@@ -26,6 +44,10 @@
     z-index: 2;
     max-width: 570px;
     margin-left: auto;
+
+    @media screen and (min-width: 1024px) and (max-width: 1320px) {
+      max-width: vw(570px);
+    }
 
     p {
       color: #FFF;
@@ -35,6 +57,12 @@
       line-height: normal;
       margin-bottom: 50px;
       max-width: 513px;
+
+      @media screen and (min-width: 1024px) and (max-width: 1320px) {
+        font-size: vw(18px);
+        margin-bottom: vw(50px);
+        max-width: vw(513px);
+      }
     }
   }
 
@@ -49,5 +77,11 @@
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     margin-bottom: 20px;
+
+    @media screen and (min-width: 1024px) and (max-width: 1320px) {
+      font-size: vw(80px);
+      line-height: vw(100px); /* 125% */
+      margin-bottom: vw(20px);
+    }
   }
 }

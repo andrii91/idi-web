@@ -1,5 +1,9 @@
 .room-furniture {
   padding: 90px 0;
+
+  @media screen and (min-width: 1024px) and (max-width: 1320px) {
+    padding: vw(90px) 0;
+  }
   
   &__title {
     font-size: 118px;
@@ -9,6 +13,14 @@
     max-width: 791px;
     margin: 0;
     padding-left: 50px;
+
+    @media screen and (min-width: 1024px) and (max-width: 1320px) {
+      font-size: vw(118px);
+      line-height: vw(111px);
+      max-width: vw(791px);
+      padding-left: vw(50px);
+    }
+    
   }
 
   &__row {
@@ -23,16 +35,22 @@
       padding: 40px 50px;
       max-width: 960px;
       width: 100%;
-      min-height: 650px;
+      min-height: 700px;
       background-attachment: fixed;
       background-position: top ;
       background-repeat: no-repeat;
-      background-size: contain;
+      background-size: cover;
       position: absolute;
       top: 0;
       left: 0;
       display: flex;
       flex-direction: column;
+
+      @media screen and (min-width: 1024px) and (max-width: 1320px) {
+        padding: vw(40px) vw(50px);
+        max-width: vw(960px);
+        min-height: vw(700px);
+      }
 
       .btn {
         margin-top: auto;
@@ -47,6 +65,10 @@
       height: 100%;
       object-fit: contain;
       background-blend-mode: darken;
+
+      @media screen and (min-width: 1024px) and (max-width: 1320px) {
+        max-height: vw(288px);
+      }
     }
   }
 
@@ -58,12 +80,22 @@
     height: 100%;
     padding: 0 0 20px;
 
+    @media screen and (min-width: 1024px) and (max-width: 1320px) {
+      margin-bottom: vw(20px);
+      padding: 0 0 vw(20px);
+    }
+
     &--small {
       max-width: 336px;
       background: #fff;
       margin-left: auto;
       padding-left: 20px;
-      padding-bottom: 20px;
+
+      @media screen and (min-width: 1024px) and (max-width: 1320px) {
+        max-width: vw(336px);
+        padding-left: vw(20px);
+      }
+
       >div {
         margin-bottom: 0;
       }
@@ -74,7 +106,16 @@
       padding-left: 20px;
       background: #fff;
       margin-left: auto;
+      padding-top: 20px;
       padding-bottom: 20px;
+
+      @media screen and (min-width: 1024px) and (max-width: 1320px) {
+        max-width: vw(659px);
+        padding-top: vw(20px);
+        padding-left: vw(20px);
+        padding-bottom: vw(20px);
+      }
+
       >div {
         margin-bottom: 0;
         background: #E9EFF6;
@@ -90,6 +131,10 @@
     font-weight: 300;
     line-height: normal;
     margin-top: auto;
+
+    @media screen and (min-width: 1024px) and (max-width: 1320px) {
+      font-size: vw(24px);
+    }
   }
 
   &__slider {

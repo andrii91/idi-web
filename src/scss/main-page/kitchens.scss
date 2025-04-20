@@ -1,6 +1,10 @@
 .kitchens {
   padding: 90px 0;
 
+  @media screen and (min-width: 1024px) and (max-width: 1320px) {
+    padding: vw(90px) 0;
+  }
+
   &__title {
     max-width: 992px;
     padding-left: 50px;
@@ -9,6 +13,13 @@
     font-weight: 300;
     line-height: 111px; /* 94.068% */
     margin: 0;
+
+    @media screen and (min-width: 1024px) and (max-width: 1320px) {
+      max-width: vw(992px);
+      padding-left: vw(50px);
+      font-size: vw(118px);
+      line-height: vw(111px); 
+    }
   }
 
   &__slider {
@@ -17,6 +28,10 @@
         max-height: 686px;
         object-fit: cover;
         width: 100%;
+
+        @media screen and (min-width: 1024px) and (max-width: 1320px) {
+          max-height: vw(686px);
+        }
       }
     }
   }

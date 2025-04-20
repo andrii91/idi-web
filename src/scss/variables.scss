@@ -1751,3 +1751,10 @@ $nested-kbd-font-weight:            null !default; // Deprecated in v5.2.0, remo
 
 $pre-color:                         null !default;
 
+$vw-viewport: 1320;
+
+@function vw($font) {
+  $vw-context: calc($vw-viewport * 0.01 * 1px);
+  @return calc($font / $vw-context * 1vw);
+  @return $font;
+} 
