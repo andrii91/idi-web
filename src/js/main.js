@@ -1,4 +1,17 @@
 $(document).ready(function () {
+
+  function isMobile() {
+    // Перевірка ширини екрана
+    var windowWidth = $(window).width();
+  
+    // Інші можливі умови для визначення мобільного телефона
+    var isTouchDevice = 'ontouchstart' in document.documentElement;
+    var isSmallScreen = windowWidth < 1023; // Наприклад, визначити маленький екран як ширину менше 768 пікселів
+  
+    // Повернути true, якщо виконується хоча б одна умова
+    return isTouchDevice || isSmallScreen;
+  }
+
   $(window).scroll(function () {
     return $(".navigation").toggleClass("scroll", $(window).scrollTop() > 0);
   });
@@ -19,45 +32,63 @@ $(document).ready(function () {
     });
   });
 
-  $(".navigation-menu > li").each(function () {
-    const $li = $(this);
-    const $submenu = $li.find(".navigation-menu-submenu");
+  function initMenu() {
 
-    // Показати підменю при наведенні
-    $li.on("mouseenter", function () {
-      $submenu.stop(true, true).fadeIn(200);
+
+    $(".navigation-menu > li").each(function () {
+      const $li = $(this);
+      const $submenu = $li.find(".navigation-menu-submenu");
+  
+      if(!isMobile()) {
+      // Показати підменю при наведенні
+      $li.on("mouseenter", function () {
+        $submenu.stop(true, true).fadeIn(200);
+      });
+  
+      // Приховати підменю, коли курсор вийде з li + submenu
+      let isHoveredLi = false;
+      let isHoveredSubmenu = false;
+  
+      $li
+        .on("mouseenter", function () {
+          isHoveredLi = true;
+        })
+        .on("mouseleave", function () {
+          isHoveredLi = false;
+          setTimeout(() => {
+            if (!isHoveredLi && !isHoveredSubmenu) {
+              $submenu.stop(true, true).fadeOut(200);
+            }
+          }, 100);
+        });
+  
+      $submenu
+        .on("mouseenter", function () {
+          isHoveredSubmenu = true;
+        })
+        .on("mouseleave", function () {
+          isHoveredSubmenu = false;
+          setTimeout(() => {
+            if (!isHoveredLi && !isHoveredSubmenu) {
+              $submenu.stop(true, true).fadeOut(200);
+            }
+          }, 100);
+        });
+      }
+  
     });
+  }
 
-    // Приховати підменю, коли курсор вийде з li + submenu
-    let isHoveredLi = false;
-    let isHoveredSubmenu = false;
+  initMenu();
+  
 
-    $li
-      .on("mouseenter", function () {
-        isHoveredLi = true;
-      })
-      .on("mouseleave", function () {
-        isHoveredLi = false;
-        setTimeout(() => {
-          if (!isHoveredLi && !isHoveredSubmenu) {
-            $submenu.stop(true, true).fadeOut(200);
-          }
-        }, 100);
-      });
+  $(window).resize(function(){
+    initMenu();
 
-    $submenu
-      .on("mouseenter", function () {
-        isHoveredSubmenu = true;
-      })
-      .on("mouseleave", function () {
-        isHoveredSubmenu = false;
-        setTimeout(() => {
-          if (!isHoveredLi && !isHoveredSubmenu) {
-            $submenu.stop(true, true).fadeOut(200);
-          }
-        }, 100);
-      });
-  });
+    if(!isMobile()) {
+      $('body').removeClass('overflow-hidden')
+    }
+  })
 
   $(".scroll").click(function (e) {
     e.preventDefault();
@@ -118,7 +149,6 @@ $(document).ready(function () {
     $('.dinning-room__slider-nav').slick('setPosition');
   });
 
-
   $('.reviews__slider').slick({
     dots: false,
     infinite: true,
@@ -135,4 +165,56 @@ nextArrow: `<svg class="reviews__slider-next">
   });
   
   
+  $('.fade-in').addClass("hidden_animation").viewportChecker({
+    classToAdd: 'visible animated fadeIn', 
+    offset: '10%',
+    removeClassAfterAnimation: true,
+    classToRemove: "hidden_animation"
+  });
+
+  $('.fade-in-right').addClass("hidden_animation").viewportChecker({
+    classToAdd: 'visible animated fadeInRight', 
+    offset: '10%',
+    removeClassAfterAnimation: true,
+    classToRemove: "hidden_animation"
+  });
+
+  $('.fade-in-left').addClass("hidden_animation").viewportChecker({
+    classToAdd: 'visible animated fadeInLeft', 
+    offset: '10%',
+    removeClassAfterAnimation: true,
+    classToRemove: "hidden_animation"
+  });
+
+  $('.fade-in-up').addClass("hidden_animation").viewportChecker({
+    classToAdd: 'visible animated fadeInUp', 
+    offset: '10%',
+    removeClassAfterAnimation: true,
+    classToRemove: "hidden_animation"
+  });
+
+  $('.open-submenu').click(function(){
+    $('.navigation-menu-submenu').removeClass('open').removeAttr('style');
+
+    $(this).parent().find('.navigation-menu-submenu').addClass('open')
+  })
+
+  $('.close-submenu').click(function(){
+    $('.navigation-menu-submenu').removeClass('open').removeAttr('style')
+  })
+
+  $('.navigation-menu-submenu-cat').click(function(){
+    if(isMobile()) {
+      $(this).toggleClass('active');
+      $(this).parent().find('.navigation-menu-submenu-list').toggleClass('active')
+    }
+  })
+
+  $('.mobile-btn').click(function(){
+    $(this).toggleClass('active');
+    $('#navigation-menu').toggleClass('active');
+    // $('body').addClass('overflow-hidden')
+  })
+  
+
 });
