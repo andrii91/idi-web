@@ -1,6 +1,10 @@
 .room-furniture {
   padding: 90px 0;
 
+  @media screen and (max-width: 1023px) {
+    padding: 10px 0 50px;
+  }
+
   @media screen and (min-width: 1024px) and (max-width: 1320px) {
     padding: vw(90px) 0;
   }
@@ -20,6 +24,12 @@
       max-width: vw(791px);
       padding-left: vw(50px);
     }
+
+    @media screen and (max-width: 1023px) {
+      font-size: 54px;
+      line-height: 1;
+      padding-left: 0px;
+    }
     
   }
 
@@ -32,20 +42,23 @@
     overflow: hidden;
 
     &-bg {
-      // background: url(../images/furniture-bg.webp);
       padding: 40px 50px;
       max-width: 960px;
       width: 100%;
       min-height: 700px;
-      // background-attachment: fixed;
-      // background-position: top ;
-      // background-repeat: no-repeat;
-      // background-size: cover;
       position: absolute;
       top: 0;
       left: 0;
       display: flex;
       flex-direction: column;
+
+      @media screen and (max-width: 1023px) {
+        position: static;
+        padding: 0;
+        min-height: 244px;
+        width: calc(100% + 40px);
+        margin-left: -20px;
+      }
 
       @media screen and (min-width: 1024px) and (max-width: 1320px) {
         padding: vw(40px) vw(50px);
@@ -57,6 +70,10 @@
         margin-top: auto;
         position: relative;
         z-index: 4;
+
+        @media screen and (max-width: 1023px) {
+          display: none;
+        }
       }
     }
 
@@ -67,6 +84,10 @@
       object-fit: contain;
       background-blend-mode: darken;
       transition: .3s;
+
+      @media screen and (max-width: 1023px) {
+        max-height: 179px;
+      }
 
       @media screen and (min-width: 1024px) and (max-width: 1320px) {
         max-height: vw(288px);
@@ -83,6 +104,12 @@
     padding: 0 0 20px;
     text-decoration: none;
 
+    @media screen and (max-width: 1023px) {
+      margin: 0 10px;
+      padding: 0;
+      max-width: 258px;
+    }
+
 
     @media screen and (min-width: 1024px) and (max-width: 1320px) {
       margin-bottom: vw(20px);
@@ -94,6 +121,12 @@
       background: #fff;
       margin-left: auto;
       padding-left: 20px;
+
+      @media screen and (max-width: 1023px) {
+        margin: 0;
+        padding: 0;
+        max-width: 100%;
+      }
 
       @media screen and (min-width: 1024px) and (max-width: 1320px) {
         max-width: vw(336px);
@@ -112,6 +145,10 @@
       margin-left: auto;
       padding-top: 20px;
       padding-bottom: 20px;
+      @media screen and (max-width: 1023px) {
+        padding: 0;
+        margin: 0;
+      }
 
       @media screen and (min-width: 1024px) and (max-width: 1320px) {
         max-width: vw(659px);
@@ -145,10 +182,33 @@
     @media screen and (min-width: 1024px) and (max-width: 1320px) {
       font-size: vw(24px);
     }
+
+    @media screen and (max-width: 1023px) {
+      padding: 0 17px 20px;
+
+    }
   }
 
   &__slider {
     position: relative;
     z-index: 1;
+
+    @media screen and (max-width: 1023px) {
+      margin-top: 32px;
+      margin-bottom: 32px;
+    }
+
+    .slick-track {
+      display: flex;
+    }
+
+    .slick-slide {
+      width: auto;
+      height: auto;
+
+      .room-furniture__card--large, .room-furniture__card--small {
+        height: 100%;
+      }
+    }
   }
 }

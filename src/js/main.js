@@ -215,6 +215,17 @@ nextArrow: `<svg class="reviews__slider-next">
     $('#navigation-menu').toggleClass('active');
     // $('body').addClass('overflow-hidden')
   })
+
+  if(isMobile()) {
+    $(".room-furniture__slider").slick({
+      dots: true,
+      arrows: false,
+      variableWidth: true,
+      slidesToShow: 1,
+    });
+  }else{
+
+  }
   
 
 });
