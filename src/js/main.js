@@ -1,16 +1,30 @@
 $(document).ready(function () {
 
   function isMobile() {
-    // Перевірка ширини екрана
-    var windowWidth = $(window).width();
-  
-    // Інші можливі умови для визначення мобільного телефона
-    var isTouchDevice = 'ontouchstart' in document.documentElement;
-    var isSmallScreen = windowWidth < 1023; // Наприклад, визначити маленький екран як ширину менше 768 пікселів
-  
-    // Повернути true, якщо виконується хоча б одна умова
+    const windowWidth = $(window).width();
+    const isTouchDevice = 'ontouchstart' in document.documentElement;
+    const isSmallScreen = windowWidth < 1023;
     return isTouchDevice || isSmallScreen;
   }
+
+  function handleResponsiveBehavior() {
+    if (isMobile()) {
+      // мобільна логіка
+      console.log("Мобільний пристрій або вузький екран");
+      // Наприклад: $('#menu').addClass('mobile');
+    } else {
+      // десктопна логіка
+      console.log("Десктоп");
+      // Наприклад: $('#menu').removeClass('mobile');
+    }
+  }
+  
+  handleResponsiveBehavior(); // перевірка при старті
+
+  $(window).on('resize', function () {
+    handleResponsiveBehavior(); // перевірка при зміні розміру
+  });
+
 
   $(window).scroll(function () {
     return $(".navigation").toggleClass("scroll", $(window).scrollTop() > 0);
@@ -298,6 +312,51 @@ nextArrow: `<svg class="reviews__slider-next">
         "background-clip": "text",
       });
     });
+  });
+
+
+
+  $('#search-button').click(function (e) {
+    e.preventDefault();
+  
+    $('#navigation-menu-row').fadeOut(200, function () {
+      if(isMobile()) {
+        $('.navigation-logo').fadeOut(200);
+        $('.navigation-content').addClass('w-full');
+      }
+      $('#search-block').fadeIn(200).find('input').focus();
+    });
+    
+  
+    
+    // Додаємо обробник після короткої паузи
+    setTimeout(() => {
+      $(document).on('click.searchOutside', function (e) {
+        if (
+          !$(e.target).closest('#search-block').length &&
+          !$(e.target).is('#search-button')
+        ) {
+          $('#search-block').fadeOut(200, function () {
+            $('#navigation-menu-row').fadeIn(200);
+            if(isMobile()) {
+              $('.navigation-logo').fadeIn(200);
+              $('.navigation-content').removeClass('w-full');
+            }
+          });
+          $(document).off('click.searchOutside');
+        }
+      });
+  
+      // Правильний обробник вводу
+      $('#search-block input').on('input', function () {
+        const value = $(this).val();
+        if (value.length > 2) {
+          $('#search-results').fadeIn(200);
+        } else {
+          $('#search-results').fadeOut(200);
+        }
+      });
+    }, 10);
   });
 
 });
