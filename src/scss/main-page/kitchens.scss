@@ -5,6 +5,10 @@
     padding: vw(90px) 0;
   }
 
+  @media screen and (max-width: 1023px) {
+    padding: 0 0 50px;
+  }
+
   &__title {
     max-width: 992px;
     padding-left: 50px;
@@ -20,9 +24,17 @@
       font-size: vw(118px);
       line-height: vw(111px); 
     }
+
+    @media screen and (max-width: 1023px) {
+      font-size: 54px;
+      line-height: 1;
+      padding-left: 0px;
+    }
   }
 
   &__slider {
+    width: calc(100% + 40px);
+    margin-left: -20px;
     &-item {
       img {
         max-height: 686px;
@@ -32,7 +44,19 @@
         @media screen and (min-width: 1024px) and (max-width: 1320px) {
           max-height: vw(686px);
         }
+        @media screen and (max-width: 1023px) {
+          max-height: 263px;
+        }
       }
+    }
+   
+  }
+
+  .btn {
+    @media screen and (max-width: 1023px) {
+      max-width: 100%;
+      width: 100%;
+      margin-top: 28px;
     }
   }
 }

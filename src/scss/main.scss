@@ -43,6 +43,7 @@ body {
   align-items: center;
   justify-content: center;
   gap: 12px;
+  border: 0;
 
   @media screen and (max-width: 1023px) {
     padding-left: 20px;
@@ -139,6 +140,11 @@ html {
     margin-top: -50px;
     max-width: 976px;
     margin-left: auto;
+    @media screen and (max-width: 1023px) {
+      padding-left: 0;
+      padding-right: 0;
+      margin-top: -30px;
+    }
 
     @media screen and (min-width: 1024px) and (max-width: 1320px) {
       padding-left: vw(50px);
@@ -177,6 +183,13 @@ html {
       @media screen and (min-width: 1024px) and (max-width: 1320px) {
         max-width: vw(205px);
       }
+
+      @media screen and (max-width: 1023px) {
+        width: 100px;
+        height: 100px;
+        box-shadow: 0px 4px 11.8px 0px rgba(0, 0, 0, 0.15);
+        margin-bottom: 12px;
+      }
     }
   }
 
@@ -211,6 +224,13 @@ html {
 
   &::placeholder {
     color: rgba(255, 255, 255, 0.80);
+    position: absolute;
+    bottom: 5px;
+    left: 0;
+  }
+
+  &:focus {
+    outline: 0;
   }
 }
 

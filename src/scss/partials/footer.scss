@@ -6,6 +6,10 @@
     padding: vw(68px) 0 vw(44px);
   }
 
+  @media screen and (max-width: 1023px) {
+    padding: 40px 0 20px;
+  }
+
   &__logo {
     img {
       max-width: 190px;
@@ -13,6 +17,10 @@
       @media screen and (min-width: 1024px) and (max-width: 1320px) {
         max-width: vw(190px);
       }
+    }
+
+    @media screen and (max-width: 1023px) {
+      margin-bottom: 40px;
     }
   }
 
@@ -53,6 +61,10 @@
 
     &:hover {
       text-decoration: underline;
+    }
+
+    @media screen and (max-width: 1023px) {
+      margin-bottom: 40px;
     }
   }
 
@@ -110,6 +122,11 @@
     &:hover {
       text-decoration: underline;
     }
+
+    @media screen and (max-width: 1023px) {
+      margin-left: 0;
+      margin-top: 40px;
+    }
   }
 
   &__col {
@@ -119,12 +136,16 @@
       margin-top: vw(60px);
     }
 
-    .ms-auto {
+    .ms-lg-auto {
       max-width: 235px;
 
       @media screen and (min-width: 1024px) and (max-width: 1320px) {
         max-width: vw(235px);
       }
+    }
+
+    @media screen and (max-width: 1023px) {
+      margin-top: 40px;
     }
   }
 
@@ -202,6 +223,10 @@
       font-size: vw(16px);
       line-height: vw(26px); 
       margin-top: vw(60px);
+    }
+
+    @media screen and (max-width: 1023px) {
+      margin-top: 40px;
     }
   }
 }

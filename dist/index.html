@@ -139,7 +139,7 @@
   </symbol>
 </svg>
 <div id="banner-info" class="banner-info">
-  We are open during the construction! Please use our Mt. Auburn St. entrance.
+ <span> We are open during the construction! Please use our Mt. Auburn St. entrance.</span>
   
   <svg class="icon cancel-icon" id="cancel-icon">
     <use xlink:href="#cancel"></use>
@@ -1000,7 +1000,7 @@
           </li>
         </ul>
 
-        <a href="#" class="btn btn-dark"><span>All dinning items <sup>457</sup> </span></a>
+        <a href="#" class="btn btn-dark d-none d-lg-flex"><span>All dinning items <sup>457</sup> </span></a>
 
       </div>
       <div class="col-lg-9">
@@ -1303,6 +1303,9 @@
           
         </div>
       </div>
+      <div class="text-center">
+        <a href="#" class="btn btn-dark d-lg-none w-full"><span>All dinning items <sup>457</sup> </span></a>
+      </div>
     </div>
   </div>
 </section>
@@ -1310,16 +1313,17 @@
   <div class="container-xxl">
     <div class="visualisation__bg"></div>
     <div class="row align-items-end">
-      <div class="col-lg-6">
+      <div class="col-lg-6 order-2 order-lg-1">
         <div class="parallax-window visualisation__image" data-parallax="scroll" data-image-src="images/visualisation.webp" data-z-index="1"></div>
+        <a href="#" class="btn btn-primary fade-in-up d-lg-none w-full">Request a free consultation</a>
       </div>
-      <div class="col-lg-6">
+      <div class="col-lg-6 order-1 order-lg-2">
         <div class="visualisation__text">
           <h2 class=" visualisation__title fade-in-up">
             3D visualisation for apartments
           </h2>
           <p class="fade-in-up">Request a free consultation and we will make visualisation based on your apartment’s plan. We will guide you through the styles and sizes. </p>
-          <a href="#" class="btn btn-primary fade-in-up">Request a free consultation</a>
+          <a href="#" class="btn btn-primary fade-in-up d-none d-lg-flex">Request a free consultation</a>
         </div>
       </div>
     </div>
@@ -1336,7 +1340,7 @@
             <img src="images/walk-in-closets-1.webp" alt="">
           </div>
 
-          <div class="walk-in-closets__content">
+          <div class="walk-in-closets__content d-none d-lg-flex">
             <h3>Crafting Designs to Match Your Unique Style and Budget</h3>
             <div class="walk-in-closets__btn-group">
               <a href="#" class="btn btn-dark"><span>Schedule a consultation</span></a>
@@ -1362,12 +1366,26 @@
             </div>
           </div>
         </div>
+        <div class="col-12 d-lg-none">
+          <div class="walk-in-closets__content">
+            <h3>Crafting Designs to Match Your Unique Style and Budget</h3>
+            <div class="walk-in-closets__btn-group">
+              <a href="#" class="btn btn-dark w-full"><span>Schedule a consultation</span></a>
+              <a href="#" class="btn btn-primary w-full">
+                <span>Explore all closets<sup>3</sup></span> 
+                <svg class="icon">
+                  <use xlink:href="#arr-right"></use>
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
 </section>
     <section class="kitchens scroll-section">
-  <div class="container">
+  <div class="container-xxl">
     <h2 class="scroll-header kitchens__title">Timeless Italian kitchens</h2>
 
     <div class="kitchens__slider gallery-slider">
@@ -1394,7 +1412,7 @@
       
     </div>
     <div class="row align-items-end">
-      <div class="col-lg">
+      <div class="col-lg order-2 order-lg-1">
         <a href="#" class="btn btn-dark"> 
           <span>See all kitchens<sup>14</sup></span> 
           <svg class="icon">
@@ -1402,7 +1420,7 @@
           </svg>
         </a>
       </div>
-      <div class="col-lg-9">
+      <div class="col-lg-9 order-1 order-lg-2">
         <div class="kitchens__slider-nav gallery-slider-nav">
           
             <div class="kitchens__slider-item">
@@ -1435,22 +1453,24 @@
     <h2 class="reviews__title">What are clients think</h2>
 
     <div class="reviews__rate">
-      <div class="reviews__rate-number">4.5</div>
-      <div class="reviews__rate-stars">
-        <img src="images/star.svg" alt="">
-        <img src="images/star.svg" alt="">
-        <img src="images/star.svg" alt="">
-        <img src="images/star.svg" alt="">
-        <img src="images/star-half.svg" alt="">
+      <div class="reviews__rate-row">
+        <div class="reviews__rate-number">4.5 <span class="d-lg-none">rating</span></div>
+        <div class="reviews__rate-stars">
+          <img src="images/star.svg" alt="">
+          <img src="images/star.svg" alt="">
+          <img src="images/star.svg" alt="">
+          <img src="images/star.svg" alt="">
+          <img src="images/star-half.svg" alt="">
+        </div>
       </div>
       <div class="reviews__rate-info">
         <p>
           <span>43</span>
-          reviews from
+          reviews <br class="d-lg-none"> from
+          <svg class="icon">
+            <use xlink:href="#google"></use>
+          </svg>
         </p>
-        <svg class="icon">
-          <use xlink:href="#google"></use>
-        </svg>
       </div>
     </div>
   </div>
@@ -1536,12 +1556,12 @@
     <footer class="footer fade-in-up">
   <div class="container-xxl">
     <div class="row">
-      <div class="col-lg-6">
+      <div class="col-lg-6 order-1  order-lg-1">
         <div class="footer__logo">
           <img src="images/logo-footer.svg" alt="">
         </div>
       </div>
-      <div class="col-lg-3">
+      <div class="col-lg-3 order-2  order-lg-2">
         <a href="tel:6179262344" class="footer__phone">tel. 617.926.2344</a>
         <a href="mailto:info@italian-interiors.com" class="footer__email">info@italian-interiors.com</a>
         <ul class="footer__social">
@@ -1551,14 +1571,14 @@
           <li><a href="#"><svg class="icon"><use xlink:href="#pinterest"></use></svg></a></li>
         </ul>
       </div>
-      <div class="col-lg-3">
+      <div class="col-lg-3 order-3  order-lg-3">
         <a class="footer__address" href="https://maps.app.goo.gl/23GNfeRLKZZBhYc99" target="_blank">19 Spring Street
           Watertown, MA 02472</a>
       </div>
     </div>
 
     <div class="row"> 
-      <div class="col-lg-3 footer__col">
+      <div class="col-lg-3 footer__col order-2 order-lg-1">
         <ul class="footer__list">
           <li><a href="#">Furniture</a></li>
           <li><a href="#">Kitchens</a></li>
@@ -1569,7 +1589,7 @@
           <li><a href="#">Inspiration</a></li>
         </ul>
       </div>
-      <div class="col-lg-3 footer__col">
+      <div class="col-lg-3 footer__col order-1 order-lg-2">
         <h6 class="footer__title">Contact us</h6>
         <ul class="footer__list">
           <li><a href="#">Make an appointment</a></li>
@@ -1581,7 +1601,7 @@
           <li><a href="#">Location pages</a></li>
         </ul>
       </div>
-      <div class="col-lg-3 footer__col">
+      <div class="col-lg-3 footer__col order-4 order-lg-3">
         <h6 class="footer__title">Store hours</h6>
         <ul class="footer__list">
           <li><a href="#">Monday <span>By appointment</span></a></li>
@@ -1593,8 +1613,8 @@
           <li><a href="#">Sunday <span>12 PM - 5 PM</span></a></li>
         </ul>
       </div>
-      <div class="col-lg-3 footer__col">
-        <div class="ms-auto">
+      <div class="col-lg-3 footer__col order-3 order-lg-4">
+        <div class="ms-lg-auto">
           <h6 class="footer__title">Shop with confidence</h6>
           <ul class="footer__list">
             <li><a href="#">Terms & conditions</a></li>
@@ -1605,7 +1625,7 @@
         </div>
       </div>
 
-      <div class="col-12">
+      <div class="col-12 order-5">
         <p>Copyright 2001 - 2025 by Italian Design Interiors. All rights reserved.</p>
       </div>
     </div>

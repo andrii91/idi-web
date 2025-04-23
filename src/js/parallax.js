@@ -1,58 +1,6 @@
 
 
 $(function () {
-
-  const scrollSpeedMultiplier = 1;
-
-  $(window).on("scroll", function () {
-    const scrollY = $(this).scrollTop();
-  
-    $(".scroll-section").each(function () {
-      const $section = $(this);
-      const $header = $section.find(".scroll-header");
-      const headerHeight = $header.outerHeight();
-  
-      const sectionTop = $section.offset().top - 100;
-      const sectionHeight = $section.outerHeight();
-      const sectionScroll = scrollY + window.innerHeight - sectionTop;
-  
-      const scrollProgress = Math.min(
-        Math.max(sectionScroll / (sectionHeight / scrollSpeedMultiplier), 0),
-        1
-      );
-  
-      if (scrollProgress <= 0) return;
-  
-      let start, end;
-  
-      if (scrollProgress <= 0.5) {
-        const p = scrollProgress / 0.5;
-        start = (100 - (100 - 66.86) * p).toFixed(2);
-        end = (100 - (100 - 67.16) * p).toFixed(2);
-      } else {
-        const p = (scrollProgress - 0.5) / 0.5;
-        start = (66.86 - 66.86 * p).toFixed(2);
-        end = (67.16 - 67.16 * p).toFixed(2);
-      }
-  
-      const whiteProgress = (100 - parseFloat(start)) / 100;
-      const translateY = headerHeight * whiteProgress;
-  
-      const gradient = `linear-gradient(180deg, #000 0%, #000 ${start}%, #FFF ${end}%, #FFF 100%)`;
-  
-      $header.css({
-        transform: `translateY(${translateY}px)`,
-        background: gradient,
-        "-webkit-background-clip": "text",
-        "-webkit-text-fill-color": "transparent",
-        "background-clip": "text",
-      });
-    });
-  });
-  
-  
-  
-/**
     const activeImages = new Set();
   let ticking = false;
 
@@ -109,5 +57,5 @@ $(function () {
   $('.parallax-img').each(function () {
     observer.observe(this);
   });
- */
+
 });

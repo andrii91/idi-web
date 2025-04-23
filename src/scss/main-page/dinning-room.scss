@@ -5,6 +5,10 @@
     padding: vw(90px) 0;
   }
 
+  @media screen and (max-width: 1023px) {
+    padding: 50px 0;
+  }
+
   &__title {
     font-size: 118px;
     font-style: normal;
@@ -20,6 +24,12 @@
       max-width: vw(791px);
       padding-left: vw(50px);
     }
+
+    @media screen and (max-width: 1023px) {
+      font-size: 54px;
+      line-height: 1;
+      padding-left: 0px;
+    }
   }
 
   &__tabs {
@@ -33,6 +43,14 @@
     @media screen and (min-width: 1024px) and (max-width: 1320px) {
       margin: 0 0 vw(44px);
       gap: vw(36px);
+    }
+
+    @media screen and (max-width: 1023px) {
+      flex-direction: row;
+      overflow-x: auto;
+      gap: 32px;
+      margin: 0;
+      padding-bottom: 13px;
     }
 
     li {
@@ -54,6 +72,12 @@
           font-size: vw(40px);
           padding-bottom: vw(6px);
         }
+        @media screen and (max-width: 1023px) {
+          font-size: 24px;
+          line-height: 32px; 
+          text-wrap: nowrap;
+          padding-right: 32px;
+        }
 
         &:hover {
           border-color: #000;
@@ -63,17 +87,21 @@
           transition: .3s;
           opacity: 0;
           width: 0;
-          top: 0;
+          top: 7px;
           height: auto;
           font-size: 20px;
           line-height: 0;
           position: absolute;
           right: -24px;
-          top: 0;
 
           @media screen and (min-width: 1024px) and (max-width: 1320px) {
             font-size: vw(20px);
-            right: vw(-24px);
+            right: vw(-26px);
+          }
+
+          @media screen and (max-width: 1023px) {
+            font-size: 16px;
+            right: 0;
           }
         }
 
@@ -108,7 +136,19 @@
         @media screen and (min-width: 1024px) and (max-width: 1320px) {
           max-height: vw(632px);
         }
+        @media screen and (max-width: 1023px) {
+          max-height: 263px;
+        }
+        
       }
+    }
+  }
+
+  &__content {
+    @media screen and (max-width: 1023px) {
+      width: calc(100% + 40px);
+      margin-left: -20px;
+      margin-bottom: 28px;
     }
   }
 }

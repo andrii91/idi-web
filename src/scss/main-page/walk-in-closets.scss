@@ -5,6 +5,10 @@
     padding: vw(90px) 0;
   }
 
+  @media screen and (max-width: 1023px) {
+    padding: 0 0 50px;
+  }
+
   &__title {
     font-size: 118px;
     font-style: normal;
@@ -20,6 +24,12 @@
       max-width: vw(592px);
       padding-left: vw(50px);
     }
+
+    @media screen and (max-width: 1023px) {
+      font-size: 54px;
+      line-height: 1;
+      padding-left: 0px;
+    }
   }
 
   &__items {
@@ -29,6 +39,11 @@
 
     @media screen and (min-width: 1024px) and (max-width: 1320px) {
       gap: vw(20px);
+    }
+
+    @media screen and (max-width: 1023px) {
+      flex-direction: row;
+      margin-top: 20px;
     }
   }
 
@@ -41,6 +56,10 @@
     @media screen and (min-width: 1024px) and (max-width: 1320px) {
       gap: vw(40px);
       margin-top: vw(44px);
+    }
+    
+    @media screen and (max-width: 1023px) {
+      margin-top: 32px;
     }
 
     h3 {
@@ -55,6 +74,11 @@
         font-size: vw(64px);
         max-width: vw(745px);
       }
+
+      @media screen and (max-width: 1023px) {
+        font-size: 24px;
+        line-height: 32px;
+      }
     }
   }
 
@@ -65,6 +89,10 @@
 
     @media screen and (min-width: 1024px) and (max-width: 1320px) {
       gap: vw(20px);
+    }
+
+    @media screen and (max-width: 1023px) {
+      flex-direction: column;
     }
   }
 

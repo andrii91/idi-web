@@ -18,16 +18,16 @@ $(document).ready(function () {
 
   if (localStorage.getItem("bannerDismissed") !== "true") {
     $("#banner-info").show();
-    $(".navigation").css("margin-top", $("#banner-info").outerHeight() + "px");
+    $(".navigation, header").css("margin-top", $("#banner-info").outerHeight() + "px");
   } else {
     $("#banner-info").hide();
-    $(".navigation").css("margin-top", "0");
+    $(".navigation, header").css("margin-top", "0");
   }
 
   $("#banner-info #cancel-icon").click(function () {
     $("#banner-info").fadeOut(500, function () {
       $("#banner-info").remove();
-      $(".navigation").css("margin-top", "0");
+      $(".navigation, header").css("margin-top", "0");
       localStorage.setItem("bannerDismissed", "true");
     });
   });
@@ -133,6 +133,17 @@ $(document).ready(function () {
     nextArrow: `<svg class="gallery-slider-next">
               <use xlink:href="#arr-right"></use>
             </svg>`,
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 3,
+          variableWidth: true,
+          arrows:false,
+        }
+      },
+    ]
   });
 
   $('.dinning-room__tabs li a').click(function(e) {
@@ -162,6 +173,16 @@ $(document).ready(function () {
 nextArrow: `<svg class="reviews__slider-next">
     <use xlink:href="#arr-right"></use>
   </svg>`,
+
+  responsive: [
+    {
+      breakpoint: 1024,
+      settings: {
+        centerMode: false,
+        arrows:false,
+      }
+    },
+  ]
   });
   
   
@@ -227,5 +248,56 @@ nextArrow: `<svg class="reviews__slider-next">
 
   }
   
+  const scrollSpeedMultiplier = 1;
+
+  $(window).on("scroll", function () {
+    const scrollY = $(this).scrollTop();
+  
+    $(".scroll-section").each(function () {
+      const $section = $(this);
+      const $header = $section.find(".scroll-header");
+      const headerHeight = $header.outerHeight();
+      let sectionTop = $section.offset().top - 100;
+
+      if(isMobile()) {
+        sectionTop = $section.offset().top + 120;
+      }
+
+      const sectionHeight = $section.outerHeight();
+      const sectionScroll = scrollY + window.innerHeight - sectionTop;
+  
+      const scrollProgress = Math.min(
+        Math.max(sectionScroll / (sectionHeight / scrollSpeedMultiplier), 0),
+        1
+      );
+  
+      if (scrollProgress <= 0) return;
+  
+      let start, end;
+  
+      if (scrollProgress <= 0.5) {
+        const p = scrollProgress / 0.5;
+        start = (100 - (100 - 66.86) * p).toFixed(2);
+        end = (100 - (100 - 67.16) * p).toFixed(2);
+      } else {
+        const p = (scrollProgress - 0.5) / 0.5;
+        start = (66.86 - 66.86 * p).toFixed(2);
+        end = (67.16 - 67.16 * p).toFixed(2);
+      }
+  
+      const whiteProgress = (100 - parseFloat(start)) / 100;
+      const translateY = headerHeight * whiteProgress;
+  
+      const gradient = `linear-gradient(180deg, #000 0%, #000 ${start}%, #FFF ${end}%, #FFF 100%)`;
+  
+      $header.css({
+        transform: `translateY(${translateY}px)`,
+        background: gradient,
+        "-webkit-background-clip": "text",
+        "-webkit-text-fill-color": "transparent",
+        "background-clip": "text",
+      });
+    });
+  });
 
 });

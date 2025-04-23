@@ -667,6 +667,18 @@
   align-items: center;
   justify-content: center;
 
+  @media screen and (max-width: 1023px) {
+    font-size: 16px;
+    text-align: left;
+    padding: 8px 20px;
+    justify-content: flex-start;
+
+    span {
+      display: inline-block;
+      max-width: 308px;
+    }
+  }
+
   @media screen and (min-width: 1024px) and (max-width: 1320px) {
     font-size: vw(18px);
     padding-top: vw(12px);
@@ -689,6 +701,11 @@
       height: vw(32px);
       top: vw(12px);
       right: vw(20px);
+    }
+
+    @media screen and (max-width: 1023px) {
+      width: 20px;
+      height: 20px;
     }
 
     &:hover {

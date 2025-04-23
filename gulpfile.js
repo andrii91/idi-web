@@ -22,10 +22,10 @@ gulp.task('scss', () => {
 gulp.task('js', () => {
   return gulp.src([
     'node_modules/jquery/dist/jquery.min.js',
-    'node_modules/slick-carousel/slick/slick.min.js',
+    'node_modules/slick-carousel/slick/slick.min.js', 
     'node_modules/jquery-parallax.js/parallax.min.js',
     'src/js/vendor/jquery.viewportchecker.min.js',
-    'src/js/parallax.js',
+    // 'src/js/parallax.js',
     'src/js/main.js',
   ])
     .pipe(concat('bundle.js'))
