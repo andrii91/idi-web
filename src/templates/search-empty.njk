@@ -11,7 +11,7 @@
   <meta property="og:sitename" content="" />
   <meta property="og:title" content="Italian Design Interiors">
   <meta property="og:image" content="images/og.png" />
-  <title>Italian Design Interiors</title>
+  <title>Search - Italian Design Interiors</title>
   <link rel="icon" type="image/png" href="favicon/favicon-96x96.png" sizes="96x96" />
   <link rel="icon" type="image/svg+xml" href="favicon/favicon.svg" />
   <link rel="shortcut icon" href="favicon/favicon.ico" />
@@ -21,20 +21,13 @@
 </head>
 <body>
   {% include "partials/menu.njk" %}
-  {% include "components/main-page/header.njk" %}
+  {% include "components/search/header-empty.njk" %}
   <main>
-    {% include "components/main-page/brands.njk" %}
-    {% include "components/main-page/visit-our-showroom.njk" %}
-    {% include "components/main-page/stock-items.njk" %}
-    {% include "components/main-page/room-furniture.njk" %}
-    {% include "components/main-page/dinning-room.njk" %}
-    {% include "components/main-page/3d-visualisation.njk" %}
-    {% include "components/main-page/walk-in-closets.njk" %}
-    {% include "components/main-page/kitchens.njk" %}
-    {% include "components/main-page/reviews.njk" %}
-    {% include "components/main-page/got-questions.njk" %}
+    {% include "components/search/popular.njk" %}
+    
     {% include "partials/subscribe.njk" %}
   </main>
+
   {% include "partials/footer.njk" %} 
 
   <script src="js/bundle.js"></script>

@@ -47,8 +47,6 @@ $(document).ready(function () {
   });
 
   function initMenu() {
-
-
     $(".navigation-menu > li").each(function () {
       const $li = $(this);
       const $submenu = $li.find(".navigation-menu-submenu");

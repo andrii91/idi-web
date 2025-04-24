@@ -16,6 +16,11 @@
 @import "./animation.scss";
 @import "./partials/search.scss";
 
+@import "./search/header.scss";
+@import "./search/popular.scss";
+@import "./partials/filters.scss";
+
+
 img {
   max-width: 100%;
 }

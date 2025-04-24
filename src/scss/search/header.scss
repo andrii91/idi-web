@@ -1,0 +1,113 @@
+.search-header {
+  padding: 234px 0 70px;
+
+  @media screen and (min-width: 1024px) and (max-width: 1320px) {
+    padding: vw(234px) 0 vw(70px);
+  }
+
+  @media screen and (max-width: 1023px) {
+    padding: 92px 0 50px;
+  }
+
+  &__title {
+    color: #000;
+    font-size: 118px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: 111px; /* 94.068% */
+    margin-bottom: 140px;
+    position: relative;
+    display: flex;
+    align-items: flex-start;
+
+    span {
+      color: #000;
+      font-size: 24px;
+      line-height: normal;
+
+      @media screen and (min-width: 1024px) and (max-width: 1320px) {
+        font-size: vw(24px);
+      }
+    
+      @media screen and (max-width: 1023px) {
+        font-size: 14px;
+      }
+    }
+
+    @media screen and (min-width: 1024px) and (max-width: 1320px) {
+      font-size: vw(118px);
+      line-height: vw(111px);
+      margin-bottom: vw(140px);
+    }
+
+    @media screen and (max-width: 1023px) {
+      font-size: 38px;
+      line-height: 44px; 
+      margin-bottom: 50px;
+    }
+  }
+
+  &__item {
+    display: flex;
+    max-width: 585px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 32px;
+    margin-left: auto;
+    margin-right: auto;
+
+    @media screen and (min-width: 1024px) and (max-width: 1320px) {
+      max-width: vw(585px);
+      gap: vw(32px);
+    }
+
+    h2 {
+      color: #000;
+      font-size: 64px;
+      font-style: normal;
+      font-weight: 300;
+      line-height: 80px; /* 125% */
+      margin: 0;
+
+      @media screen and (min-width: 1024px) and (max-width: 1320px) {
+        font-size: vw(64px);
+        line-height: vw(80px);
+      }
+
+      @media screen and (max-width: 1023px) {
+        font-size: 38px;
+        line-height: 1.4;
+      }
+    }
+
+    p {
+      color: #000;
+      text-align: center;
+      font-size: 24px;
+      font-style: normal;
+      font-weight: 300;
+      line-height: normal;
+      margin: 0;
+
+      @media screen and (min-width: 1024px) and (max-width: 1320px) {
+        font-size: vw(24px);
+      }
+
+      @media screen and (max-width: 1023px) {
+        font-size: 16px;
+      }
+    }
+  }
+
+  .walk-in-closets__btn-group {
+    width: 100%;
+  }
+  
+  .btn {
+    @media screen and (max-width: 1023px) {
+      max-width: 100%;
+      width: 100%;
+    }
+  }
+}
