@@ -357,4 +357,8 @@ nextArrow: `<svg class="reviews__slider-next">
     }, 10);
   });
 
+  $('.filters__button').click(function(){
+    $(this).toggleClass('current');
+  })
+
 });

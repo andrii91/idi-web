@@ -9,13 +9,27 @@
     padding: 92px 0 50px;
   }
 
+  &.empty {
+    .search-header__title {
+      margin-bottom: 140px;
+
+      @media screen and (min-width: 1024px) and (max-width: 1320px) {
+        margin-bottom: vw(140px);
+      }
+
+      @media screen and (max-width: 1023px) {
+        margin-bottom: 50px;
+      }
+    }
+  }
+
   &__title {
     color: #000;
     font-size: 118px;
     font-style: normal;
     font-weight: 300;
     line-height: 111px; /* 94.068% */
-    margin-bottom: 140px;
+    margin-bottom: 24px;
     position: relative;
     display: flex;
     align-items: flex-start;
@@ -37,13 +51,13 @@
     @media screen and (min-width: 1024px) and (max-width: 1320px) {
       font-size: vw(118px);
       line-height: vw(111px);
-      margin-bottom: vw(140px);
+      margin-bottom: vw(24px);
     }
 
     @media screen and (max-width: 1023px) {
       font-size: 38px;
       line-height: 44px; 
-      margin-bottom: 50px;
+      margin-bottom: 0px;
     }
   }
 
