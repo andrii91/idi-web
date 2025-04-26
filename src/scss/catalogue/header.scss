@@ -1,0 +1,57 @@
+.catalogue-header {
+  padding: 234px 0 0px;
+
+  @media screen and (min-width: 1024px) and (max-width: 1320px) {
+    padding: vw(234px) 0 0;
+  }
+
+  @media screen and (max-width: 1023px) {
+    padding: 92px 0 0px;
+  }
+
+  .breadcrumbs {
+    margin-bottom: 40px;
+
+    @media screen and (min-width: 1024px) and (max-width: 1320px) {
+      margin-bottom: vw(40px);
+    }
+  }
+
+  &__title {
+    color: #000;
+    font-size: 64px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: 70px; /* 94.068% */
+    margin-bottom: 24px;
+    position: relative;
+
+    span {
+      color: #000;
+      font-size: 24px;
+      line-height: normal;
+      display: inline-block;
+      vertical-align: text-top;
+
+      @media screen and (min-width: 1024px) and (max-width: 1320px) {
+        font-size: vw(24px);
+      }
+    
+      @media screen and (max-width: 1023px) {
+        font-size: 14px;
+      }
+    }
+
+    @media screen and (min-width: 1024px) and (max-width: 1320px) {
+      font-size: vw(64px);
+      line-height: vw(70px);
+      margin-bottom: vw(24px);
+    }
+
+    @media screen and (max-width: 1023px) {
+      font-size: 38px;
+      line-height: 44px; 
+      margin-bottom: 0px;
+    }
+  }
+}

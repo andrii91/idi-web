@@ -73,6 +73,7 @@ $(document).ready(function () {
           $trigger.html(`${$select.data('placeholder') ?? 'Choose option'} <svg class="arrow"><use xlink:href="#arrow-select"></use></svg>`);
         } else {
           $trigger.html(`<span>${$select.data('placeholder') ?? ''} <b>${selected[0]} </b></span> <svg class="arrow"><use xlink:href="#arrow-select"></use></svg>`);
+          $trigger.addClass('is-selected');
         }
       }
     };

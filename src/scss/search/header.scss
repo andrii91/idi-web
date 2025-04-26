@@ -1,15 +1,24 @@
 .search-header {
-  padding: 234px 0 70px;
+  padding: 234px 0 0px;
 
   @media screen and (min-width: 1024px) and (max-width: 1320px) {
-    padding: vw(234px) 0 vw(70px);
+    padding: vw(234px) 0 0;
   }
 
   @media screen and (max-width: 1023px) {
-    padding: 92px 0 50px;
+    padding: 92px 0 0px;
   }
 
   &.empty {
+      padding: 234px 0 70px;
+      @media screen and (min-width: 1024px) and (max-width: 1320px) {
+        padding: vw(234px) 0 vw(70px);
+      }
+
+      @media screen and (max-width: 1023px) {
+        padding: 92px 0 50px;
+      }
+
     .search-header__title {
       margin-bottom: 140px;
 
