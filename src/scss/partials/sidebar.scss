@@ -5,16 +5,88 @@
   z-index: 9909;
   background: #fff;
   max-width: 953px;
-  padding: 32px 40px;
+  padding: 0px 40px;
+  height: 100vh;
+  overflow-y: auto;
+  width: 100%;
+
+  &__header {
+    position: sticky;
+    top: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #fff;
+    padding-top: 32px;
+    padding-bottom: 12px;
+    z-index: 2;
+  }
+
+  &__title {
+    color: #000;
+    font-size: 40px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: 56px; /* 140% */
+    margin-bottom: 0;
+  }
+
+  &__close {
+    padding: 0;
+    margin: 0;
+    background: 0 0;
+    border: 0;
+
+    .icon {
+      width: 32px;
+      height: 32px;
+    }
+  }
 
 
-  &__select-finish {}
+  &__select-finish {
+    &-top {
+      color: #6B7280;
+      font-size: 16px;
+      font-style: normal;
+      font-weight: 500;
+      line-height: normal;
+    }
+
+    &-item {
+      margin-top: 40px;
+      h4 {
+        color: #000;
+        font-size: 24px;
+        font-style: normal;
+        font-weight: 300;
+        line-height: 32px; /* 133.333% */
+        margin-bottom: 24px;
+      }
+    }
+
+    &-list {
+      padding: 0;
+      margin: 0;
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 18px;
+
+      img {
+        width: 100px;
+        height: 100px;
+        object-fit: cover;
+      }
+    }
+  }
 }
 
 
 .classHandbook {
   position: relative;
   overflow: hidden;
+  cursor: pointer;
 }
 
 .classHandbook img {
@@ -28,7 +100,7 @@
   transform: scale(1.1);
 }
 
-#idMaterial {
+.material-item {
   position: absolute;
   background: white;
   z-index: 1000000;
@@ -45,8 +117,19 @@
 
   img {
     height: 112px;
+    width: 100%;
     align-self: stretch;
     aspect-ratio: 199.00/112.91;
     object-fit: cover;
+  }
+
+  color: #000;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 300;
+  line-height: normal;
+
+  .col-4 {
+    font-weight: 500;
   }
 }

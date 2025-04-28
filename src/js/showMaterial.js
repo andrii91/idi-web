@@ -1,97 +1,98 @@
 $(document).ready(function () {
-  let showTimeout;
-  let followInterval;
-  let targetX = 0;
-  let targetY = 0;
-  let moving = false;
+  const $material = $('#idMaterial');
+  if (!$material.length) {
+    console.error('Елемент #idMaterial не знайдено в DOM.');
+    return;
+  }
 
-  $(".classHandbook").on("mouseenter", function (e) {
+  const throttledUpdate = throttle(updateMaterialPosition, 16);
+
+  $('.classHandbook').on('mouseenter', function (e) {
     const $this = $(this);
-    const $img = $this.find("img");
-    const largeSrc = $img.attr("material-src"); 
+    const $img = $this.find('img');
+    const largeSrc = $img.attr('material-src');
 
     if (largeSrc) {
-      $("#idMaterial img").attr("src", largeSrc); 
+      const $materialImg = $material.find('img');
+      if ($materialImg.attr('src') !== largeSrc) {
+        $materialImg.fadeOut(100, function () {
+          $materialImg.attr('src', largeSrc).fadeIn(100);
+        });
+      }
     }
 
-    $this.addClass("active-material");
+    $("#propertycode").text($this.attr('propertycode'));
+    $("#propertyprice").text($this.attr('propertyprice'));
 
-    targetX = e.pageX + 20;
-    targetY = e.pageY + 20;
-
-    clearTimeout(showTimeout);
-    showTimeout = setTimeout(() => {
-      const $material = $("#idMaterial");
-
-      $material
-        .css({
-          opacity: 0,
-          transform: "scale(0.8)",
-          display: "block",
-          top: targetY + "px",
-          left: targetX + "px",
-        })
-        .animate({ opacity: 1 }, 300)
-        .css({ transform: "scale(1)" });
-
-      followInterval = setInterval(followMouseSmooth, 16);
-    }, 150);
+    $this.addClass('active-material');
+    $material.stop(true, true).fadeIn(200);
+    updateMaterialPosition(e);
   });
 
-  $(".classHandbook").on("mousemove", function (e) {
-    moving = true;
-    targetX = e.pageX + 20;
-    targetY = e.pageY + 20;
+  $('.classHandbook').on('mousemove', function (e) {
+    throttledUpdate(e);
   });
 
-  $(".classHandbook").on("mouseleave", function () {
-    clearTimeout(showTimeout);
-    clearInterval(followInterval);
-    moving = false;
-
-    $(this).removeClass("active-material");
-
-    const $material = $("#idMaterial");
-    $material.animate({ opacity: 0 }, 300, function () {
-      $material.hide();
-    });
+  $('.classHandbook').on('mouseleave', function () {
+    $(this).removeClass('active-material');
+    $material.stop(true, true).fadeOut(200);
   });
 
-  function followMouseSmooth() {
-    const $material = $("#idMaterial");
-    if (!$material.is(":visible")) return;
+  function updateMaterialPosition(e) {
+    const materialWidth = $material.outerWidth();
+    const materialHeight = $material.outerHeight();
+    const windowWidth = $(window).width();
+    const windowHeight = $(window).height();
 
-    let currentTop = parseFloat($material.css("top")) || 0;
-    let currentLeft = parseFloat($material.css("left")) || 0;
+    let offsetX = 20; // відступ від курсора
+    let offsetY = 20;
 
-    let newTop = currentTop + (targetY - currentTop) * 0.2;
-    let newLeft = currentLeft + (targetX - currentLeft) * 0.2;
+    let top;
+    let left = e.pageX + offsetX;
 
-    const winWidth = $(window).width();
-    const winHeight = $(window).height();
-    const boxWidth = $material.outerWidth();
-    const boxHeight = $material.outerHeight();
-
-    // Перевірка, щоб не виходити за межі екрану
-    if (newLeft + boxWidth > winWidth) {
-      newLeft = winWidth - boxWidth - 10;
+    // Перевіряємо, чи є місце знизу
+    if (e.pageY + offsetY + materialHeight <= windowHeight) {
+      // Є місце знизу — показуємо підказку внизу курсора
+      top = e.pageY + offsetY;
+    } else if (e.pageY - offsetY - materialHeight >= 0) {
+      // Є місце зверху — показуємо над курсором
+      top = e.pageY - offsetY - materialHeight;
+    } else {
+      // Якщо ні вгору, ні вниз нормально не влазить — ставимо зверху екрана
+      top = 10;
     }
-    if (newTop + boxHeight > winHeight) {
-      newTop = winHeight - boxHeight - 10;
+
+    // Перевіряємо праву межу
+    if (left + materialWidth > windowWidth) {
+      left = windowWidth - materialWidth - 10;
     }
-    if (newLeft < 10) {
-      newLeft = 10;
-    }
-    if (newTop < 10) {
-      newTop = 10;
+
+    // Перевіряємо ліву межу
+    if (left < 0) {
+      left = 10;
     }
 
     $material.css({
-      top: newTop + "px",
-      left: newLeft + "px",
-      opacity: moving ? 0.9 : 1,
+      top: top,
+      left: left,
     });
+  }
 
-    moving = false;
+  function throttle(callback, delay) {
+    let lastCall = 0;
+    let timeout;
+    return function (...args) {
+      const now = new Date().getTime();
+      if (now - lastCall >= delay) {
+        lastCall = now;
+        callback(...args);
+      } else {
+        clearTimeout(timeout);
+        timeout = setTimeout(() => {
+          lastCall = new Date().getTime();
+          callback(...args);
+        }, delay - (now - lastCall));
+      }
+    };
   }
 });

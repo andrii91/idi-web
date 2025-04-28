@@ -1,7 +1,7 @@
 <div class="sidebar">
   <div class="sidebar__header">
-    <h2 class="sidebar__title"></h2>
-    <button class="sidebar__close">
+    <h2 class="sidebar__title">Select finish</h2>
+    <button type="button" class="sidebar__close">
       <svg class="icon">
         <use xlink:href="#close"></use>
       </svg>
@@ -10,27 +10,77 @@
 
   <div class="sidebar__content">
     <div class="sidebar__select-finish">
-      <div class="sidebar__select-finish-top"></div>
+      <div class="sidebar__select-finish-top"> ver. 009 95 / Code: 86.0057.01</div>
 
       <div class="sidebar__select-finish-item">
         <h4>Fabric Upholstery</h4>
         <ul class="sidebar__select-finish-list">
+          {% set textures = ['texture', 'texture-1', 'texture-2', 'texture-3'] %}
           {% for i in range(1, 13) %}
-          <li class="classHandbook"
-              id="id-0.31721971586088"
-              propertycode="2509"
-              propertyvalue="2509 Status, cat 25"
-              propertyindex="1"
-              propertyprice=""
-              propertypriceid="204309"
-              propertyhandbookorder="unchecked"
-          >
-            <img src="images/texture.webp"
-              material-src="images/texture.webp"
-              height="50"
-              alt="2509 Status, cat 25"
-            />
-          </li>
+            <li class="classHandbook"
+                id="id-{{ i }}"
+                propertycode="GFM1-{{i}}"
+                propertyvalue="2509 Status, cat 25"
+                propertyindex="{{ i }}"
+                propertyprice="+$6{{ i }}.00"
+                propertypriceid="204309"
+                propertyhandbookorder="unchecked"
+            >
+              <img src="images/{{ textures[(i - 1) % textures | length] }}.webp"
+                  material-src="images/{{ textures[(i - 1) % textures | length] }}.webp"
+                  height="50"
+                  alt="2509 Status, cat 25"
+              />
+            </li>
+          {% endfor %}
+        
+        </ul>
+      </div>
+
+      <div class="sidebar__select-finish-item">
+        <h4>Leather & Faux Leather</h4>
+        <ul class="sidebar__select-finish-list">
+          {% set textures = ['texture', 'texture-1', 'texture-2', 'texture-3'] %}
+          {% for i in range(1, 13) %}
+            <li class="classHandbook"
+                id="id-{{ i }}"
+                propertycode="GFM1-{{i}}"
+                propertyvalue="2509 Status, cat 25"
+                propertyindex="{{ i }}"
+                propertyprice="+$6{{ i }}.00"
+                propertypriceid="204309"
+                propertyhandbookorder="unchecked"
+            >
+              <img src="images/{{ textures[(i - 1) % textures | length] }}.webp"
+                  material-src="images/{{ textures[(i - 1) % textures | length] }}.webp"
+                  height="50"
+                  alt="2509 Status, cat 25"
+              />
+            </li>
+          {% endfor %}
+        
+        </ul>
+      </div>
+
+      <div class="sidebar__select-finish-item">
+        <h4>Leather & Faux Leather</h4>
+        <ul class="sidebar__select-finish-list">
+          {% set textures = ['texture', 'texture-1', 'texture-2', 'texture-3'] %}
+          {% for i in range(1, 13) %}
+            <li class="classHandbook"
+                id="id-{{ i }}"
+                propertycode="GFM1-{{i}}"
+                propertyvalue="2509 Status, cat 25"
+                propertyindex="{{ i }}"
+                propertyprice="+$6{{ i }}.00"
+                propertypriceid="204309"
+                propertyhandbookorder="unchecked"
+            >
+              <img src="images/{{ textures[(i - 1) % textures | length] }}.webp"
+                  material-src="images/{{ textures[(i - 1) % textures | length] }}.webp"
+                  alt=""
+              />
+            </li>
           {% endfor %}
         
         </ul>
@@ -41,8 +91,15 @@
   <div class="sidebar__footer"></div>
 </div>
 
-<div id="idMaterial" class="classMaterial">
-  <b>2509 Status, cat 25</b><br>
-  Code: 2509<br>
+<div id="idMaterial" class="material-item">
+  <div class="row align-content-between">
+    <div class="col-8">With leather pad</div>
+    <div class="col-4" id="propertycode"></div>
+  </div>
+  <div class="row align-content-between">
+    <div class="col-8">Price</div>
+    <div class="col-4" id="propertyprice">+$69.00</div>
+  </div>
+
   <img src="images/texture.webp" width="150">
 </div>
