@@ -14,15 +14,13 @@ $(document).ready(function () {
 
     if (largeSrc) {
       const $materialImg = $material.find('img');
-      if ($materialImg.attr('src') !== largeSrc) {
-        $materialImg.fadeOut(100, function () {
-          $materialImg.attr('src', largeSrc).fadeIn(100);
-        });
-      }
+      $materialImg.attr('src', largeSrc).fadeIn(100);
     }
 
-    $("#propertycode").text($this.attr('propertycode'));
-    $("#propertyprice").text($this.attr('propertyprice'));
+    $(".propertycode").text($this.attr('propertycode'));
+    $(".propertyprice").text($this.attr('propertyprice'));
+
+    $('.mob-finish').show();
 
     $this.addClass('active-material');
     $material.stop(true, true).fadeIn(200);

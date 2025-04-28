@@ -509,7 +509,7 @@
           </div>
         </div>
         <div class="search" id="search-block">
-  <form action="/search.html" class="search__form">
+  <form action="search.html" class="search__form">
     <input class="input-text" type="search" name="search" >
     <button type="submit">
       <svg class="icon">
@@ -584,7 +584,7 @@
     </ul>
 
     <div class="row">
-      <div class="col-lg-7">
+      <div class="col-lg-7 d-none d-lg-block">
         <div class="product-gallery">
           <div class="product-gallery__slider">
             
@@ -686,12 +686,105 @@
 
           <button type="button" class="product-info__text-btn">Read more</button>
 
+          <div class="d-lg-none">
+            <div class="product-gallery">
+              <div class="product-gallery__slider">
+                
+                  <div class="product-gallery__slider-item">
+                    <img src="images/dinning-room-1.webp" alt="dinning-room-1">
+                  </div>
+                
+                  <div class="product-gallery__slider-item">
+                    <img src="images/dinning-room-2.webp" alt="dinning-room-2">
+                  </div>
+                
+                  <div class="product-gallery__slider-item">
+                    <img src="images/dinning-room-3.webp" alt="dinning-room-3">
+                  </div>
+                
+                  <div class="product-gallery__slider-item">
+                    <img src="images/dinning-room-4.webp" alt="dinning-room-4">
+                  </div>
+                
+                  <div class="product-gallery__slider-item">
+                    <img src="images/dinning-room-5.webp" alt="dinning-room-5">
+                  </div>
+                
+                
+                <div class="product-gallery__slider-item">
+                  <img src="images/kitchens-1.webp" alt="kitchens-1">
+                </div>
+              
+                <div class="product-gallery__slider-item">
+                  <img src="images/kitchens-2.webp" alt="kitchens-2">
+                </div>
+              
+                <div class="product-gallery__slider-item">
+                  <img src="images/kitchens-3.webp" alt="kitchens-3">
+                </div>
+              
+                <div class="product-gallery__slider-item">
+                  <img src="images/kitchens-4.webp" alt="kitchens-4">
+                </div>
+              
+                <div class="product-gallery__slider-item">
+                  <img src="images/kitchens-5.webp" alt="kitchens-5">
+                </div>
+              
+              </div>
+              <div class="product-gallery__slider-nav">
+                
+                  <div class="product-gallery__slider-nav-item">
+                    <img src="images/dinning-room-1.webp" alt="dinning-room-1">
+                  </div>
+                
+                  <div class="product-gallery__slider-nav-item">
+                    <img src="images/dinning-room-2.webp" alt="dinning-room-2">
+                  </div>
+                
+                  <div class="product-gallery__slider-nav-item">
+                    <img src="images/dinning-room-3.webp" alt="dinning-room-3">
+                  </div>
+                
+                  <div class="product-gallery__slider-nav-item">
+                    <img src="images/dinning-room-4.webp" alt="dinning-room-4">
+                  </div>
+                
+                  <div class="product-gallery__slider-nav-item">
+                    <img src="images/dinning-room-5.webp" alt="dinning-room-5">
+                  </div>
+                
+                
+                <div class="product-gallery__slider-nav-item">
+                  <img src="images/kitchens-1.webp" alt="kitchens-1">
+                </div>
+              
+                <div class="product-gallery__slider-nav-item">
+                  <img src="images/kitchens-2.webp" alt="kitchens-2">
+                </div>
+              
+                <div class="product-gallery__slider-nav-item">
+                  <img src="images/kitchens-3.webp" alt="kitchens-3">
+                </div>
+              
+                <div class="product-gallery__slider-nav-item">
+                  <img src="images/kitchens-4.webp" alt="kitchens-4">
+                </div>
+              
+                <div class="product-gallery__slider-nav-item">
+                  <img src="images/kitchens-5.webp" alt="kitchens-5">
+                </div>
+              
+              </div>
+            </div>
+          </div>
+
           <div class="product-info__types">
-            <button type="button" class="btn btn-primary btn-outline product-info__texture" data-texture>
+            <button type="button" class="btn btn-primary btn-outline product-info__texture" data-sidebar="textures-sidebar">
               <svg class="icon">
                 <use xlink:href="#texture"></use>
               </svg>
-              <span>Select finish</span>
+              <span><span class="d-none d-md-inline">Select</span> finish</span>
 
               <div class="exemple">
                 <svg class="icon-arrow">
@@ -703,18 +796,18 @@
               <svg class="icon">
                 <use xlink:href="#texture"></use>
               </svg>
-              <span>Select finish</span>
+              <span><span class="d-none d-md-inline">Select</span> finish</span>
 
               <div class="exemple">
                 <span>With leather pad – $4,000</span>
                 <img src="images/texture.webp" alt="">
               </div>
             </button> -->
-            <button type="button" class="btn btn-primary btn-outline product-info__composition" data-composition>
+            <button type="button" class="btn btn-primary btn-outline product-info__composition" data-sidebar="sidebar-composition">
               <svg class="icon">
                 <use xlink:href="#composition"></use>
               </svg>
-              <span>Select composition</span>
+              <span><span class="d-none d-md-inline">Select</span> composition</span>
 
               <div class="exemple">
                 <svg class="icon-arrow">
@@ -845,630 +938,745 @@
     </div>
   </div>
 </footer> 
-  <div class="sidebar">
-  <div class="sidebar__header">
-    <h2 class="sidebar__title">Select finish</h2>
-    <button type="button" class="sidebar__close">
-      <svg class="icon">
-        <use xlink:href="#close"></use>
-      </svg>
-    </button>
-  </div>
+  <div id="textures-sidebar" class="sidebar">
+  <div class="sidebar__container">
+    <div class="sidebar__header">
+      <h2 class="sidebar__title">Select finish</h2>
+      <button type="button" class="sidebar__close" data-sidebar-close>
+        <svg class="icon">
+          <use xlink:href="#close"></use>
+        </svg>
+      </button>
+    </div>
+  
+    <div class="sidebar__content">
+      <div class="sidebar__select-finish">
+        <div class="sidebar__select-finish-text d-lg-none">Please be aware that colour and texture might vary from your screen to the product.</div>
 
-  <div class="sidebar__content">
-    <div class="sidebar__select-finish">
-      <div class="sidebar__select-finish-top"> ver. 009 95 / Code: 86.0057.01</div>
-
-      <div class="sidebar__select-finish-item">
-        <h4>Fabric Upholstery</h4>
-        <ul class="sidebar__select-finish-list">
+        <div class="sidebar__select-finish-top texture-info d-none d-lg-block" > ver. 009 95 / Code: 86.0057.01</div>
+  
+        <div class="sidebar__select-finish-item">
+          <h4>Fabric Upholstery</h4>
+          <ul class="sidebar__select-finish-list">
+            
+            
+              <li class="classHandbook"
+                  id="id-1"
+                  propertycode="GFM1-1"
+                  propertyvalue="2509 Status, cat 25"
+                  propertyindex="1"
+                  propertyprice="+$61.00"
+                  propertypriceid="204309"
+                  propertyhandbookorder="unchecked"
+              >
+                <img src="images/texture.webp"
+                    material-src="images/texture.webp"
+                    height="50"
+                    alt="2509 Status, cat 25"
+                />
+              </li>
+            
+              <li class="classHandbook"
+                  id="id-2"
+                  propertycode="GFM1-2"
+                  propertyvalue="2509 Status, cat 25"
+                  propertyindex="2"
+                  propertyprice="+$62.00"
+                  propertypriceid="204309"
+                  propertyhandbookorder="unchecked"
+              >
+                <img src="images/texture-1.webp"
+                    material-src="images/texture-1.webp"
+                    height="50"
+                    alt="2509 Status, cat 25"
+                />
+              </li>
+            
+              <li class="classHandbook"
+                  id="id-3"
+                  propertycode="GFM1-3"
+                  propertyvalue="2509 Status, cat 25"
+                  propertyindex="3"
+                  propertyprice="+$63.00"
+                  propertypriceid="204309"
+                  propertyhandbookorder="unchecked"
+              >
+                <img src="images/texture-2.webp"
+                    material-src="images/texture-2.webp"
+                    height="50"
+                    alt="2509 Status, cat 25"
+                />
+              </li>
+            
+              <li class="classHandbook"
+                  id="id-4"
+                  propertycode="GFM1-4"
+                  propertyvalue="2509 Status, cat 25"
+                  propertyindex="4"
+                  propertyprice="+$64.00"
+                  propertypriceid="204309"
+                  propertyhandbookorder="unchecked"
+              >
+                <img src="images/texture-3.webp"
+                    material-src="images/texture-3.webp"
+                    height="50"
+                    alt="2509 Status, cat 25"
+                />
+              </li>
+            
+              <li class="classHandbook"
+                  id="id-5"
+                  propertycode="GFM1-5"
+                  propertyvalue="2509 Status, cat 25"
+                  propertyindex="5"
+                  propertyprice="+$65.00"
+                  propertypriceid="204309"
+                  propertyhandbookorder="unchecked"
+              >
+                <img src="images/texture.webp"
+                    material-src="images/texture.webp"
+                    height="50"
+                    alt="2509 Status, cat 25"
+                />
+              </li>
+            
+              <li class="classHandbook"
+                  id="id-6"
+                  propertycode="GFM1-6"
+                  propertyvalue="2509 Status, cat 25"
+                  propertyindex="6"
+                  propertyprice="+$66.00"
+                  propertypriceid="204309"
+                  propertyhandbookorder="unchecked"
+              >
+                <img src="images/texture-1.webp"
+                    material-src="images/texture-1.webp"
+                    height="50"
+                    alt="2509 Status, cat 25"
+                />
+              </li>
+            
+              <li class="classHandbook"
+                  id="id-7"
+                  propertycode="GFM1-7"
+                  propertyvalue="2509 Status, cat 25"
+                  propertyindex="7"
+                  propertyprice="+$67.00"
+                  propertypriceid="204309"
+                  propertyhandbookorder="unchecked"
+              >
+                <img src="images/texture-2.webp"
+                    material-src="images/texture-2.webp"
+                    height="50"
+                    alt="2509 Status, cat 25"
+                />
+              </li>
+            
+              <li class="classHandbook"
+                  id="id-8"
+                  propertycode="GFM1-8"
+                  propertyvalue="2509 Status, cat 25"
+                  propertyindex="8"
+                  propertyprice="+$68.00"
+                  propertypriceid="204309"
+                  propertyhandbookorder="unchecked"
+              >
+                <img src="images/texture-3.webp"
+                    material-src="images/texture-3.webp"
+                    height="50"
+                    alt="2509 Status, cat 25"
+                />
+              </li>
+            
+              <li class="classHandbook"
+                  id="id-9"
+                  propertycode="GFM1-9"
+                  propertyvalue="2509 Status, cat 25"
+                  propertyindex="9"
+                  propertyprice="+$69.00"
+                  propertypriceid="204309"
+                  propertyhandbookorder="unchecked"
+              >
+                <img src="images/texture.webp"
+                    material-src="images/texture.webp"
+                    height="50"
+                    alt="2509 Status, cat 25"
+                />
+              </li>
+            
+              <li class="classHandbook"
+                  id="id-10"
+                  propertycode="GFM1-10"
+                  propertyvalue="2509 Status, cat 25"
+                  propertyindex="10"
+                  propertyprice="+$610.00"
+                  propertypriceid="204309"
+                  propertyhandbookorder="unchecked"
+              >
+                <img src="images/texture-1.webp"
+                    material-src="images/texture-1.webp"
+                    height="50"
+                    alt="2509 Status, cat 25"
+                />
+              </li>
+            
+              <li class="classHandbook"
+                  id="id-11"
+                  propertycode="GFM1-11"
+                  propertyvalue="2509 Status, cat 25"
+                  propertyindex="11"
+                  propertyprice="+$611.00"
+                  propertypriceid="204309"
+                  propertyhandbookorder="unchecked"
+              >
+                <img src="images/texture-2.webp"
+                    material-src="images/texture-2.webp"
+                    height="50"
+                    alt="2509 Status, cat 25"
+                />
+              </li>
+            
+              <li class="classHandbook"
+                  id="id-12"
+                  propertycode="GFM1-12"
+                  propertyvalue="2509 Status, cat 25"
+                  propertyindex="12"
+                  propertyprice="+$612.00"
+                  propertypriceid="204309"
+                  propertyhandbookorder="unchecked"
+              >
+                <img src="images/texture-3.webp"
+                    material-src="images/texture-3.webp"
+                    height="50"
+                    alt="2509 Status, cat 25"
+                />
+              </li>
+            
           
+          </ul>
+        </div>
+  
+        <div class="sidebar__select-finish-item">
+          <h4>Leather & Faux Leather</h4>
+          <ul class="sidebar__select-finish-list">
+            
+            
+              <li class="classHandbook"
+                  id="id-1"
+                  propertycode="GFM1-1"
+                  propertyvalue="2509 Status, cat 25"
+                  propertyindex="1"
+                  propertyprice="+$61.00"
+                  propertypriceid="204309"
+                  propertyhandbookorder="unchecked"
+              >
+                <img src="images/texture.webp"
+                    material-src="images/texture.webp"
+                    height="50"
+                    alt="2509 Status, cat 25"
+                />
+              </li>
+            
+              <li class="classHandbook"
+                  id="id-2"
+                  propertycode="GFM1-2"
+                  propertyvalue="2509 Status, cat 25"
+                  propertyindex="2"
+                  propertyprice="+$62.00"
+                  propertypriceid="204309"
+                  propertyhandbookorder="unchecked"
+              >
+                <img src="images/texture-1.webp"
+                    material-src="images/texture-1.webp"
+                    height="50"
+                    alt="2509 Status, cat 25"
+                />
+              </li>
+            
+              <li class="classHandbook"
+                  id="id-3"
+                  propertycode="GFM1-3"
+                  propertyvalue="2509 Status, cat 25"
+                  propertyindex="3"
+                  propertyprice="+$63.00"
+                  propertypriceid="204309"
+                  propertyhandbookorder="unchecked"
+              >
+                <img src="images/texture-2.webp"
+                    material-src="images/texture-2.webp"
+                    height="50"
+                    alt="2509 Status, cat 25"
+                />
+              </li>
+            
+              <li class="classHandbook"
+                  id="id-4"
+                  propertycode="GFM1-4"
+                  propertyvalue="2509 Status, cat 25"
+                  propertyindex="4"
+                  propertyprice="+$64.00"
+                  propertypriceid="204309"
+                  propertyhandbookorder="unchecked"
+              >
+                <img src="images/texture-3.webp"
+                    material-src="images/texture-3.webp"
+                    height="50"
+                    alt="2509 Status, cat 25"
+                />
+              </li>
+            
+              <li class="classHandbook"
+                  id="id-5"
+                  propertycode="GFM1-5"
+                  propertyvalue="2509 Status, cat 25"
+                  propertyindex="5"
+                  propertyprice="+$65.00"
+                  propertypriceid="204309"
+                  propertyhandbookorder="unchecked"
+              >
+                <img src="images/texture.webp"
+                    material-src="images/texture.webp"
+                    height="50"
+                    alt="2509 Status, cat 25"
+                />
+              </li>
+            
+              <li class="classHandbook"
+                  id="id-6"
+                  propertycode="GFM1-6"
+                  propertyvalue="2509 Status, cat 25"
+                  propertyindex="6"
+                  propertyprice="+$66.00"
+                  propertypriceid="204309"
+                  propertyhandbookorder="unchecked"
+              >
+                <img src="images/texture-1.webp"
+                    material-src="images/texture-1.webp"
+                    height="50"
+                    alt="2509 Status, cat 25"
+                />
+              </li>
+            
+              <li class="classHandbook"
+                  id="id-7"
+                  propertycode="GFM1-7"
+                  propertyvalue="2509 Status, cat 25"
+                  propertyindex="7"
+                  propertyprice="+$67.00"
+                  propertypriceid="204309"
+                  propertyhandbookorder="unchecked"
+              >
+                <img src="images/texture-2.webp"
+                    material-src="images/texture-2.webp"
+                    height="50"
+                    alt="2509 Status, cat 25"
+                />
+              </li>
+            
+              <li class="classHandbook"
+                  id="id-8"
+                  propertycode="GFM1-8"
+                  propertyvalue="2509 Status, cat 25"
+                  propertyindex="8"
+                  propertyprice="+$68.00"
+                  propertypriceid="204309"
+                  propertyhandbookorder="unchecked"
+              >
+                <img src="images/texture-3.webp"
+                    material-src="images/texture-3.webp"
+                    height="50"
+                    alt="2509 Status, cat 25"
+                />
+              </li>
+            
+              <li class="classHandbook"
+                  id="id-9"
+                  propertycode="GFM1-9"
+                  propertyvalue="2509 Status, cat 25"
+                  propertyindex="9"
+                  propertyprice="+$69.00"
+                  propertypriceid="204309"
+                  propertyhandbookorder="unchecked"
+              >
+                <img src="images/texture.webp"
+                    material-src="images/texture.webp"
+                    height="50"
+                    alt="2509 Status, cat 25"
+                />
+              </li>
+            
+              <li class="classHandbook"
+                  id="id-10"
+                  propertycode="GFM1-10"
+                  propertyvalue="2509 Status, cat 25"
+                  propertyindex="10"
+                  propertyprice="+$610.00"
+                  propertypriceid="204309"
+                  propertyhandbookorder="unchecked"
+              >
+                <img src="images/texture-1.webp"
+                    material-src="images/texture-1.webp"
+                    height="50"
+                    alt="2509 Status, cat 25"
+                />
+              </li>
+            
+              <li class="classHandbook"
+                  id="id-11"
+                  propertycode="GFM1-11"
+                  propertyvalue="2509 Status, cat 25"
+                  propertyindex="11"
+                  propertyprice="+$611.00"
+                  propertypriceid="204309"
+                  propertyhandbookorder="unchecked"
+              >
+                <img src="images/texture-2.webp"
+                    material-src="images/texture-2.webp"
+                    height="50"
+                    alt="2509 Status, cat 25"
+                />
+              </li>
+            
+              <li class="classHandbook"
+                  id="id-12"
+                  propertycode="GFM1-12"
+                  propertyvalue="2509 Status, cat 25"
+                  propertyindex="12"
+                  propertyprice="+$612.00"
+                  propertypriceid="204309"
+                  propertyhandbookorder="unchecked"
+              >
+                <img src="images/texture-3.webp"
+                    material-src="images/texture-3.webp"
+                    height="50"
+                    alt="2509 Status, cat 25"
+                />
+              </li>
+            
           
-            <li class="classHandbook"
-                id="id-1"
-                propertycode="GFM1-1"
-                propertyvalue="2509 Status, cat 25"
-                propertyindex="1"
-                propertyprice="+$61.00"
-                propertypriceid="204309"
-                propertyhandbookorder="unchecked"
-            >
-              <img src="images/texture.webp"
-                  material-src="images/texture.webp"
-                  height="50"
-                  alt="2509 Status, cat 25"
-              />
-            </li>
+          </ul>
+        </div>
+  
+        <div class="sidebar__select-finish-item">
+          <h4>Leather & Faux Leather</h4>
+          <ul class="sidebar__select-finish-list">
+            
+            
+              <li class="classHandbook"
+                  id="id-1"
+                  propertycode="GFM1-1"
+                  propertyvalue="2509 Status, cat 25"
+                  propertyindex="1"
+                  propertyprice="+$61.00"
+                  propertypriceid="204309"
+                  propertyhandbookorder="unchecked"
+              >
+                <img src="images/texture.webp"
+                    material-src="images/texture.webp"
+                    alt=""
+                />
+              </li>
+            
+              <li class="classHandbook"
+                  id="id-2"
+                  propertycode="GFM1-2"
+                  propertyvalue="2509 Status, cat 25"
+                  propertyindex="2"
+                  propertyprice="+$62.00"
+                  propertypriceid="204309"
+                  propertyhandbookorder="unchecked"
+              >
+                <img src="images/texture-1.webp"
+                    material-src="images/texture-1.webp"
+                    alt=""
+                />
+              </li>
+            
+              <li class="classHandbook"
+                  id="id-3"
+                  propertycode="GFM1-3"
+                  propertyvalue="2509 Status, cat 25"
+                  propertyindex="3"
+                  propertyprice="+$63.00"
+                  propertypriceid="204309"
+                  propertyhandbookorder="unchecked"
+              >
+                <img src="images/texture-2.webp"
+                    material-src="images/texture-2.webp"
+                    alt=""
+                />
+              </li>
+            
+              <li class="classHandbook"
+                  id="id-4"
+                  propertycode="GFM1-4"
+                  propertyvalue="2509 Status, cat 25"
+                  propertyindex="4"
+                  propertyprice="+$64.00"
+                  propertypriceid="204309"
+                  propertyhandbookorder="unchecked"
+              >
+                <img src="images/texture-3.webp"
+                    material-src="images/texture-3.webp"
+                    alt=""
+                />
+              </li>
+            
+              <li class="classHandbook"
+                  id="id-5"
+                  propertycode="GFM1-5"
+                  propertyvalue="2509 Status, cat 25"
+                  propertyindex="5"
+                  propertyprice="+$65.00"
+                  propertypriceid="204309"
+                  propertyhandbookorder="unchecked"
+              >
+                <img src="images/texture.webp"
+                    material-src="images/texture.webp"
+                    alt=""
+                />
+              </li>
+            
+              <li class="classHandbook"
+                  id="id-6"
+                  propertycode="GFM1-6"
+                  propertyvalue="2509 Status, cat 25"
+                  propertyindex="6"
+                  propertyprice="+$66.00"
+                  propertypriceid="204309"
+                  propertyhandbookorder="unchecked"
+              >
+                <img src="images/texture-1.webp"
+                    material-src="images/texture-1.webp"
+                    alt=""
+                />
+              </li>
+            
+              <li class="classHandbook"
+                  id="id-7"
+                  propertycode="GFM1-7"
+                  propertyvalue="2509 Status, cat 25"
+                  propertyindex="7"
+                  propertyprice="+$67.00"
+                  propertypriceid="204309"
+                  propertyhandbookorder="unchecked"
+              >
+                <img src="images/texture-2.webp"
+                    material-src="images/texture-2.webp"
+                    alt=""
+                />
+              </li>
+            
+              <li class="classHandbook"
+                  id="id-8"
+                  propertycode="GFM1-8"
+                  propertyvalue="2509 Status, cat 25"
+                  propertyindex="8"
+                  propertyprice="+$68.00"
+                  propertypriceid="204309"
+                  propertyhandbookorder="unchecked"
+              >
+                <img src="images/texture-3.webp"
+                    material-src="images/texture-3.webp"
+                    alt=""
+                />
+              </li>
+            
+              <li class="classHandbook"
+                  id="id-9"
+                  propertycode="GFM1-9"
+                  propertyvalue="2509 Status, cat 25"
+                  propertyindex="9"
+                  propertyprice="+$69.00"
+                  propertypriceid="204309"
+                  propertyhandbookorder="unchecked"
+              >
+                <img src="images/texture.webp"
+                    material-src="images/texture.webp"
+                    alt=""
+                />
+              </li>
+            
+              <li class="classHandbook"
+                  id="id-10"
+                  propertycode="GFM1-10"
+                  propertyvalue="2509 Status, cat 25"
+                  propertyindex="10"
+                  propertyprice="+$610.00"
+                  propertypriceid="204309"
+                  propertyhandbookorder="unchecked"
+              >
+                <img src="images/texture-1.webp"
+                    material-src="images/texture-1.webp"
+                    alt=""
+                />
+              </li>
+            
+              <li class="classHandbook"
+                  id="id-11"
+                  propertycode="GFM1-11"
+                  propertyvalue="2509 Status, cat 25"
+                  propertyindex="11"
+                  propertyprice="+$611.00"
+                  propertypriceid="204309"
+                  propertyhandbookorder="unchecked"
+              >
+                <img src="images/texture-2.webp"
+                    material-src="images/texture-2.webp"
+                    alt=""
+                />
+              </li>
+            
+              <li class="classHandbook"
+                  id="id-12"
+                  propertycode="GFM1-12"
+                  propertyvalue="2509 Status, cat 25"
+                  propertyindex="12"
+                  propertyprice="+$612.00"
+                  propertypriceid="204309"
+                  propertyhandbookorder="unchecked"
+              >
+                <img src="images/texture-3.webp"
+                    material-src="images/texture-3.webp"
+                    alt=""
+                />
+              </li>
+            
           
-            <li class="classHandbook"
-                id="id-2"
-                propertycode="GFM1-2"
-                propertyvalue="2509 Status, cat 25"
-                propertyindex="2"
-                propertyprice="+$62.00"
-                propertypriceid="204309"
-                propertyhandbookorder="unchecked"
-            >
-              <img src="images/texture-1.webp"
-                  material-src="images/texture-1.webp"
-                  height="50"
-                  alt="2509 Status, cat 25"
-              />
-            </li>
-          
-            <li class="classHandbook"
-                id="id-3"
-                propertycode="GFM1-3"
-                propertyvalue="2509 Status, cat 25"
-                propertyindex="3"
-                propertyprice="+$63.00"
-                propertypriceid="204309"
-                propertyhandbookorder="unchecked"
-            >
-              <img src="images/texture-2.webp"
-                  material-src="images/texture-2.webp"
-                  height="50"
-                  alt="2509 Status, cat 25"
-              />
-            </li>
-          
-            <li class="classHandbook"
-                id="id-4"
-                propertycode="GFM1-4"
-                propertyvalue="2509 Status, cat 25"
-                propertyindex="4"
-                propertyprice="+$64.00"
-                propertypriceid="204309"
-                propertyhandbookorder="unchecked"
-            >
-              <img src="images/texture-3.webp"
-                  material-src="images/texture-3.webp"
-                  height="50"
-                  alt="2509 Status, cat 25"
-              />
-            </li>
-          
-            <li class="classHandbook"
-                id="id-5"
-                propertycode="GFM1-5"
-                propertyvalue="2509 Status, cat 25"
-                propertyindex="5"
-                propertyprice="+$65.00"
-                propertypriceid="204309"
-                propertyhandbookorder="unchecked"
-            >
-              <img src="images/texture.webp"
-                  material-src="images/texture.webp"
-                  height="50"
-                  alt="2509 Status, cat 25"
-              />
-            </li>
-          
-            <li class="classHandbook"
-                id="id-6"
-                propertycode="GFM1-6"
-                propertyvalue="2509 Status, cat 25"
-                propertyindex="6"
-                propertyprice="+$66.00"
-                propertypriceid="204309"
-                propertyhandbookorder="unchecked"
-            >
-              <img src="images/texture-1.webp"
-                  material-src="images/texture-1.webp"
-                  height="50"
-                  alt="2509 Status, cat 25"
-              />
-            </li>
-          
-            <li class="classHandbook"
-                id="id-7"
-                propertycode="GFM1-7"
-                propertyvalue="2509 Status, cat 25"
-                propertyindex="7"
-                propertyprice="+$67.00"
-                propertypriceid="204309"
-                propertyhandbookorder="unchecked"
-            >
-              <img src="images/texture-2.webp"
-                  material-src="images/texture-2.webp"
-                  height="50"
-                  alt="2509 Status, cat 25"
-              />
-            </li>
-          
-            <li class="classHandbook"
-                id="id-8"
-                propertycode="GFM1-8"
-                propertyvalue="2509 Status, cat 25"
-                propertyindex="8"
-                propertyprice="+$68.00"
-                propertypriceid="204309"
-                propertyhandbookorder="unchecked"
-            >
-              <img src="images/texture-3.webp"
-                  material-src="images/texture-3.webp"
-                  height="50"
-                  alt="2509 Status, cat 25"
-              />
-            </li>
-          
-            <li class="classHandbook"
-                id="id-9"
-                propertycode="GFM1-9"
-                propertyvalue="2509 Status, cat 25"
-                propertyindex="9"
-                propertyprice="+$69.00"
-                propertypriceid="204309"
-                propertyhandbookorder="unchecked"
-            >
-              <img src="images/texture.webp"
-                  material-src="images/texture.webp"
-                  height="50"
-                  alt="2509 Status, cat 25"
-              />
-            </li>
-          
-            <li class="classHandbook"
-                id="id-10"
-                propertycode="GFM1-10"
-                propertyvalue="2509 Status, cat 25"
-                propertyindex="10"
-                propertyprice="+$610.00"
-                propertypriceid="204309"
-                propertyhandbookorder="unchecked"
-            >
-              <img src="images/texture-1.webp"
-                  material-src="images/texture-1.webp"
-                  height="50"
-                  alt="2509 Status, cat 25"
-              />
-            </li>
-          
-            <li class="classHandbook"
-                id="id-11"
-                propertycode="GFM1-11"
-                propertyvalue="2509 Status, cat 25"
-                propertyindex="11"
-                propertyprice="+$611.00"
-                propertypriceid="204309"
-                propertyhandbookorder="unchecked"
-            >
-              <img src="images/texture-2.webp"
-                  material-src="images/texture-2.webp"
-                  height="50"
-                  alt="2509 Status, cat 25"
-              />
-            </li>
-          
-            <li class="classHandbook"
-                id="id-12"
-                propertycode="GFM1-12"
-                propertyvalue="2509 Status, cat 25"
-                propertyindex="12"
-                propertyprice="+$612.00"
-                propertypriceid="204309"
-                propertyhandbookorder="unchecked"
-            >
-              <img src="images/texture-3.webp"
-                  material-src="images/texture-3.webp"
-                  height="50"
-                  alt="2509 Status, cat 25"
-              />
-            </li>
-          
-        
-        </ul>
+          </ul>
+        </div>
       </div>
-
-      <div class="sidebar__select-finish-item">
-        <h4>Leather & Faux Leather</h4>
-        <ul class="sidebar__select-finish-list">
-          
-          
-            <li class="classHandbook"
-                id="id-1"
-                propertycode="GFM1-1"
-                propertyvalue="2509 Status, cat 25"
-                propertyindex="1"
-                propertyprice="+$61.00"
-                propertypriceid="204309"
-                propertyhandbookorder="unchecked"
-            >
-              <img src="images/texture.webp"
-                  material-src="images/texture.webp"
-                  height="50"
-                  alt="2509 Status, cat 25"
-              />
-            </li>
-          
-            <li class="classHandbook"
-                id="id-2"
-                propertycode="GFM1-2"
-                propertyvalue="2509 Status, cat 25"
-                propertyindex="2"
-                propertyprice="+$62.00"
-                propertypriceid="204309"
-                propertyhandbookorder="unchecked"
-            >
-              <img src="images/texture-1.webp"
-                  material-src="images/texture-1.webp"
-                  height="50"
-                  alt="2509 Status, cat 25"
-              />
-            </li>
-          
-            <li class="classHandbook"
-                id="id-3"
-                propertycode="GFM1-3"
-                propertyvalue="2509 Status, cat 25"
-                propertyindex="3"
-                propertyprice="+$63.00"
-                propertypriceid="204309"
-                propertyhandbookorder="unchecked"
-            >
-              <img src="images/texture-2.webp"
-                  material-src="images/texture-2.webp"
-                  height="50"
-                  alt="2509 Status, cat 25"
-              />
-            </li>
-          
-            <li class="classHandbook"
-                id="id-4"
-                propertycode="GFM1-4"
-                propertyvalue="2509 Status, cat 25"
-                propertyindex="4"
-                propertyprice="+$64.00"
-                propertypriceid="204309"
-                propertyhandbookorder="unchecked"
-            >
-              <img src="images/texture-3.webp"
-                  material-src="images/texture-3.webp"
-                  height="50"
-                  alt="2509 Status, cat 25"
-              />
-            </li>
-          
-            <li class="classHandbook"
-                id="id-5"
-                propertycode="GFM1-5"
-                propertyvalue="2509 Status, cat 25"
-                propertyindex="5"
-                propertyprice="+$65.00"
-                propertypriceid="204309"
-                propertyhandbookorder="unchecked"
-            >
-              <img src="images/texture.webp"
-                  material-src="images/texture.webp"
-                  height="50"
-                  alt="2509 Status, cat 25"
-              />
-            </li>
-          
-            <li class="classHandbook"
-                id="id-6"
-                propertycode="GFM1-6"
-                propertyvalue="2509 Status, cat 25"
-                propertyindex="6"
-                propertyprice="+$66.00"
-                propertypriceid="204309"
-                propertyhandbookorder="unchecked"
-            >
-              <img src="images/texture-1.webp"
-                  material-src="images/texture-1.webp"
-                  height="50"
-                  alt="2509 Status, cat 25"
-              />
-            </li>
-          
-            <li class="classHandbook"
-                id="id-7"
-                propertycode="GFM1-7"
-                propertyvalue="2509 Status, cat 25"
-                propertyindex="7"
-                propertyprice="+$67.00"
-                propertypriceid="204309"
-                propertyhandbookorder="unchecked"
-            >
-              <img src="images/texture-2.webp"
-                  material-src="images/texture-2.webp"
-                  height="50"
-                  alt="2509 Status, cat 25"
-              />
-            </li>
-          
-            <li class="classHandbook"
-                id="id-8"
-                propertycode="GFM1-8"
-                propertyvalue="2509 Status, cat 25"
-                propertyindex="8"
-                propertyprice="+$68.00"
-                propertypriceid="204309"
-                propertyhandbookorder="unchecked"
-            >
-              <img src="images/texture-3.webp"
-                  material-src="images/texture-3.webp"
-                  height="50"
-                  alt="2509 Status, cat 25"
-              />
-            </li>
-          
-            <li class="classHandbook"
-                id="id-9"
-                propertycode="GFM1-9"
-                propertyvalue="2509 Status, cat 25"
-                propertyindex="9"
-                propertyprice="+$69.00"
-                propertypriceid="204309"
-                propertyhandbookorder="unchecked"
-            >
-              <img src="images/texture.webp"
-                  material-src="images/texture.webp"
-                  height="50"
-                  alt="2509 Status, cat 25"
-              />
-            </li>
-          
-            <li class="classHandbook"
-                id="id-10"
-                propertycode="GFM1-10"
-                propertyvalue="2509 Status, cat 25"
-                propertyindex="10"
-                propertyprice="+$610.00"
-                propertypriceid="204309"
-                propertyhandbookorder="unchecked"
-            >
-              <img src="images/texture-1.webp"
-                  material-src="images/texture-1.webp"
-                  height="50"
-                  alt="2509 Status, cat 25"
-              />
-            </li>
-          
-            <li class="classHandbook"
-                id="id-11"
-                propertycode="GFM1-11"
-                propertyvalue="2509 Status, cat 25"
-                propertyindex="11"
-                propertyprice="+$611.00"
-                propertypriceid="204309"
-                propertyhandbookorder="unchecked"
-            >
-              <img src="images/texture-2.webp"
-                  material-src="images/texture-2.webp"
-                  height="50"
-                  alt="2509 Status, cat 25"
-              />
-            </li>
-          
-            <li class="classHandbook"
-                id="id-12"
-                propertycode="GFM1-12"
-                propertyvalue="2509 Status, cat 25"
-                propertyindex="12"
-                propertyprice="+$612.00"
-                propertypriceid="204309"
-                propertyhandbookorder="unchecked"
-            >
-              <img src="images/texture-3.webp"
-                  material-src="images/texture-3.webp"
-                  height="50"
-                  alt="2509 Status, cat 25"
-              />
-            </li>
-          
-        
-        </ul>
-      </div>
-
-      <div class="sidebar__select-finish-item">
-        <h4>Leather & Faux Leather</h4>
-        <ul class="sidebar__select-finish-list">
-          
-          
-            <li class="classHandbook"
-                id="id-1"
-                propertycode="GFM1-1"
-                propertyvalue="2509 Status, cat 25"
-                propertyindex="1"
-                propertyprice="+$61.00"
-                propertypriceid="204309"
-                propertyhandbookorder="unchecked"
-            >
-              <img src="images/texture.webp"
-                  material-src="images/texture.webp"
-                  alt=""
-              />
-            </li>
-          
-            <li class="classHandbook"
-                id="id-2"
-                propertycode="GFM1-2"
-                propertyvalue="2509 Status, cat 25"
-                propertyindex="2"
-                propertyprice="+$62.00"
-                propertypriceid="204309"
-                propertyhandbookorder="unchecked"
-            >
-              <img src="images/texture-1.webp"
-                  material-src="images/texture-1.webp"
-                  alt=""
-              />
-            </li>
-          
-            <li class="classHandbook"
-                id="id-3"
-                propertycode="GFM1-3"
-                propertyvalue="2509 Status, cat 25"
-                propertyindex="3"
-                propertyprice="+$63.00"
-                propertypriceid="204309"
-                propertyhandbookorder="unchecked"
-            >
-              <img src="images/texture-2.webp"
-                  material-src="images/texture-2.webp"
-                  alt=""
-              />
-            </li>
-          
-            <li class="classHandbook"
-                id="id-4"
-                propertycode="GFM1-4"
-                propertyvalue="2509 Status, cat 25"
-                propertyindex="4"
-                propertyprice="+$64.00"
-                propertypriceid="204309"
-                propertyhandbookorder="unchecked"
-            >
-              <img src="images/texture-3.webp"
-                  material-src="images/texture-3.webp"
-                  alt=""
-              />
-            </li>
-          
-            <li class="classHandbook"
-                id="id-5"
-                propertycode="GFM1-5"
-                propertyvalue="2509 Status, cat 25"
-                propertyindex="5"
-                propertyprice="+$65.00"
-                propertypriceid="204309"
-                propertyhandbookorder="unchecked"
-            >
-              <img src="images/texture.webp"
-                  material-src="images/texture.webp"
-                  alt=""
-              />
-            </li>
-          
-            <li class="classHandbook"
-                id="id-6"
-                propertycode="GFM1-6"
-                propertyvalue="2509 Status, cat 25"
-                propertyindex="6"
-                propertyprice="+$66.00"
-                propertypriceid="204309"
-                propertyhandbookorder="unchecked"
-            >
-              <img src="images/texture-1.webp"
-                  material-src="images/texture-1.webp"
-                  alt=""
-              />
-            </li>
-          
-            <li class="classHandbook"
-                id="id-7"
-                propertycode="GFM1-7"
-                propertyvalue="2509 Status, cat 25"
-                propertyindex="7"
-                propertyprice="+$67.00"
-                propertypriceid="204309"
-                propertyhandbookorder="unchecked"
-            >
-              <img src="images/texture-2.webp"
-                  material-src="images/texture-2.webp"
-                  alt=""
-              />
-            </li>
-          
-            <li class="classHandbook"
-                id="id-8"
-                propertycode="GFM1-8"
-                propertyvalue="2509 Status, cat 25"
-                propertyindex="8"
-                propertyprice="+$68.00"
-                propertypriceid="204309"
-                propertyhandbookorder="unchecked"
-            >
-              <img src="images/texture-3.webp"
-                  material-src="images/texture-3.webp"
-                  alt=""
-              />
-            </li>
-          
-            <li class="classHandbook"
-                id="id-9"
-                propertycode="GFM1-9"
-                propertyvalue="2509 Status, cat 25"
-                propertyindex="9"
-                propertyprice="+$69.00"
-                propertypriceid="204309"
-                propertyhandbookorder="unchecked"
-            >
-              <img src="images/texture.webp"
-                  material-src="images/texture.webp"
-                  alt=""
-              />
-            </li>
-          
-            <li class="classHandbook"
-                id="id-10"
-                propertycode="GFM1-10"
-                propertyvalue="2509 Status, cat 25"
-                propertyindex="10"
-                propertyprice="+$610.00"
-                propertypriceid="204309"
-                propertyhandbookorder="unchecked"
-            >
-              <img src="images/texture-1.webp"
-                  material-src="images/texture-1.webp"
-                  alt=""
-              />
-            </li>
-          
-            <li class="classHandbook"
-                id="id-11"
-                propertycode="GFM1-11"
-                propertyvalue="2509 Status, cat 25"
-                propertyindex="11"
-                propertyprice="+$611.00"
-                propertypriceid="204309"
-                propertyhandbookorder="unchecked"
-            >
-              <img src="images/texture-2.webp"
-                  material-src="images/texture-2.webp"
-                  alt=""
-              />
-            </li>
-          
-            <li class="classHandbook"
-                id="id-12"
-                propertycode="GFM1-12"
-                propertyvalue="2509 Status, cat 25"
-                propertyindex="12"
-                propertyprice="+$612.00"
-                propertypriceid="204309"
-                propertyhandbookorder="unchecked"
-            >
-              <img src="images/texture-3.webp"
-                  material-src="images/texture-3.webp"
-                  alt=""
-              />
-            </li>
-          
-        
-        </ul>
+    </div>
+  
+    <div class="sidebar__footer">
+      <div class="sidebar__select-finish-footer">
+        <div class="d-lg-none w-full">
+          <div class="mob-finish">
+            <div class="row justify-content-between">
+              <div class="col-8">With leather pad</div>
+              <div class="col-4 propertycode text-end"></div>
+            </div>
+            <div class="row justify-content-between">
+              <div class="col-8">Price</div>
+              <div class="col-4 propertyprice text-end">+$69.00</div>
+            </div>
+          </div>
+        </div>
+        <button type="button" class="btn btn-dark" data-sidebar-select-finish>Select Finish</button>
+        <div class="sidebar__select-finish-price d-none d-lg-block">From <span>$5,200.00</span></div>
+        <div class="sidebar__select-finish-text d-none d-lg-block">Please be aware that colour and texture might vary from your screen to the product.</div>
       </div>
     </div>
   </div>
-
-  <div class="sidebar__footer"></div>
 </div>
 
 <div id="idMaterial" class="material-item">
-  <div class="row align-content-between">
-    <div class="col-8">With leather pad</div>
-    <div class="col-4" id="propertycode"></div>
+  <div class="row justify-content-between">
+    <div class="col-8 p-0">With leather pad</div>
+    <div class="col-4 p-0 propertycode"></div>
   </div>
-  <div class="row align-content-between">
-    <div class="col-8">Price</div>
-    <div class="col-4" id="propertyprice">+$69.00</div>
+  <div class="row justify-content-between">
+    <div class="col-8 p-0">Price</div>
+    <div class="col-4 p-0 propertyprice">+$69.00</div>
   </div>
 
   <img src="images/texture.webp" width="150">
 </div>
+  <div id="sidebar-composition" class="sidebar">
+  <div class="sidebar__container">
+    <div class="sidebar__header">
+      <h2 class="sidebar__title">Choose composition</h2>
+      <button type="button" class="sidebar__close" data-sidebar-close>
+        <svg class="icon">
+          <use xlink:href="#close"></use>
+        </svg>
+      </button>
+    </div>
+  
+    <div class="sidebar__content">
+      <div class="sidebar__select-finish-text d-lg-none">Please be aware that colour and texture might vary from your screen to the product.</div>
+
+      <div class="sidebar__composition row">
+        
+        <div class="col-6 col-lg-4">
+          <div class="sidebar__composition-item">
+            <img src="images/composition-1.webp" alt="">
+            <div class="sidebar__composition-footer">
+              <span>Code: GFM11</span>
+              <span>Price: +$69.00</span>
+            </div>
+          </div>
+        </div>
+        
+        <div class="col-6 col-lg-4">
+          <div class="sidebar__composition-item">
+            <img src="images/composition-2.webp" alt="">
+            <div class="sidebar__composition-footer">
+              <span>Code: GFM11</span>
+              <span>Price: +$69.00</span>
+            </div>
+          </div>
+        </div>
+        
+        <div class="col-6 col-lg-4">
+          <div class="sidebar__composition-item">
+            <img src="images/composition-3.webp" alt="">
+            <div class="sidebar__composition-footer">
+              <span>Code: GFM11</span>
+              <span>Price: +$69.00</span>
+            </div>
+          </div>
+        </div>
+        
+        <div class="col-6 col-lg-4">
+          <div class="sidebar__composition-item">
+            <img src="images/composition-4.webp" alt="">
+            <div class="sidebar__composition-footer">
+              <span>Code: GFM11</span>
+              <span>Price: +$69.00</span>
+            </div>
+          </div>
+        </div>
+        
+        <div class="col-6 col-lg-4">
+          <div class="sidebar__composition-item">
+            <img src="images/composition-5.webp" alt="">
+            <div class="sidebar__composition-footer">
+              <span>Code: GFM11</span>
+              <span>Price: +$69.00</span>
+            </div>
+          </div>
+        </div>
+        
+
+        <div class="col-6 col-lg-4">
+          <div class="sidebar__composition-item sidebar__composition-banner">
+            <h4>Haven’t found the
+              right composition?</h4>
+            <p>We can help!</p>
+            <button type="button" class="btn btn-dark" >Explore all</button>
+          </div>
+        </div>
+       
+      </div>
+    </div>
+  
+    <div class="sidebar__footer">
+      <div class="sidebar__select-finish-footer">
+        <div class="d-lg-none w-full">
+          <div class="mob-composition">
+            
+          </div>
+        </div>
+        <button type="button" class="btn btn-dark" data-sidebar-select-composition>Select Composition</button>
+        <div class="sidebar__select-finish-price d-none d-lg-block">From <span>$5,200.00</span></div>
+        <div class="sidebar__select-finish-text d-none d-lg-block">Please be aware that colour and texture might vary from your screen to the product.</div>
+      </div>
+    </div>
+  </div>
+</div>
 
 
-  <script src="js/bundle.js"></script>
+  <script defer src="js/bundle.js"></script>
 </body>
 </html>

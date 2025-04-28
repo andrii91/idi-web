@@ -455,5 +455,65 @@ $(document).ready(function () {
     $(this).parent().find('.product-info__text').addClass('open')
   })
 
+  $('.sidebar__select-finish-list li').click(function(){
+    $('.sidebar__select-finish-list li').removeClass('active')
+    $(this).addClass('active');
+
+    $('.texture-info').text(`ver. ${$(this).attr('propertyvalue')} / Code: ${$(this).attr('propertycode')} / ${$(this).attr('propertyvalue')}`)
+  })
+
+  $('[data-sidebar]').click(function(e){
+    e.preventDefault();
+    const id = $(this).data('sidebar');
+    $("body").addClass("overflow-hidden");
+    $(`#${id}`).show(200);
+  })
+
+  $('[data-sidebar-close]').click(function(){
+    $(this).parents('.sidebar').hide(200);
+    $("body").removeClass("overflow-hidden");
+  })
+
+  $('[data-sidebar-select-finish]').click(function(){
+    $(this).parents('.sidebar').hide(200);
+    $("body").removeClass("overflow-hidden");
+    const src = $(this).parents('.sidebar').find('.sidebar__select-finish-list li.active img').attr('src');
+    const price = $(this).parents('.sidebar').find('.sidebar__select-finish-price span').text();
+    if(!!src) {
+      $('.product-info__texture .exemple').html(`
+        <span>With leather pad – ${price}</span>
+         <img src="${src}" alt="">
+     `)
+    }
+  })
+
+  $('.sidebar__composition-item:not(.sidebar__composition-banner)').click(function(){
+    $('.sidebar__composition-item').removeClass('active');
+    $(this).addClass('active');
+
+    $('.mob-composition').html(`
+      <div class="sidebar__composition-footer">
+       ${
+        $(this).find('.sidebar__composition-footer').html()
+       }
+      </div>
+      `).show();
+
+    
+  })
+  
+  $('[data-sidebar-select-composition]').click(function(e){
+    e.preventDefault();
+    $(this).parents('.sidebar').hide(200);
+    $("body").removeClass("overflow-hidden");
+    const src = $(this).parents('.sidebar').find('.sidebar__composition-item.active img').attr('src');
+    const price = $(this).parents('.sidebar').find('.sidebar__select-finish-price span').text();
+    if(!!src) {
+      $('.product-info__composition .exemple').html(`
+        <span>${price}</span>
+         <img src="${src}" alt="">
+     `)
+    }
+  })
   
 });
