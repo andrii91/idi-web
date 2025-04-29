@@ -1,0 +1,57 @@
+.modal {
+  background: rgba(15, 11, 31, 0.24);
+  backdrop-filter: blur(5px);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 99999999;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  display: none;
+
+  &__container {
+    max-width: 1196px;
+    max-height: calc(100% - 32px);
+    overflow-y: auto;
+    background: #fff;
+    padding: 0 40px 40px;
+    width: 100%;
+
+    @media screen and (max-width: 1023px) {
+      padding: 0 0 20px;
+    }
+  }
+
+  &__header {
+    padding: 40px 0 16px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: sticky;
+    top: 0;
+    z-index: 4;
+    background: #fff;
+
+    @media screen and (max-width: 1023px) {
+      padding: 20px 20px 8px;
+    }
+  }
+
+  &__title {
+    color: #000;
+    font-size: 40px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: 56px; /* 140% */
+    margin: 0;
+  }
+
+  &__close {
+    width: 32px;
+    height: 32px;
+    cursor: pointer;
+  }
+}

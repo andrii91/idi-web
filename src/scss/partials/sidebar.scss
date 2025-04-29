@@ -327,6 +327,7 @@
   pointer-events: none;
   padding: 8px;
 
+  display: none;
   @media screen and (max-width: 1023px) {
     display: none !important;
   }

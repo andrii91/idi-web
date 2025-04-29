@@ -20,9 +20,12 @@
 @import "./search/popular.scss";
 @import "./partials/filters.scss";
 @import "./partials/sidebar.scss";
+@import "./partials/modal.scss";
 
 @import "./catalogue/header.scss";
 @import "./product-page/header.scss";
+@import "./product-page/interior-overview.scss";
+@import "./product-page/other-overview.scss";
 
 .breadcrumbs {
   list-style: none;
@@ -38,8 +41,10 @@
       &::before {
         background: #A5A5A5;
       }
+
       a {
         color: #A5A5A5;
+
         &:hover {
           color: #000;
         }
@@ -155,7 +160,8 @@ body {
       box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     }
 
-    &:focus, &:active {
+    &:focus,
+    &:active {
       outline: none;
       background: #E1E1E1;
     }
@@ -180,7 +186,8 @@ body {
       box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     }
 
-    &:focus, &:active {
+    &:focus,
+    &:active {
       outline: none;
       background: #2D2D2D;
     }
@@ -214,6 +221,7 @@ html {
       bottom: 0;
     }
   }
+
   &-nav {
     padding-left: 50px;
     padding-right: 40px;
@@ -222,6 +230,7 @@ html {
     margin-top: -50px;
     max-width: 976px;
     margin-left: auto;
+
     @media screen and (max-width: 1023px) {
       padding-left: 0;
       padding-right: 0;
@@ -284,11 +293,18 @@ html {
   }
 }
 
+label {
+  position: relative;
+  width: 100%;
+  display: block;
+}
+
 .input-text {
   font-size: 24px;
   font-style: normal;
   font-weight: 300;
-  line-height: 40px; /* 166.667% */
+  line-height: 40px;
+  /* 166.667% */
   color: #fff;
   border: 0;
   border-bottom: 1px solid #fff;
@@ -297,9 +313,19 @@ html {
   min-height: 40px;
   padding-bottom: 5px;
 
+  &.error {
+    color: #F00;
+    border-color: #F00;
+
+    &::placeholder {
+      color: #F00;
+      opacity: 1;
+    }
+  }
+
   @media screen and (min-width: 1024px) and (max-width: 1320px) {
     font-size: vw(24px);
-    line-height: vw(40px); 
+    line-height: vw(40px);
     min-height: vw(40px);
     padding-bottom: vw(5px);
   }
@@ -316,8 +342,14 @@ html {
   }
 }
 
-main {
-  overflow: hidden;
+.error-allert {
+  color: #F00;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 300;
+  line-height: 26px;
+  /* 162.5% */
+  margin-top: 6px;
 }
 
 .slick-dots {
@@ -334,6 +366,7 @@ main {
     button {
       display: none;
     }
+
     width: 6px;
     height: 6px;
     background: #D9D9D9;
@@ -436,9 +469,11 @@ main {
 
   &-search {
     margin-bottom: 14px;
+
     @media screen and (min-width: 1024px) and (max-width: 1320px) {
       margin-bottom: vw(14px);
     }
+
     input {
       width: 100%;
       padding: 10px 0;
@@ -449,7 +484,7 @@ main {
       background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none'%3E%3Cpath d='M21.5318 20.4696L16.8378 15.7765C18.1983 14.1431 18.8767 12.048 18.7319 9.92715C18.5871 7.80629 17.6302 5.82289 16.0603 4.38956C14.4904 2.95623 12.4284 2.18333 10.3031 2.23163C8.17785 2.27993 6.15303 3.14571 4.64986 4.64888C3.14669 6.15205 2.2809 8.17687 2.2326 10.3021C2.1843 12.4274 2.95721 14.4894 4.39054 16.0593C5.82387 17.6293 7.80726 18.5861 9.92813 18.7309C12.049 18.8757 14.144 18.1973 15.7774 16.8368L20.4706 21.5308C20.5403 21.6005 20.623 21.6558 20.714 21.6935C20.8051 21.7312 20.9026 21.7506 21.0012 21.7506C21.0997 21.7506 21.1973 21.7312 21.2884 21.6935C21.3794 21.6558 21.4621 21.6005 21.5318 21.5308C21.6015 21.4612 21.6568 21.3784 21.6945 21.2874C21.7322 21.1963 21.7516 21.0988 21.7516 21.0002C21.7516 20.9017 21.7322 20.8041 21.6945 20.713C21.6568 20.622 21.6015 20.5393 21.5318 20.4696ZM3.75119 10.5002C3.75119 9.16519 4.14707 7.86015 4.88877 6.75011C5.63047 5.64008 6.68468 4.77492 7.91808 4.26403C9.15148 3.75314 10.5087 3.61946 11.8181 3.87991C13.1274 4.14036 14.3302 4.78324 15.2742 5.72724C16.2182 6.67125 16.861 7.87398 17.1215 9.18335C17.3819 10.4927 17.2483 11.8499 16.7374 13.0833C16.2265 14.3167 15.3613 15.3709 14.2513 16.1126C13.1413 16.8543 11.8362 17.2502 10.5012 17.2502C8.71159 17.2482 6.99585 16.5364 5.73041 15.271C4.46497 14.0056 3.75318 12.2898 3.75119 10.5002Z' fill='black'/%3E%3C/svg%3E");
       background-position: right center;
       background-repeat: no-repeat;
-      
+
       @media screen and (min-width: 1024px) and (max-width: 1320px) {
         padding: vw(10px) 0;
       }
@@ -504,7 +539,7 @@ main {
           width: vw(24px);
           height: vw(24px);
         }
-        
+
       }
     }
   }
@@ -520,6 +555,99 @@ main {
 
     @media screen and (min-width: 1024px) and (max-width: 1320px) {
       font-size: vw(14px);
+    }
+  }
+}
+
+
+.accordion {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 24px;
+  align-self: stretch;
+  border: 1px solid #C1C1C1;
+  background: #FFF;
+
+  &__title {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    gap: 12px;
+    color: #000;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: 32px;
+    width: 100%;
+    cursor: pointer;
+
+    @media screen and (max-width: 1023px) {
+      font-size: 16px;
+    }
+
+    span {
+      gap: 12px;
+      display: flex;
+      align-items: center;
+    }
+
+    svg {
+      width: 32px;
+      min-width: 32px;
+      height: 32px;
+      transition: .3s;
+    }
+
+    &.open {
+      .accordion__arrow {
+        transform: rotate(180deg);
+      }
+    }
+  }
+
+  &__content {
+    padding: 4px 20px 20px;
+    display: none;
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  &__logo {
+    img {
+      width: 100%;
+    }
+  }
+}
+
+.text-short {
+
+  &-more {
+    display: none;
+
+    @media screen and (max-width: 1023px) {
+      color: #000;
+      font-size: 18px;
+      font-style: normal;
+      font-weight: 300;
+      line-height: normal;
+      text-decoration: underline;
+      display: block;
+    }
+  }
+
+  @media screen and (max-width: 1023px) {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    transition: .3s;
+
+    &.open {
+      overflow: visible;
+      display: -webkit-box;
+      -webkit-line-clamp: inherit;
+      -webkit-box-orient: vertical;
     }
   }
 }

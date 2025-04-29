@@ -1,0 +1,20 @@
+<section class="popular">
+  <div class="container-xxl">
+    <h2 class="popular__title">You may also like</h2>
+    <div class="popular__row">
+      {% for i in range(1, 5) %}
+        <a href="#" class="product__card fade-in">
+          <div class="product__image">
+            <img src="images/photo-frame-{{ i }}.webp" alt="photo-frame-{{ i }}">
+          </div>
+
+          <div class="product__footer">
+            <div class="product__brand">Natuzzi Italia</div>
+            <div class="product__name">Borghese</div>
+            <div class="product__price">$ 5,200.00</div>
+          </div>
+        </a>
+      {% endfor %}
+    </div>
+  </div>
+</section>

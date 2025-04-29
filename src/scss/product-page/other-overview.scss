@@ -1,0 +1,144 @@
+.other-overview {
+  padding: 50px 0;
+
+  &__content {
+    color: #000;
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    max-width: 762px;
+
+    @media screen and (max-width: 1023px) {
+      gap: 24px;
+    }
+
+    &-nav {
+      list-style: none;
+      padding: 12px 0;
+      margin: 0;
+      align-items: center;
+      gap: 36px;
+      width: 100%;
+      overflow-x: auto;
+      overflow-y: hidden;
+      position: sticky;
+      top: 72px;
+      background: #fff;
+      display: none;
+
+      @media screen and (max-width: 1023px) {
+        display: flex;
+      }
+
+      li {
+        a {
+          color: #000;
+          font-size: 24px;
+          font-style: normal;
+          font-weight: 300;
+          line-height: normal;
+          opacity: 0.4;
+          padding-bottom: 6px;
+          border-bottom: 1px solid transparent;
+          text-decoration: none;
+          text-wrap: nowrap;
+
+          &.active {
+            opacity: 1;
+            border-color: #000;
+          }
+        }
+      }
+    }
+
+    h2 {
+      font-size: 40px;
+      font-style: normal;
+      font-weight: 300;
+      line-height: 1.2;
+      margin-bottom: 24px;
+
+      @media screen and (max-width: 1023px) {
+        font-size: 38px;
+        margin-bottom: 16px;
+      }
+    }
+
+    h4 {
+      color: #000;
+      font-size: 24px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: normal;
+      margin-bottom: 16px;
+
+      @media screen and (max-width: 1023px) {
+
+      }
+    }
+
+    p {
+      font-size: 18px;
+      font-style: normal;
+      font-weight: 300;
+      line-height: normal;
+      margin-bottom: 0;
+
+      small {
+        color: #6B7280;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+      }
+    }
+  }
+
+  &__sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  &__form {
+    padding: 40px 20px;
+    background: #F8F8F8;
+    
+    h5 {
+      color: #000;
+      font-size: 32px;
+      font-style: normal;
+      font-weight: 300;
+      line-height: 46px; /* 143.75% */
+      margin-bottom: 12px;
+    }
+
+    p {
+      color: #000;
+      font-size: 18px;
+      font-style: normal;
+      font-weight: 300;
+      line-height: normal;
+      margin-bottom: 20px;
+    }
+
+    label {
+      margin-bottom: 24px;
+    }
+
+    .input-text {
+      color: #000;
+      border-color: #000;
+
+      &::placeholder {
+        opacity: 0.3;
+        color: #000;
+      }
+    }
+
+    .btn {
+      width: 100%;
+      max-width: 100%;
+    }
+  }
+}
