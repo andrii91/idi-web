@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="initial-scale=1.0, width=device-width">
+  <meta name="Title" content="Italian Design Interiors" />
+  <meta name="description" content="" />
+  <meta property="og:type" content="article" />
+  <meta property="og:description" content="" />
+  <meta property="og:url" content="" />
+  <meta property="og:sitename" content="" />
+  <meta property="og:title" content="Italian Design Interiors">
+  <meta property="og:image" content="images/og.png" />
+  <title>product-page - Italian Design Interiors</title>
+  <link rel="icon" type="image/png" href="favicon/favicon-96x96.png" sizes="96x96" />
+  <link rel="icon" type="image/svg+xml" href="favicon/favicon.svg" />
+  <link rel="shortcut icon" href="favicon/favicon.ico" />
+  <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png" />
+  <link rel="manifest" href="favicon/site.webmanifest" />
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  {% include "partials/menu.njk" %}
+  {% include "components/product-page/header-finish.njk" %}
+  <main>
+    {% include "components/product-page/interior-overview.njk" %}
+    {% include "components/product-page/other-overview-finish.njk" %}
+    {% include "components/product-page/popular.njk" %}
+    
+    {% include "partials/subscribe.njk" %}
+  </main>
+
+  {% include "partials/footer.njk" %} 
+  {% include "partials/sidebars/sidebar-select-finish.njk" %}
+  {% include "partials/modals/modal-schematics-examples.njk" %}
+  {% include "partials/modals/modal-composition-examples.njk" %}
+  
+  <script defer src="js/bundle.js"></script>
+</body>
+</html>

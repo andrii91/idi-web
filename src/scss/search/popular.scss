@@ -112,9 +112,13 @@
       .product__footer {
         position: relative;
         z-index: 3;
-        margin-top: -54px;
         padding-left: 25px;
         padding-right: 25px;
+        margin-top: 0;
+        
+        @media screen and (min-width: 1024px) {
+          margin-top: -54px;
+        }
 
         @media screen and (min-width: 1024px) and (max-width: 1320px) {
           margin-top: vw(-54px);
@@ -164,7 +168,8 @@
       transition: .3s;
       position: relative;
       z-index: 0;
-
+      mix-blend-mode: multiply;
+      
       @media screen and (min-width: 1024px) and (max-width: 1320px) {
         max-width: vw(315px);
         max-height: vw(315px);

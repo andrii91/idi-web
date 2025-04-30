@@ -9,11 +9,11 @@ $(document).ready(function () {
   function handleResponsiveBehavior() {
     if (isMobile()) {
       // мобільна логіка
-      console.log("Мобільний пристрій або вузький екран");
+      // console.log("Мобільний пристрій або вузький екран");
       // Наприклад: $('#menu').addClass('mobile');
     } else {
       // десктопна логіка
-      console.log("Десктоп");
+      // console.log("Десктоп");
       // Наприклад: $('#menu').removeClass('mobile');
     }
   }
@@ -121,6 +121,14 @@ $(document).ready(function () {
     prevArrow: $(".slider-controls__prev"),
     nextArrow: $(".slider-controls__next"),
     autoplaySpeed: 7000,
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          dots: false,
+        },
+      },
+    ],
   });
 
   $(".gallery-slider").slick({
@@ -129,6 +137,7 @@ $(document).ready(function () {
     arrows: false,
     fade: true,
     asNavFor: ".gallery-slider-nav",
+    autoplay: true,
   });
 
   $(".gallery-slider-nav").slick({
@@ -256,60 +265,68 @@ $(document).ready(function () {
       variableWidth: true,
       slidesToShow: 1,
     });
-  } else {
   }
 
   const scrollSpeedMultiplier = 1;
 
-  $(window).on("scroll", function () {
-    const scrollY = $(this).scrollTop();
+$(window).on("scroll", function () {
+  const scrollY = $(this).scrollTop();
 
-    $(".scroll-section").each(function () {
-      const $section = $(this);
-      const $header = $section.find(".scroll-header");
-      const headerHeight = $header.outerHeight();
-      let sectionTop = $section.offset().top - 100;
+  $(".scroll-section").each(function () {
+    const $section = $(this);
+    const $headers = $section.find(".scroll-header"); // Знаходимо всі заголовки в секції
+    let totalHeaderHeight = 0;
 
-      if (isMobile()) {
-        sectionTop = $section.offset().top + 120;
-      }
+    // Обчислюємо загальну висоту всіх заголовків
+    $headers.each(function () {
+      totalHeaderHeight += $(this).outerHeight();
+    });
 
-      const sectionHeight = $section.outerHeight();
-      const sectionScroll = scrollY + window.innerHeight - sectionTop;
+    let sectionTop = $section.offset().top - 100;
 
-      const scrollProgress = Math.min(
-        Math.max(sectionScroll / (sectionHeight / scrollSpeedMultiplier), 0),
-        1
-      );
+    // Отримуємо gradientP і перевіряємо його
+    let gradientP = Number($section.data("numb"));
+    
+    if (!gradientP || gradientP <= 0) {
+      gradientP = 0.5; // Значення за замовчуванням
+    }
 
-      if (scrollProgress <= 0) return;
+    if (isMobile()) {
+      sectionTop = $section.offset().top + 120;
+    }
 
-      let start, end;
+    const sectionHeight = $section.outerHeight();
+    const sectionScroll = scrollY + window.innerHeight - sectionTop;
 
-      if (scrollProgress <= 0.5) {
-        const p = scrollProgress / 0.5;
-        start = (100 - (100 - 66.86) * p).toFixed(2);
-        end = (100 - (100 - 67.16) * p).toFixed(2);
-      } else {
-        const p = (scrollProgress - 0.5) / 0.5;
-        start = (66.86 - 66.86 * p).toFixed(2);
-        end = (67.16 - 67.16 * p).toFixed(2);
-      }
+    const scrollProgress = Math.min(
+      Math.max(sectionScroll / (sectionHeight / scrollSpeedMultiplier), 0),
+      1
+    );
 
-      const whiteProgress = (100 - parseFloat(start)) / 100;
-      const translateY = headerHeight * whiteProgress;
+    if (scrollProgress <= 0) return;
 
-      const gradient = `linear-gradient(180deg, #000 0%, #000 ${start}%, #FFF ${end}%, #FFF 100%)`;
+    let start, end;
 
-      $header.css({
-        transform: `translateY(${translateY}px)`,
-        background: gradient,
-        "-webkit-background-clip": "text",
-        "-webkit-text-fill-color": "transparent",
-        "background-clip": "text",
-      });
+    if (scrollProgress <= 0.5) {
+      const p = scrollProgress / gradientP; // gradientP тепер завжди коректний
+      start = (100 - (100 - 66.86) * p).toFixed(2);
+      end = (100 - (100 - 67.16) * p).toFixed(2);
+    }
+
+    const whiteProgress = (100 - parseFloat(start)) / 100;
+    const translateY = totalHeaderHeight * whiteProgress; // Використовуємо загальну висоту заголовків
+
+    const gradient = `linear-gradient(180deg, #000 0%, #000 ${start}%, #FFF ${end}%, #FFF 100%)`;
+
+    $headers.css({
+      transform: `translateY(${translateY}px)`,
+      background: gradient,
+      "-webkit-background-clip": "text",
+      "-webkit-text-fill-color": "transparent",
+      "background-clip": "text",
     });
   });
+});
 
   $("#search-button").click(function (e) {
     e.preventDefault();
@@ -466,16 +483,20 @@ $(document).ready(function () {
     e.preventDefault();
     const id = $(this).data('sidebar');
     $("body").addClass("overflow-hidden");
-    $(`#${id}`).show(200);
+    $(`#${id}`).css({ right: '-100%', display: 'block' }).animate({ right: '0' }, 200);
   })
 
   $('[data-sidebar-close]').click(function(){
-    $(this).parents('.sidebar').hide(200);
+    $(this).parents('.sidebar').animate({ right: '-100%' }, 200, function () {
+      $(this).hide();
+    });
     $("body").removeClass("overflow-hidden");
   })
 
   $('[data-sidebar-select-finish]').click(function(){
-    $(this).parents('.sidebar').hide(200);
+    $(this).parents('.sidebar').animate({ right: '-100%' }, 200, function () {
+      $(this).hide();
+    });
     $("body").removeClass("overflow-hidden");
     const src = $(this).parents('.sidebar').find('.sidebar__select-finish-list li.active img').attr('src');
     const price = $(this).parents('.sidebar').find('.sidebar__select-finish-price span').text();
@@ -502,7 +523,9 @@ $(document).ready(function () {
   
   $('[data-sidebar-select-composition]').click(function(e){
     e.preventDefault();
-    $(this).parents('.sidebar').hide(200);
+    $(this).parents('.sidebar').animate({ right: '-100%' }, 200, function () {
+      $(this).hide();
+    });
     $("body").removeClass("overflow-hidden");
     const src = $(this).parents('.sidebar').find('.sidebar__composition-item.active img').attr('src');
     const price = $(this).parents('.sidebar').find('.sidebar__select-finish-price span').text();
@@ -698,5 +721,7 @@ $(document).ready(function () {
   $(window).on('scroll', onScroll);
   
   onScroll();
+  
+  $('input[name="phone"]').inputmask("+9{1,15}");
   
 });

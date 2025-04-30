@@ -113,6 +113,7 @@
     text-decoration: none;
     max-width: 166px;
     margin-left: auto;
+    margin-right: auto;
 
     @media screen and (min-width: 1024px) and (max-width: 1320px) {
       font-size: vw(16px);
@@ -125,6 +126,7 @@
 
     @media screen and (max-width: 1023px) {
       margin-left: 0;
+      margin-right: 0;
       margin-top: 40px;
     }
   }

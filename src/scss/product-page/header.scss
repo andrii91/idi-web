@@ -1,7 +1,8 @@
 .product {
   &-header {
     padding: 234px 0 50px;
-
+    overflow: hidden;
+    
     @media screen and (min-width: 1024px) and (max-width: 1320px) {
       padding: vw(234px) 0 vw(50px);
     }

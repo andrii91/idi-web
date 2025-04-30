@@ -33,8 +33,11 @@
   }
 
   &__slider {
-    width: calc(100% + 40px);
-    margin-left: -20px;
+    @media screen and (max-width: 1023px) {
+      width: calc(100% + 40px);
+      margin-left: -20px;
+    }
+
     &-item {
       img {
         max-height: 686px;

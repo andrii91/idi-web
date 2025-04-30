@@ -101,6 +101,7 @@
       img {
         max-height: 859px;
         object-fit: cover;
+        width: 100%;
 
         @media screen and (min-width: 1024px) and (max-width: 1320px) {
           max-height: vw(859px);

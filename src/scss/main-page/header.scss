@@ -35,6 +35,7 @@
       object-position: center;
       position: relative;
       z-index: 0;
+      max-height: 700px;
 
       @media screen and (min-width: 1024px) and (max-width: 1320px) {
         height: calc(100vh - vw(220px));
@@ -81,6 +82,11 @@
 
       .btn {
         margin-top: auto;
+        @media screen and (max-width: 1023px) {
+          max-width: 100%;
+          width: 100%;
+          margin-bottom: 40px;
+        }
       }
     }
 

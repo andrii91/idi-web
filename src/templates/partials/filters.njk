@@ -1,10 +1,12 @@
 <div class="filters">
   <ul class="filters__types">
+  {% if page_type == "furniture" %}
     <li>
       <a class="filters__button current" href="#">
         <img src="images/filter-living-room.webp" alt="">
         <span>Living room</span>
       </a>
+    </li>
     <li>
       <a class="filters__button" href="#">
         <img src="images/filter-office.webp" alt="">
@@ -35,8 +37,58 @@
         <span>Accents</span>
       </a>
     </li>
+    {% else %}
+    <li>
+      <a class="filters__button current" href="#">
+      <img src="images/filter-sofas-sectionals.webp" alt="">
+      <span>Sofas & Sectionals</span>
+      </a>
     </li>
+    <li>
+      <a class="filters__button" href="#">
+      <img src="images/filter-lounge-chairs.webp" alt="">
+      <span>Lounge Chairs</span>
+      </a>
+    </li>
+    <li>
+      <a class="filters__button" href="#">
+      <img src="images/filter-recliner-chairs.webp" alt="">
+      <span>Recliner Chairs</span>
+      </a>
+    </li>
+    <li>
+      <a class="filters__button" href="#">
+      <img src="images/filter-coffee-end-tables.webp" alt="">
+      <span>Coffee & End tables</span>
+      </a>
+    </li>
+    <li>
+      <a class="filters__button" href="#">
+      <img src="images/filter-sleeper-sofas.webp" alt="">
+      <span>Sleeper Sofas</span>
+      </a>
+    </li>
+    <li>
+      <a class="filters__button" href="#">
+      <img src="images/filter-benches-ottomans.webp" alt="">
+      <span>Benches & Ottomans</span>
+      </a>
+    </li>
+    <li>
+      <a class="filters__button" href="#">
+      <img src="images/filter-wall-unit-tv-stands.webp" alt="">
+      <span>Wall Unit & TV Stands</span>
+      </a>
+    </li>
+    <li>
+      <a class="filters__button" href="#">
+      <img src="images/filter-bookcases-shelvings.webp" alt="">
+      <span>Bookcases & Shelvings</span>
+      </a>
+    </li>
+    {% endif %}
   </ul>
+
 
   <div class="filters__selects group-selects">
     <select name="brands" class="custom-select" multiple data-placeholder="Brand" data-placeholder-search="Search brand">

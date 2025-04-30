@@ -24,6 +24,7 @@ gulp.task('js', () => {
     'node_modules/jquery/dist/jquery.min.js',
     'node_modules/slick-carousel/slick/slick.min.js', 
     'node_modules/jquery-parallax.js/parallax.min.js',
+    'node_modules/jquery.inputmask/dist/jquery.inputmask.bundle.js',
     'src/js/vendor/jquery.viewportchecker.min.js',
     'src/js/dropdown.js',
     'src/js/showMaterial.js',

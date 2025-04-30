@@ -1,6 +1,7 @@
 .subscribe {
   padding: 60px 0;
   background: #F8F8F8;
+  overflow: hidden;
   
   @media screen and (min-width: 1024px) and (max-width: 1320px) {
     padding: vw(60px) 0;

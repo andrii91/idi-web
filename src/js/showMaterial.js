@@ -1,7 +1,6 @@
 $(document).ready(function () {
   const $material = $('#idMaterial');
   if (!$material.length) {
-    console.error('Елемент #idMaterial не знайдено в DOM.');
     return;
   }
 

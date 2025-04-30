@@ -238,12 +238,12 @@
   }
 
   .slick-slide {
-    filter: blur(3px);
+    opacity: .7;
     @media screen and (max-width: 1023px) {
-      filter: none;
+      opacity: 1;
     }
     &.slick-center {
-      filter: none;
+      opacity: 1;
     }
   }
 

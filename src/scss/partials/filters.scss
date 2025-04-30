@@ -7,6 +7,9 @@
     align-items: center;
     gap: 14px;
     overflow-x: auto;
+    &::-webkit-scrollbar {
+      display: none;
+    }
 
     li {
       display: flex;
