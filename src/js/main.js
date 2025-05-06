@@ -20,9 +20,7 @@ $(document).ready(function () {
 
   handleResponsiveBehavior(); // перевірка при старті
 
-  $(window).on("resize", function () {
-    handleResponsiveBehavior(); // перевірка при зміні розміру
-  });
+
 
   $(window).scroll(function () {
     return $(".navigation").toggleClass("scroll", $(window).scrollTop() > 0);
@@ -44,6 +42,7 @@ $(document).ready(function () {
       $("#banner-info").remove();
       $(".navigation, header").css("margin-top", "0");
       localStorage.setItem("bannerDismissed", "true");
+      $('.parallax-window').parallax('refresh');
     });
   });
 
@@ -137,7 +136,6 @@ $(document).ready(function () {
     arrows: false,
     fade: true,
     asNavFor: ".gallery-slider-nav",
-    autoplay: true,
   });
 
   $(".gallery-slider-nav").slick({
@@ -146,6 +144,7 @@ $(document).ready(function () {
     asNavFor: ".gallery-slider",
     dots: false,
     focusOnSelect: true,
+    autoplay: true,
     prevArrow: `<svg class="gallery-slider-prev">
               <use xlink:href="#arr-left"></use>
             </svg>`,
@@ -177,6 +176,10 @@ $(document).ready(function () {
     // Перезапуск slick
     $(".dinning-room__slider").slick("setPosition");
     $(".dinning-room__slider-nav").slick("setPosition");
+
+    // Перелистування на перший слайд
+    $(".dinning-room__slider").slick("slickGoTo", 0);
+    $(".dinning-room__slider-nav").slick("slickGoTo", 0);
   });
 
   $(".reviews__slider").slick({
@@ -255,78 +258,108 @@ $(document).ready(function () {
   $(".mobile-btn").click(function () {
     $(this).toggleClass("active");
     $("#navigation-menu").toggleClass("active");
-    // $('body').addClass('overflow-hidden')
+    $('body').toggleClass('overflow-hidden')
   });
 
-  if (isMobile()) {
-    $(".room-furniture__slider").slick({
-      dots: true,
-      arrows: false,
-      variableWidth: true,
-      slidesToShow: 1,
-    });
+
+  function initRoomFurnitureSlider() {
+    if (isMobile()) {
+      if (!$(".room-furniture__slider").hasClass("slick-initialized")) {
+        $(".room-furniture__slider").slick({
+          dots: true,
+          arrows: false,
+          variableWidth: true,
+          slidesToShow: 1,
+        });
+      }
+    } else {
+
+      if ($(".room-furniture__slider").hasClass("slick-initialized")) {
+        $(".room-furniture__slider").slick("unslick"); // Знищуємо слайдер
+      }
+      if($("#navigation-menu").hasClass("active")) {
+        $('body').removeClass('overflow-hidden')
+      }
+    }
+  }
+  
+  // Викликаємо функцію при завантаженні сторінки
+  initRoomFurnitureSlider();
+
+  function playHeaderAnimation() {
+    const scrollSpeedMultiplier = 1;
+  
+    function calculateHeaderAnimation() {
+      const scrollY = $(window).scrollTop();
+  
+      $(".scroll-section").each(function () {
+        const $section = $(this);
+        const $headers = $section.find(".scroll-header"); // Знаходимо всі заголовки в секції
+        let totalHeaderHeight = 0;
+  
+        // Обчислюємо загальну висоту всіх заголовків
+        $headers.each(function () {
+          totalHeaderHeight += $(this).outerHeight();
+        });
+  
+        let sectionTop = $section.offset().top - 100;
+  
+        // Отримуємо gradientP і перевіряємо його
+        let gradientP = Number($section.data("numb"));
+  
+        if (!gradientP || gradientP <= 0) {
+          gradientP = 0.5; // Значення за замовчуванням
+        }
+  
+        if (isMobile()) {
+          sectionTop = $section.offset().top + 120;
+        }
+  
+        const sectionHeight = $section.outerHeight();
+        const sectionScroll = scrollY + window.innerHeight - sectionTop;
+  
+        const scrollProgress = Math.min(
+          Math.max(sectionScroll / (sectionHeight / scrollSpeedMultiplier), 0),
+          1
+        );
+  
+        if (scrollProgress <= 0) return;
+  
+        let start, end;
+  
+        if (scrollProgress <= 0.5) {
+          const p = scrollProgress / gradientP; // gradientP тепер завжди коректний
+          start = (100 - (100 - 66.86) * p).toFixed(2);
+          end = (100 - (100 - 67.16) * p).toFixed(2);
+        }
+  
+        const whiteProgress = (100 - parseFloat(start)) / 100;
+        const translateY = totalHeaderHeight * whiteProgress; // Використовуємо загальну висоту заголовків
+  
+        const gradient = `linear-gradient(180deg, #000 0%, #000 ${start}%, #FFF ${end}%, #FFF 100%)`;
+  
+        $headers.css({
+          transform: `translateY(${translateY}px)`,
+          background: gradient,
+          "-webkit-background-clip": "text",
+          "-webkit-text-fill-color": "transparent",
+          "background-clip": "text",
+        });
+      });
+    }
+  
+    // Викликаємо функцію при скролі
+    $(window).on("scroll", calculateHeaderAnimation);
+  
+    // Викликаємо функцію при зміні розміру вікна
+    $(window).on("resize", calculateHeaderAnimation);
+  
+    // Викликаємо функцію один раз при завантаженні сторінки
+    calculateHeaderAnimation();
   }
 
-  const scrollSpeedMultiplier = 1;
 
-$(window).on("scroll", function () {
-  const scrollY = $(this).scrollTop();
-
-  $(".scroll-section").each(function () {
-    const $section = $(this);
-    const $headers = $section.find(".scroll-header"); // Знаходимо всі заголовки в секції
-    let totalHeaderHeight = 0;
-
-    // Обчислюємо загальну висоту всіх заголовків
-    $headers.each(function () {
-      totalHeaderHeight += $(this).outerHeight();
-    });
-
-    let sectionTop = $section.offset().top - 100;
-
-    // Отримуємо gradientP і перевіряємо його
-    let gradientP = Number($section.data("numb"));
-    
-    if (!gradientP || gradientP <= 0) {
-      gradientP = 0.5; // Значення за замовчуванням
-    }
-
-    if (isMobile()) {
-      sectionTop = $section.offset().top + 120;
-    }
-
-    const sectionHeight = $section.outerHeight();
-    const sectionScroll = scrollY + window.innerHeight - sectionTop;
-
-    const scrollProgress = Math.min(
-      Math.max(sectionScroll / (sectionHeight / scrollSpeedMultiplier), 0),
-      1
-    );
-
-    if (scrollProgress <= 0) return;
-
-    let start, end;
-
-    if (scrollProgress <= 0.5) {
-      const p = scrollProgress / gradientP; // gradientP тепер завжди коректний
-      start = (100 - (100 - 66.86) * p).toFixed(2);
-      end = (100 - (100 - 67.16) * p).toFixed(2);
-    }
-
-    const whiteProgress = (100 - parseFloat(start)) / 100;
-    const translateY = totalHeaderHeight * whiteProgress; // Використовуємо загальну висоту заголовків
-
-    const gradient = `linear-gradient(180deg, #000 0%, #000 ${start}%, #FFF ${end}%, #FFF 100%)`;
-
-    $headers.css({
-      transform: `translateY(${translateY}px)`,
-      background: gradient,
-      "-webkit-background-clip": "text",
-      "-webkit-text-fill-color": "transparent",
-      "background-clip": "text",
-    });
-  });
-});
+  playHeaderAnimation();
 
   $("#search-button").click(function (e) {
     e.preventDefault();
@@ -381,7 +414,7 @@ $(window).on("scroll", function () {
         filtersSelectsCount++;
       }
 
-      if (filtersSelectsCount > 1) {
+      if (filtersSelectsCount > 0) {
         $(".filters__reset-all").show();
       } else {
         $(".filters__reset-all").hide();
@@ -723,5 +756,14 @@ $(window).on("scroll", function () {
   onScroll();
   
   $('input[name="phone"]').inputmask("+9{1,15}");
+
   
+  $(window).on("resize", function () {
+    handleResponsiveBehavior(); // перевірка при зміні розміру
+    $('.parallax-window').parallax('refresh');
+    playHeaderAnimation();
+    initRoomFurnitureSlider();
+
+  });
+
 });

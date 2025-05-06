@@ -28,10 +28,11 @@ $(document).ready(function () {
 
     options.forEach((opt, index) => {
       const inputType = isMultiple ? 'checkbox' : 'radio';
+      const inputName = isMultiple ? '' : ($select.attr('name') || `custom-select-${Date.now()}`); // Унікальне ім'я, якщо відсутнє
       const isChecked = opt.selected ? 'checked' : '';
       const $opt = $(`
         <label class="dropdown-option" style="${index >= maxVisible ? 'display: none;' : ''}">
-          <input type="${inputType}" name="${isMultiple ? '' : $select.attr('name')}" value="${opt.value}" ${isChecked}> 
+          <input type="${inputType}" name="${inputName}" value="${opt.value}" ${isChecked}> 
           <span>${opt.text}</span>
         </label>
       `);

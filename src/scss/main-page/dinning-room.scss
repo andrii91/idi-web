@@ -56,12 +56,12 @@
     li {
       a {
         color: #000;
-        font-size: 40px;
+        font-size: 32px;
         font-style: normal;
         font-weight: 300;
         line-height: normal;
         opacity: 0.4;
-        transition: .3s;
+        transition: .15s;
         padding-bottom: 6px;
         border-bottom: 1px solid transparent;
         text-decoration: none;
@@ -84,19 +84,19 @@
         }
 
         sup {
-          transition: .3s;
+          transition: .15s;
           opacity: 0;
           width: 0;
           top: 7px;
           height: auto;
           font-size: 20px;
           line-height: 0;
-          position: absolute;
-          right: -24px;
+          // position: absolute;
+          // right: -24px;
 
           @media screen and (min-width: 1024px) and (max-width: 1320px) {
             font-size: vw(20px);
-            right: vw(-26px);
+            // right: vw(-26px);
           }
 
           @media screen and (max-width: 1023px) {
@@ -136,7 +136,7 @@
         @media screen and (min-width: 1024px) and (max-width: 1320px) {
           max-height: vw(632px);
         }
-        @media screen and (max-width: 1023px) {
+        @media screen and (max-width: 767px) {
           max-height: 263px;
         }
         

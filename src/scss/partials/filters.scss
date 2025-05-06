@@ -26,7 +26,7 @@
         gap: 8px;
         background: #F8F8F8;
         text-decoration: none;
-        transition: .3s;
+        transition: .15s;
         text-wrap: nowrap;
 
         img {
@@ -94,7 +94,7 @@
     line-height: 18px; /* 100% */
     border: 0;
     background: 0 0;
-    transition: .3s;
+    transition: .15s;
     cursor: pointer;
 
     &:hover {
@@ -118,7 +118,7 @@
     overflow-y: auto;
     display: flex;
     left: -120vw;
-    transition: .3s;
+    transition: .15s;
     opacity: 0;
     box-shadow: 0px 4px 11.8px 0px rgba(0, 0, 0, 0.15);
     

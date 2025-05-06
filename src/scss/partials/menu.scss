@@ -6,7 +6,7 @@
   width: 100%;
   background: #000;
   padding: 26px 0;
-  transition: .3s;
+  transition: .15s;
   z-index: 1000;
 
   &.scroll {
@@ -51,7 +51,7 @@
 
   &-logo {
     max-width: 152px;
-    transition: .3s;
+    transition: .15s;
 
     @media screen and (min-width: 1024px) and (max-width: 1320px) {
       max-width: vw(152px);
@@ -59,7 +59,7 @@
     img {
       width: 132px;
       height: 132px;
-      transition: .3s;
+      transition: .15s;
       border-radius: 50%;
 
       @media screen and (min-width: 1024px) and (max-width: 1320px) {
@@ -70,6 +70,7 @@
       @media screen and (max-width: 1023px) {
         height: 40px;
         width: 140px;
+        min-width: 140px;
         border-radius: 0;
       }
     }
@@ -114,7 +115,7 @@
 
   &-content {
     max-width: calc(100% - 156px);
-    transition: .3s;
+    transition: .15s;
     margin-left: auto;
 
     @media screen and (min-width: 1024px) and (max-width: 1320px) {
@@ -148,7 +149,7 @@
         line-height: normal;
         text-wrap: nowrap;
         text-decoration: none;
-        transition: .3s;
+        transition: .15s;
 
         @media screen and (min-width: 1024px) and (max-width: 1320px) {
           min-width: vw(168px);
@@ -206,7 +207,7 @@
       height: calc(100vh - 120px);
       overflow-y: auto;
       z-index: -999999999999999999;
-      transition: .3s;
+      transition: .15s;
     }
 
     &.active {
@@ -230,7 +231,7 @@
         font-weight: 350;
         line-height: normal;
         text-decoration: none;
-        transition: .3s;
+        transition: .15s;
         text-wrap: nowrap;
         padding: 6px 0;
         position: relative;
@@ -251,7 +252,7 @@
           display: block;
           height: 3px;
           width: 0;
-          transition: .3s;
+          transition: .15s;
           position: absolute;
           bottom: 0;
           left: 0;
@@ -308,8 +309,8 @@
 
       @media screen and (max-width: 1023px) {
         top: 0;
-        height: 100%;
-        max-height: calc(100% - 60px);
+        height: 100vh;
+        max-height: calc(100vh - 60px);
         box-shadow: 0 0;
       }
 
@@ -391,7 +392,7 @@
         svg {
           width: 32px;
           height: 32px;
-          transition: .3s;
+          transition: .15s;
           display: none;
 
           @media screen and (min-width: 1024px) and (max-width: 1320px) {
@@ -593,7 +594,7 @@
         font-weight: 350;
         line-height: normal;
         text-decoration: none;
-        transition: .3s;
+        transition: .15s;
         text-wrap: nowrap;
         padding: 6px 0;
         position: relative;
@@ -608,7 +609,7 @@
           display: block;
           height: 3px;
           width: 0;
-          transition: .3s;
+          transition: .15s;
           position: absolute;
           bottom: 0;
           left: 0;
@@ -644,6 +645,11 @@
         @media screen and (min-width: 1024px) and (max-width: 1320px) {
           max-width: vw(76px);
         }
+
+        @media screen and (max-width: 1023px) {
+          max-width: fit-content;
+        }
+
         img {
           max-width: 140px;
 
@@ -689,8 +695,9 @@
   left: 0;
   right: 0;
   z-index: 1001;
-  transition: .3s;
+  transition: .15s;
   min-height: 56px;
+  max-height: 60px;
   display: flex;
   align-items: center;
   justify-content: center;

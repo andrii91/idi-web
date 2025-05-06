@@ -24,7 +24,7 @@
       margin-bottom: vw(24px);
     }
 
-    @media screen and (max-width: 1023px) {
+    @media screen and (max-width: 767px) {
       font-size: 44px;
       line-height: 46px; /* 104.545% */
       margin-bottom: 20px;
@@ -65,7 +65,7 @@
       min-height: vw(310px);
     }
 
-    @media screen and (max-width: 1023px) {
+    @media screen and (max-width: 767px) {
       min-height: 160px;
     }
 
@@ -75,7 +75,7 @@
       height: 100%;
       width: 100%;
       object-fit: contain;
-      transition: .3s; 
+      transition: .15s; 
       position: relative;
       z-index: 0;
       mix-blend-mode: multiply;
@@ -100,7 +100,7 @@
     font-weight: 500;
     line-height: normal;
 
-    @media screen and (max-width: 1023px) {
+    @media screen and (max-width: 767px) {
       font-size: 12px;
       padding: 6px;
     }
@@ -121,7 +121,7 @@
         height: vw(32px);
       }
 
-      @media screen and (max-width: 1023px) {
+      @media screen and (max-width: 767px) {
         width: 18px;
         height: 18px;
       }
@@ -180,7 +180,7 @@
     -webkit-box-orient: vertical;
     overflow: hidden;
 
-    @media screen and (max-width: 1023px) {
+    @media screen and (max-width: 767px) {
       display: -webkit-box;
       -webkit-line-clamp: 2; /* обмеження на 2 рядки */
       -webkit-box-orient: vertical;

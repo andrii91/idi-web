@@ -89,7 +89,7 @@
       font-weight: 300;
       line-height: normal;
       text-decoration: none;
-      transition: .3s;
+      transition: .15s;
 
       &:hover {
         text-decoration: underline;
@@ -121,11 +121,11 @@ body {
   line-height: 32px;
   max-width: fit-content;
   text-decoration: none;
-  transition: all 0.3s ease-in-out;
+  transition: all 0.15s ease-in-out;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 12px;
+  gap: 8px;
   border: 0;
 
   sup {
@@ -159,25 +159,27 @@ body {
     background: #FFF;
 
     &:hover {
-      background: #F2F2F2;
-      transform: translateY(-2px);
-      box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+      background: #E5E5E5;
     }
 
     &:focus,
     &:active {
       outline: none;
-      background: #E1E1E1;
+      background: #D1D3D7;
     }
 
     &:disabled {
       opacity: 0.5;
-      background: #E1E1E1;
+      background: #D1D3D7;
     }
   }
 
   &-outline {
     border: 1px solid #000;
+
+    &:hover {
+      background: #fff;
+    }
   }
 
   &-dark {
@@ -185,20 +187,18 @@ body {
     color: #fff;
 
     &:hover {
-      background: #202020;
-      transform: translateY(-2px);
-      box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+      background: #191D35;
     }
 
     &:focus,
     &:active {
       outline: none;
-      background: #2D2D2D;
+      background: #303343;
     }
 
     &:disabled {
       opacity: 0.5;
-      background: #2D2D2D;
+      background: #303343;
     }
   }
 }
@@ -267,6 +267,12 @@ html {
 
       @media screen and (min-width: 1024px) and (max-width: 1320px) {
         padding: 0 vw(10px);
+      }
+
+      &.slick-current {
+        img {
+          border: 1px solid #070707;
+        }
       }
     }
 
@@ -424,7 +430,7 @@ label {
     .arrow {
       width: 20px;
       height: 20px;
-      transition: .3s;
+      transition: .15s;
 
       @media screen and (min-width: 1024px) and (max-width: 1320px) {
         width: vw(20px);
@@ -600,7 +606,7 @@ label {
       width: 32px;
       min-width: 32px;
       height: 32px;
-      transition: .3s;
+      transition: .15s;
     }
 
     &.open {
@@ -645,7 +651,7 @@ label {
     -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
     overflow: hidden;
-    transition: .3s;
+    transition: .15s;
 
     &.open {
       overflow: visible;
@@ -672,7 +678,7 @@ label {
     }
   }
   img {
-    transition: .3s;
+    transition: .15s;
     width: 100%;
     background: #fff;
   }
@@ -691,11 +697,19 @@ label {
     left: 50%;
     transform: translateX(-50%) translateY(-50%);
     opacity: 0;
-    transition: .3s;
+    transition: .15s;
 
     .icon {
       width: 24px;
       height: 24px;
     }
+  }
+}
+
+input[type="search"] {
+  &::-webkit-search-cancel-button {
+    -webkit-appearance: none;
+    appearance: none;
+    display: none;
   }
 }

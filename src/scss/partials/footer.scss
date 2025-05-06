@@ -85,7 +85,7 @@
         svg {
           width: 24px;
           height: 24px;
-          transition: .3s;
+          transition: .15s;
 
           @media screen and (min-width: 1024px) and (max-width: 1320px) {
             width: vw(24px);
@@ -94,7 +94,7 @@
         }
 
         color: #fff;
-        transition: .3s;
+        transition: .15s;
 
         &:hover {
           opacity: .8;
@@ -166,13 +166,12 @@
     }
 
     li {
-      a {
-        color: #9CA3AF;
+      color: #9CA3AF;
         font-size: 16px;
         font-style: normal;
         font-weight: 300;
         line-height: 26px; /* 162.5% */
-        transition: .3s;
+        transition: .15s;
         text-decoration: none;
         display: flex;
         align-items: center;
@@ -181,6 +180,7 @@
           font-size: vw(16px);
           line-height: vw(26px); 
         }
+
 
         span {
           min-width: 113px;
@@ -191,8 +191,25 @@
           }
         }
 
+      a {
+        color: #9CA3AF;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 300;
+        line-height: 26px; /* 162.5% */
+        transition: .15s;
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+
+        @media screen and (min-width: 1024px) and (max-width: 1320px) {
+          font-size: vw(16px);
+          line-height: vw(26px); 
+        }
+
+
         &:hover {
-          color: #fff;
+          text-decoration: underline;
         }
       }
     }

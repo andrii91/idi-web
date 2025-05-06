@@ -246,6 +246,7 @@
         object-fit: contain;
         height: 196px;
         width: 100%;
+        mix-blend-mode: multiply;
       }
 
       &.active {
@@ -270,7 +271,7 @@
       line-height: normal;
       margin-top: auto;
       opacity: 0;
-      transition: .3s;
+      transition: .15s;
 
       @media screen and (max-width: 1023px) {
         opacity: 1;

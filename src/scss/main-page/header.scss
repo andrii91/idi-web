@@ -1,6 +1,8 @@
 .header {
   padding-top: 184px;
-  background: $black;
+  background: linear-gradient(rgb(0, 0, 0) 0%, rgb(0, 0, 0) 67.41%, rgb(243, 244, 246) 67.7%, rgb(243, 244, 246) 100%);
+  padding-bottom: 36px;
+  overflow: hidden;
   @media screen and (min-width: 1024px) and (max-width: 1320px) {
     padding-top: vw(184px);
   }
@@ -82,7 +84,7 @@
 
       .btn {
         margin-top: auto;
-        @media screen and (max-width: 1023px) {
+        @media screen and (max-width: 767px) {
           max-width: 100%;
           width: 100%;
           margin-bottom: 40px;
@@ -117,7 +119,7 @@
         min-height: vw(54px);
       }
 
-      @media screen and (max-width: 1023px) {
+      @media screen and (max-width: 767px) {
         padding: 8px 20px;
         font-size: 16px;
         line-height: 1;
@@ -163,7 +165,7 @@
         margin-bottom: vw(12px);
       }
 
-      @media screen and (max-width: 1023px) {
+      @media screen and (max-width: 767px) {
         font-size: 38px;
         line-height: 42px;
       }
@@ -182,7 +184,7 @@
         margin-bottom: vw(32px);
       }
 
-      @media screen and (max-width: 1023px) {
+      @media screen and (max-width: 767px) {
         font-size: 16px;
       }
     }
@@ -290,6 +292,11 @@
       cursor: pointer;
       background: #FFF;
       transition: all 0.3s ease-in-out;
+
+      svg {
+        width: 32px;
+        height: 32px;
+      }
 
       @media screen and (min-width: 1024px) and (max-width: 1320px) {
         width: vw(72px);

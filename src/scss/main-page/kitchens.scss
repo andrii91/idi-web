@@ -33,7 +33,7 @@
   }
 
   &__slider {
-    @media screen and (max-width: 1023px) {
+    @media screen and (max-width: 767px) {
       width: calc(100% + 40px);
       margin-left: -20px;
     }
@@ -47,7 +47,7 @@
         @media screen and (min-width: 1024px) and (max-width: 1320px) {
           max-height: vw(686px);
         }
-        @media screen and (max-width: 1023px) {
+        @media screen and (max-width: 767px) {
           max-height: 263px;
         }
       }
