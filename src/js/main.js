@@ -393,11 +393,38 @@ $(document).ready(function () {
       // Правильний обробник вводу
       $("#search-block input").on("input", function () {
         const value = $(this).val();
+        const $resetButton = $(this).closest('.search__form').find('.search__reset');
+        
+        if (value.length > 0) {
+          $resetButton.fadeIn(200);
+        } else {
+          $resetButton.fadeOut(200);
+        }
+        
         if (value.length > 2) {
           $("#search-results").fadeIn(200);
         } else {
           $("#search-results").fadeOut(200);
         }
+      });
+
+      // Обробник для кнопки скидання пошуку
+      $("#search-block .search__reset").on("click", function (e) {
+        e.preventDefault();
+        const $input = $(this).closest('.search__form').find('input');
+        const $resetButton = $(this);
+        
+        // Очищаємо поле вводу
+        $input.val('');
+        
+        // Ховаємо кнопку скидання
+        $resetButton.fadeOut(200);
+        
+        // Ховаємо результати пошуку
+        $("#search-results").fadeOut(200);
+        
+        // Повертаємо фокус на поле вводу
+        $input.focus();
       });
     }, 10);
   });

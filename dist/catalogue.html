@@ -530,11 +530,18 @@
         <div class="search" id="search-block">
   <form action="search.html" class="search__form">
     <input class="input-text" type="search" name="search" >
-    <button type="submit">
-      <svg class="icon">
-        <use xlink:href="#search"></use>
-      </svg>
-    </button>
+    <div class="search__buttons">
+      <button type="submit" class="search__submit">
+        <svg class="icon">
+          <use xlink:href="#search"></use>
+        </svg>
+      </button>
+      <button type="reset" class="search__reset">
+        <svg class="icon">
+          <use xlink:href="#close"></use>
+        </svg>
+      </button>
+    </div>
   </form>
 
   <div class="search__results" id="search-results">
@@ -736,67 +743,69 @@
   </div>
 
   <div class="filters-mobile">
-    <div class="filters-mobile__header">
-      <h4 class="filters-mobile__title">Filters</h4>
-      <svg class="filters-mobile__close icon">
-        <use xlink:href="#close"></use>
-      </svg>
-    </div>
-
-    <div class="filters-mobile__content group-selects">
-      <select name="brands" class="custom-select" multiple data-placeholder="Brand" data-placeholder-search="Search brand">
-        <option>4Mariani</option>
-        <option>Airnova</option>
-        <option>Bonaldo</option>
-        <option>Bross</option>
-        <option>Carpanelli</option>
-        <option>Casa Divani</option>
-        <option>4Mariani 1</option>
-        <option>Airnova 2</option>
-        <option>Bonaldo 3</option>
-      </select>
-
-      <select name="" class="custom-select" multiple data-placeholder="Type">
-        <option>4Mariani</option>
-        <option>Airnova</option>
-        <option>Bonaldo</option>
-        <option>Bross</option>
+    <div class="filters-mobile__wrap">
+      <div class="filters-mobile__header">
+        <h4 class="filters-mobile__title">Filters</h4>
+        <svg class="filters-mobile__close icon">
+          <use xlink:href="#close"></use>
+        </svg>
+      </div>
+  
+      <div class="filters-mobile__content group-selects">
+        <select name="brands" class="custom-select" multiple data-placeholder="Brand" data-placeholder-search="Search brand">
+          <option>4Mariani</option>
+          <option>Airnova</option>
+          <option>Bonaldo</option>
+          <option>Bross</option>
+          <option>Carpanelli</option>
+          <option>Casa Divani</option>
+          <option>4Mariani 1</option>
+          <option>Airnova 2</option>
+          <option>Bonaldo 3</option>
+        </select>
+  
+        <select name="" class="custom-select" multiple data-placeholder="Type">
+          <option>4Mariani</option>
+          <option>Airnova</option>
+          <option>Bonaldo</option>
+          <option>Bross</option>
+          
+        </select>
         
-      </select>
-      
-      <select name="" class="custom-select" multiple data-placeholder="Upholstery">
-        <option>Item 1</option>
-        <option>Item 2</option>
-        <option>Item 3</option>
-        <option>Item 4</option>
-        <option>Item 5</option>
-      
-      </select>
-      <select name="" class="custom-select" multiple data-placeholder="Shape">
-        <option>Item 1</option>
-        <option>Item 2</option>
-        <option>Item 3</option>
-        <option>Item 4</option>
-        <option>Item 5</option>
-      
-      </select>
-      <select name="" class="custom-select" multiple data-placeholder="Size">
-        <option>Item 1</option>
-        <option>Item 2</option>
-        <option>Item 3</option>
-        <option>Item 4</option>
-        <option>Item 5</option>
-      </select>
-    </div>
-
-    <div class="filters-mobile__footer">
-      <button class="btn btn-dark filters-mobile__apply">
-        Apply filters<sup>4</sup>
-      </button>
-      <button type="button" class="filters__reset-all btn btn-primary">
-        <span>Reset all</span>
-      </button>
-    </div>
+        <select name="" class="custom-select" multiple data-placeholder="Upholstery">
+          <option>Item 1</option>
+          <option>Item 2</option>
+          <option>Item 3</option>
+          <option>Item 4</option>
+          <option>Item 5</option>
+        
+        </select>
+        <select name="" class="custom-select" multiple data-placeholder="Shape">
+          <option>Item 1</option>
+          <option>Item 2</option>
+          <option>Item 3</option>
+          <option>Item 4</option>
+          <option>Item 5</option>
+        
+        </select>
+        <select name="" class="custom-select" multiple data-placeholder="Size">
+          <option>Item 1</option>
+          <option>Item 2</option>
+          <option>Item 3</option>
+          <option>Item 4</option>
+          <option>Item 5</option>
+        </select>
+      </div>
+  
+      <div class="filters-mobile__footer">
+        <button class="btn btn-dark filters-mobile__apply">
+          Apply filters<sup>4</sup>
+        </button>
+        <button type="button" class="filters__reset-all btn btn-primary">
+          <span>Reset all</span>
+        </button>
+      </div>
+    </div> 
   </div>
 </div>
   </div>

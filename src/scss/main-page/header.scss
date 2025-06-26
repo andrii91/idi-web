@@ -10,6 +10,20 @@
   @media screen and (max-width: 1023px) {
     padding-top: 60px;
   }
+
+  .btn-primary {
+    &:hover {
+      background: #070707;
+      color: #FFF;
+    }
+
+    &:focus,
+    &:active {
+      outline: none;
+      background: #474747;
+      color: #FFF;
+    }
+  }
 }
 
 .slider {

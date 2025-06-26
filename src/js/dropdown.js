@@ -30,9 +30,10 @@ $(document).ready(function () {
       const inputType = isMultiple ? 'checkbox' : 'radio';
       const inputName = isMultiple ? '' : ($select.attr('name') || `custom-select-${Date.now()}`); // Унікальне ім'я, якщо відсутнє
       const isChecked = opt.selected ? 'checked' : '';
+      const uniqueId = `option-${Date.now()}-${index}`;
       const $opt = $(`
-        <label class="dropdown-option" style="${index >= maxVisible ? 'display: none;' : ''}">
-          <input type="${inputType}" name="${inputName}" value="${opt.value}" ${isChecked}> 
+        <label for="${uniqueId}" class="dropdown-option" style="${index >= maxVisible ? 'display: none;' : ''}">
+          <input type="${inputType}" name="${inputName}" id="${uniqueId}" value="${opt.value}" ${isChecked}> 
           <span>${opt.text}</span>
         </label>
       `);

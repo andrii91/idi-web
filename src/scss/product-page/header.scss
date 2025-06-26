@@ -338,6 +338,14 @@
         width: 100%;
       }
     }
+    .btn-outline {
+      border-color: #A5A5A5;
+      background: #fff;
 
+      &:hover {
+        border-color: #000;
+        background: #F8F8F8;
+      }
+    }
   }
 }
