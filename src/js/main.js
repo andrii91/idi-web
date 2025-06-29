@@ -13,7 +13,7 @@ $(document).ready(function () {
   function updateBannerMargin() {
     const isBannerDismissed = localStorage.getItem("bannerDismissed") === "true";
     
-    if (!isBannerDismissed) {
+    if (!isBannerDismissed && $("#banner-info").length) {
       const bannerHeight = isMobile() ? 60 : 56;
       $(".navigation, header").css("margin-top", bannerHeight + "px");
     } else {
