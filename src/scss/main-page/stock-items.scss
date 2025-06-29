@@ -75,7 +75,7 @@
       height: 100%;
       width: 100%;
       object-fit: contain;
-      transition: .15s; 
+      transition: $transition-duration; 
       position: relative;
       z-index: 0;
       mix-blend-mode: multiply;

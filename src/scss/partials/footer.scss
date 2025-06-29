@@ -12,6 +12,7 @@
 
   &__logo {
     display: inline-flex;
+
     img {
       max-width: 190px;
 
@@ -86,7 +87,7 @@
         svg {
           width: 24px;
           height: 24px;
-          transition: .15s;
+          transition: $transition-duration;
 
           @media screen and (min-width: 1024px) and (max-width: 1320px) {
             width: vw(24px);
@@ -95,7 +96,7 @@
         }
 
         color: #fff;
-        transition: .15s;
+        transition: $transition-duration;
 
         &:hover {
           opacity: .8;
@@ -168,44 +169,46 @@
 
     li {
       color: #9CA3AF;
-        font-size: 16px;
-        font-style: normal;
-        font-weight: 300;
-        line-height: 26px; /* 162.5% */
-        transition: .15s;
-        text-decoration: none;
-        display: flex;
-        align-items: center;
+      font-size: 16px;
+      font-style: normal;
+      font-weight: 300;
+      line-height: 26px;
+      /* 162.5% */
+      transition: $transition-duration;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+
+      @media screen and (min-width: 1024px) and (max-width: 1320px) {
+        font-size: vw(16px);
+        line-height: vw(26px);
+      }
+
+
+      span {
+        min-width: 113px;
+        margin-left: auto;
 
         @media screen and (min-width: 1024px) and (max-width: 1320px) {
-          font-size: vw(16px);
-          line-height: vw(26px); 
+          min-width: vw(113px);
         }
-
-
-        span {
-          min-width: 113px;
-          margin-left: auto;
-
-          @media screen and (min-width: 1024px) and (max-width: 1320px) {
-            min-width: vw(113px);
-          }
-        }
+      }
 
       a {
         color: #9CA3AF;
         font-size: 16px;
         font-style: normal;
         font-weight: 300;
-        line-height: 26px; /* 162.5% */
-        transition: .15s;
+        line-height: 26px;
+        /* 162.5% */
+        transition: $transition-duration;
         text-decoration: none;
         display: flex;
         align-items: center;
 
         @media screen and (min-width: 1024px) and (max-width: 1320px) {
           font-size: vw(16px);
-          line-height: vw(26px); 
+          line-height: vw(26px);
         }
 
 
@@ -236,12 +239,13 @@
     font-size: 16px;
     font-style: normal;
     font-weight: 300;
-    line-height: 26px; /* 162.5% */
+    line-height: 26px;
+    /* 162.5% */
     margin-top: 60px;
 
     @media screen and (min-width: 1024px) and (max-width: 1320px) {
       font-size: vw(16px);
-      line-height: vw(26px); 
+      line-height: vw(26px);
       margin-top: vw(60px);
     }
 

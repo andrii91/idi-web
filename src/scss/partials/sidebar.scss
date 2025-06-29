@@ -271,7 +271,7 @@
       line-height: normal;
       margin-top: auto;
       opacity: 0;
-      transition: .15s;
+      transition: $transition-duration;
 
       @media screen and (max-width: 1023px) {
         opacity: 1;
@@ -324,7 +324,7 @@
   background: white;
   z-index: 1000000;
   transform: scale(1);
-  transition: transform 0.3s ease, opacity 0.3s ease;
+  transition: transform $transition-duration ease, opacity $transition-duration ease;
   pointer-events: none;
   padding: 8px;
 

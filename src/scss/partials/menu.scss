@@ -6,7 +6,7 @@
   width: 100%;
   background: #000;
   padding: 26px 0;
-  transition: .15s;
+  transition: $transition-duration;
   z-index: 1000;
 
   &.scroll {
@@ -51,7 +51,7 @@
 
   &-logo {
     max-width: 152px;
-    transition: .15s;
+    transition: $transition-duration;
 
     @media screen and (min-width: 1024px) and (max-width: 1320px) {
       max-width: vw(152px);
@@ -59,7 +59,7 @@
     img {
       width: 132px;
       height: 132px;
-      transition: .15s;
+      transition: $transition-duration;
       border-radius: 50%;
 
       @media screen and (min-width: 1024px) and (max-width: 1320px) {
@@ -115,7 +115,7 @@
 
   &-content {
     max-width: calc(100% - 156px);
-    transition: .15s;
+    transition: $transition-duration;
     margin-left: auto;
 
     @media screen and (min-width: 1024px) and (max-width: 1320px) {
@@ -149,7 +149,7 @@
         line-height: normal;
         text-wrap: nowrap;
         text-decoration: none;
-        transition: .15s;
+        transition: $transition-duration;
 
         @media screen and (min-width: 1024px) and (max-width: 1320px) {
           min-width: vw(168px);
@@ -207,7 +207,7 @@
       height: calc(100vh - 120px);
       overflow-y: auto;
       z-index: -999999999999999999;
-      transition: .15s;
+      transition: $transition-duration;
     }
 
     &.active {
@@ -231,7 +231,7 @@
         font-weight: 350;
         line-height: normal;
         text-decoration: none;
-        transition: .15s;
+        transition: $transition-duration;
         text-wrap: nowrap;
         padding: 6px 0;
         position: relative;
@@ -252,7 +252,7 @@
           display: block;
           height: 3px;
           width: 0;
-          transition: .15s;
+          transition: $transition-duration;
           position: absolute;
           bottom: 0;
           left: 0;
@@ -392,7 +392,7 @@
         svg {
           width: 32px;
           height: 32px;
-          transition: .15s;
+          transition: $transition-duration;
           display: none;
 
           @media screen and (min-width: 1024px) and (max-width: 1320px) {
@@ -594,7 +594,7 @@
         font-weight: 350;
         line-height: normal;
         text-decoration: none;
-        transition: .15s;
+        transition: $transition-duration;
         text-wrap: nowrap;
         padding: 6px 0;
         position: relative;
@@ -609,7 +609,7 @@
           display: block;
           height: 3px;
           width: 0;
-          transition: .15s;
+          transition: $transition-duration;
           position: absolute;
           bottom: 0;
           left: 0;
@@ -695,12 +695,13 @@
   left: 0;
   right: 0;
   z-index: 1001;
-  transition: .15s;
+  transition: $transition-duration;
   min-height: 56px;
   max-height: 60px;
   display: flex;
   align-items: center;
   justify-content: center;
+  opacity: 0;
 
   @media screen and (max-width: 1023px) {
     font-size: 16px;

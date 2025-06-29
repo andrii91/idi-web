@@ -305,7 +305,7 @@
       align-items: center;
       cursor: pointer;
       background: #FFF;
-      transition: all 0.3s ease-in-out;
+      transition: all $transition-duration ease-in-out;
 
       svg {
         width: 32px;

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="initial-scale=1.0, width=device-width">
+  <meta name="Title" content="Italian Design Interiors" />
+  <meta name="description" content="" />
+  <meta property="og:type" content="article" />
+  <meta property="og:description" content="" />
+  <meta property="og:url" content="" />
+  <meta property="og:sitename" content="" />
+  <meta property="og:title" content="Italian Design Interiors">
+  <meta property="og:image" content="images/og.png" />
+  <title>Italian Design Interiors</title>
+  <link rel="icon" type="image/png" href="favicon/favicon-96x96.png" sizes="96x96" />
+  <link rel="icon" type="image/svg+xml" href="favicon/favicon.svg" />
+  <link rel="shortcut icon" href="favicon/favicon.ico" />
+  <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png" />
+  <link rel="manifest" href="favicon/site.webmanifest" />
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div class="container">
+  <h1>Fancybox Examples</h1>
+  
+  <section class="mb-5">
+    <h2>Single Image with Fancybox</h2>
+    <p>Click on the image below to open it in Fancybox:</p>
+    <a href="images/furniture-1.webp" data-fancybox>
+      <img src="images/furniture-1.webp" alt="Furniture" style="max-width: 300px; cursor: pointer;">
+    </a>
+  </section>
+
+  <section class="mb-5">
+    <h2>Image Gallery with Fancybox</h2>
+    <p>Click on any image to open the gallery:</p>
+    <div class="row">
+      <div class="col-md-3 mb-3">
+        <a href="images/furniture-1.webp" data-fancybox="gallery">
+          <img src="images/furniture-1.webp" alt="Furniture 1" style="width: 100%; cursor: pointer;">
+        </a>
+      </div>
+      <div class="col-md-3 mb-3">
+        <a href="images/furniture-2.webp" data-fancybox="gallery">
+          <img src="images/furniture-2.webp" alt="Furniture 2" style="width: 100%; cursor: pointer;">
+        </a>
+      </div>
+      <div class="col-md-3 mb-3">
+        <a href="images/furniture-3.webp" data-fancybox="gallery">
+          <img src="images/furniture-3.webp" alt="Furniture 3" style="width: 100%; cursor: pointer;">
+        </a>
+      </div>
+      <div class="col-md-3 mb-3">
+        <a href="images/furniture-4.webp" data-fancybox="gallery">
+          <img src="images/furniture-4.webp" alt="Furniture 4" style="width: 100%; cursor: pointer;">
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="mb-5">
+    <h2>HTML Content Modal</h2>
+    <p>Click the button to open an HTML modal:</p>
+    <button class="btn btn-primary" data-fancybox data-src="#html-modal">
+      Open HTML Modal
+    </button>
+  </section>
+
+  <section class="mb-5">
+    <h2>Video Modal</h2>
+    <p>Click the button to open a video modal:</p>
+    <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" data-fancybox>
+      <button class="btn btn-success">Open YouTube Video</button>
+    </a>
+  </section>
+
+  <section class="mb-5">
+    <h2>Custom Gallery with Thumbnails</h2>
+    <p>Gallery with custom options:</p>
+    <div class="row">
+      <div class="col-md-4 mb-3">
+        <a href="images/interior-1.webp" data-fancybox="custom-gallery" data-caption="Interior Design 1">
+          <img src="images/interior-1.webp" alt="Interior 1" style="width: 100%; cursor: pointer;">
+        </a>
+      </div>
+      <div class="col-md-4 mb-3">
+        <a href="images/interior-2.webp" data-fancybox="custom-gallery" data-caption="Interior Design 2">
+          <img src="images/interior-2.webp" alt="Interior 2" style="width: 100%; cursor: pointer;">
+        </a>
+      </div>
+      <div class="col-md-4 mb-3">
+        <a href="images/interior-3.webp" data-fancybox="custom-gallery" data-caption="Interior Design 3">
+          <img src="images/interior-3.webp" alt="Interior 3" style="width: 100%; cursor: pointer;">
+        </a>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- HTML Modal Content -->
+<div style="display: none;" id="html-modal">
+  <div class="p-4">
+    <h3>HTML Modal Content</h3>
+    <p>This is an example of HTML content displayed in a Fancybox modal.</p>
+    <p>You can include any HTML content here, including forms, images, or other elements.</p>
+    <button class="btn btn-secondary" onclick="Fancybox.close()">Close Modal</button>
+  </div>
+</div>
+
+<script defer src="js/bundle.js"></script>
+</body>
+</html>

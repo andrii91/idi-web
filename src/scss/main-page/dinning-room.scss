@@ -61,7 +61,7 @@
         font-weight: 300;
         line-height: normal;
         opacity: 0.4;
-        transition: .15s;
+        transition: $transition-duration;
         padding-bottom: 6px;
         border-bottom: 1px solid transparent;
         text-decoration: none;
@@ -84,7 +84,7 @@
         }
 
         sup {
-          transition: .15s;
+          transition: $transition-duration;
           opacity: 0;
           width: 0;
           top: 7px;

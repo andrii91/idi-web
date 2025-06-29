@@ -3,45 +3,50 @@ $(document).ready(function () {
     const windowWidth = $(window).width();
     const isTouchDevice = "ontouchstart" in document.documentElement;
     const isSmallScreen = windowWidth < 1023;
-    return isTouchDevice || isSmallScreen;
+    return  isSmallScreen;
   }
-
-  function handleResponsiveBehavior() {
-    if (isMobile()) {
-      // мобільна логіка
-      // console.log("Мобільний пристрій або вузький екран");
-      // Наприклад: $('#menu').addClass('mobile');
-    } else {
-      // десктопна логіка
-      // console.log("Десктоп");
-      // Наприклад: $('#menu').removeClass('mobile');
-    }
-  }
-
-  handleResponsiveBehavior(); // перевірка при старті
-
-
 
   $(window).scroll(function () {
     return $(".navigation").toggleClass("scroll", $(window).scrollTop() > 0);
   });
 
+  function updateBannerMargin() {
+    const isBannerDismissed = localStorage.getItem("bannerDismissed") === "true";
+    
+    if (!isBannerDismissed) {
+      const bannerHeight = isMobile() ? 60 : 56;
+      $(".navigation, header").css("margin-top", bannerHeight + "px");
+    } else {
+      $(".navigation, header").css("margin-top", "0");
+    }
+  }
+
+  // Функція для оновлення parallax елементів
+  function updateParallaxElements() {
+    if ($('.parallax-window').length) {
+      // Невелика затримка для забезпечення завершення ресайзу
+      setTimeout(() => {
+        $('.parallax-window').parallax('refresh');
+      }, 100);
+    }
+  }
+
   if (localStorage.getItem("bannerDismissed") !== "true") {
     $("#banner-info").show();
-    $(".navigation, header").css(
-      "margin-top",
-      $("#banner-info").outerHeight() + "px"
-    );
-  } else {
+    $("#banner-info").css("opacity", 1);
+  } else {  
     $("#banner-info").hide();
-    $(".navigation, header").css("margin-top", "0");
+    $("#banner-info").css("opacity", 0);
   }
+  
+  // Викликаємо updateBannerMargin() після встановлення стану банера
+  updateBannerMargin();
 
   $("#banner-info #cancel-icon").click(function () {
     $("#banner-info").fadeOut(500, function () {
-      $("#banner-info").remove();
-      $(".navigation, header").css("margin-top", "0");
       localStorage.setItem("bannerDismissed", "true");
+      updateBannerMargin();
+      $("#banner-info").remove();
       $('.parallax-window').parallax('refresh');
     });
   });
@@ -94,7 +99,7 @@ $(document).ready(function () {
 
   $(window).resize(function () {
     initMenu();
-
+    updateBannerMargin();
     if (!isMobile()) {
       $("body").removeClass("overflow-hidden");
     }
@@ -288,6 +293,7 @@ $(document).ready(function () {
 
   function playHeaderAnimation() {
     const scrollSpeedMultiplier = 1;
+    const triggerOffset = window.innerHeight * 0.6; // 60% висоти екрану
   
     function calculateHeaderAnimation() {
       const scrollY = $(window).scrollTop();
@@ -317,9 +323,28 @@ $(document).ready(function () {
   
         const sectionHeight = $section.outerHeight();
         const sectionScroll = scrollY + window.innerHeight - sectionTop;
+        
+        // Перевіряємо чи користувач проскролив достатньо для початку анімації
+        const hasScrolledEnough = sectionScroll >= triggerOffset;
+        
+        if (!hasScrolledEnough) {
+          // Якщо не проскролили достатньо, скидаємо стилі
+          $headers.css({
+            transform: 'translateY(0px)',
+            background: 'linear-gradient(180deg, #000 0%, #000 100%, #FFF 100%, #FFF 100%)',
+            "-webkit-background-clip": "text",
+            "-webkit-text-fill-color": "transparent",
+            "background-clip": "text",
+          });
+          return;
+        }
   
+        // Обчислюємо прогрес скролу з урахуванням затримки
+        const adjustedScroll = sectionScroll - triggerOffset;
+        const adjustedSectionHeight = sectionHeight - triggerOffset;
+        
         const scrollProgress = Math.min(
-          Math.max(sectionScroll / (sectionHeight / scrollSpeedMultiplier), 0),
+          Math.max(adjustedScroll / (adjustedSectionHeight / scrollSpeedMultiplier), 0),
           1
         );
   
@@ -786,11 +811,30 @@ $(document).ready(function () {
 
   
   $(window).on("resize", function () {
-    handleResponsiveBehavior(); // перевірка при зміні розміру
-    $('.parallax-window').parallax('refresh');
+    // Оновлюємо parallax з додатковими перевірками
+    updateParallaxElements();
+    
     playHeaderAnimation();
     initRoomFurnitureSlider();
+    updateBannerMargin();
+  });
 
+  // Initialize Fancybox
+  Fancybox.bind("[data-fancybox]", {
+    // Your custom options
+    loop: true,
+    buttons: [
+      "zoom",
+      "slideShow",
+      "fullScreen",
+      "thumbs",
+      "close"
+    ],
+    animationEffect: "fade",
+    transitionEffect: "fade",
+    thumbs: {
+      autoStart: false
+    }
   });
 
 });

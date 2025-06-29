@@ -76,3 +76,8 @@
     }
   }
 }
+
+.fancybox__backdrop {
+  background: rgba(15, 11, 31, 0.64);
+  backdrop-filter: blur(5px);
+}

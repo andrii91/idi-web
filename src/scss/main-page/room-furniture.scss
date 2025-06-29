@@ -65,6 +65,10 @@
         max-width: vw(960px);
         min-height: vw(700px);
       }
+      
+      @media screen and (min-width: 1920px) {
+        max-height: 900px;
+      }
 
       .btn {
         margin-top: auto;
@@ -82,7 +86,7 @@
       max-width: 100%;
       height: 100%;
       object-fit: contain;
-      transition: .3s;
+      transition: $transition-duration;
       mix-blend-mode: multiply;
 
       @media screen and (max-width: 1023px) {

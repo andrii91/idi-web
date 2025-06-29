@@ -3,6 +3,38 @@
 // Variables should follow the `$component-state-property-size` formula for
 // consistent naming. Ex: $nav-link-disabled-color and $modal-content-box-shadow-xs.
 
+// Animation speed
+$transition-duration: 0.15s !default;
+
+// Custom colors
+$color-primary: #070707 !default;
+$color-secondary: #000 !default;
+$color-white: #FFF !default;
+$color-black: #000 !default;
+$color-gray-light: #F8F8F8 !default;
+$color-gray-medium: #6B7280 !default;
+$color-gray-dark: #2F2F2F !default;
+$color-gray-darker: #737373 !default;
+$color-gray-bg: #F3F4F6 !default;
+$color-gray-border: #C1C1C1 !default;
+$color-gray-light-bg: #F7F7F7 !default;
+$color-gray-input: #E5E5E5 !default;
+$color-gray-disabled: #D1D3D7 !default;
+$color-gray-hover: #E5E5E5 !default;
+$color-gray-focus: #474747 !default;
+$color-gray-accent: #A5A5A5 !default;
+$color-gray-light-accent: #B4B4B4 !default;
+$color-gray-dots: #D9D9D9 !default;
+$color-blue-light: #E9EFF6 !default;
+$color-purple-dark: #190647 !default;
+$color-green-dark: #014C23 !default;
+$color-red-error: #F00 !default;
+$color-overlay: rgba(15, 11, 31, 0.24) !default;
+$color-overlay-light: rgba(255, 255, 255, 0.80) !default;
+$color-overlay-dark: rgba(0, 0, 0, 0.25) !default;
+$color-overlay-shadow: rgba(0, 0, 0, 0.15) !default;
+$color-purple-accent: rgba(180, 88, 255, 0.64) !default;
+
 // Color system
 
 // scss-docs-start gray-color-variables
