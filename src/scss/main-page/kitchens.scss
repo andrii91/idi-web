@@ -17,18 +17,21 @@
     font-weight: 300;
     line-height: 111px; /* 94.068% */
     margin: 0;
+    padding-top: 36px;
 
     @media screen and (min-width: 1024px) and (max-width: 1320px) {
       max-width: vw(992px);
       padding-left: vw(50px);
       font-size: vw(118px);
       line-height: vw(111px); 
+      padding-top: vw(36px);
     }
 
     @media screen and (max-width: 1023px) {
       font-size: 54px;
       line-height: 1;
-      padding-left: 0px;
+      padding: 0px;
+
     }
   }
 
