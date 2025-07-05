@@ -502,6 +502,101 @@
             </div>
         </div>
 
+        <!-- Button Loaders Section -->
+        <div class="component-section" id="button-loaders">
+            <div class="component-section__header">
+                <h2 class="component-section__title">Button Loaders</h2>
+            </div>
+            <div class="component-section__content">
+                <div class="component-section__demo">
+                    <div class="component-variants">
+                        <div class="component-variant">
+                            <div class="component-variant__title">Primary Button with Loader</div>
+                            <button type="submit" class="btn btn-primary submit" id="test-loader-primary">
+                                <span class="submit__content">Send request</span>
+                            </button>
+                            <button type="button" class="btn btn-secondary" onclick="testAddLoader('test-loader-primary')" style="margin-top: 10px;">
+                                Add Loader
+                            </button>
+                            <button type="button" class="btn btn-secondary" onclick="testRemoveLoader('test-loader-primary')" style="margin-top: 10px;">
+                                Remove Loader
+                            </button>
+                        </div>
+                        <div class="component-variant">
+                            <div class="component-variant__title">Dark Button with Loader</div>
+                            <button type="submit" class="btn btn-dark submit" id="test-loader-dark">
+                                <span class="submit__content">Subscribe</span>
+                            </button>
+                            <button type="button" class="btn btn-secondary" onclick="testAddLoader('test-loader-dark')" style="margin-top: 10px;">
+                                Add Loader
+                            </button>
+                            <button type="button" class="btn btn-secondary" onclick="testRemoveLoader('test-loader-dark')" style="margin-top: 10px;">
+                                Remove Loader
+                            </button>
+                        </div>
+                        <div class="component-variant">
+                            <div class="component-variant__title">Success Button with Loader</div>
+                            <button type="submit" class="btn btn-success submit" id="test-loader-success">
+                                <span class="submit__content">Save Changes</span>
+                            </button>
+                            <button type="button" class="btn btn-secondary" onclick="testAddLoader('test-loader-success')" style="margin-top: 10px;">
+                                Add Loader
+                            </button>
+                            <button type="button" class="btn btn-secondary" onclick="testRemoveLoader('test-loader-success')" style="margin-top: 10px;">
+                                Remove Loader
+                            </button>
+                        </div>
+                        <div class="component-variant">
+                            <div class="component-variant__title">Full Width Button with Loader</div>
+                            <button type="submit" class="btn btn-dark submit w-full" id="test-loader-full">
+                                <span class="submit__content">Process Payment</span>
+                            </button>
+                            <button type="button" class="btn btn-secondary" onclick="testAddLoader('test-loader-full')" style="margin-top: 10px;">
+                                Add Loader
+                            </button>
+                            <button type="button" class="btn btn-secondary" onclick="testRemoveLoader('test-loader-full')" style="margin-top: 10px;">
+                                Remove Loader
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="component-section__code">
+                    <pre><code>&lt;!-- Button with Loader --&gt;
+&lt;button type="submit" class="btn btn-primary submit"&gt;
+    &lt;span class="submit__content"&gt;Send request&lt;/span&gt;
+&lt;/button&gt;
+
+&lt;!-- JavaScript functions to add/remove loader --&gt;
+&lt;script&gt;
+// Add Loading Animation
+const addLoading = ($button) => {
+  const $addLoader = $('&lt;div class="btn-loader"&gt;&lt;/div&gt;');
+  
+  $button.append($addLoader);
+  $button.addClass("is-loading");
+  $button.attr("disabled", "disabled");
+};
+
+// Remove Loading Animation
+const removeLoading = ($button) => {
+  const $loader = $button.find(".btn-loader");
+  
+  if ($loader.length) {
+    $button.removeClass("is-loading");
+    $loader.remove();
+    $button.removeAttr("disabled");
+  }
+};
+
+// Usage example:
+// addLoading($('#my-button'));
+// removeLoading($('#my-button'));
+&lt;/script&gt;</code></pre>
+                </div>
+            </div>
+        </div>
+
         <!-- Inputs Section -->
         <div class="component-section" id="inputs">
             <div class="component-section__header">
@@ -893,7 +988,9 @@
                                         <input class="input-text" type="email" name="email" placeholder="Email*" required>
                                     </label>
                                     <textarea class="input-text" name="mess" placeholder="My question is..."></textarea>
-                                    <button type="submit" class="btn btn-primary submit">Send request</button>
+                                    <button type="submit" class="btn btn-primary submit">
+                                        <span class="submit__content">Send request</span>
+                                    </button>
                                 </form>
                             </div>
                         </div>
@@ -1139,6 +1236,33 @@
                 });
             });
         });
+
+        // Button Loader Test Functions
+        function testAddLoader(buttonId) {
+            const button = document.getElementById(buttonId);
+            if (button) {
+                const $button = $(button);
+                const $addLoader = $('<div class="btn-loader"></div>');
+                
+                $button.append($addLoader);
+                $button.addClass("is-loading");
+                $button.attr("disabled", "disabled");
+            }
+        }
+
+        function testRemoveLoader(buttonId) {
+            const button = document.getElementById(buttonId);
+            if (button) {
+                const $button = $(button);
+                const $loader = $button.find(".btn-loader");
+                
+                if ($loader.length) {
+                    $button.removeClass("is-loading");
+                    $loader.remove();
+                    $button.removeAttr("disabled");
+                }
+            }
+        }
     </script>
 </body>
 </html> 

@@ -3,7 +3,7 @@ $(document).ready(function () {
     const windowWidth = $(window).width();
     const isTouchDevice = "ontouchstart" in document.documentElement;
     const isSmallScreen = windowWidth < 1023;
-    return  isSmallScreen;
+    return isSmallScreen;
   }
 
   $(window).scroll(function () {
@@ -12,7 +12,7 @@ $(document).ready(function () {
 
   function updateBannerMargin() {
     const isBannerDismissed = localStorage.getItem("bannerDismissed") === "true";
-    
+
     if (!isBannerDismissed && $("#banner-info").length) {
       const bannerHeight = isMobile() ? 60 : 56;
       $(".navigation, header").css("margin-top", bannerHeight + "px");
@@ -34,11 +34,11 @@ $(document).ready(function () {
   if (localStorage.getItem("bannerDismissed") !== "true") {
     $("#banner-info").show();
     $("#banner-info").css("opacity", 1);
-  } else {  
+  } else {
     $("#banner-info").hide();
     $("#banner-info").css("opacity", 0);
   }
-  
+
   // Викликаємо updateBannerMargin() після встановлення стану банера
   updateBannerMargin();
 
@@ -282,51 +282,51 @@ $(document).ready(function () {
       if ($(".room-furniture__slider").hasClass("slick-initialized")) {
         $(".room-furniture__slider").slick("unslick"); // Знищуємо слайдер
       }
-      if($("#navigation-menu").hasClass("active")) {
+      if ($("#navigation-menu").hasClass("active")) {
         $('body').removeClass('overflow-hidden')
       }
     }
   }
-  
+
   // Викликаємо функцію при завантаженні сторінки
   initRoomFurnitureSlider();
 
   function playHeaderAnimation() {
     const scrollSpeedMultiplier = 1;
     const triggerOffset = window.innerHeight * 0.6; // 60% висоти екрану
-  
+
     function calculateHeaderAnimation() {
       const scrollY = $(window).scrollTop();
-  
+
       $(".scroll-section").each(function () {
         const $section = $(this);
         const $headers = $section.find(".scroll-header"); // Знаходимо всі заголовки в секції
         let totalHeaderHeight = 0;
-  
+
         // Обчислюємо загальну висоту всіх заголовків
         $headers.each(function () {
           totalHeaderHeight += $(this).outerHeight();
         });
-  
+
         let sectionTop = $section.offset().top - 100;
-  
+
         // Отримуємо gradientP і перевіряємо його
         let gradientP = Number($section.data("numb"));
-  
+
         if (!gradientP || gradientP <= 0) {
           gradientP = 0.5; // Значення за замовчуванням
         }
-  
+
         if (isMobile()) {
           sectionTop = $section.offset().top + 120;
         }
-  
+
         const sectionHeight = $section.outerHeight();
         const sectionScroll = scrollY + window.innerHeight - sectionTop;
-        
+
         // Перевіряємо чи користувач проскролив достатньо для початку анімації
         const hasScrolledEnough = sectionScroll >= triggerOffset;
-        
+
         if (!hasScrolledEnough) {
           // Якщо не проскролили достатньо, скидаємо стилі
           $headers.css({
@@ -338,31 +338,31 @@ $(document).ready(function () {
           });
           return;
         }
-  
+
         // Обчислюємо прогрес скролу з урахуванням затримки
         const adjustedScroll = sectionScroll - triggerOffset;
         const adjustedSectionHeight = sectionHeight - triggerOffset;
-        
+
         const scrollProgress = Math.min(
           Math.max(adjustedScroll / (adjustedSectionHeight / scrollSpeedMultiplier), 0),
           1
         );
-  
+
         if (scrollProgress <= 0) return;
-  
+
         let start, end;
-  
+
         if (scrollProgress <= 0.5) {
           const p = scrollProgress / gradientP; // gradientP тепер завжди коректний
           start = (100 - (100 - 66.86) * p).toFixed(2);
           end = (100 - (100 - 67.16) * p).toFixed(2);
         }
-  
+
         const whiteProgress = (100 - parseFloat(start)) / 100;
         const translateY = totalHeaderHeight * whiteProgress; // Використовуємо загальну висоту заголовків
-  
+
         const gradient = `linear-gradient(180deg, #000 0%, #000 ${start}%, #FFF ${end}%, #FFF 100%)`;
-  
+
         $headers.css({
           transform: `translateY(${translateY}px)`,
           background: gradient,
@@ -372,13 +372,13 @@ $(document).ready(function () {
         });
       });
     }
-  
+
     // Викликаємо функцію при скролі
     $(window).on("scroll", calculateHeaderAnimation);
-  
+
     // Викликаємо функцію при зміні розміру вікна
     $(window).on("resize", calculateHeaderAnimation);
-  
+
     // Викликаємо функцію один раз при завантаженні сторінки
     calculateHeaderAnimation();
   }
@@ -419,13 +419,13 @@ $(document).ready(function () {
       $("#search-block input").on("input", function () {
         const value = $(this).val();
         const $resetButton = $(this).closest('.search__form').find('.search__reset');
-        
+
         if (value.length > 0) {
           $resetButton.fadeIn(200);
         } else {
           $resetButton.fadeOut(200);
         }
-        
+
         if (value.length > 2) {
           $("#search-results").fadeIn(200);
         } else {
@@ -438,16 +438,16 @@ $(document).ready(function () {
         e.preventDefault();
         const $input = $(this).closest('.search__form').find('input');
         const $resetButton = $(this);
-        
+
         // Очищаємо поле вводу
         $input.val('');
-        
+
         // Ховаємо кнопку скидання
         $resetButton.fadeOut(200);
-        
+
         // Ховаємо результати пошуку
         $("#search-results").fadeOut(200);
-        
+
         // Повертаємо фокус на поле вводу
         $input.focus();
       });
@@ -526,7 +526,7 @@ $(document).ready(function () {
     slidesToScroll: 1,
     arrows: false,
     fade: true,
-    asNavFor: ".product-gallery__slider-nav", 
+    asNavFor: ".product-gallery__slider-nav",
   });
 
   $(".product-gallery__slider-nav").slick({
@@ -552,40 +552,40 @@ $(document).ready(function () {
     ],
   });
 
-  $('.product-info__text-btn').click(function(){
+  $('.product-info__text-btn').click(function () {
     $(this).hide();
     $(this).parent().find('.product-info__text').addClass('open')
   })
 
-  $('.sidebar__select-finish-list li').click(function(){
+  $('.sidebar__select-finish-list li').click(function () {
     $('.sidebar__select-finish-list li').removeClass('active')
     $(this).addClass('active');
 
     $('.texture-info').text(`ver. ${$(this).attr('propertyvalue')} / Code: ${$(this).attr('propertycode')} / ${$(this).attr('propertyvalue')}`)
   })
 
-  $('[data-sidebar]').click(function(e){
+  $('[data-sidebar]').click(function (e) {
     e.preventDefault();
     const id = $(this).data('sidebar');
     $("body").addClass("overflow-hidden");
     $(`#${id}`).css({ right: '-100%', display: 'block' }).animate({ right: '0' }, 200);
   })
 
-  $('[data-sidebar-close]').click(function(){
+  $('[data-sidebar-close]').click(function () {
     $(this).parents('.sidebar').animate({ right: '-100%' }, 200, function () {
       $(this).hide();
     });
     $("body").removeClass("overflow-hidden");
   })
 
-  $('[data-sidebar-select-finish]').click(function(){
+  $('[data-sidebar-select-finish]').click(function () {
     $(this).parents('.sidebar').animate({ right: '-100%' }, 200, function () {
       $(this).hide();
     });
     $("body").removeClass("overflow-hidden");
     const src = $(this).parents('.sidebar').find('.sidebar__select-finish-list li.active img').attr('src');
     const price = $(this).parents('.sidebar').find('.sidebar__select-finish-price span').text();
-    if(!!src) {
+    if (!!src) {
       $('.product-info__texture .exemple').html(`
         <span>With leather pad – ${price}</span>
          <img src="${src}" alt="">
@@ -593,20 +593,19 @@ $(document).ready(function () {
     }
   })
 
-  $('.sidebar__composition-item:not(.sidebar__composition-banner)').click(function(){
+  $('.sidebar__composition-item:not(.sidebar__composition-banner)').click(function () {
     $('.sidebar__composition-item').removeClass('active');
     $(this).addClass('active');
 
     $('.mob-composition').html(`
       <div class="sidebar__composition-footer">
-       ${
-        $(this).find('.sidebar__composition-footer').html()
-       }
+       ${$(this).find('.sidebar__composition-footer').html()
+      }
       </div>
       `).show();
   })
-  
-  $('[data-sidebar-select-composition]').click(function(e){
+
+  $('[data-sidebar-select-composition]').click(function (e) {
     e.preventDefault();
     $(this).parents('.sidebar').animate({ right: '-100%' }, 200, function () {
       $(this).hide();
@@ -614,7 +613,7 @@ $(document).ready(function () {
     $("body").removeClass("overflow-hidden");
     const src = $(this).parents('.sidebar').find('.sidebar__composition-item.active img').attr('src');
     const price = $(this).parents('.sidebar').find('.sidebar__select-finish-price span').text();
-    if(!!src) {
+    if (!!src) {
       $('.product-info__composition .exemple').html(`
         <span>${price}</span>
          <img src="${src}" alt="">
@@ -627,7 +626,7 @@ $(document).ready(function () {
     slidesToScroll: 1,
     arrows: false,
     fade: true,
-    asNavFor: ".interior-overview__slider-nav", 
+    asNavFor: ".interior-overview__slider-nav",
   });
 
   $(".interior-overview__slider-nav").slick({
@@ -642,7 +641,7 @@ $(document).ready(function () {
     nextArrow: `<svg class="gallery-slider-next">
               <use xlink:href="#arr-right"></use>
             </svg>`,
-          variableWidth: true,
+    variableWidth: true,
 
     responsive: [
       {
@@ -668,7 +667,7 @@ $(document).ready(function () {
     $('body').css('overflow', 'hidden');
     $(`#${$(this).data('modal')}`).fadeIn(300).css('display', 'flex');
 
-    if($(this).hasClass('gallery-thumb')) {
+    if ($(this).hasClass('gallery-thumb')) {
       const index = $(this).data('index');
       $(".interior-overview__slider").slick("setPosition");
       $(".interior-overview__slider-nav").slick("setPosition");
@@ -692,7 +691,7 @@ $(document).ready(function () {
   });
 
 
-  $('.accordion__title').on('click', function(){
+  $('.accordion__title').on('click', function () {
     $(this).toggleClass('open');
     $(this).parent().find('.accordion__content').slideToggle(200).toggleClass('d-flex');
   })
@@ -759,7 +758,7 @@ $(document).ready(function () {
   });
 
 
-  $('.text-short-more').click(function(){
+  $('.text-short-more').click(function () {
     $(this).parent().find('.text-short').addClass('open');
     $(this).hide();
   })
@@ -781,7 +780,7 @@ $(document).ready(function () {
     $navLinks.each(function () {
       const $link = $(this);
       const href = $link.attr('href'); // без #
-      if (href === '#'+currentId) {
+      if (href === '#' + currentId) {
         $link.addClass('active');
         scrollToActive($link);
       } else {
@@ -795,25 +794,25 @@ $(document).ready(function () {
     const linkLeft = $link.position().left;
     const linkWidth = $link.outerWidth();
     const containerWidth = $navContainer.outerWidth();
-  
+
     const scrollTo = container.scrollLeft + linkLeft - (containerWidth / 2) + (linkWidth / 2);
-  
+
     $navContainer.stop().animate({
       scrollLeft: scrollTo
     }, 300);
   }
 
   $(window).on('scroll', onScroll);
-  
+
   onScroll();
-  
+
   $('input[name="phone"]').inputmask("+9{1,15}");
 
-  
+
   $(window).on("resize", function () {
     // Оновлюємо parallax з додатковими перевірками
     updateParallaxElements();
-    
+
     playHeaderAnimation();
     initRoomFurnitureSlider();
     updateBannerMargin();
@@ -836,5 +835,41 @@ $(document).ready(function () {
       autoStart: false
     }
   });
+
+
+
+  $('form').on('submit', function (e) {
+    e.preventDefault();
+    const $button = $(this).find('.submit');
+    addLoading($button);
+
+    setTimeout(() => {
+      removeLoading($button);
+    }, 4000);
+  })
+
+  /**
+  * Add Loading Animation
+  */
+  const addLoading = ($button) => {
+    const $addLoader = $('<div class="btn-loader"></div>');
+
+    $button.append($addLoader);
+    $button.addClass("is-loading");
+    $button.attr("disabled", "disabled");
+  };
+
+  /**
+  * Remove Loading Animation
+  */
+  const removeLoading = ($button) => {
+    const $loader = $button.find(".btn-loader");
+
+    if ($loader.length) {
+      $button.removeClass("is-loading");
+      $loader.remove();
+      $button.removeAttr("disabled");
+    }
+  };
 
 });
