@@ -59,9 +59,10 @@
 
   &__close {
     padding: 0;
-    margin: 0;
+    margin: 0 0 0 auto;
     background: 0 0;
     border: 0;
+    display: inline-flex;
 
     .icon {
       width: 32px;
