@@ -418,6 +418,86 @@ const removeLoading = ($button) => {
             </div>
         </div>
 
+        <!-- Skeleton Section -->
+        <div class="component-section" id="skeletons">
+            <div class="component-section__header">
+                <h2 class="component-section__title">Skeleton Loaders</h2>
+            </div>
+            <div class="component-section__content">
+                <div class="component-section__demo">
+                    <div class="component-variants">
+                        <div class="component-variant">
+                            <div class="component-variant__title">Default Skeleton</div>
+                            <div class="skeleton"></div>
+                        </div>
+                        <div class="component-variant">
+                            <div class="component-variant__title">Small Skeleton (Mobile)</div>
+                            <div class="skeleton" style="min-height: 286px;"></div>
+                        </div>
+                        <div class="component-variant">
+                            <div class="component-variant__title">Custom Height Skeleton</div>
+                            <div class="skeleton" style="min-height: 200px;"></div>
+                        </div>
+                        <div class="component-variant">
+                            <div class="component-variant__title">Multiple Skeletons Grid</div>
+                            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px;">
+                                <div class="skeleton" style="min-height: 300px;"></div>
+                                <div class="skeleton" style="min-height: 300px;"></div>
+                                <div class="skeleton" style="min-height: 300px;"></div>
+                            </div>
+                        </div>
+                        <div class="component-variant">
+                            <div class="component-variant__title">Skeleton with Custom Border Radius</div>
+                            <div class="skeleton" style="border-radius: 8px; min-height: 150px;"></div>
+                        </div>
+                        <div class="component-variant">
+                            <div class="component-variant__title">Skeleton with Custom Background</div>
+                            <div class="skeleton" style="background-color: #f0f0f0; min-height: 120px;"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="component-section__code">
+                    <pre><code>&lt;!-- Default Skeleton --&gt;
+&lt;div class="skeleton"&gt;&lt;/div&gt;
+
+&lt;!-- Small Skeleton (Mobile) --&gt;
+&lt;div class="skeleton" style="min-height: 286px;"&gt;&lt;/div&gt;
+
+&lt;!-- Custom Height Skeleton --&gt;
+&lt;div class="skeleton" style="min-height: 200px;"&gt;&lt;/div&gt;
+
+&lt;!-- Multiple Skeletons Grid --&gt;
+&lt;div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px;"&gt;
+    &lt;div class="skeleton" style="min-height: 300px;"&gt;&lt;/div&gt;
+    &lt;div class="skeleton" style="min-height: 300px;"&gt;&lt;/div&gt;
+    &lt;div class="skeleton" style="min-height: 300px;"&gt;&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;!-- Skeleton with Custom Border Radius --&gt;
+&lt;div class="skeleton" style="border-radius: 8px; min-height: 150px;"&gt;&lt;/div&gt;
+
+&lt;!-- Skeleton with Custom Background --&gt;
+&lt;div class="skeleton" style="background-color: #f0f0f0; min-height: 120px;"&gt;&lt;/div&gt;
+
+&lt;!-- CSS Classes Available --&gt;
+.skeleton {
+  background-color: #eee;
+  border-radius: 0.35rem;
+  min-height: 430px; /* Desktop */
+  width: 100%;
+  position: relative;
+}
+
+@media screen and (max-width: 767px) {
+  .skeleton {
+    min-height: 286px; /* Mobile */
+  }
+}</code></pre>
+                </div>
+            </div>
+        </div>
+
         <!-- Inputs Section -->
         <div class="component-section" id="inputs">
             <div class="component-section__header">
