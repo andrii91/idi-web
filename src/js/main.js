@@ -2,7 +2,7 @@ $(document).ready(function () {
   function isMobile() {
     const windowWidth = $(window).width();
     const isTouchDevice = "ontouchstart" in document.documentElement;
-    const isSmallScreen = windowWidth < 1023;
+    const isSmallScreen = windowWidth < 1024;
     return isSmallScreen;
   }
 
@@ -210,35 +210,44 @@ $(document).ready(function () {
         },
       },
     ],
+  }); 
+
+ /**animate */
+  const fadeMap = {
+    "fade-in": "fadeIn",
+    "fade-in-right": "fadeInRight",
+    "fade-in-left": "fadeInLeft",
+    "fade-in-up": "fadeInUp",
+  };
+
+  const observer = new IntersectionObserver((entries, observerInstance) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const el = entry.target;
+
+        for (const key in fadeMap) {
+          if (el.classList.contains(key)) {
+            el.classList.add("visible", "animated", fadeMap[key]);
+            el.classList.remove("hidden_animation");
+            break;
+          }
+        }
+
+        observerInstance.unobserve(el); 
+      }
+    });
+  }, {
+    threshold: 0.1 
   });
 
-  $(".fade-in").addClass("hidden_animation").viewportChecker({
-    classToAdd: "visible animated fadeIn",
-    offset: "10%",
-    removeClassAfterAnimation: true,
-    classToRemove: "hidden_animation",
-  });
+  for (const fadeClass in fadeMap) {
+    document.querySelectorAll(`.${fadeClass}`).forEach(el => {
+      el.classList.add("hidden_animation");
+      observer.observe(el);
+    });
+  }
 
-  $(".fade-in-right").addClass("hidden_animation").viewportChecker({
-    classToAdd: "visible animated fadeInRight",
-    offset: "10%",
-    removeClassAfterAnimation: true,
-    classToRemove: "hidden_animation",
-  });
-
-  $(".fade-in-left").addClass("hidden_animation").viewportChecker({
-    classToAdd: "visible animated fadeInLeft",
-    offset: "10%",
-    removeClassAfterAnimation: true,
-    classToRemove: "hidden_animation",
-  });
-
-  $(".fade-in-up").addClass("hidden_animation").viewportChecker({
-    classToAdd: "visible animated fadeInUp",
-    offset: "10%",
-    removeClassAfterAnimation: true,
-    classToRemove: "hidden_animation",
-  });
+ /**end animate */
 
   $(".open-submenu").click(function () {
     $(".navigation-menu-submenu").removeClass("open").removeAttr("style");

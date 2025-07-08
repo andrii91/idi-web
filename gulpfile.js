@@ -26,7 +26,6 @@ gulp.task('js', () => {
     'node_modules/jquery-parallax.js/parallax.min.js',
     'node_modules/jquery.inputmask/dist/jquery.inputmask.bundle.js',
     'node_modules/@fancyapps/ui/dist/fancybox/fancybox.umd.js',
-    'src/js/vendor/jquery.viewportchecker.min.js',
     'src/js/dropdown.js',
     'src/js/showMaterial.js',
     'src/js/main.js',
