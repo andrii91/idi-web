@@ -1175,3 +1175,10 @@ select {
     min-height: 286px;
   }
 }
+
+
+main, section, header {
+  @media screen and (max-width: 1024px) {
+    overflow: hidden;
+  }
+}
