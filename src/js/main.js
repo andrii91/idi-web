@@ -881,4 +881,10 @@ $(document).ready(function () {
     }
   };
 
+  $('[data-notice-close]').click(function () {
+    $(this).parents('.notice').fadeOut(200, function () {
+      $(this).remove();
+    });
+  })  
+
 });

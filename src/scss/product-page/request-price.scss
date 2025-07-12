@@ -1,0 +1,184 @@
+.request-price {
+
+    &__content {
+        padding-bottom: 70px;
+
+        .product-info__types {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+    }
+
+    &__title {
+        color: #000;
+        font-size: 24px;
+        font-style: normal;
+        font-weight: 300;
+        line-height: normal;
+        margin-bottom: 0;
+    }
+
+    &__form {
+        display: flex;
+        flex-direction: column;
+        gap: 32px;
+
+        @media (max-width: 991px) {
+            margin-bottom: 40px;
+        }
+
+        .submit {
+            width: 100%;
+            max-width: 100%;
+        }
+    }
+
+    &__map-open {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        width: 100%;
+        max-width: 100%;
+        padding-top: 5px;
+        padding-bottom: 5px;
+        min-height: 42px;
+    }
+
+    &__help {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+
+        &-item {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            padding: 15px 20px;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 16px;
+            align-self: stretch;
+            background: $color-gray-light-bg;
+            max-width: 315px;
+            margin-left: auto;
+
+            @media (max-width: 991px) {
+                max-width: 100%;
+                width: 100%;
+                margin-left: 0;
+            }
+
+            h5 {
+                color: #000;
+                font-size: 32px;
+                font-style: normal;
+                font-weight: 300;
+                line-height: normal;
+                margin-bottom: 0;
+            }
+
+
+            p {
+                color: #000;
+                font-size: 16px;
+                font-style: normal;
+                font-weight: 300;
+                line-height: normal;
+
+                span,
+                a {
+                    color: #000;
+                    display: block;
+                }
+
+                span {
+                    font-weight: 300;
+                    margin-bottom: 8px;
+                }
+
+                a {
+                    font-weight: 500;
+                    text-decoration: none;
+                }
+            }
+
+            ul {
+                display: flex;
+                flex-direction: column;
+                width: 100%;
+                max-width: 100%;
+                padding: 0;
+                margin: 0;
+                list-style: none;
+
+                li {
+                    color: #545454;
+                    font-size: 16px;
+                    font-style: normal;
+                    font-weight: 300;
+                    line-height: 26px;
+                    display: flex;
+                    align-items: center;
+                    gap: 4px;
+
+                    span {
+                        margin-left: auto;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.notice {
+    width: 100%;
+    display: flex;
+    padding: 12px;
+    align-items: center;
+    background: #014C23;
+    backdrop-filter: blur(12px);
+    position: relative;
+    padding-right: 32px;
+    gap: 12px;
+    margin-bottom: 14px;
+
+    &__icon {
+        width: 25px;
+        height: 25px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        background: #259458;
+
+        svg {
+            width: 11px;
+            height: 10px;
+            color: #fff;
+        }
+    }
+
+    &__content {
+        color: #FFF;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: normal;
+        margin-bottom: 0;
+        max-width: calc(100% - 32px);
+    }
+
+    &__close {
+        position: absolute;
+        right: 12px;
+        top: 12px;
+        cursor: pointer;
+
+        svg {
+            width: 20px;
+            height: 20px;
+            color: #fff;
+        }
+    }
+}
