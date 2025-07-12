@@ -887,4 +887,17 @@ $(document).ready(function () {
     });
   })  
 
+    document.getElementById('file').addEventListener('change', function(e) {
+      const status = document.getElementById('file-status');
+      status.textContent = e.target.files.length ? e.target.files[0].name : 'No file choosen';
+
+      if (e.target.files.length > 0) {
+        $(this).parents('.custom-file-upload').find('.icon').show();
+        $(this).parents('.custom-file-upload').find('img').hide();
+      } else {
+        $(this).parents('.custom-file-upload').find('.icon').hide();
+        $(this).parents('.custom-file-upload').find('img').show();
+      }
+    }); 
+
 });

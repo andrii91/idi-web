@@ -288,7 +288,7 @@ label {
   display: block;
 }
 
-.input-text {
+.input-text, .select-text {
   font-size: 24px;
   font-style: normal;
   font-weight: 300;
@@ -301,6 +301,7 @@ label {
   width: 100%;
   min-height: 40px;
   padding-bottom: 5px;
+  box-shadow: none;
 
   &.dark {
     color: $color-black;
@@ -1170,6 +1171,101 @@ main, section, header {
   }
 }
 
+.custom-file-upload {
+  display: flex;
+  align-items: center;
+  border: 1px solid #000;
+  padding: 12px 16px;
+  position: relative;
+  min-height: 56px;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.custom-file-label {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  flex: 1;
+  gap: 12px;
+}
+
+.custom-file-icon {
+  font-size: 32px;
+  font-weight: 300;
+  margin-right: 12px;
+  display: inline-block;
+  width: 24px;
+  text-align: center;
+}
+
+.custom-file-text {
+  font-size: 16px;
+  color: #111;
+  white-space: nowrap;
+}
+
+.custom-file-input {
+  display: none;
+}
+
+.custom-file-status {
+  color: #7a8a99;
+  font-size: 16px;
+  margin-right: 16px;
+  white-space: nowrap;
+
+  @media screen and (max-width: 1023px) {
+   display: none;
+  }
+}
+
+.custom-file-square {
+  width: 48px;
+  height: 48px;
+  background: #15687a;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+
+  .icon {
+    display: none;
+    color: #fff;
+    width: 24px;
+    height: 24px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  img {
+    width: 24px;
+    height: 24px;
+  }
+}
+
+.select-text {
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20' fill='none'%3E%3Cpath d='M10.1825 13.5669L3.93246 7.31692C3.8744 7.25886 3.82833 7.18992 3.79691 7.11405C3.76548 7.03818 3.7493 6.95686 3.7493 6.87474C3.7493 6.79261 3.76548 6.7113 3.79691 6.63543C3.82833 6.55956 3.8744 6.49062 3.93246 6.43255C3.99053 6.37448 4.05947 6.32842 4.13534 6.29699C4.21121 6.26556 4.29253 6.24939 4.37465 6.24939C4.45677 6.24939 4.53809 6.26556 4.61396 6.29699C4.68983 6.32842 4.75877 6.37448 4.81684 6.43255L10.6247 12.2411L16.4325 6.43255C16.5497 6.31527 16.7088 6.24939 16.8747 6.24939C17.0405 6.24939 17.1996 6.31527 17.3168 6.43255C17.4341 6.54982 17.5 6.70888 17.5 6.87474C17.5 7.04059 17.4341 7.19965 17.3168 7.31692L11.0668 13.5669C11.0088 13.625 10.9399 13.6711 10.864 13.7026C10.7881 13.734 10.7068 13.7502 10.6247 13.7502C10.5425 13.7502 10.4612 13.734 10.3853 13.7026C10.3094 13.6711 10.2405 13.625 10.1825 13.5669Z' fill='%23070707'/%3E%3C/svg%3E");
+  background-position: right center;
+  background-repeat: no-repeat;
+  padding-left: 0;
+  padding-right: 0;
+
+  option {
+    &:disabled {
+      color: #B3B3B3;
+    }
+  }
+
+  &:focus, :focus-visible {
+    outline: none;
+    box-shadow: none;
+  }
+}
+
 @import "./partials/menu.scss";
 @import "./main-page/header.scss";
 @import "./main-page/brands.scss";
@@ -1199,3 +1295,6 @@ main, section, header {
 @import "./product-page/interior-overview.scss";
 @import "./product-page/other-overview.scss";
 @import "./product-page/request-price.scss";
+
+@import "./sign-up/index.scss";
+
