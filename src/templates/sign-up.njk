@@ -22,18 +22,13 @@
 <body>
   {% include "partials/banner.njk" %}
   {% include "partials/menu.njk" %}
-  {% include "components/product-page/header.njk" %}
+  {% include "components/sign-up/header.njk" %}
   <main>
-    {% include "components/product-page/interior-overview.njk" %}
-    {% include "components/product-page/other-overview.njk" %}
-    {% include "components/product-page/popular.njk" %}
-    
+    {% include "components/sign-up/content.njk" %}
     {% include "partials/subscribe.njk" %}
   </main>
 
   {% include "partials/footer.njk" %} 
-  {% include "partials/sidebars/sidebar-select-finish.njk" %}
-  {% include "partials/sidebars/sidebar-composition.njk" %}
 
   <script defer src="js/bundle.js"></script>
 </body>
