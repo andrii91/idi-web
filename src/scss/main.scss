@@ -1266,6 +1266,66 @@ main, section, header {
   }
 }
 
+.input-counter {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #F8F8F8;
+  color: #000;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 300;
+  line-height: 1;
+  padding: 0 ;
+  max-width: fit-content;
+  min-height: 40px;
+
+  &-button {
+    border: none;
+    cursor: pointer;
+    background: transparent;
+    padding: 0;
+    margin: 0;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &:hover {
+      background: #E5E7EB;
+    }
+
+    svg {
+      width: 20px;
+      height: 20px;
+    }
+  }
+
+  input {
+    border: none;
+    background: transparent;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+    color: #000;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: 40px;
+    min-width: 35px;
+    width: fit-content;
+    text-align: center;
+    appearance: textfield;
+
+    &::-webkit-outer-spin-button,
+    &::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
+  }
+}
+
 @import "./partials/menu.scss";
 @import "./main-page/header.scss";
 @import "./main-page/brands.scss";
@@ -1297,4 +1357,5 @@ main, section, header {
 @import "./product-page/request-price.scss";
 
 @import "./sign-up/index.scss";
-
+@import "./shopping/tooltip.scss";
+@import "./shopping/shopping-cart.scss";

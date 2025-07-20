@@ -21,10 +21,10 @@ $(document).ready(function () {
     }
   }
 
-  // Функція для оновлення parallax елементів
+  // Function to update parallax elements
   function updateParallaxElements() {
     if ($('.parallax-window').length) {
-      // Невелика затримка для забезпечення завершення ресайзу
+      // Small delay to ensure resize completion
       setTimeout(() => {
         $('.parallax-window').parallax('refresh');
       }, 100);
@@ -39,7 +39,7 @@ $(document).ready(function () {
     $("#banner-info").css("opacity", 0);
   }
 
-  // Викликаємо updateBannerMargin() після встановлення стану банера
+  // Call updateBannerMargin() after setting banner state
   updateBannerMargin();
 
   $("#banner-info #cancel-icon").click(function () {
@@ -57,12 +57,12 @@ $(document).ready(function () {
       const $submenu = $li.find(".navigation-menu-submenu");
 
       if (!isMobile()) {
-        // Показати підменю при наведенні
+        // Show submenu on hover
         $li.on("mouseenter", function () {
           $submenu.stop(true, true).fadeIn(200);
         });
 
-        // Приховати підменю, коли курсор вийде з li + submenu
+        // Hide submenu when cursor leaves li + submenu
         let isHoveredLi = false;
         let isHoveredSubmenu = false;
 
@@ -173,16 +173,16 @@ $(document).ready(function () {
     e.preventDefault();
     const $this = $(this);
 
-    // Переключення табів
+    // Switch tabs
     $(".dinning-room__tabs li a, .dinning-room__item").removeClass("active");
     $this.addClass("active");
     $($this.attr("href")).addClass("active");
 
-    // Перезапуск slick
+    // Restart slick
     $(".dinning-room__slider").slick("setPosition");
     $(".dinning-room__slider-nav").slick("setPosition");
 
-    // Перелистування на перший слайд
+    // Go to first slide
     $(".dinning-room__slider").slick("slickGoTo", 0);
     $(".dinning-room__slider-nav").slick("slickGoTo", 0);
   });
@@ -210,9 +210,9 @@ $(document).ready(function () {
         },
       },
     ],
-  }); 
+  });
 
- /**animate */
+  /**animate */
   const fadeMap = {
     "fade-in": "fadeIn",
     "fade-in-right": "fadeInRight",
@@ -233,11 +233,11 @@ $(document).ready(function () {
           }
         }
 
-        observerInstance.unobserve(el); 
+        observerInstance.unobserve(el);
       }
     });
   }, {
-    threshold: 0.1 
+    threshold: 0.1
   });
 
   for (const fadeClass in fadeMap) {
@@ -247,7 +247,7 @@ $(document).ready(function () {
     });
   }
 
- /**end animate */
+  /**end animate */
 
   $(".open-submenu").click(function () {
     $(".navigation-menu-submenu").removeClass("open").removeAttr("style");
@@ -289,7 +289,7 @@ $(document).ready(function () {
     } else {
 
       if ($(".room-furniture__slider").hasClass("slick-initialized")) {
-        $(".room-furniture__slider").slick("unslick"); // Знищуємо слайдер
+        $(".room-furniture__slider").slick("unslick"); // Destroy slider
       }
       if ($("#navigation-menu").hasClass("active")) {
         $('body').removeClass('overflow-hidden')
@@ -297,33 +297,33 @@ $(document).ready(function () {
     }
   }
 
-  // Викликаємо функцію при завантаженні сторінки
+  // Call function on page load
   initRoomFurnitureSlider();
 
   function playHeaderAnimation() {
     const scrollSpeedMultiplier = 1;
-    const triggerOffset = window.innerHeight * 0.6; // 60% висоти екрану
+    const triggerOffset = window.innerHeight * 0.6; // 60% of screen height
 
     function calculateHeaderAnimation() {
       const scrollY = $(window).scrollTop();
 
       $(".scroll-section").each(function () {
         const $section = $(this);
-        const $headers = $section.find(".scroll-header"); // Знаходимо всі заголовки в секції
+        const $headers = $section.find(".scroll-header"); // Find all headers in section
         let totalHeaderHeight = 0;
 
-        // Обчислюємо загальну висоту всіх заголовків
+        // Calculate total height of all headers
         $headers.each(function () {
           totalHeaderHeight += $(this).outerHeight();
         });
 
         let sectionTop = $section.offset().top - 100;
 
-        // Отримуємо gradientP і перевіряємо його
+        // Get gradientP and check it
         let gradientP = Number($section.data("numb"));
 
         if (!gradientP || gradientP <= 0) {
-          gradientP = 0.5; // Значення за замовчуванням
+          gradientP = 0.5; // Default value
         }
 
         if (isMobile()) {
@@ -333,11 +333,11 @@ $(document).ready(function () {
         const sectionHeight = $section.outerHeight();
         const sectionScroll = scrollY + window.innerHeight - sectionTop;
 
-        // Перевіряємо чи користувач проскролив достатньо для початку анімації
+        // Check if user has scrolled enough to start animation
         const hasScrolledEnough = sectionScroll >= triggerOffset;
 
         if (!hasScrolledEnough) {
-          // Якщо не проскролили достатньо, скидаємо стилі
+          // If not scrolled enough, reset styles
           $headers.css({
             transform: 'translateY(0px)',
             background: 'linear-gradient(180deg, #000 0%, #000 100%, #FFF 100%, #FFF 100%)',
@@ -348,7 +348,7 @@ $(document).ready(function () {
           return;
         }
 
-        // Обчислюємо прогрес скролу з урахуванням затримки
+        // Calculate scroll progress with delay consideration
         const adjustedScroll = sectionScroll - triggerOffset;
         const adjustedSectionHeight = sectionHeight - triggerOffset;
 
@@ -362,13 +362,13 @@ $(document).ready(function () {
         let start, end;
 
         if (scrollProgress <= 0.5) {
-          const p = scrollProgress / gradientP; // gradientP тепер завжди коректний
+          const p = scrollProgress / gradientP; // gradientP is now always correct
           start = (100 - (100 - 66.86) * p).toFixed(2);
           end = (100 - (100 - 67.16) * p).toFixed(2);
         }
 
         const whiteProgress = (100 - parseFloat(start)) / 100;
-        const translateY = totalHeaderHeight * whiteProgress; // Використовуємо загальну висоту заголовків
+        const translateY = totalHeaderHeight * whiteProgress; // Use total header height
 
         const gradient = `linear-gradient(180deg, #000 0%, #000 ${start}%, #FFF ${end}%, #FFF 100%)`;
 
@@ -382,13 +382,13 @@ $(document).ready(function () {
       });
     }
 
-    // Викликаємо функцію при скролі
+    // Call function on scroll
     $(window).on("scroll", calculateHeaderAnimation);
 
-    // Викликаємо функцію при зміні розміру вікна
+    // Call function on window resize
     $(window).on("resize", calculateHeaderAnimation);
 
-    // Викликаємо функцію один раз при завантаженні сторінки
+    // Call function once on page load
     calculateHeaderAnimation();
   }
 
@@ -406,7 +406,7 @@ $(document).ready(function () {
       $("#search-block").fadeIn(200).find("input").focus();
     });
 
-    // Додаємо обробник після короткої паузи
+    // Add handler after short pause
     setTimeout(() => {
       $(document).on("click.searchOutside", function (e) {
         if (
@@ -424,7 +424,7 @@ $(document).ready(function () {
         }
       });
 
-      // Правильний обробник вводу
+      // Correct input handler
       $("#search-block input").on("input", function () {
         const value = $(this).val();
         const $resetButton = $(this).closest('.search__form').find('.search__reset');
@@ -442,22 +442,22 @@ $(document).ready(function () {
         }
       });
 
-      // Обробник для кнопки скидання пошуку
+      // Handler for search reset button
       $("#search-block .search__reset").on("click", function (e) {
         e.preventDefault();
         const $input = $(this).closest('.search__form').find('input');
         const $resetButton = $(this);
 
-        // Очищаємо поле вводу
+        // Clear input field
         $input.val('');
 
-        // Ховаємо кнопку скидання
+        // Hide reset button
         $resetButton.fadeOut(200);
 
-        // Ховаємо результати пошуку
+        // Hide search results
         $("#search-results").fadeOut(200);
 
-        // Повертаємо фокус на поле вводу
+        // Return focus to input field
         $input.focus();
       });
     }, 10);
@@ -488,29 +488,29 @@ $(document).ready(function () {
   $(".group-selects select").change(checkFilters);
 
   $(".filters__reset-all").on("click", function () {
-    // Очищаємо всі селекти
+    // Clear all selects
     $(this)
       .parents()
       .find("select")
       .each(function () {
         const $select = $(this);
         if ($select.attr("multiple")) {
-          // Для multiple-селектів знімаємо всі вибрані опції
+          // For multiple selects, uncheck all selected options
           $select.find("option").prop("selected", false);
         } else {
-          // Для звичайних селектів вибираємо перший пункт (або placeholder)
+          // For regular selects, select first item (or placeholder)
           $select.prop("selectedIndex", 0);
         }
-        $select.trigger("change"); // Викликаємо подію change для оновлення
+        $select.trigger("change"); // Trigger change event for update
       });
 
-    // Якщо використовуються кастомні селекти, оновлюємо їх
+    // If custom selects are used, update them
     $(".dropdown-wrapper").each(function () {
       const $dropdown = $(this);
       const $select = $dropdown.prev("select");
       const placeholder = $select.data("placeholder") || "Choose options";
 
-      // Оновлюємо текст тригера
+      // Update trigger text
       $dropdown
         .find(".dropdown-trigger")
         .removeClass("is-selected")
@@ -518,7 +518,7 @@ $(document).ready(function () {
           `${placeholder} <svg class="arrow"><use xlink:href="#arrow-select"></use></svg>`
         );
 
-      // Знімаємо всі вибрані опції
+      // Uncheck all selected options
       $dropdown.find("input").prop("checked", false);
     });
   });
@@ -721,18 +721,18 @@ $(document).ready(function () {
       const message = $field.data('valid') || defaultError;
       const $parent = $field.closest('label');
 
-      // Очистити попередні алерти
+      // Clear previous alerts
       $field.removeClass('error');
       $parent.find('.error-allert').remove();
 
-      // Перевірка заповнення
+      // Check if field is filled
       if (value === '') {
         showError($field, $parent, message);
         error = 1;
         return false;
       }
 
-      // Перевірка email
+      // Email validation
       if (type === 'email') {
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         if (!emailRegex.test(value)) {
@@ -743,7 +743,7 @@ $(document).ready(function () {
         }
       }
 
-      // Перевірка телефону
+      // Phone validation
       if (type === 'tel') {
         const phoneRegex = /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/im;
         if (!phoneRegex.test(value)) {
@@ -774,7 +774,7 @@ $(document).ready(function () {
 
   const $navContainer = $('.other-overview__content-nav');
   const $navLinks = $navContainer.find('a');
-  const offsetMargin = 200; // для кращої чутливості, можеш змінити
+  const offsetMargin = 200; // for better sensitivity, you can change
 
   function onScroll() {
     let currentId = '';
@@ -788,7 +788,7 @@ $(document).ready(function () {
 
     $navLinks.each(function () {
       const $link = $(this);
-      const href = $link.attr('href'); // без #
+      const href = $link.attr('href'); // without #
       if (href === '#' + currentId) {
         $link.addClass('active');
         scrollToActive($link);
@@ -819,7 +819,7 @@ $(document).ready(function () {
 
 
   $(window).on("resize", function () {
-    // Оновлюємо parallax з додатковими перевірками
+    // Update parallax with additional checks
     updateParallaxElements();
 
     playHeaderAnimation();
@@ -885,11 +885,15 @@ $(document).ready(function () {
     $(this).parents('.notice').fadeOut(200, function () {
       $(this).remove();
     });
-  })  
+  })
 
-    document.getElementById('file').addEventListener('change', function(e) {
+  const fileInput = document.getElementById('file');
+  if (fileInput) {
+    fileInput.addEventListener('change', function (e) {
       const status = document.getElementById('file-status');
-      status.textContent = e.target.files.length ? e.target.files[0].name : 'No file choosen';
+      if (status) {
+        status.textContent = e.target.files.length ? e.target.files[0].name : 'No file choosen';
+      }
 
       if (e.target.files.length > 0) {
         $(this).parents('.custom-file-upload').find('.icon').show();
@@ -898,6 +902,185 @@ $(document).ready(function () {
         $(this).parents('.custom-file-upload').find('.icon').hide();
         $(this).parents('.custom-file-upload').find('img').show();
       }
-    }); 
+    });
+  }
+
+  /**shopping-card-tooltip */
+  $('.shopping-card-button').click(function (e) {
+    e.preventDefault();
+    const $tooltip = $('.shopping-card-tooltip');
+    const $button = $(this);
+    
+    if ($tooltip.hasClass('active')) {
+      // Close tooltip with animation
+      $tooltip.removeClass('active').fadeOut(300, function() {
+        if (isMobile()) {
+          $("body").removeClass("overflow-hidden");
+        }
+      });
+      $button.removeClass('active');
+    } else {
+      // Open tooltip with animation
+      $tooltip.addClass('active').fadeIn(300, function() {
+        if (isMobile()) {
+          $("body").addClass("overflow-hidden");
+        }
+      });
+      $button.addClass('active');
+    }
+  })
+
+  $('.shopping-card-tooltip-close').click(function () {
+    const $tooltip = $(this).parents('.shopping-card-tooltip');
+    const $button = $('.shopping-card-button');
+    
+    $tooltip.removeClass('active').fadeOut(300, function() {
+      if (isMobile()) {
+        $("body").removeClass("overflow-hidden");
+      }
+    });
+    $button.removeClass('active');
+  })
+
+  /**end shopping-card-tooltip */
+
+  /**shopping-card-modal */
+
+  /**end shopping-card-modal */
+
+  /**shopping-cart-counter */
+  $('.input-counter-button').click(function() {
+    const $counter = $(this).closest('.input-counter');
+    const $input = $counter.find('input[type="number"]');
+    const currentValue = parseInt($input.val()) || 0;
+    const minValue = parseInt($input.attr('min')) || 1;
+    const maxValue = parseInt($input.attr('max')) || 999;
+    
+    if ($(this).hasClass('plus')) {
+      // Increase value
+      const newValue = Math.min(currentValue + 1, maxValue);
+      $input.val(newValue);
+    } else if ($(this).hasClass('minus')) {
+      // Decrease value
+      const newValue = Math.max(currentValue - 1, minValue);
+      $input.val(newValue);
+    }
+    
+    // Trigger change event to update price
+    $input.trigger('change');
+  });
+
+  // Handle direct input in field
+  $('.input-counter input[type="number"]').on('input', function() {
+    const $input = $(this);
+    const value = parseInt($input.val()) || 0;
+    const minValue = parseInt($input.attr('min')) || 1;
+    const maxValue = parseInt($input.attr('max')) || 999;
+    
+    // Limit value within acceptable bounds
+    if (value < minValue) {
+      $input.val(minValue);
+    } else if (value > maxValue) {
+      $input.val(maxValue);
+    }
+  });
+
+  // Update price when quantity changes
+  $('.input-counter input[type="number"]').on('change', function() {
+    // const $input = $(this);
+    // const quantity = parseInt($input.val()) || 1;
+    // const $cartItem = $input.closest('.shopping-cart-content-item');
+    // const $priceElement = $cartItem.find('.shopping-cart-price');
+    
+    // Get base price (without quantity consideration)
+    // const basePriceText = $priceElement.text().replace(/[^\d.]/g, '');
+    // const basePrice = parseFloat(basePriceText) || 0;
+    
+    // Calculate new price
+    // const newPrice = basePrice * quantity;
+    
+    // Update price display
+    // $priceElement.text(`$${newPrice.toFixed(2)}`);
+    
+    // Update cart total (if exists)
+    updateCartTotal();
+  });
+
+  // Function to update cart total
+  function updateCartTotal() {
+    let total = 0;
+    
+    $('.shopping-cart-content-item').each(function() {
+      const $item = $(this);
+      const $priceElement = $item.find('.shopping-cart-price');
+      const $quantityInput = $item.find('.input-counter input[type="number"]');
+      
+      const priceText = $priceElement.text().replace(/[^\d.]/g, '');
+      const price = parseFloat(priceText) || 0;
+      const quantity = parseInt($quantityInput.val()) || 1;
+      
+      total += price * quantity;
+    });
+    
+    // Update total amount (if element exists for display)
+    const $totalElement = $('.shopping-cart-total, .cart-total');
+    if ($totalElement.length) {
+      $totalElement.text(`$${total.toFixed(2)}`);
+    }
+  }
+
+  // Remove item from cart
+  $('.shopping-cart-price-delete-button').click(function() {
+    const $cartItem = $(this).closest('.shopping-cart-content-item');
+    
+    // Remove animation
+    $cartItem.fadeOut(300, function() {
+      $(this).remove();
+      updateCartTotal();
+      
+      // Check if any items remain in cart
+      if ($('.shopping-cart-content-item').length === 0) {
+        $('.shopping-cart-content').html('<p class="empty-cart">Your shopping cart is empty</p>');
+      }
+    });
+  });
+
+  /**end shopping-cart-counter */
+
+
+  // Store element position once
+  let elementNaturalPosition = null;
+  
+  function updateElementPosition() {
+    const $orderSummaryTotalWrapper = $('.shopping-cart-order-summary-total-wrapper');
+    if ($orderSummaryTotalWrapper.length && isMobile()) {
+      const elementOffset = $orderSummaryTotalWrapper.offset().top;
+      const elementHeight = $orderSummaryTotalWrapper.outerHeight();
+      elementNaturalPosition = elementOffset + elementHeight;
+    }
+  }
+  
+  // Update position on resize
+  $(window).on('resize', updateElementPosition);
+  
+  // Set initial position
+  updateElementPosition();
+  
+  $(window).on('scroll', function() {
+    const $orderSummaryTotalWrapper = $('.shopping-cart-order-summary-total-wrapper');
+    if ($orderSummaryTotalWrapper.length && isMobile() && elementNaturalPosition !== null) {
+      const scrollTop = $(window).scrollTop();
+      const windowHeight = $(window).height();
+      
+      // If scroll is more than 50px and block hasn't reached its natural position
+      const shouldBeFixed = scrollTop > 0 && scrollTop + windowHeight < elementNaturalPosition;
+      
+      if (shouldBeFixed) {
+        $orderSummaryTotalWrapper.addClass('scroll');
+      } else {
+        $orderSummaryTotalWrapper.removeClass('scroll');
+      }
+    }
+  });
 
 });

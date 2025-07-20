@@ -307,7 +307,7 @@
             <li><a href="#">On Display</a></li>
             <li><a href="#">Inspiration</a></li>
           </ul>
-          <div class="navigation-menu-contacts">
+          <div class="navigation-menu-contacts position-relative">
             <a class="navigation-menu-contacts-phone" href="tel:617.926.2344">
               <span>617.926.2344</span>
               <svg class="icon">
@@ -319,11 +319,14 @@
                 <use xlink:href="#search"></use>
               </svg>
             </a>
-            <a href="#">
+            <a class="shopping-card-button" href="#" id="shopping-card-button">
               <svg class="icon">
                 <use xlink:href="#shopping"></use>
               </svg>
+
+              <span class="shopping-card-new"></span>
             </a>
+            {% include "../components/shopping/shopping-card-tooltip.njk" %}
           </div>
         </div>
         {% include "./search.njk" %}
