@@ -110,11 +110,27 @@ $(document).ready(function () {
     var id = $(this).attr("href"),
       top = $(id).offset().top;
 
+    // Calculate offset based on navigation height and banner
+    let offset = $('.navigation').outerHeight();
+    
+    // Add banner height if it's visible
+    if ($("#banner-info").is(":visible")) {
+      offset += $("#banner-info").outerHeight();
+    }
+    
+    // Add mobile sidebar height if on privacy policy page and mobile
+    if ($('.privacy-policy').length && isMobile() && $('.privacy-policy__sidebar-mobile').length) {
+      offset += $('.privacy-policy__sidebar-mobile').outerHeight();
+    }
+    
+    // Add some extra space for better visibility
+    offset += 20;
+
     $("body,html").animate(
       {
-        scrollTop: top - 50,
+        scrollTop: top - offset,
       },
-      500
+      0
     );
   });
 
@@ -1046,6 +1062,162 @@ $(document).ready(function () {
   });
 
   /**end shopping-cart-counter */
+
+  /**privacy-policy sidebar navigation */
+  function initPrivacyPolicySidebar() {
+    const $sidebarNavs = $('.privacy-policy__sidebar-nav');
+    const $sidebarTitles = $('.privacy-policy__sidebar-title');
+    let currentActiveSection = null;
+    let updateTimeout = null;
+    
+    // Hide all navs by default
+    $sidebarNavs.removeClass('active');
+    
+    function updateActiveSidebarNav() {
+      const scrollTop = $(window).scrollTop();
+      const windowHeight = $(window).height();
+      const offset = 200; // Offset from top to trigger activation
+      
+      let activeSection = null;
+      
+      // If at the top of the page, don't show any active section
+      if (scrollTop < 100) {
+        if (currentActiveSection !== null) {
+          $sidebarNavs.removeClass('active');
+          $sidebarTitles.removeClass('active');
+          currentActiveSection = null;
+        }
+        return;
+      }
+      
+      // Check each section to find which one is currently in view
+      $sidebarTitles.each(function() {
+        const $title = $(this);
+        const targetId = $title.attr('href');
+        const $targetSection = $(targetId);
+        
+        if ($targetSection.length) {
+          const sectionTop = $targetSection.offset().top;
+          const sectionBottom = sectionTop + $targetSection.outerHeight();
+          
+          // Check if section is in viewport with more precise logic
+          if (scrollTop + offset >= sectionTop && scrollTop + offset < sectionBottom) {
+            activeSection = targetId;
+          }
+        }
+      });
+      
+      // If at the bottom of the page, activate the last section
+      if (!activeSection && scrollTop + windowHeight >= $(document).height() - 100) {
+        const $lastTitle = $sidebarTitles.last();
+        activeSection = $lastTitle.attr('href');
+      }
+      
+              // Only update if active section changed
+        if (activeSection !== currentActiveSection) {
+          $sidebarNavs.removeClass('active');
+          $sidebarTitles.removeClass('active');
+          
+          if (activeSection) {
+            const $activeTitle = $(`[href="${activeSection}"]`);
+            const $activeNav = $activeTitle.siblings('.privacy-policy__sidebar-nav');
+            
+            $activeTitle.addClass('active');
+            $activeNav.addClass('active');
+            
+            // Update mobile navigation
+            $('.privacy-policy__sidebar-mobile a').removeClass('active');
+            $(`.privacy-policy__sidebar-mobile a[href="${activeSection}"]`).addClass('active');
+          } else {
+            // Clear mobile navigation if no active section
+            $('.privacy-policy__sidebar-mobile a').removeClass('active');
+          }
+          
+          currentActiveSection = activeSection;
+        }
+    }
+    
+    // Debounce function for better performance
+    function debounce(func, wait) {
+      return function() {
+        const context = this;
+        const args = arguments;
+        clearTimeout(updateTimeout);
+        updateTimeout = setTimeout(() => func.apply(context, args), wait);
+      };
+    }
+    
+    // Call on scroll and resize with debouncing
+    $(window).on('scroll', debounce(updateActiveSidebarNav, 50));
+    $(window).on('resize', debounce(updateActiveSidebarNav, 100));
+    
+    // Initial call
+    updateActiveSidebarNav();
+    
+    // Handle hash in URL on page load
+    if (window.location.hash) {
+      setTimeout(() => {
+        updateActiveSidebarNav();
+      }, 100);
+    }
+    
+    // Handle hash change
+    $(window).on('hashchange', function() {
+      setTimeout(() => {
+        updateActiveSidebarNav();
+      }, 100);
+    });
+    
+    // Handle smooth scroll completion
+    $('.scroll').on('click', function() {
+      setTimeout(() => {
+        updateActiveSidebarNav();
+      }, 600); // Wait for smooth scroll to complete
+    });
+  }
+  
+  // Initialize privacy policy sidebar if on privacy policy page
+  if ($('.privacy-policy').length) {
+    initPrivacyPolicySidebar();
+    
+    // Handle clicks on sidebar titles
+    $('.privacy-policy__sidebar-title').on('click', function(e) {
+      const $title = $(this);
+      const $nav = $title.siblings('.privacy-policy__sidebar-nav');
+      
+      // If nav is already active, don't prevent default (allow scroll)
+      if (!$nav.hasClass('active')) {
+        e.preventDefault();
+        $nav.addClass('active');
+        $title.addClass('active');
+      }
+    });
+    
+    // Handle clicks on sidebar links
+    $('.privacy-policy__sidebar-link').on('click', function() {
+      // Update active state after scroll
+      setTimeout(() => {
+        updateActiveSidebarNav();
+      }, 500);
+    });
+    
+    // Handle mobile navigation clicks
+    $('.privacy-policy__sidebar-mobile a').on('click', function() {
+      const $link = $(this);
+      const targetId = $link.attr('href');
+      
+      // Update mobile navigation active state
+      $('.privacy-policy__sidebar-mobile a').removeClass('active');
+      $link.addClass('active');
+      
+      // Update desktop sidebar after scroll
+      setTimeout(() => {
+        updateActiveSidebarNav();
+      }, 500);
+    });
+  }
+
+  /**end privacy-policy sidebar navigation */
 
 
   // Store element position once

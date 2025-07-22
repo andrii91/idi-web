@@ -106,6 +106,12 @@ body {
     padding: 10px 20px;
   }
 
+  &-lg {
+    font-size: 24px;
+    line-height: 32px;
+    padding: 20px 30px;
+  }
+
   sup {
     font-weight: 500;
   }
@@ -1165,7 +1171,7 @@ select {
 }
 
 
-main, section, header {
+main:not(.privacy-policy), section, header {
   @media screen and (max-width: 1024px) {
     overflow: hidden;
   }
@@ -1359,3 +1365,4 @@ main, section, header {
 @import "./sign-up/index.scss";
 @import "./shopping/tooltip.scss";
 @import "./shopping/shopping-cart.scss";
+@import "./privacy-policy.scss";
