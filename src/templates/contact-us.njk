@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="initial-scale=1.0, width=device-width">
+  <meta name="Title" content="Contact Us - Italian Design Interiors" />
+  <meta name="description" content="Contact Us for Italian Design Interiors" />
+  <meta property="og:type" content="article" />
+  <meta property="og:description" content="Contact Us for Italian Design Interiors" />
+  <meta property="og:url" content="" />
+  <meta property="og:sitename" content="" />
+  <meta property="og:title" content="Privacy Policy - Italian Design Interiors">
+  <meta property="og:image" content="images/og.png" />
+  <title>Contact Us - Italian Design Interiors</title>
+  <link rel="icon" type="image/png" href="favicon/favicon-96x96.png" sizes="96x96" />
+  <link rel="icon" type="image/svg+xml" href="favicon/favicon.svg" />
+  <link rel="shortcut icon" href="favicon/favicon.ico" />
+  <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png" />
+  <link rel="manifest" href="favicon/site.webmanifest" />
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+  {% include "partials/icons.njk" %}
+  {% include "partials/banner.njk" %}
+  {% include "partials/menu.njk" %}
+
+  <main class="contact-us">
+    <!-- Contact Form Section -->
+    <section class="contact-us__content">
+      <div class="container-xxl">
+        <div class="row">
+          <div class="col-lg-6 order-2 order-lg-1">
+            <div class="contact-us__form-section">
+              <h1 class="contact-us__title">Contact Us</h1>
+              <p class="contact-us__description">
+                No matter which method you prefer – email, phone call or face-to-face meetings – you can reach us in any
+                of these ways. We're here for you whenever you need us.
+              </p>
+
+              <form class="contact-us__form">
+                <label class="contact-us__label label">
+                  <input type="text" class="input-text dark" placeholder="Full name*" required>
+                </label>
+
+                <label class="contact-us__label label">
+                  <input type="tel" class="input-text dark" placeholder="Phone*" required>
+                </label>
+
+                <label class="contact-us__label label">
+                  <input type="email" class="input-text dark" placeholder="Email*" required>
+                </label>
+
+                <label class="contact-us__label label">
+                  <textarea class="input-text dark" placeholder="Message*" required></textarea>
+                </label>
+
+                <button type="submit" class="btn btn-dark w-full submit">Send us a message</button>
+              </form>
+            </div>
+          </div>
+
+          <div class="col-lg-6 order-1 order-lg-2">
+            <div class="parallax-window contact-us__image" data-parallax="scroll"
+              data-image-src="images/showroom-1.webp" data-speed="0.5" data-offset="100" data-position="right"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Showroom Section -->
+    <section class="contact-us__showroom-section">
+      <div class="container-xxl">
+
+        <h2 class="contact-us__showroom-title">Visit our showroom</h2>
+
+        <iframe class="contact-us__map"
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2947.8964764883867!2d-71.1865547238904!3d42.36604547119233!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89e37805a58af363%3A0x5714a580ae87b19!2zMTkgU3ByaW5nIFN0LCBXYXRlcnRvd24sIE1BIDAyNDcyLCDQodC_0L7Qu9GD0YfQtdC90ZYg0KjRgtCw0YLQuCDQkNC80LXRgNC40LrQuA!5e0!3m2!1suk!2sua!4v1753295179002!5m2!1suk!2sua"
+          style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+
+        <div class="row">
+          <!-- Address Card -->
+          <div class="col-lg-4">
+            <div class="contact-us__info-card">
+              <h3 class="contact-us__card-title">Address</h3>
+              <div class="contact-us__card-content">
+                <div class="contact-us__address-info">
+                  <p class="contact-us__address-text">19 Spring Street Watertown, <br> MA 02472</p>
+                  <a href="#" class="btn btn-dark btn-md w-full">
+                    Show on map
+                    <svg class="icon">
+                      <use href="#map-open" />
+                    </svg>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4">
+            <!-- Contact Card -->
+            <div class="contact-us__info-card">
+              <h3 class="contact-us__card-title">Contact us</h3>
+              <div class="contact-us__card-content">
+                <div class="contact-us__contact-info">
+                  <p class="contact-us__contact-item">Telephone: 617.926.2344</p>
+                  <p class="contact-us__contact-item">E-mail: info@italian-interiors.com</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4">
+            <!-- Store Hours Card -->
+            <div class="contact-us__info-card">
+              <h3 class="contact-us__card-title">Store hours</h3>
+              <div class="contact-us__store-hours">
+                <p class="contact-us__day-item">Monday <span>By appointment</span></p>
+                <p class="contact-us__day-item">Tuesday <span>10 AM - 6 PM</span></p>
+                <p class="contact-us__day-item">Wednesday <span>10 AM - 6 PM</span></p>
+                <p class="contact-us__day-item">Thursday <span>11 AM - 7 PM</span></p>
+                <p class="contact-us__day-item">Friday <span>10 AM - 6 PM</span></p>
+                <p class="contact-us__day-item">Saturday <span>10 AM - 6 PM</span></p>
+                <p class="contact-us__day-item">Sunday <span>12 PM - 5 PM</span></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  {% include "partials/subscribe.njk" %}
+  {% include "partials/footer.njk" %}
+
+  <script defer src="js/bundle.js"></script>
+</body>
+
+</html>
