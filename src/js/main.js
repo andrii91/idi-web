@@ -245,6 +245,13 @@ $(document).ready(function () {
           if (el.classList.contains(key)) {
             el.classList.add("visible", "animated", fadeMap[key]);
             el.classList.remove("hidden_animation");
+            
+            // Add event listener to remove animation classes after animation completes
+            const animationDuration = 1000; // 1 second animation duration
+            setTimeout(() => {
+              el.classList.remove("animated", fadeMap[key]);
+            }, animationDuration);
+            
             break;
           }
         }
