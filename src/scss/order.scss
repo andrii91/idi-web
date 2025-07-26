@@ -1,0 +1,265 @@
+.order-page {
+  &__header {
+    padding: 234px 0 50px;
+
+    @media screen and (min-width: 1024px) and (max-width: 1320px) {
+      padding: vw(234px) 0 vw(50px);
+    }
+  
+    @media screen and (max-width: 1023px) {
+      padding: 92px 0 50px;
+    }
+
+    &-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 40px;
+      flex-wrap: wrap;
+    }
+
+    &-support {
+      display: flex;
+      align-items: center;
+      color: #000;
+      font-family: "Nunito Sans";
+      font-size: 18px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: normal;
+      gap: 16px;
+      text-decoration: none;
+
+      &:hover {
+        text-decoration: underline;
+      }
+
+      .icon {
+        width: 24px;
+        height: 24px;
+      }
+    }
+
+    &-title {
+      color: #000;
+      font-size: 64px;
+      font-style: normal;
+      font-weight: 300;
+      line-height: 70px; /* 109.375% */
+
+      @media screen and (min-width: 1024px) and (max-width: 1320px) {
+        font-size: vw(64px);
+        line-height: vw(70px);
+      }
+
+      @media screen and (max-width: 1023px) {
+        font-size: 38px;
+        margin-bottom: 20px;
+        width: 100%;
+      }
+    }
+  }
+
+  &__steps {
+    width: 100%;
+    overflow-x: auto;
+    &::-webkit-scrollbar {
+      display: none;
+    }
+
+    &-container {
+      display: flex;
+      gap: 120px;
+      position: relative;
+      min-width: fit-content;
+
+      &:before {
+        content: '';
+        position: absolute;
+        background: #DBDBDB;
+        height: 2px;
+        width: calc(100% - 198px);
+        top: 96px;
+        left: 99px;
+      }
+    }
+
+   
+  }
+
+  &__step {
+    min-width: 198px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    position: relative;
+
+    &:before {
+      content: '';
+      position: absolute;
+      border-radius: 10px;
+      border: 2px solid #DBDBDB;
+      display: flex;
+      width: 20px;
+      height: 20px;
+      padding: 5px;
+      justify-content: center;
+      align-items: center;
+      top: 86.5px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 2;
+    }
+
+    &:after {
+      content: '';
+      position: absolute;
+      background: #fff;
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      top: 86.5px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 1;
+    }
+
+    &.completed {
+      .order-page__step-icon {
+        border-color: #000;
+        background: #000;
+        color: #FFF;
+      }
+
+      .order-page__step-content-title {
+        color: #6B7280;
+      }
+
+      &:before {
+        border-color: #000;
+        background: #000;
+      }
+    }
+
+    &.current {
+      .order-page__step-icon {
+        border: 1px solid #000;
+      }
+
+      &:before {
+        border-color: #000;
+      }
+    }
+
+    &-icon {
+      width: 52px;
+      height: 52px;
+      border-radius: 8px;
+      border: 1px solid #DBDBDB;
+      background: #FFF;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 90px;
+      color: #000;
+
+      .icon {
+        width: 32px;
+        height: 32px;
+      }
+
+    }
+
+    &-content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+
+      &-title {
+        color: #000;
+        text-align: center;
+        font-size: 24px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: normal;
+      }
+
+      &-date {
+        color: #6B7280;
+        text-align: center;
+        font-family: "Nunito Sans";
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: normal;
+      }
+    }
+  }
+
+  &__section {
+    padding: 40px 0;
+
+    &-title {
+      color: #000;
+      font-size: 48px;
+      font-style: normal;
+      font-weight: 300;
+      line-height: 50px;
+      margin-bottom: 20px;
+    }
+
+    .checkout-page__section--order-details {
+      padding-bottom: 0;
+    }
+    &--faq {
+      padding-bottom: 120px;
+
+      @media screen and (max-width: 1023px) {
+        padding-bottom: 100px;
+      }
+
+     .container-xxl {
+      max-width: 670px;
+     }
+    }
+  }
+
+  &__faq-item {
+    margin-bottom: 24px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    &-title {
+      color: #000;
+      font-size: 24px;
+      font-style: normal;
+      font-weight: 500;
+      line-height: normal;
+      margin-bottom: 20px;
+    }
+
+    &-content {
+      color: #000;
+      font-size: 18px;
+      font-style: normal;
+      font-weight: 300;
+      line-height: normal;
+    }
+  }
+}
+
+.checkout-page__step-content-item {
+  .order-summary__items {
+    width: 100%;
+    margin-top: 32px;
+  }
+
+  .order-summary__total {
+    width: 100%;
+    margin-bottom: 0;
+  }
+}

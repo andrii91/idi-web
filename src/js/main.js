@@ -236,7 +236,7 @@ $(document).ready(function () {
     "fade-in-up": "fadeInUp",
   };
 
-  const observer = new IntersectionObserver((entries, observerInstance) => {
+  const animationObserver = new IntersectionObserver((entries, observerInstance) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         const el = entry.target;
@@ -266,7 +266,7 @@ $(document).ready(function () {
   for (const fadeClass in fadeMap) {
     document.querySelectorAll(`.${fadeClass}`).forEach(el => {
       el.classList.add("hidden_animation");
-      observer.observe(el);
+      animationObserver.observe(el);
     });
   }
 
@@ -900,6 +900,7 @@ $(document).ready(function () {
     playHeaderAnimation();
     initRoomFurnitureSlider();
     updateBannerMargin();
+    scrollToCurrentStep();
   });
 
   // Initialize Fancybox
@@ -1278,6 +1279,49 @@ $(document).ready(function () {
 
   /**end privacy-policy sidebar navigation */
 
+  /**order page steps scroll logic */
+  function scrollToCurrentStep() {
+    const $stepsWrapper = $('.order-page__steps');
+    
+    if (!$stepsWrapper.length) return;
+    
+    let $targetStep;
+    
+    if (isMobile()) {
+      // On mobile, scroll to current step
+      $targetStep = $('.order-page__step.current');
+    } else {
+      // On desktop, scroll to completed step
+      $targetStep = $('.order-page__step.completed');
+    }
+    
+    if ($targetStep.length) {
+      const $stepsContainer = $('.order-page__steps-container');
+      
+      if ($stepsContainer.length) {
+        // Calculate the position to scroll to
+        const stepOffset = $targetStep.position().left;
+        const containerWidth = $stepsWrapper.width();
+        const stepWidth = $targetStep.outerWidth();
+        
+        // Center the target step in the viewport
+        const scrollPosition = stepOffset - (containerWidth / 2) + (stepWidth / 2) + 55;
+        
+        // Animate scroll to the target step
+        $stepsWrapper.animate({
+          scrollLeft: scrollPosition
+        }, 500);
+      }
+    }
+  }
+
+  // Call function on page load if on order page
+  if ($('.order-page').length) {
+    // Small delay to ensure DOM is fully loaded
+    setTimeout(scrollToCurrentStep, 100);
+  }
+
+  /**end order page steps scroll logic */
 
   // Store element position once
   let elementNaturalPosition = null;
@@ -1656,9 +1700,27 @@ $(document).ready(function () {
   // Initialize floating labels
   initFloatingLabels();
 
-  // Re-initialize floating labels for dynamically added inputs
-  $(document).on('DOMNodeInserted', '.input-text', function() {
-    initFloatingLabels();
+  // Re-initialize floating labels for dynamically added inputs using MutationObserver
+  const floatingLabelsObserver = new MutationObserver(function(mutations) {
+    mutations.forEach(function(mutation) {
+      if (mutation.type === 'childList') {
+        mutation.addedNodes.forEach(function(node) {
+          if (node.nodeType === 1) { // Element node
+            if ($(node).hasClass('input-text')) {
+              initFloatingLabels();
+            } else if ($(node).find('.input-text').length) {
+              initFloatingLabels();
+            }
+          }
+        });
+      }
+    });
+  });
+
+  // Start observing the document body for changes
+  floatingLabelsObserver.observe(document.body, {
+    childList: true,
+    subtree: true
   });
 
 });
