@@ -1,0 +1,11 @@
+// Floating label styles
+.floating-label {
+  @media screen and (min-width: 1024px) and (max-width: 1320px) {
+    font-size: vw(24px) !important;
+    
+    &.active {
+      font-size: vw(14px) !important;
+      bottom: vw(25px) !important;
+    }
+  }
+} 

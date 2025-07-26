@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="initial-scale=1.0, width=device-width">
+  <meta name="Title" content="Italian Design Interiors" />
+  <meta name="description" content="" />
+  <meta property="og:type" content="article" />
+  <meta property="og:description" content="" />
+  <meta property="og:url" content="" />
+  <meta property="og:sitename" content="" />
+  <meta property="og:title" content="Italian Design Interiors">
+  <meta property="og:image" content="images/og.png" />
+  <title>Checkout - Italian Design Interiors</title>
+  <link rel="icon" type="image/png" href="favicon/favicon-96x96.png" sizes="96x96" />
+  <link rel="icon" type="image/svg+xml" href="favicon/favicon.svg" />
+  <link rel="apple-touch-icon" href="favicon/apple-touch-icon.png" />
+  <link rel="manifest" href="favicon/site.webmanifest" />
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+  <!-- Header -->
+  {% include "partials/menu.njk" %}
+
+  <!-- Main Content -->
+  <main class="checkout-page">
+    <section class="checkout-page__section">
+      <div class="container-xxl">
+        <div class="row">
+          <!-- Left Column - Checkout Form -->
+          <div class="col-lg-8">
+            <div class="checkout-page__section-wrap">
+              <h1 class="checkout-page__title">Checkout</h1>
+
+              <!-- Checkout Form -->
+              <div class="checkout-page__step">
+                <div class="checkout-page__step-number">1</div>
+                <span class="checkout-page__step-text">Billing & Shipping info</span>
+                <button type="button" class="checkout-page__edit">
+                  Edit
+                </button>
+              </div>
+
+              <div class="checkout-page__step-content">
+                <div class="checkout-page__step-content-item">
+                  <h4 class="checkout-page__step-content-item-title">
+                    Shipping address
+                  </h4>
+                  <p class="checkout-page__step-content-item-text">
+                    John Doe
+                  </p>
+                  <p class="checkout-page__step-content-item-text">
+                    123 Maple Street <br>Beverly Hills, NV 90211 <br>United States
+                  </p>
+                </div>
+                <div class="checkout-page__step-content-item">
+                  <h4 class="checkout-page__step-content-item-title">
+                    Billing address
+                  </h4>
+                  <p class="checkout-page__step-content-item-text">
+                    John Doe
+                  </p>
+                  <p class="checkout-page__step-content-item-text">
+                    456 Avenue Street <br>Beverly Hills, NV 90211 <br>United States
+                  </p>
+                </div>
+              </div>
+
+              <div class="checkout-page__step">
+                <div class="checkout-page__step-number">2</div>
+                <span class="checkout-page__step-text">Shipping options</span>
+                <button type="button" class="checkout-page__edit">
+                  Edit
+                </button>
+              </div>
+
+              <div class="checkout-page__step-content checkout-page__step-content--shipping checkout-page__step-content--shipping-summary">
+                <div class="checkout-page__step-shipping-item ">
+                  <div class="row align-items-center">
+                    <div class="col-12 col-md-6">
+                      <h4>
+                        Standard shipping
+                      </h4>
+
+                      <p>Delivery 30 April-8 May</p>
+                    </div>
+                    <div class="col-12 col-md-6">
+                      <div class="checkout-page__step-shipping-item-price">
+                        <div class="checkout-page__step-shipping-item-price-tooltip" data-tooltip="Most items ship for free via standard delivery. Some smaller items will come by UPS. Larger items will ship via curbside delivery. The driver will leave your item(s) at the end of your driveway" >
+                          <svg class="icon" >
+                            <use href="#tooltip"></use>
+                          </svg>
+                        </div>
+                        $15.20
+
+                        <span class="checkout-page__step-shipping-item-price-text">
+                          VAT 24.5% included
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="checkout-page__step">
+                <div class="checkout-page__step-number">3</div>
+                <span class="checkout-page__step-text">Payment & Review</span>
+              </div>
+
+              <!-- Payment & Review Form -->
+              <form class="checkout-page__form checkout-page__form--payment" autocomplete="off">
+                <div class="checkout-page__form-section">
+                  <div class="checkout-page__form-fields">
+                    <div class="row">
+                      <div class="col-12">
+                        <label class="checkout-page__form-field label">
+                          <input type="text" name="card_number" class="input-text dark" placeholder="Card number" required maxlength="19" pattern="[0-9 ]*">
+                            <svg class="card-icon">
+                              <use href="#default-card"></use>
+                            </svg>
+                        </label>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-4">
+                        <label class="checkout-page__form-field label">
+                          <input type="text" name="exp_month" class="input-text dark" placeholder="Month" required maxlength="2" pattern="[0-9]*">
+                        </label>
+                      </div>
+                      <div class="col-md-4">
+                        <label class="checkout-page__form-field label">
+                          <input type="text" name="exp_year" class="input-text dark" placeholder="Year" required maxlength="4" pattern="[0-9]*">
+                        </label>
+                      </div>
+                      <div class="col-md-4">
+                        <label class="checkout-page__form-field label">
+                          <input type="text" name="cvv" class="input-text dark" placeholder="CVV" required maxlength="4" pattern="[0-9]*">
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="checkout-page__form-section">
+                  <label class="custom-checkbox">
+                    <input id="checkout-terms-checkbox" type="checkbox" name="terms" required>
+                    <span>
+                      <span>Please read and agree to italian-interiors.com's <a href="#" target="_blank">Terms and Conditions</a> to continue.</span>
+                    </span>
+                  </label>
+                </div>
+                <div class="checkout-page__form-actions">
+                  <button id="checkout-submit" type="submit" class="btn btn-dark submit" disabled>Proceed to checkout</button>
+                </div>
+              </form>
+              
+            </div>
+          </div>
+
+          <!-- Right Column - Order Summary -->
+          <div class="col-lg-4">
+            <div class="order-summary">
+              <h3 class="order-summary__title">Order summary</h3>
+
+              <div class="order-summary__items">
+                <div class="order-summary__item">
+                  <span class="order-summary__item-text">Subtotal of 2 items</span>
+                  <span class="order-summary__item-text order-summary__item-text--price">$7,300.00</span>
+                </div>
+                <div class="order-summary__item">
+                  <span class="order-summary__item-text">Shipping to address</span>
+                  <span class="order-summary__item-text order-summary__item-text--price">$30</span>
+                </div>
+                <div class="order-summary__item">
+                  <span class="order-summary__item-text">Tax</span>
+                  <span class="order-summary__item-text order-summary__item-text--price">$0</span>
+                </div>
+              </div>
+
+              <!-- Coupon Section -->
+              <div class="order-summary__coupon-section">
+                <div class="order-summary__coupon-item">
+                  <div class="order-summary__coupon-info">
+                    <div class="order-summary__coupon-icon">
+                      <svg class="icon">
+                        <use href="#check"></use>
+                      </svg>
+                    </div>
+                    <div class="order-summary__coupon-details">
+                      <span class="order-summary__coupon-code"><b>tka75y</b> applied</span>
+                    </div>
+                  </div>
+                  <div class="order-summary__coupon-actions">
+                    <span class="order-summary__coupon-discount">-$511.00</span>
+                    <button type="button" class="order-summary__coupon-remove">Remove</button>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Order Total -->
+              <div class="order-summary__total">
+                <span class="order-summary__total-text">Order total</span>
+                <span class="order-summary__total-text order-summary__total-text--price">$6,819.00</span>
+              </div>
+
+              <!-- Shipping Notice -->
+              <div class="order-summary__shipping-notice">
+                <div class="order-summary__notice-icon">
+                  <svg class="icon">
+                    <use href="#alert-info"></use>
+                  </svg>
+                </div>
+                <p class="order-summary__notice-text">
+                  Please notice one of the item has a longer delivery time and is expected to arrive within 12–14 weeks,
+                  with an estimated delivery date of 05 May, 2025
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Subscribe Section -->
+  {% include "partials/subscribe.njk" %}
+
+  <!-- Footer -->
+  {% include "partials/footer.njk" %}
+
+  <script defer src="js/bundle.js"></script>
+</body>
+
+</html>
