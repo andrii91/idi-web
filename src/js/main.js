@@ -739,7 +739,6 @@ $(document).ready(function () {
 
     $requiredFields.each(function () {
       const $field = $(this);
-      const value = $field.val().trim();
       const type = $field.attr('type');
       const message = $field.data('valid') || defaultError;
       const $parent = $field.closest('label');
@@ -748,32 +747,57 @@ $(document).ready(function () {
       $field.removeClass('error');
       $parent.find('.error-allert').remove();
 
-      // Check if field is filled
-      if (value === '') {
-        showError($field, $parent, message);
-        error = 1;
-        return false;
-      }
-
-      // Email validation
-      if (type === 'email') {
-        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        if (!emailRegex.test(value)) {
-          $field.val('');
+      // Special validation for radio buttons and checkboxes
+      if (type === 'radio' || type === 'checkbox') {
+        const name = $field.attr('name');
+        const $group = $form.find(`[name="${name}"]`);
+        const isChecked = $group.is(':checked');
+        
+        if (!isChecked) {
+          // For radio buttons, show error on all radio buttons in the group
+          if (type === 'radio') {
+            $group.each(function() {
+              const $radio = $(this);
+              const $radioParent = $radio.closest('label');
+              showError($radio, $radioParent, message);
+            });
+          } else {
+            showError($field, $parent, message);
+          }
+          error = 1;
+          return false;
+        }
+      } else {
+        // Regular input validation
+        const value = $field.val().trim();
+        
+        // Check if field is filled
+        if (value === '') {
           showError($field, $parent, message);
           error = 1;
           return false;
         }
-      }
 
-      // Phone validation
-      if (type === 'tel') {
-        const phoneRegex = /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/im;
-        if (!phoneRegex.test(value)) {
-          $field.val('');
-          showError($field, $parent, message);
-          error = 1;
-          return false;
+        // Email validation
+        if (type === 'email') {
+          const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+          if (!emailRegex.test(value)) {
+            $field.val('');
+            showError($field, $parent, message);
+            error = 1;
+            return false;
+          }
+        }
+
+        // Phone validation
+        if (type === 'tel') {
+          const phoneRegex = /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/im;
+          if (!phoneRegex.test(value)) {
+            $field.val('');
+            showError($field, $parent, message);
+            error = 1;
+            return false;
+          }
         }
       }
     });
@@ -784,8 +808,32 @@ $(document).ready(function () {
 
     function showError($field, $parent, msg) {
       $field.addClass('error');
-      $parent.append(`<div class="error-allert">${msg}</div>`);
+      // Check if error message already exists to avoid duplicates
+      if ($parent.find('.error-allert').length === 0) {
+        $parent.append(`<div class="error-allert">${msg}</div>`);
+      }
       $field.focus();
+    }
+  });
+
+  // Clear errors when radio buttons or checkboxes are selected
+  $('input[type="radio"], input[type="checkbox"]').on('change', function() {
+    const $field = $(this);
+    const type = $field.attr('type');
+    const name = $field.attr('name');
+    const $form = $field.closest('form');
+    
+    if (type === 'radio') {
+      // Clear errors for all radio buttons in the group
+      const $group = $form.find(`[name="${name}"]`);
+      $group.removeClass('error');
+      $group.each(function() {
+        $(this).closest('label').find('.error-allert').remove();
+      });
+    } else {
+      // Clear error for this checkbox
+      $field.removeClass('error');
+      $field.closest('label').find('.error-allert').remove();
     }
   });
 
@@ -838,7 +886,11 @@ $(document).ready(function () {
 
   onScroll();
 
-  $('input[name="phone"]').inputmask("+9{1,15}");
+  $('input[name="phone"]').inputmask({
+    mask: "+9{1,15}",
+    showMaskOnHover: false,
+    showMaskOnFocus: true
+  });
 
 
   $(window).on("resize", function () {
@@ -1260,6 +1312,353 @@ $(document).ready(function () {
         $orderSummaryTotalWrapper.removeClass('scroll');
       }
     }
+  });
+
+  /**checkout page functionality */
+  // Initialize checkout page state
+  if ($('.checkout-page').length) {
+    // Set initial state of billing fields based on checkbox
+    const $billingRequiredFields = $('.checkout-page__billing-address input[required]');
+    if ($('#same-as-shipping').is(':checked')) {
+      $billingRequiredFields.removeAttr('required');
+      $('.checkout-page__billing-address').addClass('checkout-page__billing-address--hidden');
+    } else {
+      $billingRequiredFields.attr('required', 'required');
+      $('.checkout-page__billing-address').removeClass('checkout-page__billing-address--hidden');
+    }
+  }
+  
+  // Handle billing address same as shipping checkbox
+  $('#same-as-shipping').on('change', function() {
+    const $billingAddress = $('.checkout-page__billing-address');
+    const $billingRequiredFields = $billingAddress.find('input[required]');
+    const $billingFields = $billingAddress.find('input');
+    
+    if ($(this).is(':checked')) {
+      $billingAddress.addClass('checkout-page__billing-address--hidden');
+      // Remove required attribute from billing fields
+      $billingRequiredFields.removeAttr('required');
+      // Copy shipping address values to billing address
+      copyShippingToBilling();
+    } else {
+      $billingAddress.removeClass('checkout-page__billing-address--hidden');
+      // Add required attribute back to billing fields
+      $billingRequiredFields.attr('required', 'required');
+      // Clear billing address fields when showing them
+      $billingFields.val('');
+    }
+  });
+
+  // Copy shipping address to billing address
+  function copyShippingToBilling() {
+    const fieldMappings = [
+      { shipping: '#shipping-first-name', billing: '#billing-first-name' },
+      { shipping: '#shipping-last-name', billing: '#billing-last-name' },
+      { shipping: '#shipping-phone', billing: '#billing-phone' },
+      { shipping: '#shipping-email', billing: '#billing-email' },
+      { shipping: '#shipping-address', billing: '#billing-address' },
+      { shipping: '#shipping-city', billing: '#billing-city' },
+      { shipping: '#shipping-state', billing: '#billing-state' },
+      { shipping: '#shipping-zip', billing: '#billing-zip' }
+    ];
+    
+    fieldMappings.forEach(mapping => {
+      const shippingValue = $(mapping.shipping).val();
+      $(mapping.billing).val(shippingValue);
+    });
+  }
+
+  // Handle coupon remove button
+  $('.order-summary__coupon-remove').on('click', function() {
+    const $couponSection = $('.order-summary__coupon-section');
+    const $orderTotal = $('.order-summary__total-text--price');
+    const currentTotal = parseFloat($orderTotal.text().replace('$', '').replace(',', ''));
+    const couponDiscount = 511.00;
+    const newTotal = currentTotal + couponDiscount;
+    
+    $couponSection.fadeOut(300, function() {
+      $(this).remove();
+      $orderTotal.text('$' + newTotal.toFixed(2));
+    });
+  });
+
+
+
+  /**end checkout page functionality */
+
+  $('[data-tooltip]').hover(function() {
+    const tooltipText = $(this).data('tooltip');
+    const $tooltipElement = $(`<div class="tooltip">${tooltipText}</div>`);
+    $(this).append($tooltipElement);
+    
+    // Calculate position to prevent tooltip from being cut off
+    const $trigger = $(this);
+    
+    // Get positions
+    const triggerRect = $trigger[0].getBoundingClientRect();
+    const tooltipRect = $tooltipElement[0].getBoundingClientRect();
+    const windowWidth = $(window).width();
+    const windowHeight = $(window).height();
+    
+    // Calculate available space
+    const spaceRight = windowWidth - triggerRect.right;
+    const spaceLeft = triggerRect.left;
+    const spaceTop = triggerRect.top;
+    const spaceBottom = windowHeight - triggerRect.bottom;
+    
+    // Position tooltip
+    let left = 0;
+    let top = 0;
+    
+    // Horizontal positioning
+    if (spaceRight >= tooltipRect.width) {
+      // Enough space on the right
+      left = 0;
+    } else if (spaceLeft >= tooltipRect.width) {
+      // Enough space on the left
+      left = -(tooltipRect.width - triggerRect.width);
+    } else {
+      // Not enough space on either side, adjust to fit within viewport
+      if (tooltipRect.width > windowWidth) {
+        // Tooltip is wider than viewport, center it
+        left = -(tooltipRect.width - triggerRect.width) / 2;
+      } else {
+        // Adjust to fit within viewport
+        if (triggerRect.left + tooltipRect.width > windowWidth) {
+          left = windowWidth - triggerRect.right - tooltipRect.width;
+        } else if (triggerRect.left < 0) {
+          left = -triggerRect.left;
+        } else {
+          left = -(tooltipRect.width - triggerRect.width) / 2;
+        }
+      }
+    }
+    
+    // Vertical positioning
+    if (spaceTop >= tooltipRect.height) {
+      // Show above (preferred)
+      top = -(tooltipRect.height + 8);
+    } else if (spaceBottom >= tooltipRect.height) {
+      // Show below
+      top = triggerRect.height + 8;
+    } else {
+      // Not enough vertical space, try horizontal positioning
+      if (spaceRight >= tooltipRect.width) {
+        // Show to the right
+        left = triggerRect.width + 8;
+        top = (triggerRect.height - tooltipRect.height) / 2;
+      } else if (spaceLeft >= tooltipRect.width) {
+        // Show to the left
+        left = -(tooltipRect.width + 8);
+        top = (triggerRect.height - tooltipRect.height) / 2;
+      } else {
+        // Not enough horizontal space either, adjust to fit
+        if (tooltipRect.width > windowWidth) {
+          // Tooltip is wider than viewport, center it horizontally
+          left = -(tooltipRect.width - triggerRect.width) / 2;
+          top = (triggerRect.height - tooltipRect.height) / 2;
+        } else {
+          // Adjust horizontal position to fit within viewport
+          if (triggerRect.left + tooltipRect.width > windowWidth) {
+            left = windowWidth - triggerRect.right - tooltipRect.width;
+          } else if (triggerRect.left < 0) {
+            left = -triggerRect.left;
+          } else {
+            left = -(tooltipRect.width - triggerRect.width) / 2;
+          }
+          top = (triggerRect.height - tooltipRect.height) / 2;
+        }
+      }
+    }
+    
+    // Apply positioning
+    $tooltipElement.css({
+      position: 'absolute',
+      left: left + 'px',
+      top: top + 'px',
+      zIndex: 1000
+    });
+    
+  }, function() {
+    $(this).find('.tooltip').remove();
+  })
+
+
+  $('input[name="card_number"]').inputmask({
+    mask: "9999 9999 9999 9999",
+    showMaskOnHover: false,
+    showMaskOnFocus: true
+  });
+  $('input[name="exp_month"]').inputmask({
+    mask: "99",
+    showMaskOnHover: false,
+    showMaskOnFocus: true
+  });
+  $('input[name="exp_year"]').inputmask({
+    mask: "9999",
+    showMaskOnHover: false,
+    showMaskOnFocus: true
+  });
+  $('input[name="cvv"]').inputmask({
+    mask: "9999",
+    showMaskOnHover: false,
+    showMaskOnFocus: true
+  });
+
+  // === Card type detection logic ===
+  function getCardType(number) {
+    // Remove all non-digit characters
+    number = number.replace(/\D/g, '');
+    if (/^4/.test(number)) return 'visa';
+    if (/^(5[1-5])/.test(number)) return 'mastercard';
+    if (/^(222[1-9]|22[3-9][0-9]|2[3-6][0-9]{2}|27[01][0-9]|2720)/.test(number)) return 'mastercard';
+    if (/^3[47]/.test(number)) return 'amex';
+    if (/^6(?:011|5)/.test(number)) return 'discover';
+    if (/^35(2[89]|[3-8][0-9])/.test(number)) return 'jcb';
+    if (/^3(?:0[0-5]|[68])/.test(number)) return 'diners';
+    return 'unknown';
+  }
+
+  // При зміні номера картки визначаємо тип і змінюємо іконку
+  $('input[name="card_number"]').on('input', function() {
+    const cardNumber = $(this).val();
+    const cardType = getCardType(cardNumber);
+    
+    // Знаходимо SVG іконку картки
+    const $cardIcon = $(this).closest('form').find('.card-icon use');
+    if ($cardIcon.length) {
+      // Змінюємо href в залежності від типу картки
+      switch(cardType) {
+        case 'visa':
+          $cardIcon.attr('href', '#visa');
+          break;
+        case 'mastercard':
+          $cardIcon.attr('href', '#mastercard');
+          break;
+        case 'amex':
+          $cardIcon.attr('href', '#amex');
+          break;
+        case 'discover':
+          $cardIcon.attr('href', '#discover');
+          break;
+        case 'jcb':
+          $cardIcon.attr('href', '#jcb');
+          break;
+        case 'diners':
+          $cardIcon.attr('href', '#diners');
+          break;
+        default:
+          $cardIcon.attr('href', '#default-card'); 
+          break;
+      }
+    }
+  });
+
+  $('#checkout-terms-checkbox').on('change', function() {
+    if ($(this).is(':checked')) {
+      $('#checkout-submit').removeAttr('disabled');
+    } else {
+      $('#checkout-submit').attr('disabled', 'disabled');
+    }
+  });
+
+  // === Floating Label Functionality ===
+  function initFloatingLabels() {
+    $('.input-text').each(function() {
+      const $input = $(this);
+      const placeholder = $input.attr('placeholder');
+      
+      if (placeholder) {
+        // Create floating label element
+        const $floatingLabel = $('<span class="floating-label"></span>')
+          .text(placeholder)
+          .css({
+            position: 'absolute',
+            left: '0',
+            bottom: '5px',
+            fontSize: '24px',
+            fontWeight: '300',
+            color: $input.hasClass('dark') ? '#B3B3B3' : 'rgba(255, 255, 255, 0.6)',
+            transition: 'all 0.3s ease',
+            pointerEvents: 'none',
+            zIndex: '1'
+          });
+
+        // Wrap input in a container if not already wrapped
+        if (!$input.parent().hasClass('input-wrapper')) {
+          $input.wrap('<div class="input-wrapper" style="position: relative;"></div>');
+        }
+        
+        const $wrapper = $input.parent();
+        $wrapper.append($floatingLabel);
+        
+        // Remove original placeholder
+        $input.removeAttr('placeholder');
+        
+        // Handle focus events
+        $input.on('focus', function() {
+          $floatingLabel.css({
+            fontSize: '16px',
+            bottom: '40px',
+            color: $input.hasClass('dark') ? '#B3B3B3' : 'rgba(255, 255, 255, 0.6)'
+          });
+        });
+        
+        // Handle blur events
+        $input.on('blur', function() {
+          if ($input.val().trim() === '') {
+            $floatingLabel.css({
+              fontSize: '24px',
+              bottom: '5px',
+              color: $input.hasClass('dark') ? '#B3B3B3' : 'rgba(255, 255, 255, 0.6)'
+            });
+          }
+        });
+        
+        // Handle input events (for when user types)
+        $input.on('input', function() {
+          if ($input.val().trim() !== '') {
+            $floatingLabel.css({
+              fontSize: '16px',
+              bottom: '40px',
+              color: $input.hasClass('dark') ? '#B3B3B3' : 'rgba(255, 255, 255, 0.6)'
+            });
+          } else {
+            $floatingLabel.css({
+              fontSize: '24px',
+              bottom: '5px',
+              color: $input.hasClass('dark') ? '#B3B3B3' : 'rgba(255, 255, 255, 0.6)'
+            });
+          }
+        });
+        
+        // Handle error state
+        $input.on('input', function() {
+          if ($input.hasClass('error')) {
+            $floatingLabel.css('color', '#FF0000');
+          } else {
+            $floatingLabel.css('color', $input.hasClass('dark') ? '#B3B3B3' : 'rgba(255, 255, 255, 0.6)');
+          }
+        });
+        
+        // Initialize state if input already has value
+        if ($input.val().trim() !== '') {
+          $floatingLabel.css({
+            fontSize: '16px',
+            bottom: '40px',
+            color: $input.hasClass('dark') ? '#B3B3B3' : 'rgba(255, 255, 255, 0.6)'
+          });
+        }
+      }
+    });
+  }
+
+  // Initialize floating labels
+  initFloatingLabels();
+
+  // Re-initialize floating labels for dynamically added inputs
+  $(document).on('DOMNodeInserted', '.input-text', function() {
+    initFloatingLabels();
   });
 
 });

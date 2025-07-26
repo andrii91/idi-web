@@ -79,6 +79,11 @@ body {
 }
 
 .container-xxl {
+  @media screen and (max-width: 420px) {
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+
   @media screen and (max-width: 1023px) {
     padding-left: 20px;
     padding-right: 20px;
@@ -308,6 +313,7 @@ label {
   min-height: 40px;
   padding-bottom: 5px;
   box-shadow: none;
+  position: relative;
 
   &.dark {
     color: $color-black;
@@ -340,6 +346,9 @@ label {
     position: absolute;
     bottom: 5px;
     left: 0;
+    transition: all 0.3s ease;
+    font-size: 24px;
+    font-weight: 300;
   }
 
   &:focus {
@@ -944,19 +953,20 @@ select {
 
         &:after {
           content: '🗸';
-          width: 12px;
-          height: 12px;
+          width: 24px;
+          height: 24px;
           color: $color-white;
           position: absolute;
-          top: 6px;
-          left: 6px;
+          top: 0;
+          left: 0;
           opacity: 0;
           transition: $transition-duration;
-          font-size: 12px;
-          line-height: 12px;
+          font-size: 21px;
+          line-height: 21px;
           display: flex;
           align-items: center;
           justify-content: center;
+          text-align: center;
         }
       }
 
@@ -969,6 +979,14 @@ select {
 
           &:after {
             opacity: 1;
+          }
+        }
+      }
+
+      &.error {
+        +span {
+          &:before {
+            border-color: $color-red-error;
           }
         }
       }
@@ -1057,6 +1075,14 @@ select {
         }
       }
 
+      &.error {
+        +span {
+          &:before {
+            border-color: $color-red-error;
+          }
+        }
+      }
+
       @media screen and (min-width: 1024px) and (max-width: 1320px) {
         width: vw(24px);
         height: vw(24px);
@@ -1099,7 +1125,6 @@ select {
   cursor: pointer;
   border: none;
   outline: none;
-  overflow: hidden;
   transition: all 0.3s ease-in-out;
   
   &:not(:disabled):hover {
@@ -1332,6 +1357,29 @@ main:not(.privacy-policy), section, header {
   }
 }
 
+[data-tooltip] {
+  position: relative;
+  display: inline-flex;
+  cursor: pointer;
+
+  .tooltip {
+    position: absolute;
+    color: #FFF;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+    padding: 10px;
+    background: #333;
+    box-shadow: 0 4px 12px 0 rgba(0, 0, 0, 0.15);
+    z-index: 1000;
+    width: 416px;
+
+    @media screen and (max-width: 1023px) {
+      width: 280px;
+    }
+  }
+}
+
 @import "./partials/menu.scss";
 @import "./main-page/header.scss";
 @import "./main-page/brands.scss";
@@ -1368,3 +1416,5 @@ main:not(.privacy-policy), section, header {
 @import "./privacy-policy.scss";
 @import "./contact-us.scss";
 @import "./about-us.scss";
+@import "./checkout.scss";
+@import "./partials/floating-labels.scss";

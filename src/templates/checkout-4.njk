@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="initial-scale=1.0, width=device-width">
+  <meta name="Title" content="Italian Design Interiors" />
+  <meta name="description" content="" />
+  <meta property="og:type" content="article" />
+  <meta property="og:description" content="" />
+  <meta property="og:url" content="" />
+  <meta property="og:sitename" content="" />
+  <meta property="og:title" content="Italian Design Interiors">
+  <meta property="og:image" content="images/og.png" />
+  <title>Checkout - Italian Design Interiors</title>
+  <link rel="icon" type="image/png" href="favicon/favicon-96x96.png" sizes="96x96" />
+  <link rel="icon" type="image/svg+xml" href="favicon/favicon.svg" />
+  <link rel="apple-touch-icon" href="favicon/apple-touch-icon.png" />
+  <link rel="manifest" href="favicon/site.webmanifest" />
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+  <!-- Header -->
+  {% include "partials/menu.njk" %}
+
+  <!-- Main Content -->
+  <main class="checkout-page">
+    <section class="checkout-page__section">
+      <div class="container-xxl">
+        <div class="row">
+          <!-- Left Column - Checkout Form -->
+          <div class="col-lg-8 order-1">
+            <div class="checkout-page__section-wrap">
+              <h1 class="checkout-page__title">Checkout</h1>
+
+              <div class="checkout-page__section-success">
+                <h3 class="checkout-page__section-success-title">Thank you, Bob Johnson. <b>Your order is complete!</b></h3>
+                <p class="checkout-page__section-success-text">
+                  Your order number is <b>1234567897</b>.
+                </p>
+                <p class="checkout-page__section-success-text">
+                  We sent you the order receipt at <a href="mailto:bobjohnson@gmail.com">bobjohnson@gmail.com</a> with the order details. We’ll notify you when your order has been dispatched.
+                </p>
+
+                <div class="checkout-page__section-success-actions">
+                  <a href="#" class="btn btn-dark">Show order</a>
+                  <a download href="#" class="btn btn-primary">Download receipt <svg class="icon">
+                    <use href="#arr-right"></use>
+                  </svg></a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right Column - Order Summary -->
+          <div class="col-lg-4 order-last order-lg-2">
+            <div class="order-summary">
+              <h3 class="order-summary__title">Order summary</h3>
+
+              <div class="order-summary__items">
+                <div class="order-summary__item">
+                  <span class="order-summary__item-text">Subtotal of 2 items</span>
+                  <span class="order-summary__item-text order-summary__item-text--price">$7,300.00</span>
+                </div>
+                <div class="order-summary__item">
+                  <span class="order-summary__item-text">Shipping to address</span>
+                  <span class="order-summary__item-text order-summary__item-text--price">$30</span>
+                </div>
+                <div class="order-summary__item">
+                  <span class="order-summary__item-text">Tax</span>
+                  <span class="order-summary__item-text order-summary__item-text--price">$0</span>
+                </div>
+              </div>
+
+              <!-- Coupon Section -->
+              <div class="order-summary__coupon-section">
+                <div class="order-summary__coupon-item">
+                  <div class="order-summary__coupon-info">
+                    <div class="order-summary__coupon-icon">
+                      <svg class="icon">
+                        <use href="#check"></use>
+                      </svg>
+                    </div>
+                    <div class="order-summary__coupon-details">
+                      <span class="order-summary__coupon-code"><b>tka75y</b> applied</span>
+                    </div>
+                  </div>
+                  <div class="order-summary__coupon-actions">
+                    <span class="order-summary__coupon-discount">-$511.00</span>
+                    <button type="button" class="order-summary__coupon-remove">Remove</button>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Order Total -->
+              <div class="order-summary__total">
+                <span class="order-summary__total-text">Order total</span>
+                <span class="order-summary__total-text order-summary__total-text--price">$6,819.00</span>
+              </div>
+
+              <!-- Shipping Notice -->
+              <div class="order-summary__shipping-notice">
+                <div class="order-summary__notice-icon">
+                  <svg class="icon">
+                    <use href="#alert-info"></use>
+                  </svg>
+                </div>
+                <p class="order-summary__notice-text">
+                  Please notice one of the item has a longer delivery time and is expected to arrive within 12–14 weeks,
+                  with an estimated delivery date of 05 May, 2025
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col-12 order-2 order-lg-3">
+            <div class="checkout-page__section--order-details">
+              <h2 class="checkout-page__section-title">Order details</h2>
+              <div class="checkout-page__step-content">
+                <div class="checkout-page__step-content-item">
+                  <h4 class="checkout-page__step-content-item-title">
+                    Shipping address
+                  </h4>
+                  <p class="checkout-page__step-content-item-text">
+                    John Doe
+                  </p>
+                  <p class="checkout-page__step-content-item-text">
+                    123 Maple Street <br>Beverly Hills, NV 90211 <br>United States
+                  </p>
+                </div>
+                <div class="checkout-page__step-content-item">
+                  <h4 class="checkout-page__step-content-item-title">
+                    Billing address
+                  </h4>
+                  <p class="checkout-page__step-content-item-text">
+                    John Doe
+                  </p>
+                  <p class="checkout-page__step-content-item-text">
+                    456 Avenue Street <br>Beverly Hills, NV 90211 <br>United States
+                  </p>
+                </div>
+                <div class="checkout-page__step-content-item">
+                  <h4 class="checkout-page__step-content-item-title">
+                    Billing address
+                  </h4>
+                  <p class="checkout-page__step-content-item-text">
+                    John Doe
+                  </p>
+                  <div class="checkout-page__step-content-item-text mt-auto">
+                    <h4 class="checkout-page__step-content-item-title mt-4">
+                      Billing address
+                    </h4>
+                    <p class="mb-0">
+                      John Doe
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-12 checkout-page__cart-order-summary order-3 order-lg-4">
+            <h2 class="checkout-page__section-title">Items to ship</h2>
+            <div class="shopping-cart-content">
+              <div class="shopping-cart-content-item">
+                <div class="row align-items-center">
+                  <div class="col-lg-8 col-xl-6">
+                    <div class="shopping-cart-content-item-row">
+                      <div class="shopping-cart-content-item-image d-none d-md-block">
+                        <img src="images/dinning-room-1.webp" alt="">
+                      </div>
+                      <div class="shopping-cart-content-item-info">
+                        <div class="shopping-cart-content-item-row d-md-none">
+                          <div class="shopping-cart-content-item-image">
+                            <img src="images/dinning-room-1.webp" alt="">
+                          </div>
+                          <div class="shopping-cart-content-item-info-mobile">
+                            <h6 class="shopping-cart-content-item-info-type">Natuzzi Italia</h6>
+                            <p class="shopping-cart-content-item-info-title">Eliot Wood Drive Dining Table</p>
+                          </div>
+                        </div>
+                        <div class="d-none d-md-block">
+                          <h6 class="shopping-cart-content-item-info-type">Natuzzi Italia</h6>
+                          <p class="shopping-cart-content-item-info-title">Eliot Wood Drive Dining Table</p>
+                        </div>
+                        <div class="row shopping-cart-content-item-info-row">
+                          <div class="col-5"> 
+                            <div class="shopping-cart-content-item-info-finish">
+                              <svg class="icon">
+                                <use xlink:href="#texture"></use>
+                              </svg>
+                              <span>Finish</span>
+                            </div>
+                          </div>
+                          <div class="col-7">
+                            <div class="shopping-cart-content-item-info-price">
+                              <span>With leather pad – $69.00</span>
+                
+                              <img src="images/texture-1.webp" alt="">
+                            </div>
+                          </div>
+                        </div>
+                        <div class="row shopping-cart-content-item-info-row">
+                          <div class="col-5">
+                            <div class="shopping-cart-content-item-info-finish">
+                              <svg class="icon">
+                                <use xlink:href="#composition"></use>
+                              </svg>
+                              <span>Composition</span>
+                            </div>
+                          </div>
+                          <div class="col-7">
+                            <div class="shopping-cart-content-item-info-price">
+                              <span>+$1,200</span>
+                
+                              <img src="images/composition-1.webp" alt="">
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-lg-4 col-xl-6">
+                    <div class="shopping-cart-content-item">
+                      <div class="shopping-cart-price text-start text-md-end mb-1 lg:mb-3">
+                        $2,100.00
+                      </div>
+                      <div class="shopping-cart-content-ships waiting">
+                        <svg class="icon">
+                          <use xlink:href="#ships"></use>
+                        </svg>
+                        <span>Usually ships in 12 to 14 weeks</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+               <div class="shopping-cart-content-item">
+                <div class="row align-items-center">
+                  <div class="col-lg-8 col-xl-6">
+                    <div class="shopping-cart-content-item-row">
+                      <div class="shopping-cart-content-item-image d-none d-md-block">
+                        <img src="images/dinning-room-1.webp" alt="">
+                      </div>
+                      <div class="shopping-cart-content-item-info">
+                        <div class="shopping-cart-content-item-row d-md-none">
+                          <div class="shopping-cart-content-item-image">
+                            <img src="images/dinning-room-1.webp" alt="">
+                          </div>
+                          <div class="shopping-cart-content-item-info-mobile">
+                            <h6 class="shopping-cart-content-item-info-type">Natuzzi Italia</h6>
+                            <p class="shopping-cart-content-item-info-title">Eliot Wood Drive Dining Table</p>
+                          </div>
+                        </div>
+                        <div class="d-none d-md-block">
+                          <h6 class="shopping-cart-content-item-info-type">Natuzzi Italia</h6>
+                          <p class="shopping-cart-content-item-info-title">Eliot Wood Drive Dining Table</p>
+                        </div>
+                        <div class="row shopping-cart-content-item-info-row">
+                          <div class="col-5"> 
+                            <div class="shopping-cart-content-item-info-finish">
+                              <svg class="icon">
+                                <use xlink:href="#texture"></use>
+                              </svg>
+                              <span>Finish</span>
+                            </div>
+                          </div>
+                          <div class="col-7">
+                            <div class="shopping-cart-content-item-info-price">
+                              <span>With leather pad – $69.00</span>
+                
+                              <img src="images/texture-1.webp" alt="">
+                            </div>
+                          </div>
+                        </div>
+                        <div class="row shopping-cart-content-item-info-row">
+                          <div class="col-5">
+                            <div class="shopping-cart-content-item-info-finish">
+                              <svg class="icon">
+                                <use xlink:href="#composition"></use>
+                              </svg>
+                              <span>Composition</span>
+                            </div>
+                          </div>
+                          <div class="col-7">
+                            <div class="shopping-cart-content-item-info-price">
+                              <span>+$1,200</span>
+                
+                              <img src="images/composition-1.webp" alt="">
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-lg-4 col-xl-6">
+                    <div class="shopping-cart-content-item">
+                      <div class="shopping-cart-price text-start text-md-end mb-1 lg:mb-3">
+                        $2,100.00
+                      </div>
+                      <div class="shopping-cart-content-ships success">
+                        <svg class="icon">
+                          <use xlink:href="#ships-2"></use>
+                        </svg>
+                        <span>Quick shipping</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Subscribe Section -->
+  {% include "partials/subscribe.njk" %}
+
+  <!-- Footer -->
+  {% include "partials/footer.njk" %}
+
+  <script defer src="js/bundle.js"></script>
+</body>
+
+</html>
