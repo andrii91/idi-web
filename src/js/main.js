@@ -1723,4 +1723,38 @@ $(document).ready(function () {
     subtree: true
   });
 
+
+  $(".blog-post-page__slider").slick({
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    arrows: false,
+    fade: true,
+    asNavFor: ".blog-post-page__slider-nav",
+  });
+
+  $(".blog-post-page__slider-nav").slick({
+    slidesToShow: 5,
+    slidesToScroll: 1,
+    asNavFor: ".blog-post-page__slider",
+    dots: false,
+    focusOnSelect: true,
+    autoplay: true,
+    prevArrow: `<svg class="gallery-slider-prev">
+              <use xlink:href="#arr-left"></use>
+            </svg>`,
+    nextArrow: `<svg class="gallery-slider-next">
+              <use xlink:href="#arr-right"></use>
+            </svg>`,
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 3,
+          variableWidth: true,
+          arrows: false,
+        },
+      },
+    ],
+  });
 });

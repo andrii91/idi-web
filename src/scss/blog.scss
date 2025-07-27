@@ -1,0 +1,226 @@
+.blog-page {
+  background: $color-white;
+
+  &__header {
+    padding: 234px 0 50px;
+
+    @media screen and (min-width: 1024px) and (max-width: 1320px) {
+      padding: vw(234px) 0 vw(50px);
+    }
+  
+    @media screen and (max-width: 1023px) {
+      padding: 92px 0 50px;
+    }
+  }
+
+  &__title {
+    color: $color-black;
+    font-size: 64px;
+    font-weight: 300;
+    line-height: 1.09375;
+    margin: 0 0 32px 0;
+
+    @media screen and (max-width: 1023px) {
+      color: #000;
+      font-family: "Nunito Sans";
+      font-size: 38px;
+      font-weight: 300;
+      line-height: 44px;
+    }
+
+  }
+
+  &__tabs {
+    display: flex;
+    gap: 44px;
+    align-items: center;
+    overflow-x: auto;
+    scrollbar-width: none;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+
+  &__tab {
+    color: rgba(0, 0, 0, 0.8);
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 1.364;
+    text-decoration: none;
+    padding: 6px 0;
+    transition: $transition-duration;
+    position: relative;
+    white-space: nowrap;
+
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      height: 3px;
+      background: $color-black;
+      opacity: 0;
+      transition: $transition-duration;
+      width: 0;
+    }
+
+    &:hover {
+      color: $color-black;
+
+      &::after {
+        width: 100%;
+        opacity: 1;
+      }
+    }
+
+    &.active {
+      color: $color-black;
+      font-weight: 500;
+
+      &::after {
+        opacity: 1;
+        width: 100%;
+      }
+    }
+  }
+
+  // Blog Posts Section
+  &__posts {
+    padding: 0 0 80px;
+
+    @media screen and (max-width: 1023px) {
+      padding: 0 0 60px;
+    }
+  }
+
+  &__posts-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 44px;
+  }
+
+  &__post {
+    &:not(:last-child) {
+      border-bottom: 1px solid #E6E8EC;
+      padding-bottom: 44px;
+    }
+  }
+
+  &__post-image {
+    width: 100%;
+    height: 390px;
+    overflow: hidden;
+    object-fit: cover;
+
+    @media screen and (max-width: 1023px) {
+      height: 220px;
+    }
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: $transition-duration;
+
+      &:hover {
+        transform: scale(1.05);
+      }
+    }
+  }
+
+  &__post-content {
+    padding: 0 20px;
+
+    @media screen and (max-width: 1023px) {
+      padding: 20px 0 0 0;
+
+      .btn {
+        width: 100%;
+        max-width: 100%;
+      }
+    }
+  }
+
+  &__post-title {
+    color: $color-black;
+    font-size: 40px;
+    font-weight: 300;
+    line-height: 1.364;
+    margin: 0 0 16px 0;
+
+  }
+
+  &__post-excerpt {
+    color: $color-black;
+    font-size: 18px;
+    font-weight: 300;
+    line-height: 1.364;
+    margin: 0 0 60px 0;
+  }
+
+  // Pagination Section
+  &__pagination {
+    padding: 0 0 80px;
+
+    @media screen and (max-width: 1023px) {
+      padding: 0 0 60px;
+    }
+  }
+
+  &__pagination-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+  }
+
+  &__pagination-text {
+    color: $color-black;
+    font-size: 18px;
+    font-weight: 300;
+    line-height: 1.364;
+    margin: 0;
+    text-align: center;
+
+    @media screen and (max-width: 767px) {
+      font-size: 16px;
+    }
+  }
+
+  &__pagination-buttons {
+    display: flex;
+    gap: 16px;
+  }
+}
+
+// Button styles for blog page
+.btn {
+  &--white {
+    background: $color-white;
+    color: #070707;
+    border: 1px solid #070707;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 1.364;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    transition: $transition-duration;
+    cursor: pointer;
+
+    &:hover {
+      background: #070707;
+      color: $color-white;
+      text-decoration: none;
+    }
+  }
+
+  &--small {
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 1.364;
+  }
+} 
