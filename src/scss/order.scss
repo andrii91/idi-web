@@ -130,6 +130,16 @@
         border-color: #000;
         background: #000;
         color: #FFF;
+
+        &:before {
+          content: '';
+          position: absolute;
+          background: #000;
+          width: calc(100% + 198px/2);
+          height: 2px;
+          top: 96px;
+          left: 108px;
+        }
       }
 
       .order-page__step-content-title {
@@ -168,7 +178,6 @@
         width: 32px;
         height: 32px;
       }
-
     }
 
     &-content {
