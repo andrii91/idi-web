@@ -1,0 +1,336 @@
+<mjml>
+  <mj-head>
+    <mj-title>Order Confirmed - Italian Design Interiors</mj-title>
+    <mj-preview>Your order #ORDER00018731 has been confirmed. Thank you for choosing Italian Design Interiors!</mj-preview>
+    <mj-attributes>
+      <mj-font name="Nunito Sans" href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;500;600;700&display=swap" />
+      <mj-font name="Lato" href="https://fonts.googleapis.com/css2?family=Lato:wght@400;500;700&display=swap" />
+      <mj-all font-family="'Nunito Sans', Helvetica, Arial, sans-serif" />
+      <mj-text font-weight="300" font-size="16px" color="#201F22" line-height="24px" />
+    </mj-attributes>
+    <mj-style inline="inline">
+      .email-container { padding: 0; max-width: 640px; margin: 0 auto; background-color: #FFFFFF; } .header-section { background-color: #000000; padding: 24px; } .footer-section { background-color: #000000;
+      padding: 24px; }
+    </mj-style>
+  </mj-head>
+
+  <mj-body background-color="#F5F5F5">
+    <mj-wrapper padding="0" css-class="email-container">
+      <!-- Header -->
+      <mj-section css-class="header-section" padding="0">
+        <mj-group width="100%">
+          <mj-column width="100%" padding="0">
+            <mj-image align="left" href="#" src="images/logo.png" alt="IDI Logo" width="286px" padding="0" />
+          </mj-column>
+        </mj-group>
+      </mj-section>
+
+      <!-- Main Content -->
+      <mj-section padding="32px 24px 0px">
+        <mj-column padding="0">
+          <!-- Order Confirmed Title -->
+          <mj-text font-size="40px" font-weight="300" color="#000" line-height="56px" padding="0 0 20px 0"> Order confirmed </mj-text>
+
+          <!-- Order Confirmation Message -->
+          <mj-text font-size="16px" font-weight="500" color="#201F22" line-height="24px" padding="0 0 0">
+            Thank you for ordering on Italian Design Interiors! We will send an e-mail with a link to track the order as soon as your purchases will be sent.
+            <br />
+            You can check at any time the status of your order from your reserved area on our website.
+          </mj-text>
+        </mj-column>
+      </mj-section>
+      <mj-section padding="12px 24px">
+        <mj-column padding="0" background-color="#F5F5F5">
+          <mj-text font-size="16px" font-weight="500" color="#201F22" line-height="24px" padding="12px"> <b>Your order code is</b> #ORDER00018731 </mj-text>
+        </mj-column>
+      </mj-section>
+      <mj-section padding="12px 24px">
+        <mj-column padding="0">
+          <mj-text font-size="16px" font-weight="500" color="#201F22" line-height="24px" padding="0 0 0">
+            Use the following data to make the payment:<br />
+            Holder: Mollura & c. SpA<br />
+            Bank: Intesa San Paolo<br />
+            IBAN: IT4120306916520615243429554<br />
+            BIC: BCITITMM 280
+          </mj-text>
+        </mj-column>
+      </mj-section>
+      <mj-section padding="12px 24px">
+        <mj-column padding="12px" background-color="#9747FF">
+          <mj-text font-size="16px" font-weight="400" color="#ffffff" line-height="24px" padding="0 0 32px">
+            Once you have made the bank transfer, you will have to send the notice of payment to the email address info@italian-interiors.com
+          </mj-text>
+          <mj-text font-size="16px" font-weight="400" color="#ffffff" line-height="24px" padding="0 0 0"> The notice of payment must report the transaction reference code. </mj-text>
+        </mj-column>
+      </mj-section>
+
+      <mj-section padding="20px 24px 12px">
+        <mj-column padding="0" width="100%">
+          <mj-text font-size="24px" font-weight="500" color="#000000" line-height="32px" padding="0 0 12px 0"> Shipping </mj-text>
+        </mj-column>
+        <mj-column background-color="#F5F5F5" padding="12px" width="100%">
+          <mj-text font-size="16px" font-weight="400" color="#000000" line-height="24px" padding="0 0 0">
+            <b>Shipping address</b> <br />
+            Arkady Drogobetsky <br />
+            209 Commonwealth ave 3B <br />
+            02467 Chestnut Hill (Massachusetts) <br />
+            Stati Uniti
+          </mj-text>
+        </mj-column>
+      </mj-section>
+
+      <mj-section padding="0px 24px 12px">
+        <mj-column background-color="#F5F5F5" padding="12px" width="100%">
+          <mj-text font-size="16px" font-weight="400" color="#000000" line-height="24px" padding="0 0 0">
+            <b>Shipping method</b> <br />
+            Corriere Espresso
+          </mj-text>
+        </mj-column>
+      </mj-section>
+
+      <mj-section padding="20px 24px 0px">
+        <mj-column padding="0" width="100%">
+          <mj-text font-size="24px" font-weight="500" color="#000000" line-height="32px" padding="0"> Products ordered </mj-text>
+        </mj-column>
+        <mj-column padding="12px 0 12px" width="100%">
+          <mj-table width="100%" padding="0">
+            <tr valign="center">
+              <td width="100px">
+                <img src="images/product-1-45201f.jpg" width="100px" height="100px" alt="Eliot Wood Drive Dining Table" />
+              </td>
+              <td style="padding-left: 20px">
+                <p style="padding: 0 0 12px; margin: 0">Natuzzi Italia</p>
+                <p style="margin: 0; padding: 0; color: #000; font-size: 18px; font-style: normal; font-weight: 500; line-height: normal">Eliot Wood Drive Dining Table</p>
+              </td>
+            </tr>
+          </mj-table>
+          <mj-table width="100%" padding="10px 0 2px 0">
+            <tr valign="center">
+              <td style="margin: 0; padding: 0; width: 20px">
+                <img src="images/materials.png" style="margin: 0; padding: 0; vertical-align: middle" width="20px" height="20px" alt="Eliot Wood Drive Dining Table" />
+              </td>
+              <td style="padding-left: 12px; margin: 0; font-size: 14px; font-style: 14px; font-weight: 300; line-height: normal">Finish</td>
+
+              <td style="padding-right: 12px; margin: 0; font-size: 14px; font-style: normal; font-weight: 500; line-height: 14px; text-align: right; color: #6b7280">With leather pad</td>
+              <td width="32px">
+                <img src="images/finish-sample-1-572c10.jpg" style="vertical-align: middle" width="32px" height="32px" alt="Eliot Wood Drive Dining Table" />
+              </td>
+            </tr>
+          </mj-table>
+          <mj-table width="100%" padding="10px 0 2px 0">
+            <tr valign="center">
+              <td style="margin: 0; padding: 0; width: 20px">
+                <img src="images/sofa.png" style="margin: 0; padding: 0; vertical-align: middle" width="20px" height="20px" alt="Eliot Wood Drive Dining Table" />
+              </td>
+              <td style="padding-left: 12px; margin: 0; font-size: 14px; font-style: 14px; font-weight: 300; line-height: normal">Composition</td>
+
+              <td style="padding-right: 12px; margin: 0; font-size: 14px; font-style: normal; font-weight: 500; line-height: 14px; text-align: right; color: #6b7280">123325</td>
+              <td width="32px">
+                <img src="images/finish-sample-2-56586a.jpg" style="vertical-align: middle" width="32px" height="32px" alt="Eliot Wood Drive Dining Table" />
+              </td>
+            </tr>
+          </mj-table>
+          <mj-table width="100%" padding="10px 0 2px 0">
+            <tr valign="center">
+              <td align="left" style="padding: 0; margin: 0; font-size: 32px; font-style: 32px; font-weight: 300; line-height: normal">$5,338.00</td>
+              <td style="padding: 0" align="right">
+                <table style="margin: 0; padding: 0; background: rgba(222, 255, 248, 0.5); backdrop-filter: blur(12px)">
+                  <tr>
+                    <td style="margin: 0; padding: 6px 12px 6px 10px; width: 20px">
+                      <img src="images/shipping-icon.png" style="margin: 0; padding: 0; vertical-align: middle" width="20px" height="20px" alt="Eliot Wood Drive Dining Table" />
+                    </td>
+
+                    <td style="padding: 6px 10px 6px 0px; color: #259458; font-size: 16px; font-style: normal; font-weight: 500; line-height: normal">Quick shipping</td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+          </mj-table>
+        </mj-column>
+
+        <mj-column width="100%" padding="0">
+          <mj-divider padding="0 " border-width="1px" border-style="solid" border-color="#C1C1C1" />
+        </mj-column>
+
+        <mj-column padding="12px 0 12px" width="100%">
+          <mj-table width="100%" padding="0">
+            <tr valign="center">
+              <td width="100px">
+                <img src="images/product-1-45201f.jpg" width="100px" height="100px" alt="Eliot Wood Drive Dining Table" />
+              </td>
+              <td style="padding-left: 20px">
+                <p style="padding: 0 0 12px; margin: 0">Natuzzi Italia</p>
+                <p style="margin: 0; padding: 0; color: #000; font-size: 18px; font-style: normal; font-weight: 500; line-height: normal">Artemide</p>
+              </td>
+            </tr>
+          </mj-table>
+          <mj-table width="100%" padding="10px 0 2px 0">
+            <tr valign="center">
+              <td style="margin: 0; padding: 0; width: 20px">
+                <img src="images/materials.png" style="margin: 0; padding: 0; vertical-align: middle" width="20px" height="20px" alt="Eliot Wood Drive Dining Table" />
+              </td>
+              <td style="padding-left: 12px; margin: 0; font-size: 14px; font-style: 14px; font-weight: 300; line-height: normal">Finish</td>
+
+              <td style="padding-right: 12px; margin: 0; font-size: 14px; font-style: normal; font-weight: 500; line-height: 14px; text-align: right; color: #6b7280">With leather pad</td>
+              <td width="32px">
+                <img src="images/finish-sample-1-572c10.jpg" style="vertical-align: middle" width="32px" height="32px" alt="Eliot Wood Drive Dining Table" />
+              </td>
+            </tr>
+          </mj-table>
+          <mj-table width="100%" padding="10px 0 2px 0">
+            <tr valign="center">
+              <td style="margin: 0; padding: 0; width: 20px">
+                <img src="images/sofa.png" style="margin: 0; padding: 0; vertical-align: middle" width="20px" height="20px" alt="Eliot Wood Drive Dining Table" />
+              </td>
+              <td style="padding-left: 12px; margin: 0; font-size: 14px; font-style: 14px; font-weight: 300; line-height: normal">Composition</td>
+
+              <td style="padding-right: 12px; margin: 0; font-size: 14px; font-style: normal; font-weight: 500; line-height: 14px; text-align: right; color: #6b7280">123325</td>
+              <td width="32px">
+                <img src="images/finish-sample-2-56586a.jpg" style="vertical-align: middle" width="32px" height="32px" alt="Eliot Wood Drive Dining Table" />
+              </td>
+            </tr>
+          </mj-table>
+          <mj-table width="100%" padding="10px 0 2px 0">
+            <tr valign="center">
+              <td align="left" style="padding: 0; margin: 0; font-size: 32px; font-style: 32px; font-weight: 300; line-height: normal">$2,100.00</td>
+              <td style="padding: 0" align="right">
+                <table style="margin: 0; padding: 0; background: rgba(222, 255, 248, 0.5); backdrop-filter: blur(12px)">
+                  <tr>
+                    <td style="margin: 0; padding: 6px 12px 6px 10px; width: 20px">
+                      <img src="images/shipping-icon.png" style="margin: 0; padding: 0; vertical-align: middle" width="20px" height="20px" alt="Eliot Wood Drive Dining Table" />
+                    </td>
+
+                    <td style="padding: 6px 10px 6px 0px; color: #259458; font-size: 16px; font-style: normal; font-weight: 500; line-height: normal">Quick shipping</td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+          </mj-table>
+        </mj-column>
+        <mj-column width="100%" padding="0">
+          <mj-divider padding="0 " border-width="1px" border-style="solid" border-color="#C1C1C1" />
+        </mj-column>
+      </mj-section>
+
+      <mj-section padding="12px 24px">
+        <mj-group width="100%">
+          <mj-column width="50%" padding="0">
+            <mj-text font-size="18px" font-weight="500" color="#000000" line-height="1" padding="0"> Subtotal </mj-text>
+          </mj-column>
+          <mj-column width="50%" padding="0">
+            <mj-text align="right" font-size="18px" font-weight="500" color="#000000" line-height="1" padding="0"> $7,300.00 </mj-text>
+          </mj-column>
+        </mj-group>
+
+        <mj-column width="100%" padding="12px 0">
+          <mj-divider padding="0 " border-width="1px" border-style="solid" border-color="#C1C1C1" />
+        </mj-column>
+
+        <mj-group width="100%">
+          <mj-column width="50%" padding="0">
+            <mj-text font-size="18px" font-weight="500" color="#000000" line-height="1" padding="0"> Shipping to address </mj-text>
+          </mj-column>
+          <mj-column width="50%" padding="0">
+            <mj-text align="right" font-size="18px" font-weight="500" color="#000000" line-height="1" padding="0"> $30 </mj-text>
+          </mj-column>
+        </mj-group>
+
+        <mj-column width="100%" padding="12px 0">
+          <mj-divider padding="0 " border-width="1px" border-style="solid" border-color="#C1C1C1" />
+        </mj-column>
+
+        <mj-group width="100%">
+          <mj-column width="50%" padding="0">
+            <mj-text font-size="18px" font-weight="500" color="#000000" line-height="1" padding="0"> Tax </mj-text>
+          </mj-column>
+          <mj-column width="50%" padding="0">
+            <mj-text align="right" font-size="18px" font-weight="500" color="#000000" line-height="1" padding="0"> $120 </mj-text>
+          </mj-column>
+        </mj-group>
+
+        <mj-column width="100%" padding="12px 0">
+          <mj-divider padding="0 " border-width="1px" border-style="solid" border-color="#C1C1C1" />
+        </mj-column>
+
+        <mj-group width="100%">
+          <mj-column width="50%" padding="0">
+            <mj-text font-size="18px" font-weight="500" color="#000000" line-height="1" padding="0"> Order total </mj-text>
+          </mj-column>
+          <mj-column width="50%" padding="0">
+            <mj-text align="right" font-size="18px" font-weight="500" color="#000000" line-height="1" padding="0"> $7,330.00 </mj-text>
+          </mj-column>
+        </mj-group>
+
+        <mj-column width="100%" padding="24px 0 12px">
+          <mj-button border-radius="0" href="#" font-size="24px" padding="0px" height="72px" width="100%" background-color="#070707" color="white"> See my order </mj-button>
+        </mj-column>
+      </mj-section>
+
+      <mj-section padding="20px 24px 12px">
+        <mj-column padding="0" width="100%">
+          <mj-text font-size="24px" font-weight="500" color="#000000" line-height="32px" padding="0 0 12px 0"> Other order details </mj-text>
+        </mj-column>
+        <mj-column background-color="#F5F5F5" padding="12px" width="100%">
+          <mj-text font-size="16px" font-weight="400" color="#000000" line-height="24px" padding="0 0 0">
+            <b>Billing Address</b> <br />
+            Arkady Drogobetsky<br />
+            209 Commonwealth ave 3B<br />
+            02467 Chestnut Hill (Massachusetts)<br />
+            Stati Uniti
+          </mj-text>
+        </mj-column>
+      </mj-section>
+
+      <mj-section padding="0px 24px 12px">
+        <mj-column background-color="#F5F5F5" padding="12px" width="100%">
+          <mj-text font-size="16px" font-weight="400" color="#000000" line-height="24px" padding="0 0 0">
+            <b>Payment Method</b> <br />
+            Bank transfer
+          </mj-text>
+        </mj-column>
+      </mj-section>
+
+      <mj-section padding="20px 24px 32px">
+        <mj-column padding="0">
+          <mj-text font-size="16px" font-weight="400" color="#201F22" line-height="24px" padding="0 0 0">
+            If you have any questions about your order, please contact us at info@italian-interiors.com
+            <br />
+            Right of withdrawal in 14 days after receiving the goods. For more info, consult section 9 of our Terms and Conditions. Mollura&C. SPA reserves the right to cancel the order and refund the paid amount in case of discontinued
+            and/or unavailable products, and in case of pricing or system errors. In these occasions the order will be deleted and the paid amount will be refunded.
+          </mj-text>
+        </mj-column>
+      </mj-section>
+
+      <!-- Footer -->
+      <mj-section css-class="footer-section" padding="0">
+        <mj-group width="100%">
+          <mj-column padding="0" width="50%">
+            <mj-image align="left" src="images/logo.png" alt="IDI Logo" width="190px" padding="0" />
+          </mj-column>
+          <mj-column padding="0" width="50%">
+            <mj-social padding="0" align="right" font-size="15px" icon-size="24px" mode="horizontal">
+              <mj-social-element padding="0 7.5px 0 0" src="images/facebook.png" href="#facebook"> </mj-social-element>
+              <mj-social-element padding="0 7.5px" src="images/instagram.png" href="#instagram"> </mj-social-element>
+              <mj-social-element padding="0 7.5px" src="images/youtube.png" href="#youtube"> </mj-social-element>
+              <mj-social-element padding="0 0 0 7.5px" src="images/pinterest.png" href="#pinterest"></mj-social-element>
+            </mj-social>
+          </mj-column>
+        </mj-group>
+
+        <mj-group width="100%">
+          <mj-column padding="32px 0 0">
+            <mj-text font-size="14px" font-weight="300" color="#FFFFFF" line-height="16px" padding="0px 0 16px 0"> Telephone </mj-text>
+            <mj-text font-size="14px" font-weight="600" color="#FFFFFF" line-height="16px" padding="0"> 617.926.2344 </mj-text>
+          </mj-column>
+          <mj-column padding="32px 0 0">
+            <mj-text font-size="14px" font-weight="300" color="#FFFFFF" line-height="16px" padding="0 0 16px 0" align="right"> Address </mj-text>
+            <mj-text font-size="14px" font-weight="600" color="#FFFFFF" line-height="16px" padding="0" align="right">
+              19 Spring Street<br />
+              Watertown, MA 02472
+            </mj-text>
+          </mj-column>
+        </mj-group>
+      </mj-section>
+    </mj-wrapper>
+  </mj-body>
+</mjml>
