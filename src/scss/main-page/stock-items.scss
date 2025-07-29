@@ -176,13 +176,13 @@
     margin-bottom: 12px;
 
     display: -webkit-box;
-    -webkit-line-clamp: 1; /* обмеження на 2 рядки */
+    -webkit-line-clamp: 1; /* limit to 1 line */
     -webkit-box-orient: vertical;
     overflow: hidden;
 
     @media screen and (max-width: 767px) {
       display: -webkit-box;
-      -webkit-line-clamp: 2; /* обмеження на 2 рядки */
+      -webkit-line-clamp: 2; /* limit to 2 lines */
       -webkit-box-orient: vertical;
       overflow: hidden;
     }

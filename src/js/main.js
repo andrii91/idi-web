@@ -1563,15 +1563,15 @@ $(document).ready(function () {
     return 'unknown';
   }
 
-  // При зміні номера картки визначаємо тип і змінюємо іконку
+  // When card number changes, determine type and change icon
   $('input[name="card_number"]').on('input', function() {
     const cardNumber = $(this).val();
     const cardType = getCardType(cardNumber);
     
-    // Знаходимо SVG іконку картки
+    // Find SVG card icon
     const $cardIcon = $(this).closest('form').find('.card-icon use');
     if ($cardIcon.length) {
-      // Змінюємо href в залежності від типу картки
+      // Change href based on card type
       switch(cardType) {
         case 'visa':
           $cardIcon.attr('href', '#visa');

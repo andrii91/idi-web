@@ -28,7 +28,7 @@ $(document).ready(function () {
 
     options.forEach((opt, index) => {
       const inputType = isMultiple ? 'checkbox' : 'radio';
-      const inputName = isMultiple ? '' : ($select.attr('name') || `custom-select-${Date.now()}`); // Унікальне ім'я, якщо відсутнє
+      const inputName = isMultiple ? '' : ($select.attr('name') || `custom-select-${Date.now()}`); // Unique name if not present
       const isChecked = opt.selected ? 'checked' : '';
       const uniqueId = `option-${Date.now()}-${index}`;
       const $opt = $(`
@@ -56,7 +56,7 @@ $(document).ready(function () {
     $dropdown.append($trigger).append($panel);
     $select.after($dropdown);
 
-    // Встановлюємо початковий текст тригера
+    // Set initial trigger text
     const updateTriggerText = () => {
       const selected = $optionsContainer.find('input:checked').map(function () {
         return $(this).siblings('span').text();
@@ -102,7 +102,7 @@ $(document).ready(function () {
         $(this).toggle(text.includes(search));
       });
 
-      // Ховаємо "+N more" при пошуку
+      // Hide "+N more" during search
       if ($more) {
         if (search.length > 0) {
           $more.hide();

@@ -41,30 +41,30 @@ $(document).ready(function () {
     const windowWidth = $(window).width();
     const windowHeight = $(window).height();
 
-    let offsetX = 20; // відступ від курсора
+    let offsetX = 20; // offset from cursor
     let offsetY = 20;
 
     let top;
     let left = e.pageX + offsetX;
 
-    // Перевіряємо, чи є місце знизу
+    // Check if there's space below
     if (e.pageY + offsetY + materialHeight <= windowHeight) {
-      // Є місце знизу — показуємо підказку внизу курсора
+      // There's space below — show tooltip below cursor
       top = e.pageY + offsetY;
     } else if (e.pageY - offsetY - materialHeight >= 0) {
-      // Є місце зверху — показуємо над курсором
+      // There's space above — show above cursor
       top = e.pageY - offsetY - materialHeight;
     } else {
-      // Якщо ні вгору, ні вниз нормально не влазить — ставимо зверху екрана
+      // If neither up nor down fits properly — place at top of screen
       top = 10;
     }
 
-    // Перевіряємо праву межу
+    // Check right boundary
     if (left + materialWidth > windowWidth) {
       left = windowWidth - materialWidth - 10;
     }
 
-    // Перевіряємо ліву межу
+    // Check left boundary
     if (left < 0) {
       left = 10;
     }

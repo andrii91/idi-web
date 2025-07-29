@@ -300,14 +300,14 @@
 
     display: -webkit-box;
     -webkit-line-clamp: 1;
-    /* обмеження на 2 рядки */
+    /* limit to 1 line */
     -webkit-box-orient: vertical;
     overflow: hidden;
 
     @media screen and (max-width: 1023px) {
       display: -webkit-box;
       -webkit-line-clamp: 2;
-      /* обмеження на 2 рядки */
+      /* limit to 2 lines */
       -webkit-box-orient: vertical;
       overflow: hidden;
     }

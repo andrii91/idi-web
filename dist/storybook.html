@@ -145,6 +145,786 @@
             justify-content: center;
             background: #fafafa;
         }
+
+        /* Modal Styles */
+        .modal {
+            background: rgba(15, 11, 31, 0.24);
+            backdrop-filter: blur(5px);
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: 99999999;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            display: none;
+        }
+
+        .modal__container {
+            max-width: 1196px;
+            max-height: calc(100% - 32px);
+            overflow-y: auto;
+            background: #fff;
+            padding: 0 40px 40px;
+            width: 100%;
+            overflow-x: hidden;
+        }
+
+        .modal__header {
+            padding: 40px 0 16px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: sticky;
+            top: 0;
+            z-index: 4;
+            background: #fff;
+        }
+
+        .modal__title {
+            color: #000;
+            font-size: 40px;
+            font-style: normal;
+            font-weight: 300;
+            line-height: 56px;
+            margin: 0;
+        }
+
+        .modal__close {
+            width: 32px;
+            height: 32px;
+            cursor: pointer;
+        }
+
+        .modal__schematics-item {
+            display: flex;
+            height: calc(100% - 20px);
+            padding: 14px 40px;
+            justify-content: center;
+            align-items: center;
+            border: 1px solid #F8F8F8;
+            background: #FEFEFE;
+            margin-bottom: 20px;
+        }
+
+        .modal__schematics-item img {
+            max-width: 100%;
+            max-height: 100%;
+            mix-blend-mode: multiply;
+        }
+
+        /* Sidebar Styles */
+        .sidebar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            z-index: 9909;
+            background: rgba(15, 11, 31, 0.24);
+            backdrop-filter: blur(5px);
+            display: none;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        .sidebar__container {
+            background: #fff;
+            max-width: 953px;
+            padding: 0px 40px;
+            height: 100%;
+            overflow-y: auto;
+            overflow-x: hidden;
+            width: 100%;
+            margin-left: auto;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .sidebar__header {
+            position: sticky;
+            top: 0;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: #fff;
+            z-index: 2;
+            margin: 0 -40px;
+            padding: 32px 40px 12px;
+        }
+
+        .sidebar__title {
+            color: #000;
+            font-size: 40px;
+            font-style: normal;
+            font-weight: 300;
+            line-height: 56px;
+            margin-bottom: 0;
+        }
+
+        .sidebar__close {
+            padding: 0;
+            margin: 0 0 0 auto;
+            background: 0 0;
+            border: 0;
+            display: inline-flex;
+        }
+
+        .sidebar__close .icon {
+            width: 32px;
+            height: 32px;
+            color: #000;
+        }
+
+        .sidebar__select-finish-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .sidebar__select-finish-list li {
+            cursor: pointer;
+            border: 1px solid #ddd;
+            padding: 5px;
+            border-radius: 4px;
+        }
+
+        .sidebar__select-finish-list li.active {
+            border-color: #000;
+        }
+
+        .sidebar__footer {
+            margin-top: auto;
+            padding: 20px 0;
+            border-top: 1px solid #eee;
+        }
+
+        /* Accordion Styles */
+        .accordion {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 24px;
+            align-self: stretch;
+            border: 1px solid #ddd;
+            background: #fff;
+            margin-bottom: 20px;
+        }
+
+        .accordion__title {
+            display: flex;
+            justify-content: space-between;
+            padding: 20px;
+            gap: 12px;
+            color: #000;
+            font-size: 24px;
+            font-style: normal;
+            font-weight: 300;
+            line-height: 32px;
+            width: 100%;
+            cursor: pointer;
+        }
+
+        .accordion__title span {
+            gap: 12px;
+            display: flex;
+            align-items: center;
+        }
+
+        .accordion__title svg {
+            width: 32px;
+            min-width: 32px;
+            height: 32px;
+            transition: 0.3s ease;
+        }
+
+        .accordion__title.open .accordion__arrow {
+            transform: rotate(180deg);
+        }
+
+        .accordion__content {
+            padding: 4px 20px 20px;
+            display: none;
+            flex-direction: column;
+            gap: 24px;
+        }
+
+        /* Badge & Tag Styles */
+        .stock-items__tag {
+            background: rgba(236, 225, 255, 0.50);
+            backdrop-filter: blur(12px);
+            display: inline-flex;
+            padding: 12px 16px;
+            align-items: center;
+            gap: 12px;
+            color: #190647;
+            font-size: 20px;
+            font-style: normal;
+            font-weight: 500;
+            line-height: normal;
+        }
+
+        .stock-items__tag.on-display {
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 3;
+        }
+
+        .stock-items__tag.quick-shipping {
+            color: #014C23;
+            background: rgba(222, 255, 248, 0.50);
+            position: absolute;
+            bottom: 0;
+            z-index: 3;
+            right: 0;
+        }
+
+        .slider-content__tag {
+            color: #FFF;
+            font-size: 24px;
+            font-style: normal;
+            font-weight: 350;
+            line-height: 22.941px;
+            padding: 10px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            background: rgba(180, 88, 255, 0.64);
+            backdrop-filter: blur(12px);
+            width: fit-content;
+            margin-bottom: 32px;
+            position: relative;
+            min-height: 54px;
+        }
+
+        .search__tag {
+            color: #FFF;
+            font-size: 16px;
+            font-style: normal;
+            font-weight: 500;
+            line-height: 22.941px;
+            display: inline-flex;
+            padding: 8px 20px;
+            align-items: center;
+            background: rgba(180, 88, 255, 0.64);
+            transition: 0.3s ease;
+            backdrop-filter: blur(12px);
+            margin-bottom: 24px;
+            max-width: fit-content;
+            position: relative;
+        }
+
+        /* Counter Styles */
+        .input-counter {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #F8F8F8;
+            color: #000;
+            font-size: 24px;
+            font-style: normal;
+            font-weight: 300;
+            line-height: 1;
+            padding: 0;
+            max-width: fit-content;
+            min-height: 40px;
+        }
+
+        .input-counter-button {
+            border: none;
+            cursor: pointer;
+            background: transparent;
+            padding: 0;
+            margin: 0;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .input-counter-button:hover {
+            background: #E5E7EB;
+        }
+
+        .input-counter-button svg {
+            width: 20px;
+            height: 20px;
+        }
+
+        .input-counter input {
+            border: none;
+            background: transparent;
+            padding: 0;
+            margin: 0;
+            text-align: center;
+            color: #000;
+            font-size: 24px;
+            font-style: normal;
+            font-weight: 300;
+            line-height: 40px;
+            min-width: 35px;
+            width: fit-content;
+            text-align: center;
+            appearance: textfield;
+        }
+
+        .input-counter input::-webkit-outer-spin-button,
+        .input-counter input::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+
+        /* Shopping Cart Styles */
+        .shopping-cart-content-item {
+            display: flex;
+            gap: 20px;
+            padding: 20px;
+            border: 1px solid #eee;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+
+        .shopping-cart-content-item-image img {
+            width: 120px;
+            height: 120px;
+            object-fit: cover;
+            border-radius: 4px;
+        }
+
+        .shopping-cart-content-item-info {
+            flex: 1;
+        }
+
+        .shopping-cart-content-item-info-type {
+            font-size: 16px;
+            font-weight: 500;
+            margin: 0 0 8px 0;
+        }
+
+        .shopping-cart-content-item-info-title {
+            font-size: 18px;
+            margin: 0 0 16px 0;
+        }
+
+        .shopping-cart-content-item-info-row {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 8px;
+        }
+
+        .shopping-cart-content-item-info-finish {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 14px;
+        }
+
+        .shopping-cart-content-item-info-price {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 14px;
+        }
+
+        .shopping-cart-content-item-info-price img {
+            width: 40px;
+            height: 40px;
+            object-fit: cover;
+            border-radius: 4px;
+        }
+
+        .shopping-cart-price-counter {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .shopping-cart-price-delete-button {
+            background: #F8F8F8;
+            border: none;
+            cursor: pointer;
+            padding: 10px;
+            display: flex;
+            width: 40px;
+            height: 40px;
+            justify-content: center;
+            align-items: center;
+            aspect-ratio: 1/1;
+            color: #6B7280;
+            transition: all 0.3s ease;
+            border-radius: 4px;
+        }
+
+        .shopping-cart-price-delete-button:hover {
+            background: #E5E7EB;
+        }
+
+        .shopping-cart-price-delete-button svg {
+            width: 20px;
+            height: 20px;
+        }
+
+        .shopping-cart-content-ships {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 14px;
+            padding: 8px 12px;
+            border-radius: 4px;
+            margin-top: 8px;
+        }
+
+        .shopping-cart-content-ships.waiting {
+            background: rgba(255, 193, 7, 0.1);
+            color: #856404;
+        }
+
+        .shopping-cart-content-ships.success {
+            background: rgba(40, 167, 69, 0.1);
+            color: #155724;
+        }
+
+        /* Tooltip Styles */
+        [data-tooltip] {
+            position: relative;
+            display: inline-flex;
+            cursor: pointer;
+        }
+
+        .tooltip {
+            position: absolute;
+            color: #FFF;
+            font-size: 16px;
+            font-weight: 400;
+            line-height: 24px;
+            padding: 10px;
+            background: #333;
+            box-shadow: 0 4px 12px 0 rgba(0, 0, 0, 0.15);
+            z-index: 1000;
+            width: 416px;
+            border-radius: 4px;
+        }
+
+        .shopping-card-tooltip {
+            position: absolute;
+            top: calc(100% + 29px);
+            right: 0;
+            z-index: 1000;
+            display: none;
+            opacity: 0;
+            transform: translateY(-10px);
+            transition: opacity 0.3s ease, transform 0.3s ease;
+        }
+
+        .shopping-card-tooltip.active {
+            display: flex;
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .shopping-card-tooltip-wrapper {
+            position: relative;
+            z-index: 100;
+            overflow-y: auto;
+            overflow-x: hidden;
+            max-height: calc(100vh - 100px);
+            display: flex;
+            flex-direction: column;
+            background: #FFF;
+            padding: 16px;
+            box-shadow: 0px -4px 11.8px 0px rgba(0, 0, 0, 0.15);
+            min-width: 564px;
+            border-radius: 8px;
+        }
+
+        .shopping-card-tooltip-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: -4px;
+        }
+
+        .shopping-card-tooltip-header .title {
+            color: #000;
+            font-size: 18px;
+            font-style: normal;
+            font-weight: 500;
+            line-height: normal;
+        }
+
+        .shopping-card-tooltip-close {
+            width: 24px;
+            height: 24px;
+            margin-left: auto;
+            border: none;
+            background-color: transparent;
+            cursor: pointer;
+            padding: 0;
+            transition: transform 0.2s ease;
+        }
+
+        .shopping-card-tooltip-close:hover {
+            transform: scale(1.1);
+        }
+
+        .shopping-card-tooltip-close .icon {
+            width: 24px;
+            height: 24px;
+        }
+
+        .shopping-card-tooltip-content-item {
+            display: flex;
+            flex-direction: column;
+            padding: 16px 0;
+            border-bottom: 1px solid #C1C1C1;
+        }
+
+        .shopping-card-tooltip-content-item-row {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .shopping-card-tooltip-content-item-image img {
+            object-fit: cover;
+            width: 120px;
+            height: 120px;
+            border-radius: 4px;
+        }
+
+        .shopping-card-tooltip-content-item-info-type {
+            font-size: 16px;
+            font-weight: 500;
+            margin: 0 0 8px 0;
+        }
+
+        .shopping-card-tooltip-content-item-info-title {
+            font-size: 14px;
+            margin: 0 0 16px 0;
+        }
+
+        /* Banners & Notifications Styles */
+        .banner-info {
+            background: rgba(180, 88, 255, 0.64);
+            backdrop-filter: blur(12px);
+            color: #FFF;
+            text-align: center;
+            font-size: 18px;
+            font-style: normal;
+            font-weight: 350;
+            line-height: 1.4;
+            padding: 12px 52px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1001;
+            transition: 0.3s ease;
+            min-height: 56px;
+            max-height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+        }
+
+        .cancel-icon {
+            width: 24px;
+            height: 24px;
+            cursor: pointer;
+        }
+
+        /* Slider Styles */
+        .slider-demo {
+            position: relative;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .slider {
+            position: relative;
+            overflow: hidden;
+            border-radius: 8px;
+        }
+
+        .slider-item {
+            position: relative;
+        }
+
+        .slider-item img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+        }
+
+        .slider-controls {
+            position: absolute;
+            top: 50%;
+            left: 0;
+            right: 0;
+            transform: translateY(-50%);
+            display: flex;
+            justify-content: space-between;
+            padding: 0 20px;
+            pointer-events: none;
+        }
+
+        .slider-controls__prev,
+        .slider-controls__next {
+            width: 40px;
+            height: 40px;
+            border: none;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 50%;
+            cursor: pointer;
+            pointer-events: auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .gallery-slider-demo {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .gallery-slider {
+            position: relative;
+            overflow: hidden;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+
+        .gallery-slider-item img {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+        }
+
+        .gallery-slider-nav {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+        }
+
+        .gallery-slider-nav-item {
+            width: 80px;
+            height: 80px;
+            border-radius: 4px;
+            overflow: hidden;
+            cursor: pointer;
+            border: 2px solid transparent;
+        }
+
+        .gallery-slider-nav-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .gallery-slider-nav-item.slick-current {
+            border-color: #000;
+        }
+
+        .product-gallery-demo {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .product-gallery__slider {
+            position: relative;
+            overflow: hidden;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+
+        .product-gallery__slider-item img {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+        }
+
+        .product-gallery__slider-nav {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+        }
+
+        .product-gallery__slider-nav-item {
+            width: 60px;
+            height: 60px;
+            border-radius: 4px;
+            overflow: hidden;
+            cursor: pointer;
+            border: 2px solid transparent;
+        }
+
+        .product-gallery__slider-nav-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .product-gallery__slider-nav-item.slick-current {
+            border-color: #000;
+        }
+
+        .reviews-slider-demo {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .reviews__slider {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .reviews__slider-item {
+            padding: 0 20px;
+        }
+
+        .review-card {
+            background: #f8f9fa;
+            padding: 30px;
+            border-radius: 8px;
+            text-align: center;
+            max-width: 400px;
+            margin: 0 auto;
+        }
+
+        .review-stars {
+            display: flex;
+            justify-content: center;
+            gap: 5px;
+            margin-bottom: 15px;
+        }
+
+        .star {
+            width: 20px;
+            height: 20px;
+            fill: #ffc107;
+        }
+
+        .review-text {
+            font-size: 16px;
+            margin-bottom: 10px;
+            font-style: italic;
+        }
+
+        .review-author {
+            font-weight: 600;
+            color: #666;
+        }
     </style>
 </head>
 <body>
@@ -544,6 +1324,34 @@
         <div class="storybook__header">
             <h1 class="storybook__title">IDI Web Component Library</h1>
             <p class="storybook__subtitle">A comprehensive guide to all UI components used in the project</p>
+            
+            <!-- Navigation Links -->
+            <div style="margin-top: 30px; display: flex; flex-wrap: wrap; gap: 10px; justify-content: center;">
+                <a href="#buttons" style="color: #007bff; text-decoration: none; padding: 8px 12px; border: 1px solid #007bff; border-radius: 4px; font-size: 14px;">Buttons</a>
+                <a href="#button-loaders" style="color: #007bff; text-decoration: none; padding: 8px 12px; border: 1px solid #007bff; border-radius: 4px; font-size: 14px;">Button Loaders</a>
+                <a href="#skeletons" style="color: #007bff; text-decoration: none; padding: 8px 12px; border: 1px solid #007bff; border-radius: 4px; font-size: 14px;">Skeletons</a>
+                <a href="#inputs" style="color: #007bff; text-decoration: none; padding: 8px 12px; border: 1px solid #007bff; border-radius: 4px; font-size: 14px;">Inputs</a>
+                <a href="#select-dropdowns" style="color: #007bff; text-decoration: none; padding: 8px 12px; border: 1px solid #007bff; border-radius: 4px; font-size: 14px;">Select Dropdowns</a>
+                <a href="#standard-select" style="color: #007bff; text-decoration: none; padding: 8px 12px; border: 1px solid #007bff; border-radius: 4px; font-size: 14px;">Standard Select</a>
+                <a href="#checkboxes-radio" style="color: #007bff; text-decoration: none; padding: 8px 12px; border: 1px solid #007bff; border-radius: 4px; font-size: 14px;">Checkboxes & Radio</a>
+                <a href="#forms" style="color: #007bff; text-decoration: none; padding: 8px 12px; border: 1px solid #007bff; border-radius: 4px; font-size: 14px;">Forms</a>
+                <a href="#navigation" style="color: #007bff; text-decoration: none; padding: 8px 12px; border: 1px solid #007bff; border-radius: 4px; font-size: 14px;">Navigation</a>
+                <a href="#fancybox" style="color: #007bff; text-decoration: none; padding: 8px 12px; border: 1px solid #007bff; border-radius: 4px; font-size: 14px;">Fancybox</a>
+                <a href="#icons" style="color: #007bff; text-decoration: none; padding: 8px 12px; border: 1px solid #007bff; border-radius: 4px; font-size: 14px;">Icons</a>
+                <a href="#modals" style="color: #007bff; text-decoration: none; padding: 8px 12px; border: 1px solid #007bff; border-radius: 4px; font-size: 14px;">Modals</a>
+                <a href="#sidebars" style="color: #007bff; text-decoration: none; padding: 8px 12px; border: 1px solid #007bff; border-radius: 4px; font-size: 14px;">Sidebars</a>
+                <a href="#tooltips" style="color: #007bff; text-decoration: none; padding: 8px 12px; border: 1px solid #007bff; border-radius: 4px; font-size: 14px;">Tooltips</a>
+                <a href="#accordions" style="color: #007bff; text-decoration: none; padding: 8px 12px; border: 1px solid #007bff; border-radius: 4px; font-size: 14px;">Accordions</a>
+                <a href="#badges-tags" style="color: #007bff; text-decoration: none; padding: 8px 12px; border: 1px solid #007bff; border-radius: 4px; font-size: 14px;">Badges & Tags</a>
+                <a href="#counters" style="color: #007bff; text-decoration: none; padding: 8px 12px; border: 1px solid #007bff; border-radius: 4px; font-size: 14px;">Counters</a>
+                <a href="#shopping-cart" style="color: #007bff; text-decoration: none; padding: 8px 12px; border: 1px solid #007bff; border-radius: 4px; font-size: 14px;">Shopping Cart</a>
+                <a href="#banners" style="color: #007bff; text-decoration: none; padding: 8px 12px; border: 1px solid #007bff; border-radius: 4px; font-size: 14px;">Banners & Notifications</a>
+                <a href="#sliders" style="color: #007bff; text-decoration: none; padding: 8px 12px; border: 1px solid #007bff; border-radius: 4px; font-size: 14px;">Sliders & Galleries</a>
+                <a href="#tabs" style="color: #007bff; text-decoration: none; padding: 8px 12px; border: 1px solid #007bff; border-radius: 4px; font-size: 14px;">Tabs</a>
+                <a href="#breadcrumbs" style="color: #007bff; text-decoration: none; padding: 8px 12px; border: 1px solid #007bff; border-radius: 4px; font-size: 14px;">Breadcrumbs</a>
+                <a href="#forms" style="color: #007bff; text-decoration: none; padding: 8px 12px; border: 1px solid #007bff; border-radius: 4px; font-size: 14px;">Forms & Inputs</a>
+                <a href="#pagination" style="color: #007bff; text-decoration: none; padding: 8px 12px; border: 1px solid #007bff; border-radius: 4px; font-size: 14px;">Pagination</a>
+            </div>
         </div>
 
         <!-- Buttons Section -->
@@ -1327,6 +2135,155 @@ const removeLoading = ($button) => {
             </div>
         </div>
 
+        <!-- Forms & Inputs Section -->
+        <div class="component-section" id="forms">
+            <div class="component-section__header">
+                <h2 class="component-section__title">Forms & Inputs</h2>
+            </div>
+            <div class="component-section__content">
+                <div class="component-section__demo">
+                    <div class="component-variants">
+                        <div class="component-variant">
+                            <div class="component-variant__title">Text Inputs</div>
+                            <div class="light-bg">
+                                <label>
+                                    <input class="input-text" type="text" placeholder="Enter your name">
+                                </label>
+                            </div>
+                            <div class="dark-bg">
+                                <label>
+                                    <input class="input-text dark" type="text" placeholder="Enter your name">
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="component-variant">
+                            <div class="component-variant__title">Email & Phone Inputs</div>
+                            <div class="light-bg">
+                                <label>
+                                    <input class="input-text" type="email" placeholder="Enter your email">
+                                </label>
+                                <label>
+                                    <input class="input-text" type="tel" placeholder="Enter your phone">
+                                </label>
+                            </div>
+                            <div class="dark-bg">
+                                <label>
+                                    <input class="input-text dark" type="email" placeholder="Enter your email">
+                                </label>
+                                <label>
+                                    <input class="input-text dark" type="tel" placeholder="Enter your phone">
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="component-variant">
+                            <div class="component-variant__title">Textarea</div>
+                            <div class="light-bg">
+                                <textarea class="input-text" placeholder="Enter your message"></textarea>
+                            </div>
+                            <div class="dark-bg">
+                                <textarea class="input-text dark" placeholder="Enter your message"></textarea>
+                            </div>
+                        </div>
+
+                        <div class="component-variant">
+                            <div class="component-variant__title">Select Dropdowns</div>
+                            <div class="light-bg">
+                                <select class="select-text">
+                                    <option value="" disabled selected>Choose option</option>
+                                    <option value="1">Option 1</option>
+                                    <option value="2">Option 2</option>
+                                    <option value="3">Option 3</option>
+                                </select>
+                            </div>
+                            <div class="dark-bg">
+                                <select class="select-text dark">
+                                    <option value="" disabled selected>Choose option</option>
+                                    <option value="1">Option 1</option>
+                                    <option value="2">Option 2</option>
+                                    <option value="3">Option 3</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="component-variant">
+                            <div class="component-variant__title">Custom Dropdowns</div>
+                            <div class="light-bg">
+                                <select class="custom-select" data-placeholder="Choose options" data-placeholder-search="Search options">
+                                    <option value="1">Architects</option>
+                                    <option value="2">Interior Designers</option>
+                                    <option value="3">Designers</option>
+                                    <option value="4">Contractors</option>
+                                    <option value="5">Builders</option>
+                                </select>
+                            </div>
+                            <div class="dark-bg">
+                                <select class="custom-select" data-placeholder="Choose options" data-placeholder-search="Search options">
+                                    <option value="1">Architects</option>
+                                    <option value="2">Interior Designers</option>
+                                    <option value="3">Designers</option>
+                                    <option value="4">Contractors</option>
+                                    <option value="5">Builders</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="component-variant">
+                            <div class="component-variant__title">Error States</div>
+                            <div class="light-bg">
+                                <label>
+                                    <input class="input-text error" type="text" placeholder="Error input">
+                                </label>
+                                <div class="error-allert">This field is required</div>
+                            </div>
+                            <div class="dark-bg">
+                                <label>
+                                    <input class="input-text dark error" type="text" placeholder="Error input">
+                                </label>
+                                <div class="error-allert">This field is required</div>
+                            </div>
+                        </div>
+
+                        <div class="component-variant">
+                            <div class="component-variant__title">Complete Form Example</div>
+                            <div class="form-demo">
+                                <form action="#" class="row">
+                                    <div class="col-12 col-md-6">
+                                        <label for="demo-first-name">
+                                            <input class="input-text dark" type="text" id="demo-first-name" name="first-name" placeholder="First name">
+                                        </label>
+                                    </div>
+                                    <div class="col-12 col-md-6">
+                                        <label for="demo-last-name">
+                                            <input class="input-text dark" type="text" id="demo-last-name" name="last-name" placeholder="Last name">
+                                        </label>
+                                    </div>
+                                    <div class="col-12 col-md-6">
+                                        <label for="demo-phone">
+                                            <input class="input-text dark" type="tel" id="demo-phone" name="phone" placeholder="Phone" required>
+                                        </label>
+                                    </div>
+                                    <div class="col-12 col-md-6">
+                                        <label for="demo-email">
+                                            <input class="input-text dark" type="email" id="demo-email" name="email" placeholder="Email" required>
+                                        </label>
+                                    </div>
+                                    <div class="col-12">
+                                        <label for="demo-message">
+                                            <textarea class="input-text dark" id="demo-message" name="message" placeholder="Message"></textarea>
+                                        </label>
+                                    </div>
+                                    <div class="col-12">
+                                        <button type="submit" class="btn btn-dark submit">Submit Form</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
 
         <!-- Navigation Section -->
         <div class="component-section" id="navigation">
@@ -1489,6 +2446,97 @@ const removeLoading = ($button) => {
 &lt;a href="images/interior-2.webp" data-fancybox="custom-gallery" data-caption="Interior Design 2"&gt;
     &lt;img src="images/interior-2.webp" alt="Interior 2"&gt;
 &lt;/a&gt;</code></pre>
+                </div>
+            </div>
+        </div>
+
+        <!-- Banners & Notifications Section -->
+        <div class="component-section" id="banners">
+            <div class="component-section__header">
+                <h2 class="component-section__title">Banners & Notifications</h2>
+            </div>
+            <div class="component-section__content">
+                <div class="component-section__demo">
+                    <div class="component-variants">
+                        <div class="component-variant">
+                            <div class="component-variant__title">Top Banner</div>
+                            <div class="banner-info">
+                                <span>We are open during the construction! Please use our Mt. Auburn St. entrance.</span>
+                                <svg class="icon cancel-icon" id="cancel-icon">
+                                    <use xlink:href="#cancel"></use>
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="component-variant">
+                            <div class="component-variant__title">Banner with Custom Message</div>
+                            <div class="banner-info">
+                                <span>Special offer: 15% off on all Italian furniture this week!</span>
+                                <svg class="icon cancel-icon" id="cancel-icon">
+                                    <use xlink:href="#cancel"></use>
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="component-variant">
+                            <div class="component-variant__title">Banner with Different Background</div>
+                            <div class="banner-info" style="background: rgba(220, 53, 69, 0.64);">
+                                <span>Important: Store will be closed on December 25th for Christmas</span>
+                                <svg class="icon cancel-icon" id="cancel-icon">
+                                    <use xlink:href="#cancel"></use>
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="component-section__code">
+                    <pre><code>&lt;!-- Basic Top Banner --&gt;
+&lt;div class="banner-info"&gt;
+    &lt;span&gt;We are open during the construction! Please use our Mt. Auburn St. entrance.&lt;/span&gt;
+    &lt;svg class="icon cancel-icon" id="cancel-icon"&gt;
+        &lt;use xlink:href="#cancel"&gt;&lt;/use&gt;
+    &lt;/svg&gt;
+&lt;/div&gt;
+
+&lt;!-- Banner with Custom Message --&gt;
+&lt;div class="banner-info"&gt;
+    &lt;span&gt;Special offer: 15% off on all Italian furniture this week!&lt;/span&gt;
+    &lt;svg class="icon cancel-icon" id="cancel-icon"&gt;
+        &lt;use xlink:href="#cancel"&gt;&lt;/use&gt;
+    &lt;/svg&gt;
+&lt;/div&gt;
+
+&lt;!-- Banner with Different Background --&gt;
+&lt;div class="banner-info" style="background: rgba(220, 53, 69, 0.64);"&gt;
+    &lt;span&gt;Important: Store will be closed on December 25th for Christmas&lt;/span&gt;
+    &lt;svg class="icon cancel-icon" id="cancel-icon"&gt;
+        &lt;use xlink:href="#cancel"&gt;&lt;/use&gt;
+    &lt;/svg&gt;
+&lt;/div&gt;
+
+&lt;!-- CSS Classes Available --&gt;
+.banner-info {
+  background: rgba(180, 88, 255, 0.64);
+  backdrop-filter: blur(12px);
+  color: #FFF;
+  text-align: center;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 350;
+  line-height: 1.4;
+  padding: 12px 52px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1001;
+  transition: 0.3s ease;
+  min-height: 56px;
+  max-height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+}</code></pre>
                 </div>
             </div>
         </div>
@@ -1903,6 +2951,1057 @@ japan-credit-bureau, eftpos, default-card</code></pre>
                 </div>
             </div>
         </div>
+
+        <!-- Modals Section -->
+        <div class="component-section" id="modals">
+            <div class="component-section__header">
+                <h2 class="component-section__title">Modals</h2>
+            </div>
+            <div class="component-section__content">
+                <div class="component-section__demo">
+                    <div class="component-variants">
+                        <div class="component-variant">
+                            <div class="component-variant__title">Basic Modal</div>
+                            <button type="button" class="btn btn-primary" data-modal="test-modal">Open Modal</button>
+                            <div class="modal" id="test-modal">
+                                <div class="modal__container">
+                                    <div class="modal__header">
+                                        <div class="modal__title">Modal Title</div>
+                                        <svg class="modal__close">
+                                            <use xlink:href="#close"></use>
+                                        </svg>
+                                    </div>
+                                    <div class="modal__content">
+                                        <p>This is a basic modal content. You can put any content here.</p>
+                                        <button type="button" class="btn btn-primary">Action Button</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="component-variant">
+                            <div class="component-variant__title">Gallery Modal</div>
+                            <button type="button" class="btn btn-dark" data-modal="gallery-modal">Open Gallery Modal</button>
+                            <div class="modal" id="gallery-modal">
+                                <div class="modal__container">
+                                    <div class="modal__header">
+                                        <div class="modal__title">Gallery</div>
+                                        <svg class="modal__close">
+                                            <use xlink:href="#close"></use>
+                                        </svg>
+                                    </div>
+                                    <div class="modal__content">
+                                        <div class="modal__schematics">
+                                            <div class="modal__schematics-item">
+                                                <img src="images/composition-1.webp" alt="Composition 1" style="max-width: 200px;">
+                                            </div>
+                                            <div class="modal__schematics-item">
+                                                <img src="images/composition-2.webp" alt="Composition 2" style="max-width: 200px;">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="component-section__code">
+                    <pre><code>&lt;!-- Basic Modal --&gt;
+&lt;button type="button" class="btn btn-primary" data-modal="test-modal"&gt;Open Modal&lt;/button&gt;
+&lt;div class="modal" id="test-modal"&gt;
+    &lt;div class="modal__container"&gt;
+        &lt;div class="modal__header"&gt;
+            &lt;div class="modal__title"&gt;Modal Title&lt;/div&gt;
+            &lt;svg class="modal__close"&gt;
+                &lt;use xlink:href="#close"&gt;&lt;/use&gt;
+            &lt;/svg&gt;
+        &lt;/div&gt;
+        &lt;div class="modal__content"&gt;
+            &lt;p&gt;Modal content here&lt;/p&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;!-- Gallery Modal --&gt;
+&lt;div class="modal" id="gallery-modal"&gt;
+    &lt;div class="modal__container"&gt;
+        &lt;div class="modal__header"&gt;
+            &lt;div class="modal__title"&gt;Gallery&lt;/div&gt;
+            &lt;svg class="modal__close"&gt;
+                &lt;use xlink:href="#close"&gt;&lt;/use&gt;
+            &lt;/svg&gt;
+        &lt;/div&gt;
+        &lt;div class="modal__content"&gt;
+            &lt;div class="modal__schematics"&gt;
+                &lt;div class="modal__schematics-item"&gt;
+                    &lt;img src="images/composition-1.webp" alt=""&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+                </div>
+            </div>
+        </div>
+
+        <!-- Sidebars Section -->
+        <div class="component-section" id="sidebars">
+            <div class="component-section__header">
+                <h2 class="component-section__title">Sidebars</h2>
+            </div>
+            <div class="component-section__content">
+                <div class="component-section__demo">
+                    <div class="component-variants">
+                        <div class="component-variant">
+                            <div class="component-variant__title">Basic Sidebar</div>
+                            <button type="button" class="btn btn-primary" data-sidebar="test-sidebar">Open Sidebar</button>
+                            <div id="test-sidebar" class="sidebar">
+                                <div class="sidebar__container">
+                                    <div class="sidebar__header">
+                                        <h2 class="sidebar__title">Sidebar Title</h2>
+                                        <button type="button" class="sidebar__close" data-sidebar-close>
+                                            <svg class="icon">
+                                                <use xlink:href="#close"></use>
+                                            </svg>
+                                        </button>
+                                    </div>
+                                    <div class="sidebar__content">
+                                        <p>Sidebar content goes here. This can be any content including forms, lists, etc.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="component-variant">
+                            <div class="component-variant__title">Select Finish Sidebar</div>
+                            <button type="button" class="btn btn-primary btn-outline" data-sidebar="textures-sidebar">Select Finish</button>
+                            <div id="textures-sidebar" class="sidebar">
+                                <div class="sidebar__container">
+                                    <div class="sidebar__header">
+                                        <h2 class="sidebar__title">Select finish</h2>
+                                        <button type="button" class="sidebar__close" data-sidebar-close>
+                                            <svg class="icon">
+                                                <use xlink:href="#close"></use>
+                                            </svg>
+                                        </button>
+                                    </div>
+                                    <div class="sidebar__content">
+                                        <div class="sidebar__select-finish">
+                                            <div class="sidebar__select-finish-item">
+                                                <h4>Fabric Upholstery</h4>
+                                                <ul class="sidebar__select-finish-list">
+                                                    <li class="classHandbook" propertycode="GFM1-1" propertyvalue="2509 Status, cat 25">
+                                                        <img src="images/texture.webp" height="50" alt="2509 Status, cat 25" />
+                                                    </li>
+                                                    <li class="classHandbook" propertycode="GFM1-2" propertyvalue="2509 Status, cat 25">
+                                                        <img src="images/texture-1.webp" height="50" alt="2509 Status, cat 25" />
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="sidebar__footer">
+                                        <button type="button" class="btn btn-dark" data-sidebar-select-finish>Select Finish</button>
+                                        <div class="sidebar__select-finish-price">From <span>$5,200.00</span></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="component-section__code">
+                    <pre><code>&lt;!-- Basic Sidebar --&gt;
+&lt;button type="button" class="btn btn-primary" data-sidebar="test-sidebar"&gt;Open Sidebar&lt;/button&gt;
+&lt;div id="test-sidebar" class="sidebar"&gt;
+    &lt;div class="sidebar__container"&gt;
+        &lt;div class="sidebar__header"&gt;
+            &lt;h2 class="sidebar__title"&gt;Sidebar Title&lt;/h2&gt;
+            &lt;button type="button" class="sidebar__close" data-sidebar-close&gt;
+                &lt;svg class="icon"&gt;
+                    &lt;use xlink:href="#close"&gt;&lt;/use&gt;
+                &lt;/svg&gt;
+            &lt;/button&gt;
+        &lt;/div&gt;
+        &lt;div class="sidebar__content"&gt;
+            &lt;p&gt;Sidebar content here&lt;/p&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;!-- Select Finish Sidebar --&gt;
+&lt;button type="button" class="btn btn-primary btn-outline" data-sidebar="textures-sidebar"&gt;
+    Select Finish
+&lt;/button&gt;
+&lt;div id="textures-sidebar" class="sidebar"&gt;
+    &lt;div class="sidebar__container"&gt;
+        &lt;div class="sidebar__header"&gt;
+            &lt;h2 class="sidebar__title"&gt;Select finish&lt;/h2&gt;
+            &lt;button type="button" class="sidebar__close" data-sidebar-close&gt;
+                &lt;svg class="icon"&gt;
+                    &lt;use xlink:href="#close"&gt;&lt;/use&gt;
+                &lt;/svg&gt;
+            &lt;/button&gt;
+        &lt;/div&gt;
+        &lt;div class="sidebar__content"&gt;
+            &lt;div class="sidebar__select-finish"&gt;
+                &lt;div class="sidebar__select-finish-item"&gt;
+                    &lt;h4&gt;Fabric Upholstery&lt;/h4&gt;
+                    &lt;ul class="sidebar__select-finish-list"&gt;
+                        &lt;li class="classHandbook" propertycode="GFM1-1" propertyvalue="2509 Status, cat 25"&gt;
+                            &lt;img src="images/texture.webp" height="50" alt="" /&gt;
+                        &lt;/li&gt;
+                    &lt;/ul&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class="sidebar__footer"&gt;
+            &lt;button type="button" class="btn btn-dark" data-sidebar-select-finish&gt;Select Finish&lt;/button&gt;
+            &lt;div class="sidebar__select-finish-price"&gt;From &lt;span&gt;$5,200.00&lt;/span&gt;&lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tooltips Section -->
+        <div class="component-section" id="tooltips">
+            <div class="component-section__header">
+                <h2 class="component-section__title">Tooltips</h2>
+            </div>
+            <div class="component-section__content">
+                <div class="component-section__demo">
+                    <div class="component-variants">
+                        <div class="component-variant">
+                            <div class="component-variant__title">Basic Tooltip</div>
+                            <button class="btn btn-secondary" data-tooltip="This is a basic tooltip that appears on hover">Hover for Tooltip</button>
+                        </div>
+                        <div class="component-variant">
+                            <div class="component-variant__title">Shopping Cart Tooltip</div>
+                            <button class="shopping-card-button btn btn-primary">Add to Cart</button>
+                            <div class="shopping-card-tooltip">
+                                <div class="shopping-card-tooltip-wrapper">
+                                    <div class="shopping-card-tooltip-header">
+                                        <h6 class="title">Added to cart</h6>
+                                        <button type="button" class="shopping-card-tooltip-close">
+                                            <svg class="icon">
+                                                <use xlink:href="#close"></use>
+                                            </svg>
+                                        </button>
+                                    </div>
+                                    <div class="shopping-card-tooltip-content">
+                                        <div class="shopping-card-tooltip-content-item">
+                                            <div class="shopping-card-tooltip-content-item-row">
+                                                <div class="shopping-card-tooltip-content-item-image">
+                                                    <img src="images/dinning-room-1.webp" alt="">
+                                                </div>
+                                                <div class="shopping-card-tooltip-content-item-info">
+                                                    <h6 class="shopping-card-tooltip-content-item-info-type">Natuzzi Italia</h6>
+                                                    <p class="shopping-card-tooltip-content-item-info-title">Eliot Wood Drive Dining Table</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="component-variant">
+                            <div class="component-variant__title">Material Tooltip</div>
+                            <div class="classHandbook" style="display: inline-block; cursor: pointer;">
+                                <img src="images/texture.webp" height="50" alt="Material" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="component-section__code">
+                    <pre><code>&lt;!-- Basic Tooltip --&gt;
+&lt;button class="btn btn-secondary" data-tooltip="This is a basic tooltip that appears on hover"&gt;
+    Hover for Tooltip
+&lt;/button&gt;
+
+&lt;!-- Shopping Cart Tooltip --&gt;
+&lt;button class="shopping-card-button btn btn-primary"&gt;Add to Cart&lt;/button&gt;
+&lt;div class="shopping-card-tooltip"&gt;
+    &lt;div class="shopping-card-tooltip-wrapper"&gt;
+        &lt;div class="shopping-card-tooltip-header"&gt;
+            &lt;h6 class="title"&gt;Added to cart&lt;/h6&gt;
+            &lt;button type="button" class="shopping-card-tooltip-close"&gt;
+                &lt;svg class="icon"&gt;
+                    &lt;use xlink:href="#close"&gt;&lt;/use&gt;
+                &lt;/svg&gt;
+            &lt;/button&gt;
+        &lt;/div&gt;
+        &lt;div class="shopping-card-tooltip-content"&gt;
+            &lt;div class="shopping-card-tooltip-content-item"&gt;
+                &lt;div class="shopping-card-tooltip-content-item-row"&gt;
+                    &lt;div class="shopping-card-tooltip-content-item-image"&gt;
+                        &lt;img src="images/dinning-room-1.webp" alt=""&gt;
+                    &lt;/div&gt;
+                    &lt;div class="shopping-card-tooltip-content-item-info"&gt;
+                        &lt;h6 class="shopping-card-tooltip-content-item-info-type"&gt;Natuzzi Italia&lt;/h6&gt;
+                        &lt;p class="shopping-card-tooltip-content-item-info-title"&gt;Eliot Wood Drive Dining Table&lt;/p&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;!-- Material Tooltip --&gt;
+&lt;div class="classHandbook"&gt;
+    &lt;img src="images/texture.webp" height="50" alt="Material" /&gt;
+&lt;/div&gt;</code></pre>
+                </div>
+            </div>
+        </div>
+
+        <!-- Accordions Section -->
+        <div class="component-section" id="accordions">
+            <div class="component-section__header">
+                <h2 class="component-section__title">Accordions</h2>
+            </div>
+            <div class="component-section__content">
+                <div class="component-section__demo">
+                    <div class="component-variants">
+                        <div class="component-variant">
+                            <div class="component-variant__title">Basic Accordion</div>
+                            <div class="accordion">
+                                <div class="accordion__title">
+                                    <span>
+                                        <svg class="icon">
+                                            <use xlink:href="#design-service-icon"></use>
+                                        </svg>
+                                        Interior Design Service
+                                    </span>
+                                    <svg class="accordion__arrow">
+                                        <use xlink:href="#arr-down"></use>
+                                    </svg>
+                                </div>
+                                <div class="accordion__content">
+                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam aliquid, doloribus neque vel tenetur inventore aperiam quo repellendus labore quidem, perspiciatis incidunt consequatur quia voluptatem quas! Sapiente facere rerum quidem.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="component-variant">
+                            <div class="component-variant__title">Multiple Accordions</div>
+                            <div class="accordion">
+                                <div class="accordion__title">
+                                    <span>
+                                        <svg class="icon">
+                                            <use xlink:href="#contact-us-icon"></use>
+                                        </svg>
+                                        Contact Us
+                                    </span>
+                                    <svg class="accordion__arrow">
+                                        <use xlink:href="#arr-down"></use>
+                                    </svg>
+                                </div>
+                                <div class="accordion__content">
+                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum amet illum odio ea, qui iusto. Porro quibusdam officiis fugiat, architecto laboriosam laudantium doloremque consectetur voluptatibus quas magnam.</p>
+                                </div>
+                            </div>
+                            <div class="accordion">
+                                <div class="accordion__title">
+                                    <span>
+                                        <svg class="icon">
+                                            <use xlink:href="#upscale-icon"></use>
+                                        </svg>
+                                        Shipping Information
+                                    </span>
+                                    <svg class="accordion__arrow">
+                                        <use xlink:href="#arr-down"></use>
+                                    </svg>
+                                </div>
+                                <div class="accordion__content">
+                                    <p>Shipping information and delivery details will be displayed here. This includes delivery times, shipping costs, and tracking information.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="component-section__code">
+                    <pre><code>&lt;!-- Basic Accordion --&gt;
+&lt;div class="accordion"&gt;
+    &lt;div class="accordion__title"&gt;
+        &lt;span&gt;
+            &lt;svg class="icon"&gt;
+                &lt;use xlink:href="#design-service-icon"&gt;&lt;/use&gt;
+            &lt;/svg&gt;
+            Interior Design Service
+        &lt;/span&gt;
+        &lt;svg class="accordion__arrow"&gt;
+            &lt;use xlink:href="#arr-down"&gt;&lt;/use&gt;
+        &lt;/svg&gt;
+    &lt;/div&gt;
+    &lt;div class="accordion__content"&gt;
+        &lt;p&gt;Accordion content goes here.&lt;/p&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;!-- Multiple Accordions --&gt;
+&lt;div class="accordion"&gt;
+    &lt;div class="accordion__title"&gt;
+        &lt;span&gt;
+            &lt;svg class="icon"&gt;
+                &lt;use xlink:href="#contact-us-icon"&gt;&lt;/use&gt;
+            &lt;/svg&gt;
+            Contact Us
+        &lt;/span&gt;
+        &lt;svg class="accordion__arrow"&gt;
+            &lt;use xlink:href="#arr-down"&gt;&lt;/use&gt;
+        &lt;/svg&gt;
+    &lt;/div&gt;
+    &lt;div class="accordion__content"&gt;
+        &lt;p&gt;Contact information and details.&lt;/p&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+                </div>
+            </div>
+        </div>
+
+        <!-- Badges & Tags Section -->
+        <div class="component-section" id="badges-tags">
+            <div class="component-section__header">
+                <h2 class="component-section__title">Badges & Tags</h2>
+            </div>
+            <div class="component-section__content">
+                <div class="component-section__demo">
+                    <div class="component-variants">
+                        <div class="component-variant">
+                            <div class="component-variant__title">Product Tags</div>
+                            <div style="position: relative; display: inline-block;">
+                                <img src="images/photo-frame-1.webp" alt="Product" style="width: 200px; height: 150px; object-fit: cover;">
+                                <div class="stock-items__tag on-display">
+                                    <svg class="icon">
+                                        <use xlink:href="#on-display"></use>
+                                    </svg>
+                                    <span>On display</span>
+                                </div>
+                                <div class="stock-items__tag quick-shipping">
+                                    <svg class="icon">
+                                        <use xlink:href="#quick-shipping"></use>
+                                    </svg>
+                                    <span>Quick shipping</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="component-variant">
+                            <div class="component-variant__title">Header Tags</div>
+                            <div class="slider-content__tag">New spring collection 2025</div>
+                            <div class="slider-content__tag">Black Friday <span></span> Now - November,30</div>
+                            <div class="slider-content__tag">Tax-free <span></span> August 10-11</div>
+                        </div>
+                        <div class="component-variant">
+                            <div class="component-variant__title">Search Tags</div>
+                            <div class="search__tag">New collection 2025</div>
+                            <div class="popular__tag">Quick shipping</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="component-section__code">
+                    <pre><code>&lt;!-- Product Tags --&gt;
+&lt;div style="position: relative;"&gt;
+    &lt;img src="images/photo-frame-1.webp" alt="Product"&gt;
+    &lt;div class="stock-items__tag on-display"&gt;
+        &lt;svg class="icon"&gt;
+            &lt;use xlink:href="#on-display"&gt;&lt;/use&gt;
+        &lt;/svg&gt;
+        &lt;span&gt;On display&lt;/span&gt;
+    &lt;/div&gt;
+    &lt;div class="stock-items__tag quick-shipping"&gt;
+        &lt;svg class="icon"&gt;
+            &lt;use xlink:href="#quick-shipping"&gt;&lt;/use&gt;
+        &lt;/svg&gt;
+        &lt;span&gt;Quick shipping&lt;/span&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;!-- Header Tags --&gt;
+&lt;div class="slider-content__tag"&gt;New spring collection 2025&lt;/div&gt;
+&lt;div class="slider-content__tag"&gt;Black Friday &lt;span&gt;&lt;/span&gt; Now - November,30&lt;/div&gt;
+&lt;div class="slider-content__tag"&gt;Tax-free &lt;span&gt;&lt;/span&gt; August 10-11&lt;/div&gt;
+
+&lt;!-- Search Tags --&gt;
+&lt;div class="search__tag"&gt;New collection 2025&lt;/div&gt;
+&lt;div class="popular__tag"&gt;Quick shipping&lt;/div&gt;</code></pre>
+                </div>
+            </div>
+        </div>
+
+        <!-- Counters Section -->
+        <div class="component-section" id="counters">
+            <div class="component-section__header">
+                <h2 class="component-section__title">Counters</h2>
+            </div>
+            <div class="component-section__content">
+                <div class="component-section__demo">
+                    <div class="component-variants">
+                        <div class="component-variant">
+                            <div class="component-variant__title">Quantity Counter</div>
+                            <div class="input-counter">
+                                <button class="input-counter-button minus">
+                                    <svg class="icon">
+                                        <use xlink:href="#minus"></use>
+                                    </svg>
+                                </button>
+                                <input type="number" value="1" min="1" max="999">
+                                <button class="input-counter-button plus">
+                                    <svg class="icon">
+                                        <use xlink:href="#plus"></use>
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="component-variant">
+                            <div class="component-variant__title">Counter with Custom Values</div>
+                            <div class="input-counter">
+                                <button class="input-counter-button minus">
+                                    <svg class="icon">
+                                        <use xlink:href="#minus"></use>
+                                    </svg>
+                                </button>
+                                <input type="number" value="5" min="1" max="50">
+                                <button class="input-counter-button plus">
+                                    <svg class="icon">
+                                        <use xlink:href="#plus"></use>
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="component-variant">
+                            <div class="component-variant__title">Disabled Counter</div>
+                            <div class="input-counter">
+                                <button class="input-counter-button minus" disabled>
+                                    <svg class="icon">
+                                        <use xlink:href="#minus"></use>
+                                    </svg>
+                                </button>
+                                <input type="number" value="1" min="1" max="999" disabled>
+                                <button class="input-counter-button plus">
+                                    <svg class="icon">
+                                        <use xlink:href="#plus"></use>
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="component-section__code">
+                    <pre><code>&lt;!-- Basic Quantity Counter --&gt;
+&lt;div class="input-counter"&gt;
+    &lt;button class="input-counter-button minus"&gt;
+        &lt;svg class="icon"&gt;
+            &lt;use xlink:href="#minus"&gt;&lt;/use&gt;
+        &lt;/svg&gt;
+    &lt;/button&gt;
+    &lt;input type="number" value="1" min="1" max="999"&gt;
+    &lt;button class="input-counter-button plus"&gt;
+        &lt;svg class="icon"&gt;
+            &lt;use xlink:href="#plus"&gt;&lt;/use&gt;
+        &lt;/svg&gt;
+    &lt;/button&gt;
+&lt;/div&gt;
+
+&lt;!-- Counter with Custom Values --&gt;
+&lt;div class="input-counter"&gt;
+    &lt;button class="input-counter-button minus"&gt;
+        &lt;svg class="icon"&gt;
+            &lt;use xlink:href="#minus"&gt;&lt;/use&gt;
+        &lt;/svg&gt;
+    &lt;/button&gt;
+    &lt;input type="number" value="5" min="1" max="50"&gt;
+    &lt;button class="input-counter-button plus"&gt;
+        &lt;svg class="icon"&gt;
+            &lt;use xlink:href="#plus"&gt;&lt;/use&gt;
+        &lt;/svg&gt;
+    &lt;/button&gt;
+&lt;/div&gt;
+
+&lt;!-- Disabled Counter --&gt;
+&lt;div class="input-counter"&gt;
+    &lt;button class="input-counter-button minus" disabled&gt;
+        &lt;svg class="icon"&gt;
+            &lt;use xlink:href="#minus"&gt;&lt;/use&gt;
+        &lt;/svg&gt;
+    &lt;/button&gt;
+    &lt;input type="number" value="1" min="1" max="999" disabled&gt;
+    &lt;button class="input-counter-button plus"&gt;
+        &lt;svg class="icon"&gt;
+            &lt;use xlink:href="#plus"&gt;&lt;/use&gt;
+        &lt;/svg&gt;
+    &lt;/button&gt;
+&lt;/div&gt;</code></pre>
+                </div>
+            </div>
+        </div>
+
+        <!-- Shopping Cart Section -->
+        <div class="component-section" id="shopping-cart">
+            <div class="component-section__header">
+                <h2 class="component-section__title">Shopping Cart</h2>
+            </div>
+            <div class="component-section__content">
+                <div class="component-section__demo">
+                    <div class="component-variants">
+                        <div class="component-variant">
+                            <div class="component-variant__title">Cart Item</div>
+                            <div class="shopping-cart-content-item">
+                                <div class="shopping-cart-content-item-image">
+                                    <img src="images/dinning-room-1.webp" alt="">
+                                </div>
+                                <div class="shopping-cart-content-item-info">
+                                    <h6 class="shopping-cart-content-item-info-type">Natuzzi Italia</h6>
+                                    <p class="shopping-cart-content-item-info-title">Eliot Wood Drive Dining Table</p>
+                                    <div class="row shopping-cart-content-item-info-row">
+                                        <div class="col-5">
+                                            <div class="shopping-cart-content-item-info-finish">
+                                                <svg class="icon">
+                                                    <use xlink:href="#texture"></use>
+                                                </svg>
+                                                <span>Finish</span>
+                                            </div>
+                                        </div>
+                                        <div class="col-7">
+                                            <div class="shopping-cart-content-item-info-price">
+                                                <span>With leather pad – $69.00</span>
+                                                <img src="images/texture-1.webp" alt="">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="shopping-cart-price-counter">
+                                    <div class="input-counter">
+                                        <button class="input-counter-button minus">
+                                            <svg class="icon">
+                                                <use xlink:href="#minus"></use>
+                                            </svg>
+                                        </button>
+                                        <input type="number" value="1" min="1" max="999">
+                                        <button class="input-counter-button plus">
+                                            <svg class="icon">
+                                                <use xlink:href="#plus"></use>
+                                            </svg>
+                                        </button>
+                                    </div>
+                                    <button class="shopping-cart-price-delete-button">
+                                        <svg class="icon">
+                                            <use xlink:href="#trash"></use>
+                                        </svg>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="component-variant">
+                            <div class="component-variant__title">Shipping Status</div>
+                            <div class="shopping-cart-content-ships waiting">
+                                <svg class="icon">
+                                    <use xlink:href="#ships"></use>
+                                </svg>
+                                <span>Usually ships in 12 to 14 weeks</span>
+                            </div>
+                            <div class="shopping-cart-content-ships success">
+                                <svg class="icon">
+                                    <use xlink:href="#ships-2"></use>
+                                </svg>
+                                <span>Quick shipping</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="component-section__code">
+                    <pre><code>&lt;!-- Cart Item --&gt;
+&lt;div class="shopping-cart-content-item"&gt;
+    &lt;div class="shopping-cart-content-item-image"&gt;
+        &lt;img src="images/dinning-room-1.webp" alt=""&gt;
+    &lt;/div&gt;
+    &lt;div class="shopping-cart-content-item-info"&gt;
+        &lt;h6 class="shopping-cart-content-item-info-type"&gt;Natuzzi Italia&lt;/h6&gt;
+        &lt;p class="shopping-cart-content-item-info-title"&gt;Eliot Wood Drive Dining Table&lt;/p&gt;
+        &lt;div class="row shopping-cart-content-item-info-row"&gt;
+            &lt;div class="col-5"&gt;
+                &lt;div class="shopping-cart-content-item-info-finish"&gt;
+                    &lt;svg class="icon"&gt;
+                        &lt;use xlink:href="#texture"&gt;&lt;/use&gt;
+                    &lt;/svg&gt;
+                    &lt;span&gt;Finish&lt;/span&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+            &lt;div class="col-7"&gt;
+                &lt;div class="shopping-cart-content-item-info-price"&gt;
+                    &lt;span&gt;With leather pad – $69.00&lt;/span&gt;
+                    &lt;img src="images/texture-1.webp" alt=""&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="shopping-cart-price-counter"&gt;
+        &lt;div class="input-counter"&gt;
+            &lt;button class="input-counter-button minus"&gt;
+                &lt;svg class="icon"&gt;
+                    &lt;use xlink:href="#minus"&gt;&lt;/use&gt;
+                &lt;/svg&gt;
+            &lt;/button&gt;
+            &lt;input type="number" value="1" min="1" max="999"&gt;
+            &lt;button class="input-counter-button plus"&gt;
+                &lt;svg class="icon"&gt;
+                    &lt;use xlink:href="#plus"&gt;&lt;/use&gt;
+                &lt;/svg&gt;
+            &lt;/button&gt;
+        &lt;/div&gt;
+        &lt;button class="shopping-cart-price-delete-button"&gt;
+            &lt;svg class="icon"&gt;
+                &lt;use xlink:href="#trash"&gt;&lt;/use&gt;
+            &lt;/svg&gt;
+        &lt;/button&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;!-- Shipping Status --&gt;
+&lt;div class="shopping-cart-content-ships waiting"&gt;
+    &lt;svg class="icon"&gt;
+        &lt;use xlink:href="#ships"&gt;&lt;/use&gt;
+    &lt;/svg&gt;
+    &lt;span&gt;Usually ships in 12 to 14 weeks&lt;/span&gt;
+&lt;/div&gt;
+&lt;div class="shopping-cart-content-ships success"&gt;
+    &lt;svg class="icon"&gt;
+        &lt;use xlink:href="#ships-2"&gt;&lt;/use&gt;
+    &lt;/svg&gt;
+    &lt;span&gt;Quick shipping&lt;/span&gt;
+&lt;/div&gt;</code></pre>
+                </div>
+            </div>
+        </div>
+
+        <!-- Sliders & Galleries Section -->
+        <div class="component-section" id="sliders">
+            <div class="component-section__header">
+                <h2 class="component-section__title">Sliders & Galleries</h2>
+            </div>
+            <div class="component-section__content">
+                <div class="component-section__demo">
+                    <div class="component-variants">
+                        <div class="component-variant">
+                            <div class="component-variant__title">Basic Slider</div>
+                            <div class="slider-demo">
+                                <div class="slider">
+                                    <div class="slider-item">
+                                        <img src="images/main-slide-1.png" alt="Slide 1">
+                                    </div>
+                                    <div class="slider-item">
+                                        <img src="images/main-slide-2.png" alt="Slide 2">
+                                    </div>
+                                    <div class="slider-item">
+                                        <img src="images/main-slide-3.png" alt="Slide 3">
+                                    </div>
+                                </div>
+                                <div class="slider-controls">
+                                    <button class="slider-controls__prev">
+                                        <svg class="icon">
+                                            <use xlink:href="#arr-left"></use>
+                                        </svg>
+                                    </button>
+                                    <button class="slider-controls__next">
+                                        <svg class="icon">
+                                            <use xlink:href="#arr-right"></use>
+                                        </svg>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="component-variant">
+                            <div class="component-variant__title">Gallery Slider with Navigation</div>
+                            <div class="gallery-slider-demo">
+                                <div class="gallery-slider">
+                                    <div class="gallery-slider-item">
+                                        <img src="images/dinning-room-1.png" alt="Gallery 1">
+                                    </div>
+                                    <div class="gallery-slider-item">
+                                        <img src="images/dinning-room-2.png" alt="Gallery 2">
+                                    </div>
+                                    <div class="gallery-slider-item">
+                                        <img src="images/dinning-room-3.png" alt="Gallery 3">
+                                    </div>
+                                    <div class="gallery-slider-item">
+                                        <img src="images/dinning-room-4.png" alt="Gallery 4">
+                                    </div>
+                                </div>
+                                <div class="gallery-slider-nav">
+                                    <div class="gallery-slider-nav-item">
+                                        <img src="images/dinning-room-1.png" alt="Gallery 1">
+                                    </div>
+                                    <div class="gallery-slider-nav-item">
+                                        <img src="images/dinning-room-2.png" alt="Gallery 2">
+                                    </div>
+                                    <div class="gallery-slider-nav-item">
+                                        <img src="images/dinning-room-3.png" alt="Gallery 3">
+                                    </div>
+                                    <div class="gallery-slider-nav-item">
+                                        <img src="images/dinning-room-4.png" alt="Gallery 4">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="component-variant">
+                            <div class="component-variant__title">Product Gallery</div>
+                            <div class="product-gallery-demo">
+                                <div class="product-gallery__slider">
+                                    <div class="product-gallery__slider-item">
+                                        <img src="images/dinning-room-1.png" alt="Product 1">
+                                    </div>
+                                    <div class="product-gallery__slider-item">
+                                        <img src="images/dinning-room-2.png" alt="Product 2">
+                                    </div>
+                                    <div class="product-gallery__slider-item">
+                                        <img src="images/dinning-room-3.png" alt="Product 3">
+                                    </div>
+                                </div>
+                                <div class="product-gallery__slider-nav">
+                                    <div class="product-gallery__slider-nav-item">
+                                        <img src="images/dinning-room-1.png" alt="Product 1">
+                                    </div>
+                                    <div class="product-gallery__slider-nav-item">
+                                        <img src="images/dinning-room-2.png" alt="Product 2">
+                                    </div>
+                                    <div class="product-gallery__slider-nav-item">
+                                        <img src="images/dinning-room-3.png" alt="Product 3">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="component-variant">
+                            <div class="component-variant__title">Reviews Slider</div>
+                            <div class="reviews-slider-demo">
+                                <div class="reviews__slider">
+                                    <div class="reviews__slider-item">
+                                        <div class="review-card">
+                                            <div class="review-stars">
+                                                <svg class="star"><use xlink:href="#star"></use></svg>
+                                                <svg class="star"><use xlink:href="#star"></use></svg>
+                                                <svg class="star"><use xlink:href="#star"></use></svg>
+                                                <svg class="star"><use xlink:href="#star"></use></svg>
+                                                <svg class="star"><use xlink:href="#star"></use></svg>
+                                            </div>
+                                            <p class="review-text">"Excellent quality and service!"</p>
+                                            <div class="review-author">- John Doe</div>
+                                        </div>
+                                    </div>
+                                    <div class="reviews__slider-item">
+                                        <div class="review-card">
+                                            <div class="review-stars">
+                                                <svg class="star"><use xlink:href="#star"></use></svg>
+                                                <svg class="star"><use xlink:href="#star"></use></svg>
+                                                <svg class="star"><use xlink:href="#star"></use></svg>
+                                                <svg class="star"><use xlink:href="#star"></use></svg>
+                                                <svg class="star"><use xlink:href="#star"></use></svg>
+                                            </div>
+                                            <p class="review-text">"Beautiful furniture, highly recommend!"</p>
+                                            <div class="review-author">- Jane Smith</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tabs Section -->
+        <div class="component-section" id="tabs">
+            <div class="component-section__header">
+                <h2 class="component-section__title">Tabs</h2>
+            </div>
+            <div class="component-section__content">
+                <div class="component-section__demo">
+                    <div class="component-variants">
+                        <div class="component-variant">
+                            <div class="component-variant__title">Vertical Tabs (Dinning Room)</div>
+                            <div class="tabs-demo">
+                                <div class="row">
+                                    <div class="col-lg-3">
+                                        <ul class="dinning-room__tabs">
+                                            <li>
+                                                <a class="active" href="#tab-1">Tables <sup>234</sup></a>
+                                            </li>
+                                            <li>
+                                                <a href="#tab-2">Chairs <sup>234</sup></a>
+                                            </li>
+                                            <li>
+                                                <a href="#tab-3">Bar stools <sup>234</sup></a>
+                                            </li>
+                                            <li>
+                                                <a href="#tab-4">Bistro tables <sup>234</sup></a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="col-lg-9">
+                                        <div id="tab-1" class="tab-content active">
+                                            <h3>Tables Content</h3>
+                                            <p>This is the content for Tables tab.</p>
+                                        </div>
+                                        <div id="tab-2" class="tab-content">
+                                            <h3>Chairs Content</h3>
+                                            <p>This is the content for Chairs tab.</p>
+                                        </div>
+                                        <div id="tab-3" class="tab-content">
+                                            <h3>Bar Stools Content</h3>
+                                            <p>This is the content for Bar Stools tab.</p>
+                                        </div>
+                                        <div id="tab-4" class="tab-content">
+                                            <h3>Bistro Tables Content</h3>
+                                            <p>This is the content for Bistro Tables tab.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="component-variant">
+                            <div class="component-variant__title">Horizontal Tabs (Blog)</div>
+                            <div class="tabs-demo">
+                                <div class="blog-page__tabs">
+                                    <a href="#" class="blog-page__tab">All</a>
+                                    <a href="#" class="blog-page__tab">Get inspired</a>
+                                    <a href="#" class="blog-page__tab active">Inside IDI</a>
+                                    <a href="#" class="blog-page__tab">Events</a>
+                                    <a href="#" class="blog-page__tab">Promotions</a>
+                                    <a href="#" class="blog-page__tab">News</a>
+                                </div>
+                                <div class="tab-content-area">
+                                    <p>Content for the selected tab will appear here.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="component-variant">
+                            <div class="component-variant__title">Simple Tabs</div>
+                            <div class="tabs-demo">
+                                <div class="simple-tabs">
+                                    <button class="tab-link active" href="#simple-tab-1">Tab 1</button>
+                                    <button class="tab-link" href="#simple-tab-2">Tab 2</button>
+                                    <button class="tab-link" href="#simple-tab-3">Tab 3</button>
+                                </div>
+                                <div id="simple-tab-1" class="tab-content">
+                                    <h3>First Tab Content</h3>
+                                    <p>This is the content for the first tab.</p>
+                                </div>
+                                <div id="simple-tab-2" class="tab-content" style="display: none;">
+                                    <h3>Second Tab Content</h3>
+                                    <p>This is the content for the second tab.</p>
+                                </div>
+                                <div id="simple-tab-3" class="tab-content" style="display: none;">
+                                    <h3>Third Tab Content</h3>
+                                    <p>This is the content for the third tab.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Breadcrumbs Section -->
+        <div class="component-section" id="breadcrumbs">
+            <div class="component-section__header">
+                <h2 class="component-section__title">Breadcrumbs</h2>
+            </div>
+            <div class="component-section__content">
+                <div class="component-section__demo">
+                    <div class="component-variants">
+                        <div class="component-variant">
+                            <div class="component-variant__title">Standard Breadcrumbs</div>
+                            <ul class="breadcrumbs">
+                                <li><a href="#">Furniture</a></li>
+                                <li><a href="#">Living</a></li>
+                                <li>Living room</li>
+                            </ul>
+                        </div>
+
+                        <div class="component-variant">
+                            <div class="component-variant__title">Current Module Breadcrumbs</div>
+                            <ul class="breadcrumbs current-mod">
+                                <li><a href="#">Furniture</a></li>
+                                <li><a href="#">Living</a></li>
+                                <li><a href="#">Modern Sofas & sectionals</a></li>
+                                <li>Dellarobbia chase</li>
+                            </ul>
+                        </div>
+
+                        <div class="component-variant">
+                            <div class="component-variant__title">Product Page Breadcrumbs</div>
+                            <ul class="breadcrumbs current-mod">
+                                <li><a href="#">Furniture</a></li>
+                                <li><a href="#">Living</a></li>
+                                <li><a href="#">Modern Sofas & sectionals</a></li>
+                                <li>Dellarobbia chase</li>
+                            </ul>
+                        </div>
+
+                        <div class="component-variant">
+                            <div class="component-variant__title">Sign Up Page Breadcrumbs</div>
+                            <ul class="breadcrumbs current-mod">
+                                <li><a href="#">Walk in Closets</a></li>
+                                <li><a href="#">Trade Program</a></li>
+                                <li>Sign up</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Pagination Section -->
+        <div class="component-section" id="pagination">
+            <div class="component-section__header">
+                <h2 class="component-section__title">Pagination</h2>
+            </div>
+            <div class="component-section__content">
+                <div class="component-section__demo">
+                    <div class="component-variants">
+                        <div class="component-variant">
+                            <div class="component-variant__title">Blog Pagination</div>
+                            <div class="blog-page__pagination-content">
+                                <p class="blog-page__pagination-text">4 out of 29 results shown</p>
+                                <div class="blog-page__pagination-buttons">
+                                    <button class="btn btn-dark btn--small">Show next 22</button>
+                                    <button class="btn btn-primary btn-outline btn--small">Show all</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="component-variant">
+                            <div class="component-variant__title">Load More Pagination</div>
+                            <div class="pagination-demo">
+                                <p class="pagination-text">Showing 12 of 48 items</p>
+                                <button class="btn btn-dark btn--small">Load More Items</button>
+                            </div>
+                        </div>
+
+                        <div class="component-variant">
+                            <div class="component-variant__title">Numbered Pagination</div>
+                            <div class="numbered-pagination">
+                                <a href="#" class="page-link prev">‹</a>
+                                <a href="#" class="page-link active">1</a>
+                                <a href="#" class="page-link">2</a>
+                                <a href="#" class="page-link">3</a>
+                                <span class="page-ellipsis">...</span>
+                                <a href="#" class="page-link">10</a>
+                                <a href="#" class="page-link next">›</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 
     <script defer src="js/bundle.js"></script>
@@ -1966,6 +4065,144 @@ japan-credit-bureau, eftpos, default-card</code></pre>
                 }
             }
         }
+
+        // Modal functionality
+        $('[data-modal]').on('click', function () {
+            $('body').css('overflow', 'hidden');
+            $(`#${$(this).data('modal')}`).fadeIn(300).css('display', 'flex');
+        });
+
+        $('.modal').on('click', function (e) {
+            if (!$(e.target).closest('.modal__container').length) {
+                $('body').css('overflow', '');
+                $(this).fadeOut(300).css('display', 'none');
+            }
+        });
+
+        $('.modal__close').on('click', function (e) {
+            $('body').css('overflow', '');
+            $(this).parents('.modal').fadeOut(300).css('display', 'none');
+        });
+
+        // Sidebar functionality
+        $('[data-sidebar]').click(function (e) {
+            e.preventDefault();
+            const id = $(this).data('sidebar');
+            $("body").addClass("overflow-hidden");
+            $(`#${id}`).css({ right: '-100%', display: 'block' }).animate({ right: '0' }, 200);
+        });
+
+        $('[data-sidebar-close]').click(function () {
+            $(this).parents('.sidebar').animate({ right: '-100%' }, 200, function () {
+                $(this).hide();
+            });
+            $("body").removeClass("overflow-hidden");
+        });
+
+        // Accordion functionality
+        $('.accordion__title').on('click', function () {
+            $(this).toggleClass('open');
+            $(this).parent().find('.accordion__content').slideToggle(200).toggleClass('d-flex');
+        });
+
+        // Shopping cart tooltip functionality
+        $('.shopping-card-button').click(function (e) {
+            e.preventDefault();
+            const $tooltip = $('.shopping-card-tooltip');
+            const $button = $(this);
+            
+            if ($tooltip.hasClass('active')) {
+                $tooltip.removeClass('active').fadeOut(300);
+                $button.removeClass('active');
+            } else {
+                $tooltip.addClass('active').fadeIn(300);
+                $button.addClass('active');
+            }
+        });
+
+        $('.shopping-card-tooltip-close').click(function () {
+            const $tooltip = $(this).parents('.shopping-card-tooltip');
+            const $button = $('.shopping-card-button');
+            
+            $tooltip.removeClass('active').fadeOut(300);
+            $button.removeClass('active');
+        });
+
+        // Counter functionality
+        $('.input-counter-button').click(function() {
+            const $counter = $(this).closest('.input-counter');
+            const $input = $counter.find('input[type="number"]');
+            const currentValue = parseInt($input.val()) || 0;
+            const minValue = parseInt($input.attr('min')) || 1;
+            const maxValue = parseInt($input.attr('max')) || 999;
+            
+            if ($(this).hasClass('plus')) {
+                const newValue = Math.min(currentValue + 1, maxValue);
+                $input.val(newValue);
+            } else if ($(this).hasClass('minus')) {
+                const newValue = Math.max(currentValue - 1, minValue);
+                $input.val(newValue);
+            }
+        });
+
+        // Tooltip functionality
+        $('[data-tooltip]').hover(function() {
+            const tooltipText = $(this).data('tooltip');
+            const $tooltipElement = $(`<div class="tooltip">${tooltipText}</div>`);
+            $(this).append($tooltipElement);
+            
+            const $trigger = $(this);
+            const triggerRect = $trigger[0].getBoundingClientRect();
+            const tooltipRect = $tooltipElement[0].getBoundingClientRect();
+            const windowWidth = $(window).width();
+            const windowHeight = $(window).height();
+            
+            const spaceRight = windowWidth - triggerRect.right;
+            const spaceLeft = triggerRect.left;
+            const spaceTop = triggerRect.top;
+            const spaceBottom = windowHeight - triggerRect.bottom;
+            
+            let left = 0;
+            let top = 0;
+            
+            if (spaceRight >= tooltipRect.width) {
+                left = 0;
+            } else if (spaceLeft >= tooltipRect.width) {
+                left = -(tooltipRect.width - triggerRect.width);
+            } else {
+                left = -(tooltipRect.width - triggerRect.width) / 2;
+            }
+            
+            if (spaceTop >= tooltipRect.height) {
+                top = -(tooltipRect.height + 8);
+            } else if (spaceBottom >= tooltipRect.height) {
+                top = triggerRect.height + 8;
+            } else {
+                top = (triggerRect.height - tooltipRect.height) / 2;
+            }
+            
+            $tooltipElement.css({
+                position: 'absolute',
+                left: left + 'px',
+                top: top + 'px',
+                zIndex: 1000
+            });
+            
+        }, function() {
+            $(this).find('.tooltip').remove();
+        });
+
+        // Banner functionality
+        $('.banner-info .cancel-icon').click(function () {
+            $(this).closest('.banner-info').fadeOut(500, function () {
+                $(this).remove();
+            });
+        });
+
+        // Show banners in storybook demo
+        $('.banner-info').show().css('opacity', 1);
+
+        // Banner functionality
     </script>
 </body>
 </html> 
