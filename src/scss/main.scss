@@ -560,21 +560,21 @@ label {
           }
 
           &:after {
-            content: '\2713';
+            content: '';
             width: 12px;
             height: 12px;
-            color: $color-white;
+            background-image: url("data:image/svg+xml,%3Csvg width='14' height='12' viewBox='0 0 14 12' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1.66699 7.33333C1.66699 7.33333 3.80033 8.55 4.86699 10.3333C4.86699 10.3333 8.06699 3.33333 12.3337 1' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E%0A");
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
             position: absolute;
             top: 6px;
             left: 6px;
             opacity: 0;
             transition: $transition-duration;
-            font-size: 12px;
-            line-height: 12px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-weight: bold;
           }
         }
 
@@ -953,22 +953,21 @@ select {
         }
 
         &:after {
-          content: '\2713';
+          content: '';
           width: 24px;
           height: 24px;
-          color: $color-white;
+          background-image: url("data:image/svg+xml,%3Csvg width='14' height='12' viewBox='0 0 14 12' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1.66699 7.33333C1.66699 7.33333 3.80033 8.55 4.86699 10.3333C4.86699 10.3333 8.06699 3.33333 12.3337 1' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E%0A");
+          background-size: 14px;
+          background-repeat: no-repeat;
+          background-position: center;
           position: absolute;
           top: 0;
           left: 0;
           opacity: 0;
           transition: $transition-duration;
-          font-size: 21px;
-          line-height: 21px;
           display: flex;
           align-items: center;
           justify-content: center;
-          text-align: center;
-          font-weight: bold;
         }
       }
 
