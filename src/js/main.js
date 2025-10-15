@@ -6,8 +6,90 @@ $(document).ready(function () {
     return isSmallScreen;
   }
 
+  function openSearchPanel() {
+    // Disable body scroll when search panel opens
+    $("body").css("overflow", "hidden");
+
+    $("#navigation-menu-row").fadeOut(200, function () {
+      if (isMobile()) {
+        $(".navigation-logo").fadeOut(200);
+        $(".navigation-content").addClass("w-full");
+      }
+      $("#search-block").fadeIn(200, function() {
+        // Calculate search results height after panel is visible
+        calculateSearchResultsHeight();
+      }).find("input").focus();
+    });
+  }
+
+  function closeSearchPanel() {
+    $("#search-block").fadeOut(200, function () {
+      // Enable body scroll when search panel closes
+      $("body").css("overflow", "");
+      
+      $("#navigation-menu-row").fadeIn(200);
+      if (isMobile()) {
+        $(".navigation-logo").fadeIn(200);
+        $(".navigation-content").removeClass("w-full");
+      }
+    });
+    $(document).off("click.searchOutside");
+    $(document).off("keydown.searchEscape");
+  }
+
+  function calculateSearchResultsHeight() {
+    if (isMobile()) {
+      const windowHeight = $(window).height();
+      const navigationHeight = $(".navigation").outerHeight() || 0;
+      const bannerHeight = $("#banner-info").is(":visible") ? $("#banner-info").outerHeight() : 0;
+      
+      // Calculate available height for search results
+      const availableHeight = windowHeight - navigationHeight - bannerHeight;
+      
+      // Set the height for search results
+      $("#search-results").css("height", availableHeight + "px");
+    } else {
+      // Remove height restriction on desktop
+      $("#search-results").css("height", "");
+    }
+  }
+
+  function adaptSearchPanelOnResize() {
+    // Check if search panel is currently visible
+    if ($("#search-block").is(":visible")) {
+      // Hide navigation menu row if not already hidden
+      if ($("#navigation-menu-row").is(":visible")) {
+        $("#navigation-menu-row").hide();
+      }
+      
+      // Apply mobile/desktop specific styles
+      if (isMobile()) {
+        $(".navigation-logo").hide();
+        $(".navigation-content").addClass("w-full");
+      } else {
+        $(".navigation-logo").show();
+        $(".navigation-content").removeClass("w-full");
+      }
+      
+      // Recalculate search results height
+      calculateSearchResultsHeight();
+    }
+  }
+
   $(window).scroll(function () {
     return $(".navigation").toggleClass("scroll", $(window).scrollTop() > 0);
+  });
+
+  // Handle window resize to adapt search panel behavior
+  $(window).resize(function () {
+    adaptSearchPanelOnResize();
+  });
+
+  // Initial calculation on page load if search panel is visible
+  $(document).ready(function() {
+    if ($("#search-block").is(":visible")) {
+      calculateSearchResultsHeight();
+    }
   });
 
   function updateBannerMargin() {
@@ -48,6 +130,11 @@ $(document).ready(function () {
       updateBannerMargin();
       $("#banner-info").remove();
       $('.parallax-window').parallax('refresh');
+      
+      // Recalculate search results height if search panel is open
+      if ($("#search-block").is(":visible")) {
+        calculateSearchResultsHeight();
+      }
     });
   });
 
@@ -420,14 +507,7 @@ $(document).ready(function () {
 
   $("#search-button").click(function (e) {
     e.preventDefault();
-
-    $("#navigation-menu-row").fadeOut(200, function () {
-      if (isMobile()) {
-        $(".navigation-logo").fadeOut(200);
-        $(".navigation-content").addClass("w-full");
-      }
-      $("#search-block").fadeIn(200).find("input").focus();
-    });
+    openSearchPanel();
 
     // Add handler after short pause
     setTimeout(() => {
@@ -436,14 +516,14 @@ $(document).ready(function () {
           !$(e.target).closest("#search-block").length &&
           !$(e.target).is("#search-button")
         ) {
-          $("#search-block").fadeOut(200, function () {
-            $("#navigation-menu-row").fadeIn(200);
-            if (isMobile()) {
-              $(".navigation-logo").fadeIn(200);
-              $(".navigation-content").removeClass("w-full");
-            }
-          });
-          $(document).off("click.searchOutside");
+          closeSearchPanel();
+        }
+      });
+
+      // Add Escape key handler for closing search panel
+      $(document).on("keydown.searchEscape", function (e) {
+        if (e.key === "Escape" && $("#search-block").is(":visible")) {
+          closeSearchPanel();
         }
       });
 
@@ -459,7 +539,10 @@ $(document).ready(function () {
         }
 
         if (value.length > 2) {
-          $("#search-results").fadeIn(200);
+          $("#search-results").fadeIn(200, function() {
+            // Calculate height when results are shown
+            calculateSearchResultsHeight();
+          });
         } else {
           $("#search-results").fadeOut(200);
         }
@@ -480,8 +563,8 @@ $(document).ready(function () {
         // Hide search results
         $("#search-results").fadeOut(200);
 
-        // Return focus to input field
-        $input.focus();
+        // Close search panel completely
+        closeSearchPanel();
       });
     }, 10);
   });
