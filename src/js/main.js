@@ -46,11 +46,13 @@ $(document).ready(function () {
       // Calculate available height for search results
       const availableHeight = windowHeight - navigationHeight - bannerHeight;
       
-      // Set the height for search results
+      // Set the height for both search results blocks
       $("#search-results").css("height", availableHeight + "px");
+      $("#search-results-list").css("height", availableHeight + "px");
     } else {
       // Remove height restriction on desktop
       $("#search-results").css("height", "");
+      $("#search-results-list").css("height", "");
     }
   }
 
@@ -527,6 +529,18 @@ $(document).ready(function () {
         }
       });
 
+      // Handle input focus - show popular searches
+      $("#search-block input").on("focus", function () {
+        const value = $(this).val();
+        
+        if (value.length < 3) {
+          $("#search-results-list").fadeOut(200);
+          $("#search-results").fadeIn(200, function() {
+            calculateSearchResultsHeight();
+          });
+        }
+      });
+
       // Correct input handler
       $("#search-block input").on("input", function () {
         const value = $(this).val();
@@ -539,12 +553,16 @@ $(document).ready(function () {
         }
 
         if (value.length > 2) {
-          $("#search-results").fadeIn(200, function() {
+          $("#search-results").fadeOut(200);
+          $("#search-results-list").fadeIn(200, function() {
             // Calculate height when results are shown
             calculateSearchResultsHeight();
           });
         } else {
-          $("#search-results").fadeOut(200);
+          $("#search-results-list").fadeOut(200);
+          $("#search-results").fadeIn(200, function() {
+            calculateSearchResultsHeight();
+          });
         }
       });
 
@@ -560,8 +578,9 @@ $(document).ready(function () {
         // Hide reset button
         $resetButton.fadeOut(200);
 
-        // Hide search results
+        // Hide both search results blocks
         $("#search-results").fadeOut(200);
+        $("#search-results-list").fadeOut(200);
 
         // Close search panel completely
         closeSearchPanel();

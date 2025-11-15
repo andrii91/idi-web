@@ -52,20 +52,30 @@ gulp.task('fonts', function() {
 });
 
 // Nunjucks
-gulp.task('nunjucks', () => {
-  return gulp.src('src/templates/*.njk')
+gulp.task('nunjucks', (done) => {
+  gulp.src('src/templates/*.njk')
     .pipe(nunjucksRender({
       path: ['src/templates/'],
     }))
     .pipe(gulp.dest('dist'))
-    .pipe(browserSync.stream());
+    .on('end', () => {
+      browserSync.reload();
+      done();
+    });
 });
 
 
-// Default task
+// Serve task
 gulp.task('serve', () => {
   browserSync.init({
     server: './dist',
+    port: 3000,
+    notify: false,
+    open: true,
+    // Додаткові налаштування для кращого оновлення
+    injectChanges: true,
+    reloadDelay: 0,
+    reloadDebounce: 0,
   });
 
   gulp.watch('src/templates/**/*.njk', gulp.series('nunjucks'));
@@ -74,10 +84,5 @@ gulp.task('serve', () => {
   gulp.watch('src/images/**/*.*', gulp.series('images'));
 });
 
-// gulp.task('default', gulp.parallel('nunjucks', 'images', 'scss', 'js', 'serve'));
-gulp.task('default', function() {
-  gulp.watch('src/templates/**/*.njk', gulp.series('nunjucks'));
-  gulp.watch('src/scss/**/*.scss', gulp.series('scss'));
-  gulp.watch('src/js/**/*.js', gulp.series('js'));
-  gulp.watch('src/images/**/*.*', gulp.series('images'));
-});
+// Default task - now properly starts server
+gulp.task('default', gulp.series('nunjucks', 'scss', 'js', 'serve'));

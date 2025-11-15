@@ -307,6 +307,7 @@
       background: #FFF;
       box-shadow: 0px 4px 11.8px 0px rgba(0, 0, 0, 0.15);
       padding: 30px 0;
+      padding-bottom: 50px;
       border-radius: 8px;
       z-index: 1001;
       display: none;
@@ -557,6 +558,34 @@
             }
           }
         }
+      }
+
+      &-all-products {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        color: #000;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 350;
+        text-decoration: none;
+        transition: $transition-duration;
+        text-wrap: nowrap;
+        position: absolute;
+        bottom: 0px;
+        right: 18%;
+
+        svg {
+          width: 20px;
+          height: 20px;
+        }
+
+        @media screen and (max-width: 1023px) {
+          position: static;
+          margin-top: 32px;
+          justify-content: center;
+        }
+
       }
     }
 

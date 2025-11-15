@@ -1,0 +1,17 @@
+<section class="trending">
+  <div class="container-xxl">
+    <h2 class="trending__title">Trending now</h2>
+    <div class="trending__row">
+      {% for i in range(1, 9) %}
+        <a href="#" class="product__card fade-in">
+          <div class="product__image">
+            <img src="images/photo-frame-2.webp" alt="photo-frame-{{ i }}">
+          </div>
+
+          <span class="product__name">Borghese</span>
+        </a>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
