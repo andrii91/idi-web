@@ -273,6 +273,8 @@
           }
         }
       }
+
+
     }
 
     &__price {
@@ -347,5 +349,19 @@
         background: #F8F8F8;
       }
     }
+  }
+}
+
+.product-info__texture, .product-info__composition {
+  >span {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+}
+
+.product-info__texture .exemple {
+  img {
+    border-radius: 50%;
   }
 }

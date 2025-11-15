@@ -128,26 +128,28 @@
             top: 50%;
             left: 50%;
             transform: translateX(-50%) translateY(-50%);
-            width: 108px;
-            height: 108px;
+            width: 158px;
+            height: 158px;
             border: 2px solid #000;
+            border-radius: 50%;
 
             @media screen and (max-width: 1023px) {
-              width: 77px;
-              height: 77px;
+              width: 88px;
+              height: 88px;
             }
           }
         }
       }
 
       img {
-        width: 100px;
-        height: 100px;
+        width: 150px;
+        height: 150px;
         object-fit: cover;
+        border-radius: 50%;
 
         @media screen and (max-width: 1023px) {
-          width: 69px;
-          height: 69px;
+          width: 80px;
+          height: 80px;
         }
       }
     }
