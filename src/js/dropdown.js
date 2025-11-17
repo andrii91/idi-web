@@ -1,7 +1,7 @@
 $(document).ready(function () {
   const maxVisible = 5;
 
-  $('.custom-select').each(function () {
+  $('.custom-select').each(function (selectIndex) {
     const $select = $(this);
     const isMultiple = $select.attr('multiple') !== undefined;
     $select.hide();
@@ -9,6 +9,9 @@ $(document).ready(function () {
     const options = $select.find('option').map(function () {
       return { value: $(this).val(), text: $(this).text(), selected: $(this).is(':selected') };
     }).get();
+
+    // Generate unique identifier for this select element
+    const selectUniqueId = `select-${Date.now()}-${Math.random().toString(36).substr(2, 9)}-${selectIndex}`;
 
     const $dropdown = $('<div class="dropdown-wrapper"></div>');
     const $trigger = $(`<div class="dropdown-trigger">
@@ -28,9 +31,9 @@ $(document).ready(function () {
 
     options.forEach((opt, index) => {
       const inputType = isMultiple ? 'checkbox' : 'radio';
-      const inputName = isMultiple ? '' : ($select.attr('name') || `custom-select-${Date.now()}`); // Unique name if not present
+      const inputName = isMultiple ? '' : ($select.attr('name') || selectUniqueId); // Use unique select ID if name not present
       const isChecked = opt.selected ? 'checked' : '';
-      const uniqueId = `option-${Date.now()}-${index}`;
+      const uniqueId = `option-${selectUniqueId}-${index}`;
       const $opt = $(`
         <label for="${uniqueId}" class="dropdown-option" style="${index >= maxVisible ? 'display: none;' : ''}">
           <input type="${inputType}" name="${inputName}" id="${uniqueId}" value="${opt.value}" ${isChecked}> 
