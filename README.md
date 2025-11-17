@@ -19,6 +19,8 @@
 - [Catalogue 1 - Italian Design Interiors](https://andrii91.github.io/idi-web/dist/catalogue-1.html)
 - [Catalogue 2 - Italian Design Interiors](https://andrii91.github.io/idi-web/dist/catalogue-2.html)
 - [Furniture - Italian Design Interiors](https://andrii91.github.io/idi-web/dist/furniture.html)
+- [Furniture (Сторінка 1) - Italian Design Interiors](https://andrii91.github.io/idi-web/dist/furniture-1.html)
+- [Living - Italian Design Interiors](https://andrii91.github.io/idi-web/dist/living.html)
 - [Brands - Italian Design Interiors](https://andrii91.github.io/idi-web/dist/brands.html)
 - [Walk-in Closets - Italian Design Interiors](https://andrii91.github.io/idi-web/dist/walk-in-closets.html)
 - [Doxa Closet - Italian Design Interiors](https://andrii91.github.io/idi-web/dist/doxa-closet.html)
