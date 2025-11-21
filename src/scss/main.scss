@@ -1392,6 +1392,58 @@ main:not(.privacy-policy), section, header {
   }
 }
 
+.narrow-search {
+  padding: 0px 0 80px 0;
+  background: $color-white;
+
+  @media screen and (max-width: 1023px) {
+    padding: 40px 0;
+  }
+
+  @media screen and (min-width: 1024px) and (max-width: 1320px) {
+    padding: vw(80px) 0;
+  }
+
+  &__title {
+    color: $color-black;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    margin-bottom: 24px;
+  }
+
+  &__grid {
+   display: flex;
+   flex-wrap: wrap;
+   justify-content: space-between;
+   gap: 40px;
+  }
+
+  &__list {
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+
+    li {
+      a {
+        color: $color-black;
+        font-size: 24px;
+        font-weight: 400;
+        line-height: 40px;
+        text-decoration: underline;
+        transition: $transition-duration;
+
+        &:hover {
+          color: $color-gray-accent;
+          text-decoration: none;
+        }
+      }
+    }
+  }
+}
+
 @import "./partials/menu.scss";
 @import "./main-page/header.scss";
 @import "./main-page/brands.scss";
@@ -1414,6 +1466,7 @@ main:not(.privacy-policy), section, header {
 @import "./search/popular.scss";
 @import "./search/trending.scss";
 @import "./partials/filters.scss";
+@import "./partials/filters-colors.scss";
 @import "./partials/sidebar.scss";
 @import "./partials/modal.scss";
 

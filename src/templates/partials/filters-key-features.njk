@@ -1,0 +1,69 @@
+{% set keyFeatures = [
+{ name: "Modularity", icon: "modularity" },
+{ name: "High Visual Comfort", icon: "high-visual-comfort" },
+{ name: "Integrated Cabinet", icon: "integrated-cabinet" },
+{ name: "Integrated Coffee Table", icon: "integrated-coffee-table" },
+{ name: "Customazable Details", icon: "customazable-details" },
+{ name: "Leather and Fabric", icon: "leather-and-fabric" },
+{ name: "Adjustable Headrest", icon: "adjustable-headrest" },
+{ name: "Adjustable Lumber Support", icon: "adjustable-lumber-support" },
+{ name: "Head & Neck Support", icon: "head-neck-support" },
+{ name: "Fully Upholstered Sides", icon: "fully-upholstered-sides" },
+{ name: "Adjustable Armrest", icon: "adjustable-armrest" },
+{ name: "Recliner", icon: "recliner" },
+{ name: "Compact Size", icon: "compact-size" },
+{ name: "Zero Wall", icon: "zero-wall" },
+{ name: "Memory Foam", icon: "memory-foam" },
+{ name: "Feet Choices", icon: "feet-choices" },
+{ name: "Contrast Covering", icon: "contrast-covering" },
+{ name: "Sliding Backrest", icon: "sliding-backrest" },
+{ name: "Available in Thick Leather", icon: "available-thick-leather" },
+{ name: "Chaise Storage", icon: "chaise-storage" },
+{ name: "Sofa Bed", icon: "sofa-bed" },
+{ name: "Zero Gravity", icon: "zero-gravity" },
+{ name: "2 Seat Width Options", icon: "seat-width-options" },
+{ name: "Armrest Choices", icon: "armrest-choices" },
+{ name: "Seat \"365\" With Remote Control", icon: "seat-365-remote" }
+] %}
+
+<div class="filters filters-key-features">
+    <ul class="filters__types filters-key-features__types">
+        {% for feature in keyFeatures %}
+        <li>
+            <a class="filters__button" href="#">
+                <svg class="icon">
+                    <use xlink:href="#{{ feature.icon }}"></use>
+                </svg>
+                <span>{{ feature.name }}</span>
+            </a>
+        </li>
+        {% endfor %}
+
+        <li class="filters-key-features__reset-all">
+            <a class="filters-key-features__reset-button" href="#">
+                <svg class="icon">
+                    <use xlink:href="#close"></use>
+                </svg>
+                <span>Reset all</span>
+            </a>
+        </li>
+
+        <li class="d-none d-lg-flex">
+            <a class="show-more-less" href="#">
+                <svg class="icon">
+                    <use xlink:href="#arr-down"></use>
+                </svg>
+                <span class="show-more">Show More</span>
+                <span class="show-less">Show less</span>
+            </a>
+        </li>
+    </ul>
+    
+    <a class="show-more-less d-lg-none" href="#">
+        <svg class="icon">
+            <use xlink:href="#arr-down"></use>
+        </svg>
+        <span class="show-more">Show More</span>
+        <span class="show-less">Show less</span>
+    </a>
+</div>

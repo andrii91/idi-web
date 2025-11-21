@@ -54,4 +54,23 @@
       margin-bottom: 0px;
     }
   }
+
+  &__categories {
+    &-title {
+      color:  #6B7280;  
+      font-size: 18px;
+      font-style: normal;
+      font-weight: 500;
+      line-height: normal;
+      margin: 0;
+    }
+
+    .filters__types {
+      padding-top: 12px;
+    }
+
+    &-inner {
+      padding-bottom: 20px;
+    }
+  }
 }

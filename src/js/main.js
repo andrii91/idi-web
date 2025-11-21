@@ -588,64 +588,86 @@ $(document).ready(function () {
     }, 10);
   });
 
-  $(".filters__button").click(function () {
+  $(".filters__button").click(function (e) {
+    e.preventDefault();
     $(this).toggleClass("current");
+    
+    // Check if this is a key features filter button
+    if ($(this).parents('.filters-key-features__types').length) {
+      const activeFiltersCount = $('.filters-key-features__types .filters__button.current').length;
+      
+      if(activeFiltersCount > 0) {
+        $('.filters-key-features__reset-all').addClass('active');
+      } else {
+        $('.filters-key-features__reset-all').removeClass('active');
+      }
+    }
   });
 
   function checkFilters() {
     let filtersSelectsCount = 0;
 
-    $(".group-selects select").each(function () {
-      if ($(this).val().length > 0) {
+    // Check only multiple selects (filters), exclude sort_by select
+    $(".group-selects select[multiple]").each(function () {
+      const val = $(this).val();
+      if (val && val.length > 0) {
         filtersSelectsCount++;
       }
-
-      if (filtersSelectsCount > 0) {
-        $(".filters__reset-all").show();
-      } else {
-        $(".filters__reset-all").hide();
-      }
     });
+
+    console.log('checkFilters - active filters count:', filtersSelectsCount);
+
+    if (filtersSelectsCount > 0) {
+      $(".filters__reset-all").show();
+    } else {
+      $(".filters__reset-all").hide();
+    }
   }
 
   checkFilters();
 
-  $(".group-selects select").change(checkFilters);
+  // Listen to changes only on filter selects (multiple), not on sort_by
+  $(".group-selects select[multiple]").change(checkFilters);
 
   $(".filters__reset-all").on("click", function () {
-    // Clear all selects
-    $(this)
-      .parents()
-      .find("select")
-      .each(function () {
-        const $select = $(this);
-        if ($select.attr("multiple")) {
-          // For multiple selects, uncheck all selected options
-          $select.find("option").prop("selected", false);
-        } else {
-          // For regular selects, select first item (or placeholder)
-          $select.prop("selectedIndex", 0);
-        }
-        $select.trigger("change"); // Trigger change event for update
-      });
+    console.log('Reset all clicked');
+    
+    const $groupSelects = $(this).closest('.group-selects');
+    
+    // Clear only multiple selects (filters), exclude sort_by
+    $groupSelects.find("select[multiple]").each(function () {
+      const $select = $(this);
+      // For multiple selects, uncheck all selected options
+      $select.find("option").prop("selected", false);
+      $select.val(null); // Explicitly set to null
+    });
 
     // If custom selects are used, update them
-    $(".dropdown-wrapper").each(function () {
+    $groupSelects.find(".dropdown-wrapper").each(function () {
       const $dropdown = $(this);
       const $select = $dropdown.prev("select");
-      const placeholder = $select.data("placeholder") || "Choose options";
+      
+      // Only reset if it's a multiple select (filter)
+      if ($select.attr("multiple")) {
+        const placeholder = $select.data("placeholder") || "Choose options";
 
-      // Update trigger text
-      $dropdown
-        .find(".dropdown-trigger")
-        .removeClass("is-selected")
-        .html(
-          `${placeholder} <svg class="arrow"><use xlink:href="#arrow-select"></use></svg>`
-        );
+        // Update trigger text
+        $dropdown
+          .find(".dropdown-trigger")
+          .removeClass("is-selected")
+          .html(
+            `${placeholder} <svg class="arrow"><use xlink:href="#arrow-select"></use></svg>`
+          );
 
-      // Uncheck all selected options
-      $dropdown.find("input").prop("checked", false);
+        // Uncheck all selected options
+        $dropdown.find("input").prop("checked", false);
+      }
     });
+
+    // Check filters after a small delay to ensure values are updated
+    setTimeout(function() {
+      checkFilters();
+    }, 50);
   });
 
   $(
@@ -1859,4 +1881,160 @@ $(document).ready(function () {
       },
     ],
   });
+
+  // Function to manage filters display in 2 rows
+  function manageFiltersDisplay() {
+    const $container = $('.filters-key-features__types');
+    if (!$container.length) return;
+
+    const $items = $container.find('li:not(:has(.show-more-less))');
+    const $showMoreBtn = $container.find('li:has(.show-more-less)');
+    
+    if ($items.length === 0) return;
+
+    // Temporarily remove d-none from all items
+    $items.removeClass('d-none');
+    $showMoreBtn.hide();
+    
+    // Force layout recalculation
+    $container[0].offsetHeight;
+    
+    let itemsToShow = [];
+    
+    // Mobile: show fixed 12 items
+    if (isMobile()) {
+      const maxMobileItems = 12;
+      const needsShowMore = $items.length > maxMobileItems;
+      
+      if (needsShowMore) {
+        // Show first 12 items
+        for (let i = 0; i < maxMobileItems; i++) {
+          itemsToShow.push(i);
+        }
+        
+        // Hide the rest
+        $items.each(function(index) {
+          if (index >= maxMobileItems) {
+            $(this).addClass('d-none');
+          }
+        });
+        
+        $showMoreBtn.show();
+      } else {
+        // All items fit
+        $showMoreBtn.hide();
+      }
+    } else {
+      // Desktop: calculate based on 2 rows
+      const firstItemTop = $items.first().offset().top;
+      const firstItemHeight = $items.first().outerHeight();
+      const verticalGap = 16; // vertical gap from CSS: gap: 16px 18px;
+      const horizontalGap = 18; // horizontal gap between items
+      
+      // Calculate threshold for third row
+      // 2 rows = first item top + (height * 2) + (gap * 1) + small tolerance
+      const thirdRowThreshold = firstItemTop + (firstItemHeight * 2) + verticalGap + 5;
+      
+      // Identify items in first two rows
+      $items.each(function(index) {
+        const $item = $(this);
+        const itemTop = $item.offset().top;
+        
+        if (itemTop < thirdRowThreshold) {
+          itemsToShow.push(index);
+        }
+      });
+      
+      // Check if we need show-more button
+      const allItemsFit = itemsToShow.length >= $items.length;
+      
+      if (!allItemsFit) {
+        // Remove items to ensure button fits in the last row
+        // Remove 2-3 items to guarantee space for the button
+        const itemsToRemove = Math.min(2, itemsToShow.length);
+        for (let i = 0; i < itemsToRemove; i++) {
+          if (itemsToShow.length > 0) {
+            itemsToShow.pop();
+          }
+        }
+        
+        // Hide items that don't fit
+        $items.each(function(index) {
+          if (!itemsToShow.includes(index)) {
+            $(this).addClass('d-none');
+          }
+        });
+        
+        $showMoreBtn.show();
+      } else {
+        // All items fit, hide show-more button
+        $showMoreBtn.hide();
+      }
+    }
+  }
+
+  // Call on page load
+  manageFiltersDisplay();
+  
+  // Call on window resize
+  let resizeTimer;
+  $(window).resize(function() {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(function() {
+      // Only recalculate if not in active state
+      if (!$('.filters-key-features__types').hasClass('active')) {
+        manageFiltersDisplay();
+      }
+    }, 250);
+  });
+
+  $('.show-more-less').click(function (e) {
+    e.preventDefault();
+    const $container = $(this).parents('.filters-key-features').find('.filters-key-features__types');
+    $container.toggleClass('active');
+    $(this).toggleClass('active');
+    
+    if ($container.hasClass('active')) {
+      // Show all items
+      $container.find('li:not(:has(.show-more-less))').removeClass('d-none');
+    } else {
+      // Re-apply 2 rows limit
+      manageFiltersDisplay();
+    }
+  })
+
+  $('.filters-key-features__reset-button').click(function (e) {
+    e.preventDefault();
+    const $container = $(this).parents('.filters-key-features').find('.filters__button');
+    $container.removeClass('current');
+    $(this).parent().removeClass('active');
+  })
+
+  // Filters colors logic
+  function updateColorsResetButton() {
+    const $checkedColors = $('.filters-colors__checkbox:checked');
+    const $resetButton = $('.filters-colors__reset-button');
+    
+    if ($checkedColors.length >= 2) {
+      $resetButton.addClass('active');
+    } else {
+      $resetButton.removeClass('active');
+    }
+  }
+
+  // Handle color checkbox change
+  $('.filters-colors__checkbox').on('change', function() {
+    updateColorsResetButton();
+  });
+
+  // Handle reset button click
+  $('.filters-colors__reset-button').click(function(e) {
+    e.preventDefault();
+    $('.filters-colors__checkbox').prop('checked', false);
+    $(this).removeClass('active');
+  });
+
+  // Initialize on page load
+  updateColorsResetButton();
+
 });

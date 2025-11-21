@@ -1,0 +1,50 @@
+{% set colors = [
+{ name: "Black", value: "black" },
+{ name: "Brown", value: "brown" },
+{ name: "Beige", value: "beige" },
+{ name: "Grey", value: "grey" },
+{ name: "White", value: "white" },
+{ name: "Blue", value: "blue" },
+{ name: "Green", value: "green" },
+{ name: "Yellow", value: "yellow" },
+{ name: "Orange", value: "orange" },
+{ name: "Red", value: "red" },
+{ name: "Pink", value: "pink" },
+{ name: "Liliac", value: "liliac" },
+{ name: "Gold", value: "gold" },
+{ name: "Silver", value: "silver" },
+{ name: "Multicolor", value: "multicolor" }
+] %}
+
+<div class="filters-colors">
+  <div class="filters-colors__list">
+    {% for color in colors %}
+    <div class="filters-colors__item">
+      <input type="checkbox" id="color-{{ color.value }}" name="color" value="{{ color.value }}"
+        class="filters-colors__checkbox">
+      <label for="color-{{ color.value }}" class="filters-colors__label">
+        <span class="filters-colors__circle filters-colors__circle--{{ color.value }}"></span>
+        <span class="filters-colors__name">{{ color.name }}</span>
+      </label>
+    </div>
+    {% endfor %}
+
+    <span class="d-none d-lg-block">
+      <a class="filters-colors__reset-button" href="#">
+        <svg class="icon">
+          <use xlink:href="#close"></use>
+        </svg>
+        <span>Reset all colors</span>
+      </a>
+    </span>
+  </div>
+
+  <span class="d-lg-none">
+    <a class="filters-colors__reset-button" href="#">
+      <svg class="icon">
+        <use xlink:href="#close"></use>
+      </svg>
+      <span>Reset all colors</span>
+    </a>
+  </span>
+</div>

@@ -23,7 +23,31 @@
   {% set page_type = "furniture" %}
 
   {% include "partials/menu.njk" %}
-  {% include "components/catalogue/header-furniture.njk" %}
+  <header class="catalogue-header">
+    <div class="container-xxl">
+      <ul class="breadcrumbs">
+        <li><a href="#">Main</a></li>
+        <li><a href="#">Furniture</a></li>
+        <li>Sofas & sectionals</li>
+      </ul>
+      <h1 class="catalogue-header__title">Sofas & sectionals <span>1 296 results</span></h1>
+  
+      <div class="catalogue-header__categories">
+        <div class="catalogue-header__categories-inner">
+          <h6 class="catalogue-header__categories-title">Category</h6>
+          {% include "partials/filters.njk" %}
+        </div>
+        <div class="catalogue-header__categories-inner">
+          <h6 class="catalogue-header__categories-title">Key Features</h6>
+          {% include "partials/filters-key-features.njk" %}
+        </div>
+        <div class="catalogue-header__categories-inner">
+          {% include "partials/filters-colors.njk" %}
+        </div>
+      </div>
+    </div>
+  </header>
+
   <main class="overflow-hidden">
     <section class="search-cards">
         <div class="container-xxl">

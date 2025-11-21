@@ -4,15 +4,21 @@
     padding: 24px 0;
     margin: 0;
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
     gap: 14px;
-    overflow-x: auto;
-    &::-webkit-scrollbar {
-      display: none;
+    
+    @media screen and (max-width: 1023px) {
+      flex-wrap: nowrap;
+      overflow-x: auto;
+      &::-webkit-scrollbar {
+        display: none;
+      }
     }
 
     li {
       display: flex;
+
       a {
         color: #000;
         font-size: 18px;
@@ -29,7 +35,7 @@
         transition: $transition-duration;
         text-wrap: nowrap;
 
-        img {
+        img, svg {
           width: 30px;    
           min-width: 30px;
           height: 30px;
@@ -255,6 +261,130 @@
       .icon {
         width: 20px;
         height: 20px;
+      }
+    }
+  }
+
+  &-key-features {
+    overflow-x: auto;
+    &::-webkit-scrollbar {
+      display: none;
+    }
+
+      &__types {
+      flex-wrap: wrap;
+      position: relative;
+      padding: 0px;
+      gap: 16px 18px;
+
+      @media screen and (max-width: 1023px) {
+        height: auto;
+        min-height: auto;
+        flex-wrap: nowrap;
+      }
+
+      li {
+        &.d-none {
+          display: none;
+        }
+        a {
+          padding-left: 10px;
+          padding-right: 12px;
+          font-size: 16px;
+        }
+      }
+
+      .show-more-less {
+       background: #fff !important;
+       color: #000 !important;
+       position: absolute;
+       bottom: 0;
+       right: 0;
+      }
+
+
+      &.active {
+        height: auto;
+        @media screen and (max-width: 1023px) {
+          width: 1325px !important;
+          flex-wrap: wrap !important;
+        }
+
+        .show-more-less {
+          position: static;
+          .show-less {
+            display: block;
+          }
+
+          .show-more {
+            display: none;
+          }
+
+          svg {
+            transform: rotate(180deg);
+          }
+        }
+      }
+    }
+
+    .show-more-less {
+      color: #000;
+      font-size: 16px;
+      font-style: normal;
+      font-weight: 300;
+      line-height: normal;
+      display: inline-flex;
+      padding: 10px 10px 10px;
+      justify-content: center;
+      align-items: center;
+      gap: 8px;
+      text-decoration: none;
+      transition: $transition-duration;
+      text-wrap: nowrap;
+
+      .show-less {
+        display: none;
+      }
+
+      &.active {
+        .show-less {
+          display: block;
+        }
+
+        .show-more {
+          display: none;
+        }
+
+        svg {
+          transform: rotate(180deg);
+        }
+      }
+
+      svg {
+        transition: $transition-duration;
+        width: 30px;
+        height: 30px;
+      }
+    }
+
+    li {
+      &.filters-key-features__reset-all {
+        display: none;
+
+        &.active {
+          display: block;
+        }
+      }
+    }
+
+    &__reset {
+     
+      &-button {
+        text-decoration: none;
+
+        &:hover {
+          text-decoration: none !important;
+        }
       }
     }
   }

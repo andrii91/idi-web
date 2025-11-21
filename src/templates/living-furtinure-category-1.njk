@@ -23,7 +23,31 @@
   {% set page_type = "furniture" %}
 
   {% include "partials/menu.njk" %}
-  {% include "components/catalogue/header-furniture.njk" %}
+  <header class="catalogue-header">
+    <div class="container-xxl">
+      <ul class="breadcrumbs">
+        <li><a href="#">Main</a></li>
+        <li><a href="#">Furniture</a></li>
+        <li>Sofas & sectionals</li>
+      </ul>
+      <h1 class="catalogue-header__title">Sofas & sectionals <span>1 296 results</span></h1>
+  
+      <div class="catalogue-header__categories">
+        <div class="catalogue-header__categories-inner">
+          <h6 class="catalogue-header__categories-title">Category</h6>
+          {% include "partials/filters.njk" %}
+        </div>
+        <div class="catalogue-header__categories-inner">
+          <h6 class="catalogue-header__categories-title">Key Features</h6>
+          {% include "partials/filters-key-features.njk" %}
+        </div>
+        <div class="catalogue-header__categories-inner">
+          {% include "partials/filters-colors.njk" %}
+        </div>
+      </div>
+    </div>
+  </header>
+
   <main class="overflow-hidden">
     <section class="search-cards">
         <div class="container-xxl">
@@ -440,6 +464,50 @@
         </div>
       </section>
 
+      <section class="narrow-search">
+        <div class="container-xxl">
+          <h2 class="narrow-search__title">NARROW YOUR SEARCH:</h2>
+          <div class="narrow-search__grid">
+            <ul class="narrow-search__list">
+              <li><a href="#">Leather Sofas</a></li>
+              <li><a href="#">Fabric Sectionals</a></li>
+              <li><a href="#">L-Shaped Leather Sectionals</a></li>
+              <li><a href="#">Large Leather Sofas</a></li>
+              <li><a href="#">Motion Sofas</a></li>
+              <li><a href="#">Fabric Chaise Sectionals</a></li>
+              <li><a href="#">Small Sofas</a></li>
+              <li><a href="#">Small Chaise Sectionals</a></li>
+              <li><a href="#">Large L-Shaped Sectionals</a></li>
+              <li><a href="#">Natuzzi Sofas</a></li>
+            </ul>
+            <ul class="narrow-search__list">
+              <li><a href="#">Fabric Sofas</a></li>
+              <li><a href="#">L-Shaped Sectionals</a></li>
+              <li><a href="#">Leather Chaise Sectionals</a></li>
+              <li><a href="#">Large Leather Sectionals</a></li>
+              <li><a href="#">L-Shaped Fabric Sectionals</a></li>
+              <li><a href="#">U-Shaped Sectionals</a></li>
+              <li><a href="#">Small L-Shaped Sectionals</a></li>
+              <li><a href="#">Small Curved Sectionals</a></li>
+              <li><a href="#">Sleeper Sofas</a></li>
+              <li><a href="#">Natuzzi Sofa Beds</a></li>
+            </ul>
+            <ul class="narrow-search__list">
+              <li><a href="#">Leather Sectionals</a></li>
+              <li><a href="#">Leather U-Shaped Sectionals</a></li>
+              <li><a href="#">Small Leather Sofa</a></li>
+              <li><a href="#">Small Sectionals</a></li>
+              <li><a href="#">Chaise Sectionals</a></li>
+              <li><a href="#">Curved Sectionals</a></li>
+              <li><a href="#">Small U-Shaped Sectionals</a></li>
+              <li><a href="#">Large Sofas</a></li>
+              <li><a href="#">Natuzzi Quick Ship</a></li>
+              <li><a href="#">Natuzzi Motions</a></li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
       <section class="section-catalogue__content">
         <div class="container-xxl">
           <div class="row justify-content-center">
@@ -447,78 +515,64 @@
               <div class="other-overview__content">
                 <section>
                   <div class="nav-content-item">
-                    <h4 class="section-catalogue__content-title">Living Room Furniture: Tips for Choosing the Right Set
-                      for Your Home</h4>
-  
-                    <p>When it comes to creating a comfortable and inviting living space, choosing the right furniture is
-                      essential. The living room is often the heart of the home, where family and friends gather to relax,
-                      watch TV, or entertain. With so many options available, it can be overwhelming to choose the perfect
-                      set for your home. Here are some tips to help you make the right decision.</p>
+                    <p>Italian sofas and sectionals are known worldwide for their superior quality, contemporary designs, and unparalleled comfort. With a vast array of shapes, sizes, upholstery, and styles, Italian Interiors Design offers attractive, functional furniture pieces that can transform any living space.</p>
                   </div>
                 </section>
-  
+
                 <section>
                   <div class="nav-content-item">
-                    <h4>Consider Your Space</h4>
-                    <p>The first thing to consider when choosing living room furniture is the size and layout of your
-                      space. You want to make sure your furniture fits comfortably in the room, without feeling cramped or
-                      overwhelming. Measure the room and take note of any architectural features or obstacles, such as
-                      windows or doors, that may affect the placement of your Italian brand furniture.</p>
+                    <h4>Forms of Italian Sectionals</h4>
+                    <p>Practical round tables that can be positioned on either side of this opulent Italian sectional sofa and the accompanying designer lounge chairs, as well as padded backrest and armrest components covered in Italian fabrics or European leathers, are supported by thin tubular metal frames. A variety of solutions and compositions that are all warm and welcoming can be made by combining different widths and heights. Incredibly cozy, high-end sofa with a modern design from leading manufacturers in Italy. IDI offers high-end luxury sectional sofa. Each item is made in Italy.</p>
+                    <ul>
+                      <li><strong>L-shaped corner</strong> - One of the most popular forms of Italian sectionals. With seats on two adjacent sides, this layout utilizes corner space while providing abundant seating capacity.</li>
+                      <li><strong>The chaise sectional</strong> - is another smart configuration, containing a long chair extension that allows for putting up of the legs.</li>
+                      <li><strong>U-shaped sectionals</strong> - surround a center table or fireplace for maximum flexibility to create an intimate seating area.</li>
+                      <li><strong>Curved sectionals</strong> - introduce softer lines, flowing gracefully around the room.</li>
+                    </ul>
+                    <p>Every form showcases Italy's commitment to comfort and workmanship, whether you choose a curved sectional for a softer, elegant flow; a U-shaped design for private gatherings; a chaise sectional for improved reclining; or an L-shaped corner sectional to optimize seating.</p>
                   </div>
                 </section>
-  
+
                 <section>
                   <div class="nav-content-item">
-                    <h4>Choose a Focal Point</h4>
-                    <p>The most important piece of furniture in a living room is usually the sofa. This is where people
-                      will spend the most time, so it's important to choose a comfortable and stylish option. Consider the
-                      style of your room and choose a sofa that complements it. You can also create a focal point with an
-                      eye-catching coffee table or a statement piece of art.</p>
+                    <h4>Quality Craftsmanship and Materials</h4>
+                    <p>Using only the finest materials and craftsmanship, luxury Italian sofas and sectionals are built to last. Leather and fabric upholsteries come in hundreds of hues, textures, and patterns to complement any décor. From buttery soft leathers to durable, family-friendly fabrics, carefully scrutinized materials ensure enduring beauty and comfort.</p>
+                    <p>Beneath the surface, sturdy kiln-dried hardwood frames provide structural integrity and stability for generations of use. Cushions are constructed of high-density, resilient foam cores wrapped in down or fiberfill for pillowy softness and support. With each sit, they embrace you with an alluring combination of responsive comfort and silky softness, wrapped in luxurious layers of down or fiberfill.</p>
                   </div>
                 </section>
-  
+
                 <section>
                   <div class="nav-content-item">
-                    <h4>Mix and Match</h4>
-                    <p>Gone are the days of matching living room furniture sets. Today, it's all about mixing and matching
-                      styles and materials to create a unique look. You can mix a leather sofa with a fabric chair, or
-                      pair a traditional coffee table with modern side tables. Just make sure the pieces you choose work
-                      well together and don't clash.</p>
+                    <h4>Modern and Contemporary Design Features</h4>
+                    <p>Known for their contemporary, trendy styling, Italian sofas bring cutting-edge design and technological innovation to every piece. Clean, minimalist silhouettes and streamlined Italian design ethos seamlessly intermix functionality. Ergonomic shapes provide optimal comfort and support in sleek, architectural frames.</p>
+                    <ul>
+                      <li><strong>Versatility:</strong> Whether you're furnishing a formal living room or a casual family room, Italian sofas and sectionals adapt to your space and style.</li>
+                      <li><strong>Comfort:</strong> Designed for relaxation, these modern sofas provide the perfect place to unwind after a long day.</li>
+                      <li><strong>Style:</strong> With a wide range of designs, from classic to contemporary, Italian sofas design enhance the aesthetic of any home.</li>
+                    </ul>
+                    <p>Modular components allow for reconfiguration as needs change, while convenient storage compartments keep rooms neat. With compact footprints suited to today's smaller spaces, scale-down sofas, and configurable couches maintain maximum comfort through careful proportions.</p>
                   </div>
                 </section>
-  
+
                 <section>
                   <div class="nav-content-item">
-                    <h4>Add Accessories</h4>
-                    <p>Accessories are the finishing touch to any living room. They can add color, texture, and
-                      personality to the space. Consider adding throw pillows, curtains, rugs, and lamps to complete the
-                      look. Just be sure to choose items that complement your furniture and don't overwhelm the room.</p>
+                    <h4>Choose Your Custom Sectionals from Italy</h4>
+                    <p>With <strong>Italian Interiors</strong>, the options for creating your custom high-end Italian sectional are nearly endless. You may alter the length, shape, and size to fit your unique space perfectly. Select your preferred cushion style from loose pillow backs to streamlined, fixed ones. Tailor the depth and height for ideal reclining or recline functionality to your family?s needs.</p>
+                    <p>Choose your model layout - chaise, curved, L-shaped, U-shaped, and more to achieve your ideal flow. Layer on accessories like ottomans, console tables, and cup holders. With most pieces sectional made-to-order in Italy's renowned manufacturing facilities, the only limit is your imagination. A sophisticated look is added by artisanal details including custom tufting, contrast stitching, and handcrafted upholstering. Lastly, for a genuinely unique artwork, customize your color scheme with a wide range of hues or make a unique two-tone pattern.</p>
                   </div>
                 </section>
-  
+
                 <section>
                   <div class="nav-content-item">
-                    <h4>Shop for Quality</h4>
-                    <p>When shopping for living room furniture, it's important to invest in quality pieces that will last.
-                      Look for solid wood frames, durable fabrics, and sturdy construction. Italian Design Interiors is a
-                      Massachusetts-based company that specializes in contemporary Italian furniture. They offer a wide
-                      range of high-quality living room furniture sets for sale, as well as individual pieces to mix and
-                      match.</p>
-                  </div>
-                </section>
-  
-                <section>
-                  <div class="nav-content-item">
-                    <p>In summary, when choosing living room furniture, consider the size and layout of your space, choose
-                      a focal point, mix and match styles and materials, add accessories, and shop for quality. By
-                      following these tips, you can create a beautiful and functional living room that you'll love
-                      spending time in.</p>
+                    <h4>Bring Home Ultimate Italian Quality and Comfort</h4>
+                    <p>With unsurpassed quality, cutting-edge style, and unparalleled comfort, Italian sectional sofas create beautiful, functional spaces where families and friends can relax for years to come. From small-space studios to sprawling open-concept living areas, the Italian brand offers an array of contemporary sofas scaled to your needs.</p>
+                    <p><strong>Italian Design Interiors</strong> features a display area in Boston, Massachusetts, for in-person viewing of our range of sectional sofas. Additionally, our furniture is available for online purchase through our website for offline pickups or convenient delivery nationwide.</p>
                   </div>
                 </section>
               </div>
             </div>
-  
-  
+
+
           </div>
         </div>
       </section>
