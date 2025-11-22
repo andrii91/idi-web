@@ -49,3 +49,15 @@
 - [Sign Up - Italian Design Interiors](https://andrii91.github.io/idi-web/dist/sign-up.html)
 - [IDI Web - Component Library](https://andrii91.github.io/idi-web/dist/storybook.html)
 - [Fancybox Example - Italian Design Interiors](https://andrii91.github.io/idi-web/dist/fancybox-example.html)
+
+### Email шаблони
+- [Email Template - Order Confirmation](https://andrii91.github.io/idi-web/email/email.html)
+
+#### Розробка email шаблонів
+Для роботи з email шаблонами використовується MJML.
+
+Білд email шаблону:
+```bash
+cd email
+npm run build
+```

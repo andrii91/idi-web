@@ -185,7 +185,7 @@
 
                 <!-- Continue Button -->
                 <div class="checkout-page__form-actions">
-                  <button type="button" class="btn btn-dark submit">Continue</button>
+                  <button type="button" class="btn btn-dark submit" disabled>Continue</button>
                 </div>
               </form>
 
@@ -272,6 +272,97 @@
   {% include "partials/footer.njk" %}
 
   <script defer src="js/bundle.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const form = document.querySelector('.checkout-page__form');
+      const continueBtn = document.querySelector('.checkout-page__form-actions .btn');
+      const sameAsShippingCheckbox = document.getElementById('same-as-shipping');
+      const billingSection = document.querySelector('.checkout-page__billing-address');
+
+      // Отримуємо всі обов'язкові поля shipping
+      const shippingFields = [
+        document.getElementById('shipping-first-name'),
+        document.getElementById('shipping-last-name'),
+        document.getElementById('shipping-phone'),
+        document.getElementById('shipping-email'),
+        document.getElementById('shipping-address'),
+        document.getElementById('shipping-city'),
+        document.getElementById('shipping-state'),
+        document.getElementById('shipping-zip')
+      ];
+
+      // Отримуємо всі обов'язкові поля billing
+      const billingFields = [
+        document.getElementById('billing-first-name'),
+        document.getElementById('billing-last-name'),
+        document.getElementById('billing-phone'),
+        document.getElementById('billing-email'),
+        document.getElementById('billing-address'),
+        document.getElementById('billing-city'),
+        document.getElementById('billing-state'),
+        document.getElementById('billing-zip')
+      ];
+
+      // Функція для перевірки чи всі поля заповнені
+      function validateForm() {
+        // Перевіряємо shipping поля
+        const shippingValid = shippingFields.every(field => field.value.trim() !== '');
+        
+        // Перевіряємо billing поля тільки якщо чекбокс не активний
+        let billingValid = true;
+        if (!sameAsShippingCheckbox.checked) {
+          billingValid = billingFields.every(field => field.value.trim() !== '');
+        }
+
+        // Знімаємо або додаємо disabled в залежності від валідації
+        if (shippingValid && billingValid) {
+          continueBtn.disabled = false;
+        } else {
+          continueBtn.disabled = true;
+        }
+      }
+
+      // Копіюємо дані з shipping в billing
+      function copyShippingToBilling() {
+        if (sameAsShippingCheckbox.checked) {
+          document.getElementById('billing-first-name').value = document.getElementById('shipping-first-name').value;
+          document.getElementById('billing-last-name').value = document.getElementById('shipping-last-name').value;
+          document.getElementById('billing-phone').value = document.getElementById('shipping-phone').value;
+          document.getElementById('billing-email').value = document.getElementById('shipping-email').value;
+          document.getElementById('billing-address').value = document.getElementById('shipping-address').value;
+          document.getElementById('billing-city').value = document.getElementById('shipping-city').value;
+          document.getElementById('billing-state').value = document.getElementById('shipping-state').value;
+          document.getElementById('billing-zip').value = document.getElementById('shipping-zip').value;
+          
+          billingSection.style.display = 'none';
+        } else {
+          billingSection.style.display = 'block';
+        }
+        validateForm();
+      }
+
+      // Додаємо слухачі подій для всіх shipping полів
+      shippingFields.forEach(field => {
+        field.addEventListener('input', function() {
+          validateForm();
+          if (sameAsShippingCheckbox.checked) {
+            copyShippingToBilling();
+          }
+        });
+      });
+
+      // Додаємо слухачі подій для всіх billing полів
+      billingFields.forEach(field => {
+        field.addEventListener('input', validateForm);
+      });
+
+      // Додаємо слухач для чекбокса
+      sameAsShippingCheckbox.addEventListener('change', copyShippingToBilling);
+
+      // Початкова перевірка
+      validateForm();
+    });
+  </script>
 </body>
 
 </html>

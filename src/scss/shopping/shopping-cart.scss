@@ -144,6 +144,7 @@
             width: 32px;
             height: 32px;
             object-fit: contain;
+            border-radius: 50%;
           }
         }
       }
@@ -200,6 +201,10 @@
       align-items: center;
       justify-content: flex-end;
       gap: 20px;
+
+      @media (max-width: 767px) {
+        gap: 10px;
+      }
     }
 
     &-delete-button {

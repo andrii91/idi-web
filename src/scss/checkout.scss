@@ -516,7 +516,7 @@
     cursor: pointer;
     padding: 0;
     margin: 0 0 0 auto;
-
+    text-decoration: none;
     &:hover {
       opacity: 0.8;
       text-decoration: underline;
@@ -699,6 +699,10 @@
     font-weight: 300;
     line-height: 1.364;
     color: $color-black;
+
+    b {
+      font-weight: 700;
+    }
 
     @media screen and (max-width: 1023px) {
       font-size: 16px;
@@ -990,4 +994,18 @@
       font-size: vw(40px);
     }
   }
+
+
+}
+.shopping-cart-content-item {
+  &--summary {
+    @media screen and (max-width: 1023px) {
+      padding: 0;
+    }
+  }
+}
+
+button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
 }
