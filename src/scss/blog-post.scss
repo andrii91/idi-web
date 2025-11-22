@@ -704,6 +704,10 @@
     @media screen and (max-width: 767px) {
       width: calc(50% - 5px);
     }
+
+    @media screen and (max-width: 520px) {
+      width: 100%;
+    }
   }
 
   &__option-image {
@@ -711,6 +715,10 @@
     height: 180px;
     overflow: hidden;
     border-radius: 0;
+
+    @media screen and (max-width: 520px) {
+      height: auto;
+    }
 
     img {
       width: 100%;
@@ -804,6 +812,7 @@
     text-decoration: none;
     color: inherit;
     transition: $transition-duration;
+    text-align: center;
 
     &:hover {
       opacity: 0.8;
@@ -820,10 +829,26 @@
   }
 
   &__option-image {
-    width: 100%;
+    max-width: 100%;
     height: 180px;
+    width: 100%;
     overflow: hidden;
     border-radius: 0;
+
+    &.rounded-circle {
+      width: 180px;
+      height: 180px;
+      margin-left: auto;
+      margin-right: auto;
+      img {
+        border-radius: 50%;
+      }
+
+      @media screen and (max-width: 1023px) {
+        width: 160px;
+        height: 160px;
+      }
+    }
 
     img {
       width: 100%;

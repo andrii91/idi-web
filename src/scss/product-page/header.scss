@@ -290,6 +290,22 @@
         line-height: vw(56px);
         margin-bottom: vw(8px);
       }
+
+      &-quantity {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        margin-bottom: 32px;
+       
+        &-title {
+          color: #000;
+          font-size: 18px;
+          font-style: normal;
+          font-weight: 500;
+          line-height: normal;
+          
+        }
+      }
     }
 
     &__ships {
@@ -301,6 +317,23 @@
       font-style: normal;
       font-weight: 500;
       line-height: normal;
+
+      &.danger {
+        background: rgba(255, 231, 222, 0.50);
+        backdrop-filter: blur(12px);
+        padding: 6px 12px;
+        color: #A92A07;
+        font-size: 14px;
+        font-weight: 500;
+        line-height: normal;
+        width: fit-content;
+        text-wrap: nowrap;
+       
+        svg {
+          width: 20px;
+          height: 20px;
+        }
+      }
 
       @media screen and (min-width: 1024px) and (max-width: 1320px) {
         gap: vw(12px);

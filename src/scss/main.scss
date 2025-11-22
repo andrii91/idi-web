@@ -336,11 +336,11 @@ label {
   }
 
   &.error {
-    color: $color-red-error;
-    border-color: $color-red-error;
+    color: $color-red-error !important;
+    border-color: $color-red-error !important;
 
     &::placeholder {
-      color: $color-red-error;
+      color: $color-red-error !important;
       opacity: 1;
     }
   }
