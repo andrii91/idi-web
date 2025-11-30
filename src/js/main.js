@@ -292,6 +292,21 @@ $(document).ready(function () {
     $(".dinning-room__slider-nav").slick("slickGoTo", 0);
   });
 
+  // Product colors tabs
+  $(".tabs-list__item-link").click(function (e) {
+    e.preventDefault();
+    const $this = $(this);
+    const targetId = $this.attr("href");
+
+    // Remove active class from all tabs and content items
+    $(".tabs-list__item-link").removeClass("active");
+    $(".product-colors__content-item").removeClass("active");
+
+    // Add active class to clicked tab and corresponding content
+    $this.addClass("active");
+    $(targetId).addClass("active");
+  });
+
   $(".reviews__slider").slick({
     dots: false,
     infinite: true,
@@ -615,8 +630,6 @@ $(document).ready(function () {
       }
     });
 
-    console.log('checkFilters - active filters count:', filtersSelectsCount);
-
     if (filtersSelectsCount > 0) {
       $(".filters__reset-all").show();
     } else {
@@ -630,7 +643,6 @@ $(document).ready(function () {
   $(".group-selects select[multiple]").change(checkFilters);
 
   $(".filters__reset-all").on("click", function () {
-    console.log('Reset all clicked');
     
     const $groupSelects = $(this).closest('.group-selects');
     
@@ -723,22 +735,30 @@ $(document).ready(function () {
   $('[data-sidebar]').click(function (e) {
     e.preventDefault();
     const id = $(this).data('sidebar');
-    $("body").addClass("overflow-hidden");
-    $(`#${id}`).css({ right: '-100%', display: 'block' }).animate({ right: '0' }, 200);
+    // Disable body scroll when sidebar opens
+    $("body").css("overflow", "hidden");
+    $(`#${id}`).css({ right: '-100%', display: 'block' }).animate({ right: '0' }, 200, function() {
+      // Update button text when configure sidebar opens
+      if (id === 'configure-sidebar' && typeof updateNextStepButtonText === 'function') {
+        updateNextStepButtonText();
+      }
+    });
   })
 
   $('[data-sidebar-close]').click(function () {
     $(this).parents('.sidebar').animate({ right: '-100%' }, 200, function () {
       $(this).hide();
+      // Enable body scroll when sidebar closes
+      $("body").css("overflow", "");
     });
-    $("body").removeClass("overflow-hidden");
   })
 
   $('[data-sidebar-select-finish]').click(function () {
     $(this).parents('.sidebar').animate({ right: '-100%' }, 200, function () {
       $(this).hide();
+      // Enable body scroll when sidebar closes
+      $("body").css("overflow", "");
     });
-    $("body").removeClass("overflow-hidden");
     const src = $(this).parents('.sidebar').find('.sidebar__select-finish-list li.active img').attr('src');
     const price = $(this).parents('.sidebar').find('.sidebar__select-finish-price span').text();
     if (!!src) {
@@ -765,8 +785,9 @@ $(document).ready(function () {
     e.preventDefault();
     $(this).parents('.sidebar').animate({ right: '-100%' }, 200, function () {
       $(this).hide();
+      // Enable body scroll when sidebar closes
+      $("body").css("overflow", "");
     });
-    $("body").removeClass("overflow-hidden");
     const src = $(this).parents('.sidebar').find('.sidebar__composition-item.active img').attr('src');
     const price = $(this).parents('.sidebar').find('.sidebar__select-finish-price span').text();
     if (!!src) {
@@ -1482,6 +1503,62 @@ $(document).ready(function () {
     }
   });
 
+  // Configure Now button sticky functionality
+  let configureButtonContainer = null;
+  
+  function updateConfigureButtonPosition() {
+    const $configureButton = $('#configure-now');
+    if ($configureButton.length && isMobile() && !$configureButton.hasClass('scroll')) {
+      // Store button container (product-info__price-item block)
+      const $container = $configureButton.closest('.product-info__price-item');
+      if ($container.length) {
+        configureButtonContainer = {
+          top: $container.offset().top,
+          bottom: $container.offset().top + $container.outerHeight()
+        };
+      }
+    }
+  }
+  
+  // Update position on resize
+  $(window).on('resize', function() {
+    const $configureButton = $('#configure-now');
+    if ($configureButton.length && isMobile()) {
+      $configureButton.removeClass('scroll');
+      configureButtonContainer = null;
+      setTimeout(updateConfigureButtonPosition, 100);
+    }
+  });
+  
+  // Set initial position
+  updateConfigureButtonPosition();
+  
+  $(window).on('scroll', function() {
+    const $configureButton = $('#configure-now');
+    if ($configureButton.length && isMobile()) {
+      if (configureButtonContainer === null) {
+        updateConfigureButtonPosition();
+      }
+      
+      if (configureButtonContainer !== null) {
+        const scrollTop = $(window).scrollTop();
+        const windowHeight = $(window).height();
+        const windowBottom = scrollTop + windowHeight;
+        
+        // Button should be fixed when:
+        // 1. User scrolled below the start of the block
+        // 2. And bottom of screen is below bottom of container (i.e., scrolled past the block)
+        const shouldBeFixed = scrollTop > 0 && windowBottom > configureButtonContainer.bottom;
+        
+        if (shouldBeFixed) {
+          $configureButton.addClass('scroll');
+        } else {
+          $configureButton.removeClass('scroll');
+        }
+      }
+    }
+  });
+
   /**checkout page functionality */
   // Initialize checkout page state
   if ($('.checkout-page').length) {
@@ -2037,4 +2114,116 @@ $(document).ready(function () {
   // Initialize on page load
   updateColorsResetButton();
 
+  // Function to update next step button text based on current step
+  function updateNextStepButtonText() {
+    const $sidebar = $('.configure-sidebar');
+    if (!$sidebar.length) return;
+    
+    const $currentStep = $sidebar.find('.configure-steps__item.current-step');
+    const $nextStepBtn = $sidebar.find('.next-step');
+    
+    if ($currentStep.length && $nextStepBtn.length) {
+      // Try both attr and data methods to ensure we get the value
+      const buttonText = $currentStep.attr('data-button-text') || $currentStep.data('button-text');
+      if (buttonText) {
+        $nextStepBtn.text(buttonText);
+      }
+    }
+  }
+
+  // Function to check if option is selected in current step
+  function checkCurrentStepOption() {
+    const $sidebar = $('.configure-sidebar');
+    if (!$sidebar.length) return;
+    
+    const $currentStep = $sidebar.find('.configure-steps__item.current-step');
+    const $nextStepBtn = $sidebar.find('.next-step');
+    
+    if ($currentStep.length && $nextStepBtn.length) {
+      const $currentStepContent = $currentStep.find('.configure-steps__item-content');
+      const $currentStepCurrent = $currentStepContent.find('.configure-steps__current');
+      const isOptionSelected = $currentStepCurrent.hasClass('active');
+      
+      $nextStepBtn.prop('disabled', !isOptionSelected);
+    }
+  }
+
+  // Function to check if all steps are completed and toggle buttons visibility
+  function checkAllStepsCompleted() {
+    const $sidebar = $('.configure-sidebar');
+    if (!$sidebar.length) return;
+    
+    const $allSteps = $sidebar.find('.configure-steps__item');
+    const $nextStepBtn = $sidebar.find('.next-step');
+    const $sendRequestBtn = $sidebar.find('.send-request');
+    
+    if (!$allSteps.length || !$nextStepBtn.length || !$sendRequestBtn.length) return;
+    
+    let allStepsCompleted = true;
+    
+    $allSteps.each(function() {
+      const $step = $(this);
+      const $stepContent = $step.find('.configure-steps__item-content');
+      const $stepCurrent = $stepContent.find('.configure-steps__current');
+      const isStepCompleted = $stepCurrent.hasClass('active');
+      
+      if (!isStepCompleted) {
+        allStepsCompleted = false;
+        return false; // break loop
+      }
+    });
+    
+    if (allStepsCompleted) {
+      $nextStepBtn.addClass('d-none');
+      $sendRequestBtn.removeClass('d-none');
+    } else {
+      $nextStepBtn.removeClass('d-none');
+      $sendRequestBtn.addClass('d-none');
+    }
+  }
+
+  $('.configure-steps__item-link').click(function(e) {
+    e.preventDefault();
+    const $this = $(this);
+    $this.parents('.configure-steps__item-content').find('.configure-steps__list').removeClass('active');
+    $this.parents('.configure-steps__item-content').find('.configure-steps__current').addClass('active');
+    $this.parents('.configure-steps__item').removeClass('active');
+    $this.parents('.configure-steps__item-content').find('.configure-steps__current img').attr('src', $this.data('scheme'));
+    $this.parents('.configure-steps__item-content').find('.configure-steps__current-description-info').html($this.data('description') + ' ' + $this.data('price'));
+    checkCurrentStepOption();
+    checkAllStepsCompleted();
+  });
+
+  $('.configure-steps__current').click(function(e) {
+    e.preventDefault();
+    const $this = $(this);
+    $this.parents('.configure-steps__item-content').find('.configure-steps__list').addClass('active');
+    $this.parents('.configure-steps__item-content').find('.configure-steps__current').removeClass('active');
+    $this.parents('.configure-steps__item').addClass('active');
+    checkCurrentStepOption();
+    checkAllStepsCompleted();
+  });
+
+  $('.next-step').click(function(e) {
+    e.preventDefault();
+    const $this = $(this);
+    if ($this.prop('disabled')) return;
+    
+    const $sidebar = $this.parents('.configure-sidebar');
+    const $currentStep = $sidebar.find('.configure-steps__item.current-step');
+    const $nextStep = $currentStep.next('.configure-steps__item');
+    
+    if ($nextStep.length) {
+      $currentStep.removeClass('current-step active');
+      $nextStep.addClass('current-step active');
+      updateNextStepButtonText();
+      checkCurrentStepOption();
+      checkAllStepsCompleted();
+    }
+  });
+
+  // Initialize button state on page load
+  updateNextStepButtonText();
+  checkCurrentStepOption();
+  checkAllStepsCompleted();
 });

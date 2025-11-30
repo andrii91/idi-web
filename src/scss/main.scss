@@ -1208,7 +1208,7 @@ select {
 }
 
 
-main:not(.privacy-policy), section, header {
+main:not(.privacy-policy), section:not(.other-overview), header {
   @media screen and (max-width: 1024px) {
     overflow: hidden;
   }
@@ -1489,3 +1489,4 @@ main:not(.privacy-policy), section, header {
 @import "./brands.scss";
 @import "./blog.scss";
 @import "./blog-post.scss";
+@import "./product-page-dining-table.scss";

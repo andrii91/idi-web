@@ -1,0 +1,404 @@
+<div id="configure-sidebar" class="sidebar configure-sidebar">
+  <div class="sidebar__container">
+    <button type="button" class="sidebar__close" data-sidebar-close>
+      <svg class="icon">
+        <use xlink:href="#close"></use>
+      </svg>
+    </button>
+
+    <div class="sidebar__content request-price__content">
+      <div class="configure-steps">
+        <div class="configure-steps__item active current-step" data-button-text="Next to color">
+          <div class="configure-steps__item-title">
+            <span class="icon-wrap">
+              <svg class="icon">
+                <use xlink:href="#sofa-step"></use>
+              </svg>
+            </span>
+            <span>Select composition</span>
+          </div>
+          <div class="configure-steps__item-content">
+            <div class="configure-steps__current">
+              <div class="configure-steps__current-title">
+                <svg class="icon">
+                  <use xlink:href="#sofa-step"></use>
+                </svg>
+                <span>Select composition</span>
+              </div>
+              <div class="configure-steps__current-description">
+                <div class="configure-steps__current-description-info">
+                  <span>450 +291 +049</span>
+                  <span>+$69.00 </span>
+                </div>
+                <img src="images/configuration-1.webp" alt="configuration-1">
+              </div>
+            </div>
+            <div class="configure-steps__list active">
+              {% for i in range(1, 8) %}
+              <a href="#" class="configurations__item configure-steps__item-link" data-scheme="images/scheme.webp"
+                data-price="<span>+$69.00 </span>" data-description="<span>450 +291 +049</span>">
+                <span class="configurations__item-name">Tratto love seat</span>
+                <span class="configurations__item-code">
+                  <span>Code: 450 +500 +250</span>
+                  <span>W145 x H75 x D89 </span>
+                </span>
+                <img src="images/configuration-{{ i }}.webp" alt="configuration-{{ i }}">
+                <span class="configurations__item-price">$5,200.00</span>
+              </a>
+              {% endfor %}
+
+              <div class="sidebar__composition-item sidebar__composition-banner">
+                <h4>Haven’t found the
+                  right composition?</h4>
+                <p>We can help!</p>
+                <button type="button" class="btn btn-dark">Request a call</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="configure-steps__item " data-button-text="Next to feet">
+          <div class="configure-steps__item-title">
+            <span class="icon-wrap">
+              <svg class="icon">
+                <use xlink:href="#color-selection"></use>
+              </svg>
+            </span>
+            <span>Select color</span>
+          </div>
+          <div class="configure-steps__item-content">
+            <div class="configure-steps__current">
+              <div class="configure-steps__current-title">
+                <svg class="icon">
+                  <use xlink:href="#color-selection"></use>
+                </svg>
+                <span>Select color</span>
+              </div>
+              <div class="configure-steps__current-description">
+                <div class="configure-steps__current-description-info">
+                  <span>450 +291 +049</span>
+                  <span>+$69.00 </span>
+                </div>
+                <img class="rounded-full" src="images/configuration-1.webp" alt="configuration-1">
+              </div>
+            </div>
+            <div class="configure-steps__list active">
+              <ul class="tabs-list">
+                <li class="tabs-list__item">
+                  <a href="#fabric-tab1" class="tabs-list__item-link">
+                    <svg class="icon">
+                      <use xlink:href="#fabric-selection"></use>
+                    </svg>
+                    <span>Fabric selection</span>
+                  </a>
+                </li>
+                <li class="tabs-list__item">
+                  <a href="#leather-tab2" class="tabs-list__item-link active">
+                    <svg class="icon">
+                      <use xlink:href="#leather-selection"></use>
+                    </svg>
+                    <span>Leather selection</span>
+                  </a>
+                </li>
+              </ul>
+              <div class="product-colors__content">
+                <div id="fabric-tab1" class="product-colors__content-item">
+                  <div class="row product-colors__info-row">
+                    <div class="col-lg-4">
+                      <div class="product-colors__info-title">
+                        <h4>Delfino16</h4>
+                        <div>
+                          <div class="tag">
+                            + $128.00
+                          </div>
+                          <p>for any item from collection</p>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-lg-8">
+                      <div class="product-colors__info-box">
+                        <h4>Choosing Material Quality</h4>
+                        <p>The higher the category number, the better the material quality. Example: from cat 15, cat
+                          20, cat 25 the cat 25 will be the best quality from the choice. Higher categories usually mean
+                          greater durability, a finer finish, and a more premium look and feel. This helps you easily
+                          compare options and select the one that best suits your needs.</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="product-colors__swatches">
+                    {% set fabricColors = [
+                    { name: "Brown", code: "15005204", texture: "texture" },
+                    { name: "Blue Jeans", code: "15005204", texture: "texture-1" },
+                    { name: "Light Grey", code: "15005204", texture: "texture-2" },
+                    { name: "Granite", code: "15005204", texture: "texture-3" },
+                    { name: "White", code: "15005204", texture: "texture" },
+                    { name: "Beige", code: "15005204", texture: "texture-1" },
+                    { name: "Light Grey", code: "15005204", texture: "texture-2" },
+                    { name: "Grey", code: "88005204", texture: "texture-3" },
+                    { name: "White", code: "88005204", texture: "texture" },
+                    { name: "Brown", code: "88005204", texture: "texture-1" },
+                    { name: "Dove Melange", code: "88005204", texture: "texture-2" },
+                    { name: "Brown", code: "88005204", texture: "texture-3" },
+                    { name: "White", code: "88005204", texture: "texture" },
+                    { name: "Grey", code: "88005204", texture: "texture-1" }
+                    ] %}
+                    <div class="product-colors__swatches-row">
+                      {% for color in fabricColors %}
+                      <div class="product-colors__swatch configure-steps__item-link"
+                        data-scheme="images/{{ color.texture }}.webp" data-price="<span>+$69.00 </span>"
+                        data-description="<span>{{ color.name }}</span> <span>{{ color.code }}</span>">
+                        <div class="product-colors__swatch-image">
+                          <img src="images/{{ color.texture }}.webp" alt="{{ color.name }}">
+                        </div>
+                        <span class="product-colors__swatch-name">{{ color.name }}</span>
+                        <span class="product-colors__swatch-code">{{ color.code }}</span>
+                      </div>
+                      {% endfor %}
+                    </div>
+                  </div>
+                  <div class="row product-colors__info-row">
+                    <div class="col-lg-4">
+                      <div class="product-colors__info-title">
+                        <h4>Delfino16</h4>
+                        <div>
+                          <div class="tag">
+                            + $128.00
+                          </div>
+                          <p>for any item from collection</p>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-lg-8">
+                      <div class="product-colors__info-box">
+                        <h4>Choosing Material Quality</h4>
+                        <p>The higher the category number, the better the material quality. Example: from cat 15, cat
+                          20, cat 25 the cat 25 will be the best quality from the choice. Higher categories usually mean
+                          greater durability, a finer finish, and a more premium look and feel. This helps you easily
+                          compare options and select the one that best suits your needs.</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="product-colors__swatches">
+
+                    <div class="product-colors__swatches-row">
+                      {% for color in fabricColors %}
+                      <div class="product-colors__swatch configure-steps__item-link"
+                        data-scheme="images/{{ color.texture }}.webp" data-price="<span>+$69.00 </span>"
+                        data-description="<span>{{ color.name }}</span> <span>{{ color.code }}</span>">
+                        <div class="product-colors__swatch-image">
+                          <img src="images/{{ color.texture }}.webp" alt="{{ color.name }}">
+                        </div>
+                        <span class="product-colors__swatch-name">{{ color.name }}</span>
+                        <span class="product-colors__swatch-code">{{ color.code }}</span>
+                      </div>
+                      {% endfor %}
+                    </div>
+                  </div>
+
+                </div>
+                <div id="leather-tab2" class="product-colors__content-item active">
+                  <div class="row product-colors__info-row">
+                    <div class="col-lg-4">
+                      <div class="product-colors__info-title">
+                        <h4>Delfino16</h4>
+                        <div>
+                          <div class="tag">
+                            + $128.00
+                          </div>
+                          <p>for any item from collection</p>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-lg-8">
+                      <div class="product-colors__info-box">
+                        <h4>Choosing Material Quality</h4>
+                        <p>The higher the category number, the better the material quality. Example: from cat 15, cat
+                          20, cat 25 the cat 25 will be the best quality from the choice. Higher categories usually mean
+                          greater durability, a finer finish, and a more premium look and feel. This helps you easily
+                          compare options and select the one that best suits your needs.</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="product-colors__swatches">
+                    {% set leatherColors = [
+                    { name: "Grey", code: "88005204", texture: "texture-3" },
+                    { name: "White", code: "88005204", texture: "texture" },
+                    { name: "Brown", code: "88005204", texture: "texture-1" },
+                    { name: "Dove Melange", code: "88005204", texture: "texture-2" },
+                    { name: "Brown", code: "88005204", texture: "texture-3" },
+                    { name: "White", code: "88005204", texture: "texture" },
+                    { name: "Grey", code: "88005204", texture: "texture-1" },
+                    { name: "Brown", code: "15005204", texture: "texture" },
+                    { name: "Blue Jeans", code: "15005204", texture: "texture-1" },
+                    { name: "Light Grey", code: "15005204", texture: "texture-2" },
+                    { name: "Granite", code: "15005204", texture: "texture-3" },
+                    { name: "White", code: "15005204", texture: "texture" },
+                    { name: "Beige", code: "15005204", texture: "texture-1" },
+                    { name: "Light Grey", code: "15005204", texture: "texture-2" }
+
+                    ] %}
+                    <div class="product-colors__swatches-row">
+                      {% for color in leatherColors %}
+                      <div class="product-colors__swatch configure-steps__item-link"
+                        data-scheme="images/{{ color.texture }}.webp" data-price="<span>+$69.00 </span>"
+                        data-description="<span>{{ color.name }}</span> <span>{{ color.code }}</span>">
+                        <div class="product-colors__swatch-image">
+                          <img src="images/{{ color.texture }}.webp" alt="{{ color.name }}">
+                        </div>
+                        <span class="product-colors__swatch-name">{{ color.name }}</span>
+                        <span class="product-colors__swatch-code">{{ color.code }}</span>
+                      </div>
+                      {% endfor %}
+                    </div>
+                  </div>
+                  <div class="row product-colors__info-row">
+                    <div class="col-lg-4">
+                      <div class="product-colors__info-title">
+                        <h4>Delfino16</h4>
+                        <div>
+                          <div class="tag">
+                            + $128.00
+                          </div>
+                          <p>for any item from collection</p>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-lg-8">
+                      <div class="product-colors__info-box">
+                        <h4>Choosing Material Quality</h4>
+                        <p>The higher the category number, the better the material quality. Example: from cat 15, cat
+                          20, cat 25 the cat 25 will be the best quality from the choice. Higher categories usually mean
+                          greater durability, a finer finish, and a more premium look and feel. This helps you easily
+                          compare options and select the one that best suits your needs.</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="product-colors__swatches">
+
+                    <div class="product-colors__swatches-row">
+                      {% for color in leatherColors %}
+                      <div class="product-colors__swatch configure-steps__item-link"
+                        data-scheme="images/{{ color.texture }}.webp" data-price="<span>+$69.00 </span>"
+                        data-description="<span>{{ color.name }}</span> <span>{{ color.code }}</span>">
+                        <div class="product-colors__swatch-image">
+                          <img src="images/{{ color.texture }}.webp" alt="{{ color.name }}">
+                        </div>
+                        <span class="product-colors__swatch-name">{{ color.name }}</span>
+                        <span class="product-colors__swatch-code">{{ color.code }}</span>
+                      </div>
+                      {% endfor %}
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+        <div class="configure-steps__item " data-button-text="Request a price">
+          <div class="configure-steps__item-title">
+            <span class="icon-wrap">
+              <svg class="icon">
+                <use xlink:href="#feet-step"></use>
+              </svg>
+            </span>
+            <span>Select feet</span>
+          </div>
+          <div class="configure-steps__item-content">
+            <div class="configure-steps__current">
+              <div class="configure-steps__current-title">
+                <svg class="icon">
+                  <use xlink:href="#feet-step"></use>
+                </svg>
+                <span>Select feet</span>
+              </div>
+              <div class="configure-steps__current-description">
+                <div class="configure-steps__current-description-info">
+                  <span>450 +291 +049</span>
+                  <span>+$69.00 </span>
+                </div>
+                <img src="images/configuration-1.webp" alt="configuration-1">
+              </div>
+            </div>
+            <div class="configure-steps__list active">
+              <div class="product-colors__swatch feet-item configure-steps__item-link" data-scheme="images/black.svg"
+                data-price="<span>+$18.00 </span>" data-description="<span>Black</span> ">
+                <div class="product-colors__swatch-image">
+                  <img src="images/black.svg" alt="{{ color.name }}">
+                </div>
+                <div class="feet-row">
+                  <span>Black</span>
+                  <span>+$18.00</span>
+                </div>
+              </div>
+              <div class="product-colors__swatch feet-item configure-steps__item-link" data-scheme="images/white.svg"
+                data-price="<span>+$18.00 </span>" data-description="<span>White</span> ">
+                <div class="product-colors__swatch-image">
+                  <img src="images/white.svg" alt="{{ color.name }}">
+                </div>
+                <div class="feet-row">
+                  <span>White</span>
+                  <span>+$18.00</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="sidebar__offer">
+        <div class="sidebar__offer-title">
+          You may also need
+        </div>
+        <div class="sidebar__offer-content">
+          <label class="checkbox-card" id="offer-1">
+            <input type="checkbox" name="offer-1" value="1">
+            <div class="checkbox-card__image full-image">
+              <img src="images/offer-1.webp" alt="offer-1">
+            </div>
+            <span class="checkbox-card__footer">
+              <span class="brand-name">Natuzzi Italia</span>
+              <span class="product-name">Leather care cleaning kit</span>
+              <span class="product-price">$ 49.99</span>
+            </span>
+          </label>
+          <label class="checkbox-card" id="offer-2">
+            <input type="checkbox" name="offer-2" value="1">
+            <div class="checkbox-card__image">
+              <img src="images/offer-2.webp" alt="offer-2">
+            </div>
+            <span class="checkbox-card__footer">
+              <span class="brand-name">Natuzzi Italia</span>
+              <span class="product-name">Battery pack</span>
+              <span class="product-price">$ 160.00</span>
+            </span>
+          </label>
+          <label class="checkbox-card" id="offer-3">
+            <input type="checkbox" name="offer-3" value="1">
+            <div class="checkbox-card__image">
+              <img src="images/offer-3.webp" alt="offer-3">
+            </div>
+            <span class="checkbox-card__footer">
+              <span class="brand-name">IDI Warranty</span>
+              <span class="product-name">5 years extended warranty</span>
+              <span class="product-price">$ 60.00</span>
+            </span>
+          </label>
+        </div>
+      </div>
+    </div>
+    <div class="sidebar__footer shadow-lg">
+      <div class="sidebar__select-finish-footer">
+        <div class="row justify-content-between w-100 align-items-center">
+          <div class="col-md-6 order-2 order-md-1">
+            <button type="button" class="btn btn-dark next-step" id="next-step">Next to color</button>
+            <button type="button" class="btn btn-dark send-request d-none">Request a price</button>
+          </div>
+          <div class="col-md-6 order-1 order-md-2 text-center text-md-end mb-3 mb-md-0">
+            <div class="sidebar__select-finish-price">Total <span>$5,200.00</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

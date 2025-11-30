@@ -253,6 +253,7 @@
     background: #fff;
     margin: 0 -40px;
     padding: 0 40px;
+    z-index: 10;
 
     @media screen and (max-width: 1023px) {
       margin: 0 -20px;

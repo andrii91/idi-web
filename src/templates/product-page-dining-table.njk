@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="initial-scale=1.0, width=device-width">
+  <meta name="Title" content="Italian Design Interiors" />
+  <meta name="description" content="" />
+  <meta property="og:type" content="article" />
+  <meta property="og:description" content="" />
+  <meta property="og:url" content="" />
+  <meta property="og:sitename" content="" />
+  <meta property="og:title" content="Italian Design Interiors">
+  <meta property="og:image" content="images/og.png" />
+  <title>Eliot Wood Sleeve Dining Table - Italian Design Interiors</title>
+  <link rel="icon" type="image/png" href="favicon/favicon-96x96.png" sizes="96x96" />
+  <link rel="icon" type="image/svg+xml" href="favicon/favicon.svg" />
+  <link rel="shortcut icon" href="favicon/favicon.ico" />
+  <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png" />
+  <link rel="manifest" href="favicon/site.webmanifest" />
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+  {% include "partials/banner.njk" %}
+  {% include "partials/menu.njk" %}
+  <header class="product-header">
+    <div class="container-xxl">
+      <ul class="breadcrumbs current-mod">
+        <li><a href="#">Furniture</a></li>
+        <li><a href="#">Living</a></li>
+        <li><a href="#">Modern Sofas & sectionals</a></li>
+        <li>Dellarobbia chase</li>
+      </ul>
+
+      <h1 class="blog-page__title">Eliot Wood Drive Dining Table</h1>
+
+      <div class="product-gallery product-gallery--dining-table">
+        <div class="product-gallery__slider">
+          {% for i in range(1, 6) %}
+            <div class="product-gallery__slider-item">
+              <div class="product-gallery__slider-item-logo">
+                <img src="images/main-slide-logo-1.webp" alt="">
+              </div>
+              <img src="images/dinning-room-{{ i }}.webp" alt="dinning-room-{{ i }}">
+            </div>
+          {% endfor %}
+          {% for i in range(1, 6) %}
+          <div class="product-gallery__slider-item">
+            <div class="product-gallery__slider-item-logo">
+              <img src="images/main-slide-logo-1.webp" alt="">
+            </div>
+            <img src="images/kitchens-{{ i }}.webp" alt="kitchens-{{ i }}">
+          </div>
+        {% endfor %}
+        </div>
+        <div class="product-gallery__slider-nav">
+          {% for i in range(1, 6) %}
+            <div class="product-gallery__slider-nav-item">
+              <img src="images/dinning-room-{{ i }}.webp" alt="dinning-room-{{ i }}">
+            </div>
+          {% endfor %}
+          {% for i in range(1, 6) %}
+          <div class="product-gallery__slider-nav-item">
+            <img src="images/kitchens-{{ i }}.webp" alt="kitchens-{{ i }}">
+          </div>
+        {% endfor %}
+        </div>
+      </div>
+
+      <div class="badge badge--on-display">
+        On display in leather 2510, ver 450+291+011+291+452
+      </div>
+
+      <div class="row align-items-center">
+        <div class="col-lg-8">
+          <div class="product-description">
+            Versatile and stylish, Stan features a dual power mechanism for independent control of the lift up headrest and footrest, ensuring unparalleled relaxation.
+          </div>
+        </div>
+        <div class="col-lg-4">
+            <div class="product-info__price-item">
+              <div class="product-info__ships danger">
+                <svg class="icon">
+                  <use xlink:href="#quick-shipping"></use>
+                </svg>
+              
+                <span>Specially shipped from Italy from 20 to 24 weeks</span>
+              </div>
+
+              <div>
+                <p>From $5,200.00</p>
+                <p class="small-text">Specially shipped from Italy from 20 to 24 weeks</p>
+              </div>
+
+              <button type="button" id="configure-now" class="btn btn-dark product-info__configure" data-sidebar="configure-sidebar">
+                Configure now
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+  <main class="overflow-visible">
+    {# Product Features Icons Section - PLACEHOLDER #}
+    {% set keyFeatures = [
+      { name: "Modularity", icon: "modularity-large" },
+      { name: "High Visual Comfort", icon: "high-visual-comfort-large" },
+      { name: "Integrated Cabinet", icon: "integrated-cabinet-large" },
+      { name: "Integrated Coffee Table", icon: "integrated-coffee-table-large" },
+      { name: "Customazable Details", icon: "customazable-details-large" },
+      { name: "Leather and Fabric", icon: "leather-and-fabric-large" },
+      { name: "Adjustable Headrest", icon: "adjustable-headrest-large" },
+      { name: "Adjustable Lumber Support", icon: "adjustable-lumber-support-large" },
+      { name: "Head & Neck Support", icon: "head-neck-support-large" },
+      { name: "Fully Upholstered Sides", icon: "fully-upholstered-sides-large" },
+      { name: "Adjustable Armrest", icon: "adjustable-armrest-large" },
+      { name: "Recliner", icon: "recliner-large" },
+      { name: "Compact Size", icon: "compact-size-large" },
+      { name: "Zero Wall", icon: "zero-wall-large" },
+      { name: "Memory Foam", icon: "memory-foam-large" },
+      { name: "Feet Choices", icon: "feet-choices-large" },
+      { name: "Contrast Covering", icon: "contrast-covering-large" },
+      { name: "Sliding Backrest", icon: "sliding-backrest-large" },
+      { name: "Available in Thick Leather", icon: "available-thick-leather-large" },
+      { name: "Chaise Storage", icon: "chaise-storage-large" },
+      { name: "Sofa Bed", icon: "sofa-bed-large" },
+      { name: "Zero Gravity", icon: "zero-gravity-large" },
+      { name: "2 Seat Width Options", icon: "seat-width-options-large" },
+      { name: "Armrest Choices", icon: "armrest-choices-large" },
+      { name: "Seat \"365\" With Remote Control", icon: "seat-365-remote-large" }
+      ] %}
+    <section class="product-features">
+      <div class="container-xxl">
+        <h2 class="product-features__title">Key Features</h2>
+
+        <ul class="product-features__list">
+          {% for feature in keyFeatures %}
+          <li>
+            <a href="#">
+              <svg class="icon">
+                <use xlink:href="#{{ feature.icon }}"></use>
+              </svg>
+              <span>{{ feature.name }}</span>
+            </a>
+          </li>
+        {% endfor %}
+        </ul>
+        <!-- TODO: Add product features icons grid (24+ color variations, 100+ customization options, etc.) -->
+      </div>
+    </section>
+
+    <section class="product-features-grid">
+      <div class="container-xxl">
+        <div class="row align-items-center mb-5">
+          <div class="col-lg-8">
+            <div class="gallery-thumb" data-fancybox="gallery" data-src="images/frame371.webp">
+              <img src="images/frame371.webp" alt="">
+              <div class="gallery-thumb-icon">
+                <svg class="icon">
+                  <use xlink:href="#upscale-icon"></use>
+                </svg>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4">
+            <div class="product-features-grid-text">
+              <h3 class="product-features-grid-text__title">Seam Options Designed to Match Your Aesthetic</h3>
+              <p class="product-features-grid-text__description">Our products allow you to choose between textile and leather seam finishes. Textile seams provide a softer, more casual look and can be matched to a wide variety of fabrics, while leather seams create a more refined and premium appearance. </p>
+            </div>
+          </div>
+        </div>
+        <div class="row align-items-center mb-5">
+          <div class="col-lg-4 order-2 order-lg-1">
+            <div class="product-features-grid-text">
+              <h3 class="product-features-grid-text__title">Seam Options Designed to Match Your Aesthetic</h3>
+              <p class="product-features-grid-text__description">Our products allow you to choose between textile and leather seam finishes. Textile seams provide a softer, more casual look and can be matched to a wide variety of fabrics, while leather seams create a more refined and premium appearance. </p>
+            </div>
+          </div>
+          <div class="col-lg-8 order-1 order-lg-2">
+            <div class="gallery-thumb" data-fancybox="gallery" data-src="images/frame371.webp">
+              <img src="images/frame371.webp" alt="">
+              <div class="gallery-thumb-icon">
+                <svg class="icon">
+                  <use xlink:href="#upscale-icon"></use>
+                </svg>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row align-items-center mb-5 pt-lg-5">
+          <div class="col-lg-6">
+            <div class="gallery-thumb" data-fancybox="gallery" data-src="images/frame371.webp">
+              <img src="images/frame371.webp" alt="">
+              <div class="gallery-thumb-icon">
+                <svg class="icon">
+                  <use xlink:href="#upscale-icon"></use>
+                </svg>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-6">
+            <div class="product-features-grid-text product-features-grid-text--large">
+              <h3 class="product-features-grid-text__title">Seam Options Designed to Match Your Aesthetic</h3>
+              <p class="product-features-grid-text__description">Our products allow you to choose between textile and leather seam finishes. Textile seams provide a softer, more casual look and can be matched to a wide variety of fabrics, while leather seams create a more refined and premium appearance. </p>
+            </div>
+          </div>
+        </div>
+        <div class="row align-items-center mb-5">
+          <div class="col-lg-6 order-2 order-lg-1">
+            <div class="product-features-grid-text product-features-grid-text--large">
+              <h3 class="product-features-grid-text__title">Seam Options Designed to Match Your Aesthetic</h3>
+              <p class="product-features-grid-text__description">Our products allow you to choose between textile and leather seam finishes. Textile seams provide a softer, more casual look and can be matched to a wide variety of fabrics, while leather seams create a more refined and premium appearance. </p>
+            </div>
+          </div>
+          <div class="col-lg-6 order-1 order-lg-2">
+            <div class="gallery-thumb" data-fancybox="gallery" data-src="images/frame371.webp">
+              <img src="images/frame371.webp" alt="">
+              <div class="gallery-thumb-icon">
+                <svg class="icon">
+                  <use xlink:href="#upscale-icon"></use>
+                </svg>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    {# Configurations Section - PLACEHOLDER #}
+    <section class="configurations">
+      <div class="container-xxl">
+        <!-- TODO: Add configurations section -->
+         <h2 class="configurations__title">Configurations</h2>
+         <div class="configurations__row">
+          {% for i in range(1, 9) %}  
+          <a href="#" class="configurations__item">
+              <span class="configurations__item-name">Tratto love seat</span>
+              <span class="configurations__item-code">
+                <span>Code: 450 +500 +250</span>
+                <span>W145 x H75 x D89 </span>
+              </span>
+              <img src="images/configuration-{{ i }}.webp" alt="configuration-{{ i }}">
+              <span class="configurations__item-price">$5,200.00</span>
+            </a>
+          {% endfor %}  
+          <div class="configurations__item configurations__item--all">
+            <div class="configurations__item-title">
+              24+
+              <span>configurations available</span>
+            </div>
+
+            <a href="#" class="configurations__item-button">
+              <span>Explore all</span>
+              <svg class="icon">
+                <use xlink:href="#arr-right"></use>
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    {# Dimensions & Schematics Section - PLACEHOLDER #}
+    <section class="product-colors">
+      <div class="container-xxl">
+        <div class="product-colors__top">
+          <h2 class="product-colors__title">Colors</h2>
+          
+          <ul class="tabs-list">
+            <li class="tabs-list__item">
+              <a href="#fabric-tab" class="tabs-list__item-link">
+                <svg class="icon">
+                  <use xlink:href="#fabric-selection"></use>
+                </svg>
+                <span>Fabric selection</span>
+              </a>
+            </li>
+            <li class="tabs-list__item">
+              <a href="#leather-tab" class="tabs-list__item-link active">
+                <svg class="icon">
+                  <use xlink:href="#leather-selection"></use>
+                </svg>
+                <span>Leather selection</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="product-colors__content">
+          <div id="fabric-tab" class="product-colors__content-item">
+            <div class="product-colors__swatches">
+              {% set fabricColors = [
+                { name: "Brown", code: "15005204", texture: "texture" },
+                { name: "Blue Jeans", code: "15005204", texture: "texture-1" },
+                { name: "Light Grey", code: "15005204", texture: "texture-2" },
+                { name: "Granite", code: "15005204", texture: "texture-3" },
+                { name: "White", code: "15005204", texture: "texture" },
+                { name: "Beige", code: "15005204", texture: "texture-1" },
+                { name: "Light Grey", code: "15005204", texture: "texture-2" },
+                { name: "Grey", code: "88005204", texture: "texture-3" },
+                { name: "White", code: "88005204", texture: "texture" },
+                { name: "Brown", code: "88005204", texture: "texture-1" },
+                { name: "Dove Melange", code: "88005204", texture: "texture-2" },
+                { name: "Brown", code: "88005204", texture: "texture-3" },
+                { name: "White", code: "88005204", texture: "texture" },
+                { name: "Grey", code: "88005204", texture: "texture-1" }
+              ] %}
+              <div class="product-colors__swatches-row">
+                {% for color in fabricColors %}
+                <div class="product-colors__swatch">
+                  <div class="product-colors__swatch-image">
+                    <img src="images/{{ color.texture }}.webp" alt="{{ color.name }}">
+                  </div>
+                  <span class="product-colors__swatch-name">{{ color.name }}</span>
+                  <span class="product-colors__swatch-code">{{ color.code }}</span>
+                </div>
+                {% endfor %}
+                <div class="product-colors__info d-none d-lg-flex">
+                  <span class="product-colors__info-number">100+</span>
+                  <span class="product-colors__info-text">colors available</span>
+                </div>
+              </div>
+              <div class="product-colors__info d-lg-none">
+                <span class="product-colors__info-number">100+</span>
+                <span class="product-colors__info-text">colors available</span>
+              </div>
+            </div>
+            
+          </div>
+          <div id="leather-tab" class="product-colors__content-item active">
+            <div class="product-colors__swatches">
+              {% set leatherColors = [
+                { name: "Grey", code: "88005204", texture: "texture-3" },
+                { name: "White", code: "88005204", texture: "texture" },
+                { name: "Brown", code: "88005204", texture: "texture-1" },
+                { name: "Dove Melange", code: "88005204", texture: "texture-2" },
+                { name: "Brown", code: "88005204", texture: "texture-3" },
+                { name: "White", code: "88005204", texture: "texture" },
+                { name: "Grey", code: "88005204", texture: "texture-1" },
+                { name: "Brown", code: "15005204", texture: "texture" },
+                { name: "Blue Jeans", code: "15005204", texture: "texture-1" },
+                { name: "Light Grey", code: "15005204", texture: "texture-2" },
+                { name: "Granite", code: "15005204", texture: "texture-3" },
+                { name: "White", code: "15005204", texture: "texture" },
+                { name: "Beige", code: "15005204", texture: "texture-1" },
+                { name: "Light Grey", code: "15005204", texture: "texture-2" }
+                
+              ] %}
+              <div class="product-colors__swatches-row">
+                {% for color in leatherColors %}
+                <div class="product-colors__swatch">
+                  <div class="product-colors__swatch-image">
+                    <img src="images/{{ color.texture }}.webp" alt="{{ color.name }}">
+                  </div>
+                  <span class="product-colors__swatch-name">{{ color.name }}</span>
+                  <span class="product-colors__swatch-code">{{ color.code }}</span>
+                </div>
+                {% endfor %}
+                <div class="product-colors__info d-none d-lg-flex">
+                  <span class="product-colors__info-number">100+</span>
+                  <span class="product-colors__info-text">colors available</span>
+                </div>
+              </div>
+              <div class="product-colors__info d-lg-none">
+                <span class="product-colors__info-number">100+</span>
+                <span class="product-colors__info-text">colors available</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="interior-overview">
+      <div class="container-xxl">
+        <h2 class="interior-overview__title">Schematics</h2>
+        <div class="gallery-thumb" data-fancybox="Schematics" data-src="images/image337.webp">
+          <img src="images/image337.webp" alt="">
+          <div class="gallery-thumb-icon d-lg-none">
+            <svg class="icon">
+              <use xlink:href="#upscale-icon"></use>
+            </svg>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="video-examples">
+      <div class="container-xxl">
+        <div class="ratio ratio-16x9">
+          <iframe class="video" src="https://www.youtube.com/embed/nzxZ3CBUBsQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
+      </div>
+    </section>
+    
+    <section class="other-overview">
+      <div class="container-xxl">
+        <div class="row">
+          <div class="col-lg-8 mb-5 mb-lg-0">
+            <div class="other-overview__content">
+              <ul class="other-overview__content-nav">
+                <li><a href="#overview">Overview</a></li>
+                <li><a href="#technical">Technical Informations</a></li>
+                <li><a href="#shipping">Shipping</a></li>
+              </ul>
+    
+              <section>
+                <div class="nav-content-item" id="overview">
+                  <h2>Overview</h2>
+                  <p>Remember those amazing bedroom scenes from classic films? Whether it's Dustin Hoffman kneeling behind
+                    Ann Bancroft on what looks like her daughter's bed in The Graduate, or Audrey Hepburn sprawled out on
+                    the bed of her Manhattan flat with her orange cat perched on her back. These iconic scenes would fade
+                    from memory had they not been set in an exquisitely designed boudoir. Enter the Fenice bed by Natuzzi
+                    Italia, as at home on the set of a Franco Zeffirelli film as it is in your guest bedroom. This sleep
+                    system has the authenticity and timeless elegance it takes to make any interior a classic scene.</p>
+                </div>
+              </section>
+    
+              <section>
+                <div class="nav-content-item" id="technical">
+                  <h2>Technical Informations</h2>
+                  <p>
+                    - Queen size bed: 67"W x 92"D x 37"H
+                  </p>
+                  <p>- King size bed: 83"W x 92"D x 37"H</p>
+                </div>
+    
+              </section>
+    
+              <section>
+                <div class="nav-content-item" id="shipping">
+                  <h2>Shipping</h2>
+                  <p>Your furniture will be delivered on time and in perfect condition just the way you ordered it. You'll
+                    get the same great service whether you choose full-service white glove delivery, our economical standard
+                    curbside service, or upgrade your standard service to Room-of-Choice. Our delivery services department
+                    will make sure your order is handled perfectly. Please note that online orders can only be shipped
+                    within the 48 continental United States.</p>
+                </div>
+    
+                <div class="nav-content-item">
+                  <h4>Standard Shipping</h4>
+                  <p>Provides delivery to your door (apartment and multi-unit buildings are inside the main entrance)
+                    generally in 14 to 21 business days. Large items are shipped via a carrier truck service that provides
+                    the best service in your area. This option is the most cost effective, but please note that it does not
+                    include moving the piece into your residence or office and does not include any assembly. The customer
+                    is responsible for unpacking and completing any assembly that is necessary. Our delivery company will
+                    contact you within 10 to 12 business days to schedule an appointment to make your delivery. Delivery
+                    appointments are available Monday through Friday with hours depending on your area. Saturday deliveries
+                    require an additional charge; for a quote please contact us at support@italia-interiors.com</p>
+                </div>
+    
+                <div class="nav-content-item">
+                  <h4>White Glove Service</h4>
+                  <p>Provides the full service with professional delivery, unpacking, and assembly in the intended room. Our
+                    delivery company will contact you within 14 to 20 days to schedule an appointment. Delivery appointments
+                    are available Monday through Friday with hours depending on your area. Saturday delivery requires an
+                    additional charge. Extra fee for white glove delivery will be charged at the shopping cart.</p>
+                </div>
+    
+                <p class="mb-0"><small>* We don't provide any service in some areas of USA. Please call us for more
+                    info.</small></p>
+              </section>
+            </div>
+          </div>
+          <div class="col-lg-4">
+            <div class="other-overview__sidebar">
+              <a download href="#" class="btn btn-dark w-full">
+                <svg class="icon">
+                  <use xlink:href="#pdf-icon"></use>
+                </svg>
+    
+                <span>PDF Product Sheet</span>
+              </a>
+    
+              <div class="accordion">
+                <div class="accordion__title">
+                  <span>
+                    <svg class="icon">
+                      <use xlink:href="#design-service-icon"></use>
+                    </svg>
+                    Interior Design Service
+                  </span>
+                  <svg class="accordion__arrow">
+                    <use xlink:href="#arr-down"></use>
+                  </svg>
+                </div>
+    
+                <div class="accordion__content">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam aliquid, doloribus neque vel tenetur inventore aperiam quo repellendus labore quidem, perspiciatis incidunt consequatur quia voluptatem quas! Sapiente facere rerum quidem.
+                </div>
+              </div>
+    
+              <div class="accordion">
+                <div class="accordion__title">
+                  <span>
+                    <svg class="icon">
+                      <use xlink:href="#contact-us-icon"></use>
+                    </svg>
+                    Contact Us
+                  </span>
+                  <svg class="accordion__arrow">
+                    <use xlink:href="#arr-down"></use>
+                  </svg>
+                </div>
+    
+                <div class="accordion__content">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum amet illum odio ea, qui iusto. Porro quibusdam officiis fugiat, architecto laboriosam laudantium doloremque consectetur voluptatibus quas magnam. Magnam, nihil soluta?
+                </div>
+              </div>
+    
+              <div class="accordion">
+                <div class="accordion__title">
+                  <span>
+                    Manufacturer
+                  </span>
+                  <svg class="accordion__arrow">
+                    <use xlink:href="#arr-down"></use>
+                  </svg>
+                </div>
+    
+                <div class="accordion__content">
+                  <div class="accordion__logo">
+                    <img src="images/frame727.webp" alt="">
+                  </div>
+    
+                  <p class="text-short">Cattelan Italia founded in 1979 by Giorgio and Silvia Cattelan, continues to surprise the furniture world by introducing innovative contemporary furniture for the past 35 years. Today, The management of Cattelan Italia was passed on to their son Paolo, who keeps the family tradition of working with some of Italy's most famous designers. Gastone Rinaldi, Yoshino and Emilio Nanni are but a few of the design innovators who've contributed to Cattelan's award-winning collection. At IDI as one of Cattelan dealer USA dealers, we very proud to showcase the largest selection of dining tables, chairs, sideboards, mirrors, in the Boston Metro Area to provide our loyal customers with some options of platform beds, coffee tables, chaise lounge and other contemporary furniture to complete their full interior design concept.</p>
+    
+                  <div class="text-short-more">Show more</div>
+                </div>
+              </div>
+    
+              <form action="#" class="other-overview__form">
+                <h5>Still have questions about this products?</h5>
+                <p>We're here to help</p>
+                <label for="name">
+                  <input data-valid="The input provided is incorrect." type="text" class="input-text dark" name="name" id="name" placeholder="Your name*" required>
+                </label>
+                <label for="email">
+                  <input data-valid="The input provided is incorrect." type="email" class="input-text dark" name="email" id="email" placeholder="Email*" required>
+                </label>
+                <label for="zip">
+                  <input data-valid="The input provided is incorrect." type="text" class="input-text dark" name="zip" id="zip" placeholder="Zip code*" required>
+                </label>
+    
+                <button type="submit" class="btn btn-dark submit">Submit</button>
+              </form>
+    
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    {% include "components/product-page/popular.njk" %}
+
+    {% include "partials/subscribe.njk" %}
+  </main>
+
+  {% include "partials/footer.njk" %}
+  {% include "partials/sidebars/configure.njk" %}
+
+  <script defer src="js/bundle.js"></script>
+</body>
+
+</html>
