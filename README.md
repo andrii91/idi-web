@@ -30,7 +30,7 @@
 - [Product Page - Italian Design Interiors](https://andrii91.github.io/idi-web/dist/product-page.html)
 - [Product Page 2 - Italian Design Interiors](https://andrii91.github.io/idi-web/dist/product-page2.html)
 - [Product Page Input - Italian Design Interiors](https://andrii91.github.io/idi-web/dist/product-page-input.html)
-- [Product Page Dining Table - Italian Design Interiors](https://andrii91.github.io/idi-web/dist/product-page-dining-table.html)
+- [Eliot Wood Sleeve Dining Table - Italian Design Interiors](https://andrii91.github.io/idi-web/dist/product-page-dining-table.html)
 - [Request Price - Italian Design Interiors](https://andrii91.github.io/idi-web/dist/request-price.html)
 
 ### Пошук
