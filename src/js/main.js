@@ -1480,20 +1480,14 @@ $(document).ready(function () {
     }
   }
   
-  // Update position on resize
-  $(window).on('resize', updateElementPosition);
-  
-  // Set initial position
-  updateElementPosition();
-  
-  $(window).on('scroll', function() {
+  function updateScrollClass() {
     const $orderSummaryTotalWrapper = $('.shopping-cart-order-summary-total-wrapper');
     if ($orderSummaryTotalWrapper.length && isMobile() && elementNaturalPosition !== null) {
       const scrollTop = $(window).scrollTop();
       const windowHeight = $(window).height();
       
-      // If scroll is more than 50px and block hasn't reached its natural position
-      const shouldBeFixed = scrollTop > 0 && scrollTop + windowHeight < elementNaturalPosition;
+      // Show button if element hasn't reached its natural position (even when scrollTop === 0)
+      const shouldBeFixed = scrollTop + windowHeight < elementNaturalPosition;
       
       if (shouldBeFixed) {
         $orderSummaryTotalWrapper.addClass('scroll');
@@ -1501,7 +1495,19 @@ $(document).ready(function () {
         $orderSummaryTotalWrapper.removeClass('scroll');
       }
     }
+  }
+  
+  // Update position on resize
+  $(window).on('resize', function() {
+    updateElementPosition();
+    updateScrollClass();
   });
+  
+  // Set initial position and check on page load
+  updateElementPosition();
+  updateScrollClass();
+  
+  $(window).on('scroll', updateScrollClass);
 
   // Configure Now button sticky functionality
   let configureButtonContainer = null;
