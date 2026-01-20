@@ -1,3 +1,15 @@
+.container-xxl {
+  max-width: 1405px;
+  padding-left: 30px;
+  padding-right: 30px;
+}
+
+@media (max-width: 1279px) {
+  .container-xxl {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
 
 .breadcrumbs {
   list-style: none;
