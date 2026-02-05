@@ -37,10 +37,15 @@ gulp.task('js', () => {
 });
 
 // Images task
-
 gulp.task('images', function() {
   return gulp.src('src/images/**/*.*')
 	.pipe(webp())
+	.pipe(gulp.dest('dist/images'));
+});
+
+// SVG task - copy SVG files without webp conversion
+gulp.task('svg', function() {
+  return gulp.src('src/images/**/*.svg')
 	.pipe(gulp.dest('dist/images'));
 });
 
@@ -81,8 +86,8 @@ gulp.task('serve', () => {
   gulp.watch('src/templates/**/*.njk', gulp.series('nunjucks'));
   gulp.watch('src/scss/**/*.scss', gulp.series('scss'));
   gulp.watch('src/js/**/*.js', gulp.series('js'));
-  gulp.watch('src/images/**/*.*', gulp.series('images'));
+  gulp.watch('src/images/**/*.*', gulp.series('images', 'svg'));
 });
 
 // Default task - now properly starts server
-gulp.task('default', gulp.series('nunjucks', 'scss', 'js', 'serve'));
+gulp.task('default', gulp.series('nunjucks', 'scss', 'js', 'images', 'svg', 'serve'));

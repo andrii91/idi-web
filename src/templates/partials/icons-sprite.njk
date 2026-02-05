@@ -1,0 +1,37 @@
+{# SVG Sprite is loaded via JavaScript to optimize HTML size #}
+{# SVG file is cached by browser and doesn't increase HTML size #}
+<svg width="0" height="0" class="d-none" xmlns="http://www.w3.org/2000/svg" id="svg-sprite-container" style="position: absolute; width: 0; height: 0; overflow: hidden;"></svg>
+<script defer>
+  (function() {
+    // Check if sprite is already loaded
+    var spriteContainer = document.getElementById('svg-sprite-container');
+    if (!spriteContainer || spriteContainer.querySelector('symbol')) {
+      return; // Sprite already loaded
+    }
+
+    // Load SVG sprite once
+    var xhr = new XMLHttpRequest();
+    xhr.open('GET', 'images/icons.svg', true);
+    xhr.onreadystatechange = function() {
+      if (xhr.readyState === 4) {
+        if (xhr.status === 200) {
+          // Parse SVG and extract symbols
+          var parser = new DOMParser();
+          var svgDoc = parser.parseFromString(xhr.responseText, 'image/svg+xml');
+          var svgElement = svgDoc.documentElement || svgDoc.querySelector('svg');
+          
+          if (svgElement && spriteContainer) {
+            // Copy all symbols to container
+            var symbols = svgElement.querySelectorAll('symbol');
+            for (var i = 0; i < symbols.length; i++) {
+              spriteContainer.appendChild(symbols[i].cloneNode(true));
+            }
+          }
+        } else {
+          console.error('Error loading SVG sprite:', xhr.status);
+        }
+      }
+    };
+    xhr.send();
+  })();
+</script>

@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>IDI Web - Component Library</title>
+  <link rel="preload" href="images/icons.svg" as="image" type="image/svg+xml">
     <link rel="stylesheet" href="css/style.css">
     <style>
         .storybook {
@@ -137,7 +138,7 @@
     </style>
 </head>
 <body>
-    {% include "./partials/icons.njk" %}
+    {% include "./partials/icons-sprite.njk" %}
     <div class="storybook">
         <div class="storybook__header">
             <h1 class="storybook__title">IDI Web Component Library</h1>
